@@ -1,0 +1,14 @@
+{
+  "Id": "RandomReinforcementsPerEncounter",
+  "Name": "Random Reinforcements per Encounter",
+  "Author": "Flenky",
+  "Version": "1.0.0",
+  "Description": "Adds random enemy reinforcements at the start of combat to dynamically adjust difficulty and increase replayability. Only works in turn-based mode.",
+  "GameId": "wrath",
+  "Requirements": [],
+  "AssemblyName": "RandomReinforcementsPerEncounter.dll",
+  "EntryMethod": "RandomReinforcementsPerEncounter.Main.Load",
+  "HomePage": "https://github.com/tuusuario/RandomReinforcementsPerEncounter",
+  "LoadAfter": [],
+  "LoadBefore": []
+}
