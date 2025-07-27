@@ -10228,34 +10228,34 @@ namespace RandomReinforcementsPerEncounter
                 CR = "15",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
-            new MonsterData
+            /*new MonsterData
             {
-                AssetId = "e006d3f1b8e45ec4587358aa941409b7",
+                AssetId = "e006d3f1b8e45ec4587358aa941409b7",  //Zacharius
                 Levels = "14",
                 CR = "15",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+            },*//*
             new MonsterData
             {
-                AssetId = "b1c89ced808048c1b9d7e328112ab067",
+                AssetId = "b1c89ced808048c1b9d7e328112ab067",   //Zacharius_SecondStage_Ch5
                 Levels = "14",
                 CR = "15",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+            },*/
             new MonsterData
             {
                 AssetId = "4b7ba40dd891acf4bbb0582d65b6f506",
                 Levels = "15",
                 CR = "15",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+            },/*
             new MonsterData
             {
-                AssetId = "babbc46e076b78f408d8d87643daea3e",
+                AssetId = "babbc46e076b78f408d8d87643daea3e",     //Zacharius_Ziggurat
                 Levels = "14",
                 CR = "15",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+            },*/
             //CR 16
             new MonsterData
             {
