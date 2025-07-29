@@ -55,11 +55,16 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="monsterlist\Bandits.cs" />
+    <Compile Include="monsterlist\Boss.cs" />
+    <Compile Include="monsterlist\MiniBoss.cs" />
     <Compile Include="monsterlist\mobs.cs" />
     <Compile Include="monsterlist\MonsterData.cs" />
     <Compile Include="monsterlist\Ooze.cs" />
+    <Compile Include="monsterlist\Others.cs" />
     <Compile Include="monsterlist\WildAnimals.cs" />
+    <Compile Include="Patch_BlueprintsCache_Init.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="logList.cs" />
     <Compile Include="spawnUnits.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
