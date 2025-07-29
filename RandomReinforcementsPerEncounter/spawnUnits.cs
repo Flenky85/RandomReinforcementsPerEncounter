@@ -33,7 +33,11 @@ namespace RandomReinforcementsPerEncounter
             }
 
             float averageCR = playerCount > 0 ? (float)playerCR / playerCount : 0;
-            int roundedAverageCR = Mathf.CeilToInt(averageCR);
+            int roundedAverageCR = Mathf.CeilToInt(averageCR) + ModSettings.Instance.EncounterDifficultyModifier;
+            playerCR = Mathf.CeilToInt(playerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
+
+
+
 
             // Calculate the total CR of enemy units currently engaged in combat.
             int enemyCR = 0;
@@ -190,19 +194,41 @@ namespace RandomReinforcementsPerEncounter
                     return null;
             }
 
-            // Attempt to find a monster with matching CR, decreasing if necessary
-            while (cr >= 0)
-            {
-                var filtered = list?.FindAll(m => m.CR == cr.ToString());
+            while (cr >= 0) { 
+                int searchCR = cr;
+                int variability = ModSettings.Instance.VariabilityRange;
+                int mode = ModSettings.Instance.VariabilityMode;
+
+                // Aplicamos la variabilidad según el modo
+                if (variability > 0)
+                {
+                    switch (mode)
+                    {
+                        case 0: // ambos
+                            searchCR += _rng.Next(-variability, variability + 1);
+                            break;
+                        case 1: // solo abajo
+                            searchCR -= _rng.Next(0, variability + 1);
+                            break;
+                        case 2: // solo arriba
+                            searchCR += _rng.Next(0, variability + 1);
+                            break;
+                    }
+                }
+                searchCR = Mathf.Max(1, searchCR);
+
+                var filtered = list?.FindAll(m => m.CR == searchCR.ToString());
                 if (filtered != null && filtered.Count > 0)
                 {
                     var chosen = filtered[_rng.Next(filtered.Count)];
-                    Debug.Log($"[Reinforcements] Chosen CR: {cr}, Faction: {factionId}, AssetId: {chosen.AssetId}");
+                    Debug.Log($"[Reinforcements] Chosen CR: {searchCR}, Faction: {factionId}, AssetId: {chosen.AssetId}");
                     return chosen.AssetId;
                 }
 
-                cr--; // fallback to lower CR
+                cr--; // fallback a CR más bajo
             }
+
+
 
             Debug.LogWarning($"[Reinforcements] No valid monster found for faction {factionId}");
             return null;

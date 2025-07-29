@@ -9,7 +9,10 @@ namespace RandomReinforcementsPerEncounter
 
         public static void Load(UnityModManager.ModEntry modEntry)
         {
+            ModSettings.Init(modEntry); 
+
             modEntry.OnToggle = OnToggle;
+            modEntry.OnGUI = ModUI.OnGUI;
 
             var harmony = new Harmony(modEntry.Info.Id);
             harmony.PatchAll();

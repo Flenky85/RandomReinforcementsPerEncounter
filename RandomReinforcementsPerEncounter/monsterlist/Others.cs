@@ -151,6 +151,42 @@ namespace RandomReinforcementsPerEncounter
                 CR = "27",
                 Faction = "b1525b4b33efe0241b4cbf28486cd2cc"
             },
+
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///Sumonean un bicho de CR altisima cuando mueren.
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new MonsterData
+            {
+                AssetId = "18c4856ecebe44f8b0c51e4d7c05d437",  // CR8_GundrunMilitiaFemale_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "8",
+                CR = "7",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "bbb4056a9cb54382ac5dd0d44c2565a6",  // CR8_GundrunMilitiaMale_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "8",
+                CR = "7",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "d4c497e34a9f407cb377b7120ef7eee1",  // CR8_GundrunMilitiaMale_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "8",
+                CR = "7",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "b3805a0a7ee0495db81c2fdc7376efc9",  // CR9_GundrunShamansWarrior_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "8",
+                CR = "7",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
         };
     }
 }

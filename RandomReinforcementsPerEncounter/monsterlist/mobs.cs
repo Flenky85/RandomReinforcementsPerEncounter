@@ -4790,71 +4790,6 @@ namespace RandomReinforcementsPerEncounter
                 CR = "7",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
-
-            new MonsterData
-            {
-                AssetId = "9be282763de7449385b5a7b5af8359ee",  // DLC3_CR9_Bandit_Human_Fighter_Male_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "454a6413537b4b60bb518d9affebbbb1",  // DLC3_CR9_Bandit_Human_Fighter_Male_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "3582e94bd12d465db668f8f45bbf707f",  // DLC3_CR9_Cultist_ArcherHuman_Ranged_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "e27afc3288bb43a9ba80a1e7af3ac23c",  // DLC3_CR9_Cultist_ArcherHuman_Ranged_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "f21ad29ff23f4f4ebe674002ec00ee05",  // DLC3_CR9_ZombieLordFighte_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "4c5abfc241a24f9495e2a867ef6d7a69",  // DLC3_CR9_Bandit_Human_Fighter_Male_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "191a6f4bc62540bf94d671e555b1a8b9",  // DLC3_CR9_Cultist_ArcherHuman_Ranged_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "5116ce6a9cc148a4ae0e1134439fc05d",  // DLC3_CR9_ZombieLordFighte_3level_MiniBoss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
             new MonsterData
             {
                 AssetId = "a864a1242b7e4c8c8e2b05fdec42466d",  // CR7_Nymph (Kingmaker.Localization.SharedStringAsset)
@@ -5163,38 +5098,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 AssetId = "ec8c0f750d45497287d1369368ec54d8",  // DLC4_CarrionStorm (Kingmaker.Localization.SharedStringAsset)
                 Levels = "15",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "18c4856ecebe44f8b0c51e4d7c05d437",  // CR8_GundrunMilitiaFemale_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
-                Levels = "8",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "bbb4056a9cb54382ac5dd0d44c2565a6",  // CR8_GundrunMilitiaMale_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
-                Levels = "8",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "d4c497e34a9f407cb377b7120ef7eee1",  // CR8_GundrunMilitiaMale_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
-                Levels = "8",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "b3805a0a7ee0495db81c2fdc7376efc9",  // CR9_GundrunShamansWarrior_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
-                Levels = "8",
                 CR = "7",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
@@ -7959,21 +7862,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "4864df14672844029b9f5268ca5fd846",  // DLC3_CR11_WightFighter_level6_Miniboss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "11",
-                CR = "11",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
 
-            new MonsterData
-            {
-                AssetId = "d701099aad9d463680208503842b8ae6",  // DLC3_CR11_WightFighter_level6_Miniboss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "11",
-                CR = "11",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
 
             new MonsterData
             {
@@ -8575,13 +8464,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "365191038fd34275bb38912cbb12b914",  // DLC3_CR12_AshGiant_level6_Miniboss (Kingmaker.Localization.SharedStringAsset)
-                Levels = "14",
-                CR = "12",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -8674,14 +8557,6 @@ namespace RandomReinforcementsPerEncounter
             new MonsterData
             {
                 AssetId = "0648ebcaf05640e7b1c20a9977da1e6f",  // CR12_SkeletalChampionGuard (Kingmaker.Localization.SharedStringAsset)
-                Levels = "2",
-                CR = "12",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "87d0e8995d764d88a16254073a37658e",  // DLC3_CR12_SkeletalChampionGuard_level6_Miniboss (Kingmaker.Localization.SharedStringAsset)
                 Levels = "2",
                 CR = "12",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
