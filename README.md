@@ -25,7 +25,7 @@ Important: This mod only works in turn-based mode, at least for now. I haven't f
 
 ## Compatibility
 
-This mod should be compatible with any other mod. It does not require starting a new game and does not affect saved game data.
+This mod should be compatible with any other mod. It does not require starting a new game.
 
 ---
 
