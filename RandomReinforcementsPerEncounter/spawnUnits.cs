@@ -1,7 +1,11 @@
 ﻿using HarmonyLib;
 using Kingmaker;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Mechanics.Actions;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Collections.Generic;
 using TurnBased.Controllers;
 using UnityEngine;
@@ -35,9 +39,6 @@ namespace RandomReinforcementsPerEncounter
             float averageCR = playerCount > 0 ? (float)playerCR / playerCount : 0;
             int roundedAverageCR = Mathf.CeilToInt(averageCR) + ModSettings.Instance.EncounterDifficultyModifier;
             playerCR = Mathf.CeilToInt(playerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
-
-
-
 
             // Calculate the total CR of enemy units currently engaged in combat.
             int enemyCR = 0;
@@ -131,19 +132,44 @@ namespace RandomReinforcementsPerEncounter
             var chosenAssetId = GetRandomAssetIdByCRAndFaction(cr, factionId);
 
             var blueprint = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>(chosenAssetId);
+
             if (blueprint == null)
             {
                 Debug.LogWarning($"[Reinforcements] Blueprint not found for: ({chosenAssetId})");
                 return;
             }
+            Debug.Log($"[Reinforcements] 🧪 Dump del blueprint original: {blueprint.name} ({blueprint.AssetGuid})");
+            //BlueprintDumper.DumpObject(blueprint, depth: 3, prefix: "[ORIGINAL]");
+
+            var clone = ManualBlueprintCloner.CloneMinimal(blueprint);
+
+            if (clone == null)
+            {
+                Debug.LogWarning("[Reinforcements] ❌ Fallo al clonar el blueprint.");
+                return;
+            }
+
+            Debug.Log($"[Reinforcements] 🧪 Dump del blueprint clonado: {clone.name} ({clone.AssetGuid})");
+            //BlueprintDumper.DumpObject(clone, depth: 3, prefix: "[CLON]");
+
 
             Vector3 spawnPos = FindValidPositionNear(position);
             var spawned = Game.Instance.EntityCreator.SpawnUnit(
-                blueprint,
+                clone,
                 position,
                 Quaternion.identity,
                 Game.Instance.State.LoadedAreaState.MainState
             );
+
+            if (spawned != null)
+            {
+                spawned.GiveExperienceOnDeath = false;
+                spawned.Descriptor.State.AddCondition(UnitCondition.Unlootable);
+
+                Debug.Log("[Cloner] 💀 DeathActions añadido al clon para eliminarlo al morir.");
+            }
+
+
 
             if (spawned?.View == null)
             {
@@ -234,4 +260,5 @@ namespace RandomReinforcementsPerEncounter
             return null;
         }
     }
+
 }

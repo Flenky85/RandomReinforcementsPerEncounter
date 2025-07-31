@@ -1,7 +1,8 @@
-﻿/*using HarmonyLib;
+﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.JsonSystem;
 using RandomReinforcementsPerEncounter;
+using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -10,7 +11,9 @@ namespace RandomReinforcementsPerEncounter
     {
         static void Postfix()
         {
-            MonsterLogger.LogMonsters(BanditList.Monsters);
+            //MonsterLogger.LogMonsters(BossList.Monsters);
+            //BlueprintInspector.LogBlueprintDetails(BossList.Monsters);
+            //BlueprintInspector.DumpBlueprintsRaw(BossList.Monsters);
         }
     }
-}*/
+}
