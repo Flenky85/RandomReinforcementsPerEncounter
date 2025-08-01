@@ -1,163 +1,123 @@
 ﻿using HarmonyLib;
 using Kingmaker;
 using Kingmaker.Blueprints;
-using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 using TurnBased.Controllers;
 using UnityEngine;
-
 
 namespace RandomReinforcementsPerEncounter
 {
     /// <summary>
-    /// Patch that triggers at the start of combat to evaluate the player's and enemies' CR
-    /// and dynamically spawn enemy reinforcements to balance the encounter difficulty.
+    /// Patch that triggers at the start of combat to evaluate CRs and schedule reinforcements.
     /// </summary>
     [HarmonyPatch(typeof(CombatController), "HandleCombatStart")]
     public static class Patch_CombatStart
     {
         public static void Postfix()
         {
-            int playerCR = 0;
-            int playerCount = 0;
+            var playerUnits = Game.Instance.State.Units
+                .Where(u => u != null && u.IsInCombat && u.IsPlayerFaction)
+                .ToList();
 
-            // Calculate the total level and count of player characters involved in combat.
-            foreach (var unit in Game.Instance.State.Units)
-            {
-                if (unit == null || !unit.IsInCombat) continue;
+            var enemies = Game.Instance.State.Units
+                .Where(u => u != null && u.IsInCombat && !u.IsPlayerFaction)
+                .ToList();
 
-                if (unit.IsPlayerFaction)
-                {
-                    playerCR += unit.Descriptor.Progression.CharacterLevel;
-                    playerCount++;
-                }
-            }
+            int playerCount = playerUnits.Count;
+            int totalPlayerCR = playerUnits.Sum(u => u.Descriptor.Progression.CharacterLevel);
 
-            float averageCR = playerCount > 0 ? (float)playerCR / playerCount : 0;
+            float averageCR = playerCount > 0 ? (float)totalPlayerCR / playerCount : 0;
             int roundedAverageCR = Mathf.CeilToInt(averageCR) + ModSettings.Instance.EncounterDifficultyModifier;
-            playerCR = Mathf.CeilToInt(playerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
+            int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
 
-            // Calculate the total CR of enemy units currently engaged in combat.
-            int enemyCR = 0;
-            foreach (var unit in Game.Instance.State.Units)
-            {
-                if (unit == null || !unit.IsInCombat || unit.IsPlayerFaction) continue;
+            int enemyCR = enemies.Sum(u => u.Blueprint.CR);
+            int crDifference = adjustedPlayerCR - enemyCR;
+            int reinforcementsToSpawn = averageCR > 0 ? Mathf.CeilToInt(crDifference / averageCR) : 0;
 
-                enemyCR += unit.Blueprint.CR;
-            }
-
-            // Determine how many reinforcements should be spawned based on CR difference.
-            int crDifference = playerCR - enemyCR;
-            int reinforcementsToSpawn = Mathf.CeilToInt((float)crDifference / averageCR);
-
-            // Collect valid enemy units to use as spawn reference points for reinforcements.
-            List<UnitEntityData> enemies = new List<UnitEntityData>();
-            foreach (var unit in Game.Instance.State.Units)
-            {
-                if (unit != null && !unit.IsPlayerFaction && unit.IsInCombat)
-                {
-                    enemies.Add(unit);
-                }
-            }
-
-            // Distribute reinforcements around existing enemies, rotating through positions.
             for (int i = 0; i < reinforcementsToSpawn; i++)
             {
                 var enemy = enemies[i % enemies.Count];
                 var position = enemy.Position;
+
                 if (ChestSpawn.StoredPosition == null)
                 {
-                    ChestSpawn.StoredPosition = enemy.Position;
-                    Debug.Log($"[Cloner] 📦 Posición guardada: {enemy.Position}");
-                }
-                string factionId = "UNKNOWN";
-
-                // Attempt to retrieve the internal faction ID from the enemy blueprint.
-                var factionField = enemy.Blueprint.GetType().GetField("m_Faction", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-                
-                if (factionField != null)
-                {
-                    var factionValue = factionField.GetValue(enemy.Blueprint);
-                
-                    var guidProperty = factionValue?.GetType().GetProperty("Guid");
-                    if (guidProperty != null)
-                    {
-                        var guidValue = guidProperty.GetValue(factionValue);
-                        factionId = guidValue?.ToString() ?? "UNKNOWN";
-                    }
+                    ChestSpawn.StoredPosition = position;
+                    Debug.Log($"[Cloner] 📦 Posición guardada: {position}");
                 }
 
-                // Add pending reinforcement to the global spawn queue
+                string factionId = GetBlueprintFactionId(enemy.Blueprint);
                 ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
             }
 
-            // Trigger the actual spawning of pending reinforcements.
             ReinforcementState.TrySpawnPendingReinforcements();
         }
-    }
 
-    /// <summary>
-    /// Holds reinforcements scheduled for spawning and executes them when ready.
-    /// </summary>
-    public static class ReinforcementState
-    {
-        public static List<(Vector3 Position, int CR, string FactionId)> Pending = new List<(Vector3, int, string)>();
-
-        /// <summary>
-        /// Spawns all pending reinforcements and clears the queue.
-        /// </summary>
-        public static void TrySpawnPendingReinforcements()
+        private static string GetBlueprintFactionId(BlueprintUnit blueprint)
         {
-            if (Pending.Count > 0)
-            {
-                foreach (var reinforcement in Pending)
-                {
-                    ReinforcementUtils.SpawnReinforcementAt(reinforcement.Position, reinforcement.CR, reinforcement.FactionId);
-                }
-                Pending.Clear();
-            }
+            var field = blueprint.GetType().GetField("m_Faction", BindingFlags.NonPublic | BindingFlags.Instance);
+            if (field == null) return "UNKNOWN";
+
+            var factionObj = field.GetValue(blueprint);
+            var guidProp = factionObj?.GetType().GetProperty("Guid");
+            var guid = guidProp?.GetValue(factionObj);
+
+            return guid?.ToString() ?? "UNKNOWN";
         }
     }
 
-    /// <summary>
-    /// Utility class responsible for selecting and spawning reinforcement units.
-    /// </summary>
+    public static class ReinforcementState
+    {
+        public static readonly List<(Vector3 Position, int CR, string FactionId)> Pending =
+            new List<(Vector3 Position, int CR, string FactionId)>();
+
+        public static bool HasPending => Pending.Count > 0;
+
+        public static void TrySpawnPendingReinforcements()
+        {
+            if (!HasPending) return;
+
+            foreach (var r in Pending)
+                ReinforcementUtils.SpawnReinforcementAt(r.Position, r.CR, r.FactionId);
+
+            Pending.Clear();
+        }
+    }
+
     public static class ReinforcementUtils
     {
         private static readonly System.Random _rng = new System.Random();
 
-        /// <summary>
-        /// Spawns a reinforcement unit at a given position, using the requested CR and faction.
-        /// </summary>
         public static void SpawnReinforcementAt(Vector3 position, int cr, string factionId)
         {
-            var chosenAssetId = GetRandomAssetIdByCRAndFaction(cr, factionId);
+            var assetId = GetRandomAssetIdByCRAndFaction(cr, factionId);
+            if (string.IsNullOrEmpty(assetId))
+            {
+                Debug.LogWarning($"[Reinforcements] No asset found for faction {factionId} at CR {cr}");
+                return;
+            }
 
-            var blueprint = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>(chosenAssetId);
-
+            var blueprint = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>(assetId);
             if (blueprint == null)
             {
-                Debug.LogWarning($"[Reinforcements] Blueprint not found for: ({chosenAssetId})");
+                Debug.LogWarning($"[Reinforcements] ❌ Blueprint not found: {assetId}");
                 return;
             }
-            Debug.Log($"[Reinforcements] 🧪 Dump del blueprint original: {blueprint.name} ({blueprint.AssetGuid})");
-            //BlueprintDumper.DumpObject(blueprint, depth: 3, prefix: "[ORIGINAL]");
+
+            Debug.Log($"[Reinforcements] 🧪 Using blueprint: {blueprint.name} ({blueprint.AssetGuid})");
 
             var clone = ManualBlueprintCloner.CloneMinimal(blueprint);
-
             if (clone == null)
             {
-                Debug.LogWarning("[Reinforcements] ❌ Fallo al clonar el blueprint.");
+                Debug.LogWarning("[Reinforcements] ❌ Failed to clone blueprint.");
                 return;
             }
 
-            Debug.Log($"[Reinforcements] 🧪 Dump del blueprint clonado: {clone.name} ({clone.AssetGuid})");
-            //BlueprintDumper.DumpObject(clone, depth: 3, prefix: "[CLON]");
-
+            Debug.Log($"[Reinforcements] 🧪 Cloned blueprint: {clone.name} ({clone.AssetGuid})");
 
             Vector3 spawnPos = FindValidPositionNear(position);
             var spawned = Game.Instance.EntityCreator.SpawnUnit(
@@ -167,29 +127,74 @@ namespace RandomReinforcementsPerEncounter
                 Game.Instance.State.LoadedAreaState.MainState
             );
 
-            if (spawned != null)
+            if (spawned == null || spawned.View == null)
             {
-                spawned.GiveExperienceOnDeath = false;
-                spawned.Descriptor.State.AddCondition(UnitCondition.Unlootable);
-
-                Debug.Log("[Cloner] 💀 DeathActions añadido al clon para eliminarlo al morir.");
-            }
-
-            if (spawned?.View == null)
-            {
-                Debug.LogWarning($"[Reinforcements] Spawn failed for: {chosenAssetId}");
+                Debug.LogWarning($"[Reinforcements] ❌ Spawn failed for: {assetId}");
                 return;
             }
 
-            spawned.Position = spawnPos;
-            spawned.View.transform.position = spawnPos;
-            spawned.View.transform.rotation = Quaternion.identity;
+            ConfigureSpawnedUnit(spawned);
+            MoveSpawnedToPosition(spawned, spawnPos);
             spawned.CombatState.JoinCombat(true);
         }
 
-        /// <summary>
-        /// Finds a random valid position near the given origin to place a unit.
-        /// </summary>
+        private static string GetRandomAssetIdByCRAndFaction(int cr, string factionId)
+        {
+            var list = GetMonsterListByFaction(factionId);
+            if (list == null)
+            {
+                Debug.LogWarning($"[Reinforcements] Unknown faction: {factionId}");
+                return null;
+            }
+
+            while (cr >= 0)
+            {
+                int searchCR = ApplyCRVariability(cr);
+                searchCR = Mathf.Max(1, searchCR);
+
+                var filtered = list.FindAll(m => m.CR == searchCR.ToString());
+                if (filtered.Count > 0)
+                {
+                    var chosen = filtered[_rng.Next(filtered.Count)];
+                    Debug.Log($"[Reinforcements] Chosen CR: {searchCR}, Faction: {factionId}, AssetId: {chosen.AssetId}");
+                    return chosen.AssetId;
+                }
+
+                cr--;
+            }
+
+            Debug.LogWarning($"[Reinforcements] No valid monster found for faction {factionId}");
+            return null;
+        }
+
+        private static List<MonsterData> GetMonsterListByFaction(string factionId)
+        {
+            return factionId switch
+            {
+                "28460a5d00a62b742b80c90c37559644" => BanditList.Monsters,
+                "0f539babafb47fe4586b719d02aff7c4" => MobList.Monsters,
+                "24a215bb66e34153b4d648829c088ae6" => OozeList.Monsters,
+                "b1525b4b33efe0241b4cbf28486cd2cc" => WildAnimalsList.Monsters,
+                _ => null
+            };
+        }
+
+        private static int ApplyCRVariability(int baseCR)
+        {
+            int variability = ModSettings.Instance.VariabilityRange;
+            int mode = ModSettings.Instance.VariabilityMode;
+
+            if (variability <= 0) return baseCR;
+
+            return mode switch
+            {
+                0 => baseCR + _rng.Next(-variability, variability + 1),
+                1 => baseCR - _rng.Next(0, variability + 1),
+                2 => baseCR + _rng.Next(0, variability + 1),
+                _ => baseCR
+            };
+        }
+
         private static Vector3 FindValidPositionNear(Vector3 origin)
         {
             float offsetX = (float)(_rng.NextDouble() * 4.0 - 2.0);
@@ -197,72 +202,22 @@ namespace RandomReinforcementsPerEncounter
             return origin + new Vector3(offsetX, 0f, offsetZ);
         }
 
-        /// <summary>
-        /// Retrieves a random unit Asset ID from the appropriate faction list that matches the specified CR.
-        /// </summary>
-        private static string GetRandomAssetIdByCRAndFaction(int cr, string factionId)
+        private static void ConfigureSpawnedUnit(UnitEntityData unit)
         {
-            List<MonsterData> list = null;
+            unit.GiveExperienceOnDeath = false;
+            unit.Descriptor.State.AddCondition(UnitCondition.Unlootable);
+            Debug.Log("[Cloner] 💀 Unlootable y sin experiencia.");
+        }
 
-            // Select the list of units corresponding to the faction
-            switch (factionId)
+        private static void MoveSpawnedToPosition(UnitEntityData unit, Vector3 position)
+        {
+            unit.Position = position;
+
+            if (unit.View != null)
             {
-                case "28460a5d00a62b742b80c90c37559644":
-                    list = BanditList.Monsters;
-                    break;
-                case "0f539babafb47fe4586b719d02aff7c4":
-                    list = MobList.Monsters;
-                    break;
-                case "24a215bb66e34153b4d648829c088ae6":
-                    list = OozeList.Monsters;
-                    break;
-                case "b1525b4b33efe0241b4cbf28486cd2cc":
-                    list = WildAnimalsList.Monsters;
-                    break;
-                default:
-                    Debug.LogWarning($"[Reinforcements] Unknown faction: {factionId}");
-                    return null;
+                unit.View.transform.position = position;
+                unit.View.transform.rotation = Quaternion.identity;
             }
-
-            while (cr >= 0) { 
-                int searchCR = cr;
-                int variability = ModSettings.Instance.VariabilityRange;
-                int mode = ModSettings.Instance.VariabilityMode;
-
-                // Aplicamos la variabilidad según el modo
-                if (variability > 0)
-                {
-                    switch (mode)
-                    {
-                        case 0: // ambos
-                            searchCR += _rng.Next(-variability, variability + 1);
-                            break;
-                        case 1: // solo abajo
-                            searchCR -= _rng.Next(0, variability + 1);
-                            break;
-                        case 2: // solo arriba
-                            searchCR += _rng.Next(0, variability + 1);
-                            break;
-                    }
-                }
-                searchCR = Mathf.Max(1, searchCR);
-
-                var filtered = list?.FindAll(m => m.CR == searchCR.ToString());
-                if (filtered != null && filtered.Count > 0)
-                {
-                    var chosen = filtered[_rng.Next(filtered.Count)];
-                    Debug.Log($"[Reinforcements] Chosen CR: {searchCR}, Faction: {factionId}, AssetId: {chosen.AssetId}");
-                    return chosen.AssetId;
-                }
-
-                cr--; // fallback a CR más bajo
-            }
-
-
-
-            Debug.LogWarning($"[Reinforcements] No valid monster found for faction {factionId}");
-            return null;
         }
     }
-
 }
