@@ -27,31 +27,7 @@ namespace RandomReinforcementsPerEncounter
                 Debug.LogError("❌ Blueprint original es null.");
                 return null;
             }
-            Debug.Log("[Cloner] Paso 1 completado: ID y nombre");
-            /*
-            var clone = new BlueprintUnit
-            {
-                name = original.name + "_Clone",
-                AssetGuid = new BlueprintGuid(Guid.NewGuid()),
-                LocalizedName = original.LocalizedName,
-                Gender = original.Gender,
-                Size = original.Size,
-                Alignment = original.Alignment,
-                Faction = original.Faction,
-                Visual = original.Visual,
-                Prefab = original.Prefab,
-                Body = original.Body,
-                Speed = original.Speed,
-                Strength = original.Strength,
-                Dexterity = original.Dexterity,
-                Constitution = original.Constitution,
-                Intelligence = original.Intelligence,
-                Wisdom = original.Wisdom,
-                Charisma = original.Charisma,
-                Skills = original.Skills,
-                MaxHP = original.MaxHP,
-                BaseAttackBonus = original.BaseAttackBonus
-            };*/
+
             var clone = new BlueprintUnit
             {
                 name = original.name + "_Clone",

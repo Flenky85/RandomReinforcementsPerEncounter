@@ -68,6 +68,11 @@ namespace RandomReinforcementsPerEncounter
             {
                 var enemy = enemies[i % enemies.Count];
                 var position = enemy.Position;
+                if (ChestSpawn.StoredPosition == null)
+                {
+                    ChestSpawn.StoredPosition = enemy.Position;
+                    Debug.Log($"[Cloner] 📦 Posición guardada: {enemy.Position}");
+                }
                 string factionId = "UNKNOWN";
 
                 // Attempt to retrieve the internal faction ID from the enemy blueprint.
@@ -168,8 +173,6 @@ namespace RandomReinforcementsPerEncounter
 
                 Debug.Log("[Cloner] 💀 DeathActions añadido al clon para eliminarlo al morir.");
             }
-
-
 
             if (spawned?.View == null)
             {

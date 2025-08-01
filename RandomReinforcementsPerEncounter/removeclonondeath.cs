@@ -1,43 +1,4 @@
-﻿/*using Kingmaker;
-using Kingmaker.EntitySystem.Entities;
-using Kingmaker.PubSubSystem;
-using Kingmaker.UnitLogic;
-using UnityEngine;
-
-namespace RandomReinforcementsPerEncounter
-{
-    public class CloneDeathWatcher : IUnitLifeStateChanged, IGlobalSubscriber
-    {
-        public CloneDeathWatcher()
-        {
-            EventBus.Subscribe(this);
-            Debug.Log("[Cloner] 🧠 Suscrito a muertes globales.");
-        }
-
-        public void HandleUnitLifeStateChanged(UnitEntityData unit, UnitLifeState prevState)
-        {
-            if (unit == null) return;
-            if (!unit.Descriptor.State.IsDead) return;
-
-            var blueprintName = unit.Blueprint?.name;
-            if (string.IsNullOrEmpty(blueprintName)) return;
-            if (!blueprintName.EndsWith("_Clone")) return;
-
-            Debug.Log($"[Cloner] 💀 Eliminando clon muerto: {unit.CharacterName}");
-            // Destruye el GameObject visual
-            if (unit.View != null)
-            {
-                UnityEngine.Object.Destroy(unit.View.gameObject);
-                Debug.Log("[Cloner] 🧽 Token visual destruido.");
-            }
-
-            // Destruye la entidad lógica
-            unit.Destroy();
-        }
-    }
-}*/
-
-using System.Collections;
+﻿using System.Collections;
 using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.PubSubSystem;
