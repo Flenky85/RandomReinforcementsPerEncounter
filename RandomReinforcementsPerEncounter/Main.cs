@@ -13,9 +13,10 @@ namespace RandomReinforcementsPerEncounter
 
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = ModUI.OnGUI;
-            CloneDeathWatcher watcher = new CloneDeathWatcher();
+            new AreaUnloadWatcher();
 
             var harmony = new Harmony(modEntry.Info.Id);
+            
             harmony.PatchAll();
 
             modEntry.Logger.Log("RandomReinforcementsPerEncounter Load with Harmony");

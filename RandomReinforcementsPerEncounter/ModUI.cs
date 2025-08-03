@@ -7,7 +7,6 @@ namespace RandomReinforcementsPerEncounter
     {
         private const float SliderWidth = 500f;
 
-
         public static void OnGUI(UnityModManager.ModEntry modEntry)
         {
             GUIStyle boldLabel = new GUIStyle(GUI.skin.label);

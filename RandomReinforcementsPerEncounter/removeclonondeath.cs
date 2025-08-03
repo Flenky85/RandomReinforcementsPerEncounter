@@ -1,42 +1,54 @@
-﻿using System.Collections;
+﻿using HarmonyLib;
 using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
+using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter
 {
+    public static class CloneUtility
+    {
+        public static void DestroyAllClones()
+        {
+            foreach (var unit in Game.Instance?.State?.Units ?? Enumerable.Empty<UnitEntityData>())
+            {
+                if (unit?.View?.GetComponent<CloneMarker>() != null)
+                    unit.MarkForDestroy();
+            }
+        }
+    }
+
     public class CloneDeathWatcher : IUnitLifeStateChanged, IGlobalSubscriber
     {
         public CloneDeathWatcher()
         {
             EventBus.Subscribe(this);
-            Debug.Log("[Cloner] 🧠 Suscrito a muertes globales.");
         }
 
         public void HandleUnitLifeStateChanged(UnitEntityData unit, UnitLifeState prevState)
         {
-            if (unit == null || !unit.Descriptor.State.IsDead) return;
+            if (unit == null || !unit.Descriptor.State.IsDead)
+                return;
 
-            var blueprintName = unit.Blueprint?.name;
-            if (string.IsNullOrEmpty(blueprintName)) return;
-            if (!blueprintName.EndsWith("_Clone")) return;
+            if (unit.View?.GetComponent<CloneMarker>() == null)
+                return;
 
-            Debug.Log($"[Cloner] 💀 Clon muerto detectado: {unit.CharacterName}, eliminando en 4s...");
+            var go = unit.View.gameObject;
+            if (go == null)
+                return;
 
-            var go = unit.View?.gameObject;
-            if (go == null) return;
-
-            var cleaner = go.AddComponent<CloneDestructionDelayed>();
-            cleaner.Unit = unit;
+            go.AddComponent<CloneDestructionDelayed>().Unit = unit;
         }
 
         private class CloneDestructionDelayed : MonoBehaviour
         {
             public UnitEntityData Unit;
 
-            private void Start()
+            private void Awake()
             {
                 StartCoroutine(DestroyAfterDelay());
             }
@@ -44,18 +56,38 @@ namespace RandomReinforcementsPerEncounter
             private IEnumerator DestroyAfterDelay()
             {
                 yield return new WaitForSeconds(4f);
-
-                if (Unit?.View != null)
-                {
-                    Destroy(Unit.View.gameObject);
-                    Debug.Log("[Cloner] 🧽 Token visual destruido tras 4s.");
-                }
-
-                Unit?.Destroy();
-                Debug.Log("[Cloner] 🧨 Unidad lógica eliminada tras 4s.");
+                Unit?.MarkForDestroy();
             }
         }
     }
-}
 
+    [HarmonyPatch(typeof(SaveManager), nameof(SaveManager.SaveRoutine))]
+    public static class Patch_SaveManager_SaveRoutine
+    {
+        static void Prefix(SaveInfo saveInfo)
+        {
+            CloneUtility.DestroyAllClones();
+        }
+    }
+
+    public class AreaUnloadWatcher : IAreaHandler, IGlobalSubscriber
+    {
+        public AreaUnloadWatcher()
+        {
+            EventBus.Subscribe(this);
+        }
+
+        public void OnAreaBeginUnloading()
+        {
+            CloneUtility.DestroyAllClones();
+        }
+
+        public void OnAreaDidLoad() { }
+    }
+
+    public class CloneMarker : MonoBehaviour
+    {
+        // Empty: serves only as an identifier
+    }
+}
 

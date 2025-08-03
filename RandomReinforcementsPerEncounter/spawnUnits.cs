@@ -3,10 +3,8 @@ using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using TurnBased.Controllers;
 using UnityEngine;
 
@@ -20,6 +18,13 @@ namespace RandomReinforcementsPerEncounter
     {
         public static void Postfix()
         {
+            if (CombatFlags.ReinforcementsSpawned)
+            {
+                return;
+            }
+
+            CombatFlags.ReinforcementsSpawned = true;
+
             var playerUnits = Game.Instance.State.Units
                 .Where(u => u != null && u.IsInCombat && u.IsPlayerFaction)
                 .ToList();
@@ -43,31 +48,19 @@ namespace RandomReinforcementsPerEncounter
             {
                 var enemy = enemies[i % enemies.Count];
                 var position = enemy.Position;
-
-                if (ChestSpawn.StoredPosition == null)
+                
+                if (ChestSpawn.storedChestPosition == null)
                 {
-                    ChestSpawn.StoredPosition = position;
-                    Debug.Log($"[Cloner] 📦 Posición guardada: {position}");
+                    ChestSpawn.storedChestPosition = position;
                 }
 
-                string factionId = GetBlueprintFactionId(enemy.Blueprint);
+                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? "UNKNOWN";
                 ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
             }
 
             ReinforcementState.TrySpawnPendingReinforcements();
         }
 
-        private static string GetBlueprintFactionId(BlueprintUnit blueprint)
-        {
-            var field = blueprint.GetType().GetField("m_Faction", BindingFlags.NonPublic | BindingFlags.Instance);
-            if (field == null) return "UNKNOWN";
-
-            var factionObj = field.GetValue(blueprint);
-            var guidProp = factionObj?.GetType().GetProperty("Guid");
-            var guid = guidProp?.GetValue(factionObj);
-
-            return guid?.ToString() ?? "UNKNOWN";
-        }
     }
 
     public static class ReinforcementState
@@ -97,31 +90,18 @@ namespace RandomReinforcementsPerEncounter
             var assetId = GetRandomAssetIdByCRAndFaction(cr, factionId);
             if (string.IsNullOrEmpty(assetId))
             {
-                Debug.LogWarning($"[Reinforcements] No asset found for faction {factionId} at CR {cr}");
                 return;
             }
-
+            
             var blueprint = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>(assetId);
             if (blueprint == null)
             {
-                Debug.LogWarning($"[Reinforcements] ❌ Blueprint not found: {assetId}");
                 return;
             }
-
-            Debug.Log($"[Reinforcements] 🧪 Using blueprint: {blueprint.name} ({blueprint.AssetGuid})");
-
-            var clone = ManualBlueprintCloner.CloneMinimal(blueprint);
-            if (clone == null)
-            {
-                Debug.LogWarning("[Reinforcements] ❌ Failed to clone blueprint.");
-                return;
-            }
-
-            Debug.Log($"[Reinforcements] 🧪 Cloned blueprint: {clone.name} ({clone.AssetGuid})");
 
             Vector3 spawnPos = FindValidPositionNear(position);
             var spawned = Game.Instance.EntityCreator.SpawnUnit(
-                clone,
+                blueprint,
                 position,
                 Quaternion.identity,
                 Game.Instance.State.LoadedAreaState.MainState
@@ -129,10 +109,9 @@ namespace RandomReinforcementsPerEncounter
 
             if (spawned == null || spawned.View == null)
             {
-                Debug.LogWarning($"[Reinforcements] ❌ Spawn failed for: {assetId}");
                 return;
             }
-
+            
             ConfigureSpawnedUnit(spawned);
             MoveSpawnedToPosition(spawned, spawnPos);
             spawned.CombatState.JoinCombat(true);
@@ -143,7 +122,6 @@ namespace RandomReinforcementsPerEncounter
             var list = GetMonsterListByFaction(factionId);
             if (list == null)
             {
-                Debug.LogWarning($"[Reinforcements] Unknown faction: {factionId}");
                 return null;
             }
 
@@ -156,14 +134,11 @@ namespace RandomReinforcementsPerEncounter
                 if (filtered.Count > 0)
                 {
                     var chosen = filtered[_rng.Next(filtered.Count)];
-                    Debug.Log($"[Reinforcements] Chosen CR: {searchCR}, Faction: {factionId}, AssetId: {chosen.AssetId}");
                     return chosen.AssetId;
                 }
 
                 cr--;
             }
-
-            Debug.LogWarning($"[Reinforcements] No valid monster found for faction {factionId}");
             return null;
         }
 
@@ -206,8 +181,12 @@ namespace RandomReinforcementsPerEncounter
         {
             unit.GiveExperienceOnDeath = false;
             unit.Descriptor.State.AddCondition(UnitCondition.Unlootable);
-            Debug.Log("[Cloner] 💀 Unlootable y sin experiencia.");
+
+            // Marca visual para detección en CloneDeathWatcher
+            unit.View?.gameObject?.AddComponent<CloneMarker>();
+            Debug.Log($"[Cloner] 🏷️ CloneMarker añadido a {unit.CharacterName}");
         }
+
 
         private static void MoveSpawnedToPosition(UnitEntityData unit, Vector3 position)
         {
@@ -220,4 +199,9 @@ namespace RandomReinforcementsPerEncounter
             }
         }
     }
+    public static class CombatFlags
+    {
+        public static bool ReinforcementsSpawned = false; // Protection to ensure reinforcements are only spawned once per combat
+    }
+
 }
