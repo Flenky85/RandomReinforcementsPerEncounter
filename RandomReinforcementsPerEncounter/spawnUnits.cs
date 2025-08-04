@@ -48,11 +48,8 @@ namespace RandomReinforcementsPerEncounter
             {
                 var enemy = enemies[i % enemies.Count];
                 var position = enemy.Position;
-                
-                if (ChestSpawn.storedChestPosition == null)
-                {
-                    ChestSpawn.storedChestPosition = position;
-                }
+
+                SpawnChestState.ChestPosition = position;
 
                 string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? "UNKNOWN";
                 ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
@@ -198,6 +195,10 @@ namespace RandomReinforcementsPerEncounter
                 unit.View.transform.rotation = Quaternion.identity;
             }
         }
+    }
+    public static class SpawnChestState
+    {
+        public static Vector3? ChestPosition;
     }
     public static class CombatFlags
     {
