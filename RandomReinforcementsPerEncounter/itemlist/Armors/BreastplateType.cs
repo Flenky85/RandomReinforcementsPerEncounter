@@ -455,6 +455,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "20",
                 IsNotable = "False"
             },
+            new ItemData
+            {
+                Name = "SingingSteelBreastplatePlus5",
+                AssetId = "f8318f96333f4065baa2f04b1ba537eb",
+                Cost = "34200",
+                CR = "6",
+                IsNotable = "False"
+            },
         };
     }
 }
