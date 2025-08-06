@@ -1,8 +1,11 @@
 ﻿using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Equipment;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -142,6 +145,42 @@ namespace RandomReinforcementsPerEncounter
 
                 DumpBlueprintRaw(blueprint);
             }
+        }
+    }
+    public static class ItemLogger
+    {
+        public static void LogItems()
+        {
+            var list = new List<BlueprintItem>();
+
+            foreach (var guid in ResourcesLibrary.BlueprintsCache.m_LoadedBlueprints.Keys)
+            {
+                var blueprint = ResourcesLibrary.TryGetBlueprint<BlueprintItem>(guid.ToString());
+                if (blueprint == null) continue;
+
+                if (blueprint is BlueprintItemEquipmentUsable && !blueprint.IsNotable)
+                {
+                    list.Add(blueprint);
+                }
+            }
+
+            var ordered = list.OrderBy(item => GetPrivateInt(item, "CR")).ToList();
+
+            Debug.Log("AssetGuid,Name,CR,DC,Cost,SellPrice");
+            foreach (var item in ordered)
+            {
+                int cr = GetPrivateInt(item, "CR");
+                int dc = GetPrivateInt(item, "DC");
+                Debug.Log($"{item.AssetGuid},{item.name},{cr},{dc},{item.Cost},{item.SellPrice}");
+            }
+
+            Debug.Log($"===== ✅ Total: {ordered.Count} usable, non-notable items =====");
+        }
+
+        private static int GetPrivateInt(object obj, string fieldName)
+        {
+            var field = obj.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.NonPublic);
+            return field != null ? (int)(field.GetValue(obj) ?? 0) : 0;
         }
     }
 

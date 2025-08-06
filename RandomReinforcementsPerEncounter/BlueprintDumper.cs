@@ -1,6 +1,9 @@
-﻿using System;
+﻿using Kingmaker.AreaLogic.Etudes;
+using Kingmaker.Blueprints;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using UnityEngine;
 
@@ -68,4 +71,35 @@ namespace RandomReinforcementsPerEncounter
             }
         }
     }
+    /*
+    public static class EtudeAssetScanner
+    {
+        public static void DumpEtudeAssetReferences()
+        {
+            var found = new HashSet<string>();
+
+            foreach (var etude in ResourcesLibrary.GetBlueprints<BlueprintEtude>())
+            {
+                try
+                {
+                    string serialized = JsonUtility.ToJson(etude, true);
+
+                    // Buscar posibles GUIDs (32 hex chars)
+                    var matches = System.Text.RegularExpressions.Regex.Matches(serialized, @"[a-fA-F0-9]{32}");
+                    foreach (System.Text.RegularExpressions.Match match in matches)
+                    {
+                        found.Add(match.Value.ToLower());
+                    }
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError($"Error processing etude {etude?.name}: {e}");
+                }
+            }
+
+            // Salida al archivo
+            System.IO.File.WriteAllLines("EtudeAssetIds.txt", found.OrderBy(x => x));
+            Debug.Log($"[EtudeScanner] Dumped {found.Count} asset references from etudes.");
+        }
+    }*/
 }

@@ -38,10 +38,12 @@ namespace RandomReinforcementsPerEncounter
 
             float averageCR = playerCount > 0 ? (float)totalPlayerCR / playerCount : 0;
             int roundedAverageCR = Mathf.CeilToInt(averageCR) + ModSettings.Instance.EncounterDifficultyModifier;
+            LootContext.LootRarityScore = roundedAverageCR;
             int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
 
             int enemyCR = enemies.Sum(u => u.Blueprint.CR);
             int crDifference = adjustedPlayerCR - enemyCR;
+            LootContext.LootQuantityScore = crDifference;
             int reinforcementsToSpawn = averageCR > 0 ? Mathf.CeilToInt(crDifference / averageCR) : 0;
 
             for (int i = 0; i < reinforcementsToSpawn; i++)
@@ -49,7 +51,7 @@ namespace RandomReinforcementsPerEncounter
                 var enemy = enemies[i % enemies.Count];
                 var position = enemy.Position;
 
-                SpawnChestState.ChestPosition = position;
+                LootContext.ChestPosition = position;
 
                 string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? "UNKNOWN";
                 ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
@@ -178,10 +180,7 @@ namespace RandomReinforcementsPerEncounter
         {
             unit.GiveExperienceOnDeath = false;
             unit.Descriptor.State.AddCondition(UnitCondition.Unlootable);
-
-            // Marca visual para detección en CloneDeathWatcher
-            unit.View?.gameObject?.AddComponent<CloneMarker>();
-            Debug.Log($"[Cloner] 🏷️ CloneMarker añadido a {unit.CharacterName}");
+            unit.View?.gameObject?.AddComponent<CloneMarker>(); // Visual marker used for detection in CloneDeathWatcher
         }
 
 
@@ -196,10 +195,14 @@ namespace RandomReinforcementsPerEncounter
             }
         }
     }
-    public static class SpawnChestState
+
+    public static class LootContext
     {
         public static Vector3? ChestPosition;
+        public static int LootRarityScore;
+        public static int LootQuantityScore;
     }
+
     public static class CombatFlags
     {
         public static bool ReinforcementsSpawned = false; // Protection to ensure reinforcements are only spawned once per combat
