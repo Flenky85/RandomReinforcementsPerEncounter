@@ -1,7 +1,10 @@
-﻿using Kingmaker;
+﻿using HarmonyLib;
+using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Items;
@@ -55,16 +58,48 @@ namespace RandomReinforcementsPerEncounter
             });
 
             var lootEntries = new List<LootEntry>();
-
-            var longsword = ResourcesLibrary.TryGetBlueprint<BlueprintItem>("03d706655c07d804cb9d5a5583f9aec5");
-            if (longsword != null)
+            /*
+            var shortsword = ResourcesLibrary.TryGetBlueprint<BlueprintItem>("f717b39c351b8b44388c471d4d272f4e");
+            if (shortsword != null)
             {
                 lootEntries.Add(new LootEntry
                 {
-                    Item = longsword.ToReference<BlueprintItemReference>(),
+                    Item = shortsword.ToReference<BlueprintItemReference>(),
                     Count = 1
                 });
+            }*/
+            // GUIDS
+            const string ShortswordGuid = "f717b39c351b8b44388c471d4d272f4e"; // Shortsword simple
+            const string EnchantPlus1Guid = "d42fc23b92c640846ac137dc26e000d4"; // Enhancement +1
+            //const string EnchantCorrosiveGuid = "633b38ff1d11de64a91d490c683ab1c8"; // Corrosive 1d6
+            
+
+            var shortswordBp = ResourcesLibrary.TryGetBlueprint<BlueprintItem>(ShortswordGuid);
+            var enchBp = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(EnchantPlus1Guid);
+            //var enchCorro = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(EnchantCorrosiveGuid);
+            /*var enchCorro1d8 = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(
+                GuidUtil.FromString("corrosive.1d8")
+            );*/
+            var clone = EnchantMaker.CloneCorrosive1d8();
+            var cache = (BlueprintsCache)AccessTools
+                .Property(typeof(BlueprintsCache), "Instance")
+                .GetValue(null);
+            cache.AddCachedBlueprint(clone.AssetGuid, clone);
+            Debug.Log("[RRE] Clonado corrosive 1d6 -> corrosive.1d8: " + clone.AssetGuid);
+
+            if (shortswordBp != null && enchBp != null)
+            {
+
+                var item = shortswordBp.CreateEntity();
+                if (item is ItemEntityWeapon weap)
+                {
+                    weap.AddEnchantment(enchBp, null); // permanente en esta instancia
+                    //weap.AddEnchantment(clone, null); // permanente en esta instancia
+                    
+                    lootPart.Loot.Add(weap);           // usar directamente la ItemsCollection existente
+                }
             }
+
 
             var gold = ResourcesLibrary.TryGetBlueprint<BlueprintItem>("f2bc0997c24e573448c6c91d2be88afa");
             if (gold != null)
