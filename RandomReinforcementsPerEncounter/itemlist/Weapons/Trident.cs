@@ -72,15 +72,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "LizardKingTrident",
-                AssetId = "2ccd5aef5d47a954dac78a98de13d591",
-                Cost = "8400",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "DruchiteTridentPlus2",
                 AssetId = "9023139431ff45f7bb2ec02e705fcf50",
                 Cost = "9216",

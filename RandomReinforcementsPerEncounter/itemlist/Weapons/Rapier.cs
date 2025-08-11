@@ -6,14 +6,6 @@ namespace RandomReinforcementsPerEncounter
     {
         public static readonly List<ItemData> Item = new List<ItemData>
         {
-            new ItemData
-            {
-                Name = "FlamingRapierPlus1",
-                AssetId = "1b53486f8fb1f404ca3f7ad0d116cf6a",
-                Cost = "10",
-                CR = "0",
-                IsNotable = "False"
-            },
 
             new ItemData
             {
@@ -62,15 +54,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "RapierPlus1",
-                AssetId = "9d23d26b2fdbe484b89867667aabeebe",
-                Cost = "2020",
-                CR = "4",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "CorrosiveRapierPlus1",
                 AssetId = "b81f92a30b55e0345bf32b21713e2ece",
                 Cost = "8300",
@@ -100,15 +83,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "KeenRapierPlus1",
                 AssetId = "a0f13997114379b4a8278780c1dc1628",
-                Cost = "8300",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RapierPlus2",
-                AssetId = "7fa680fbf69c09e4790b5e4b78a989e4",
                 Cost = "8300",
                 CR = "0",
                 IsNotable = "False"

@@ -14,7 +14,102 @@ namespace RandomReinforcementsPerEncounter
                 CR = "7",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "PrismaticRingItem",
+                AssetId = "851fbefced1106e4a86251ec5242f815",
+                Cost = "30000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "ArcaneSignet",
+                AssetId = "7829052aa5f0b57409dbef0fbc413682",
+                Cost = "1500",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "UnholySignet",
+                AssetId = "7840bf8ed0674fc5831e1b09a6cabb89",
+                Cost = "1500",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BlessedSignet",
+                AssetId = "4421a45952e4f2a40a11c1f409fe2e13",
+                Cost = "1500",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RingOfFoeFocusItem",
+                AssetId = "f60f543c44b8401dae8da71453daa7b9",
+                Cost = "10000",
+                CR = "9",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RazmirRing",
+                AssetId = "1ef783f955584050972c13f9399eb9d8",
+                Cost = "500000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RingOfPowerfulBloodMagic",
+                AssetId = "c5e9e714a758420191d0188a0d5eca08",
+                Cost = "5000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RingOfBoneBreakingItem",
+                AssetId = "e5d00168cc74448da1e2f3c17d17e44c",
+                Cost = "150000",
+                CR = "18",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RingOfRawHolyPowerItem",
+                AssetId = "bef16b6a266047569c6de94d8dd783ed",
+                Cost = "15000",
+                CR = "12",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "DLC5_RingOfShadowStealingItem",
+                AssetId = "4eeecd3170cd4127a84c36e6ce77547b",
+                Cost = "25000",
+                CR = "10",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RingOfMercyless_Item",
+                AssetId = "fd8e043dd85848108e4e6c1f3034f709",
+                Cost = "16000",
+                CR = "8",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RingOfGrimSwiftnessItem",
+                AssetId = "eef9992a1dab45a29839cea9f85e1e06",
+                Cost = "25000",
+                CR = "12",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "FlowOfWaterRingItem",

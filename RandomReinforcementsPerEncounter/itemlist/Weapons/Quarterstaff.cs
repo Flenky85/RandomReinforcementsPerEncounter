@@ -14,7 +14,22 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "SinmageStaff",
+                AssetId = "19f9506b61ed4190bffc66eb0cad39de",
+                Cost = "75000",
+                CR = "16",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "StaffOfLocustWeaponItem",
+                AssetId = "75731583de1e4d24978a961b80a4269b",
+                Cost = "35000",
+                CR = "12",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkQuarterstaff",
@@ -23,7 +38,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "1",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_StaffOfTheMightySummonsWeaponItem",
+                AssetId = "080ac41b9b664ea9b2a88694500a3415",
+                Cost = "80000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "QuarterstaffPlus1",

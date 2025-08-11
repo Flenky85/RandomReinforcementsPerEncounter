@@ -14,7 +14,54 @@ namespace RandomReinforcementsPerEncounter
                 CR = "9",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "SorceriousGown",
+                AssetId = "77c2024fba05473bb0bbcd63dd0de99f",
+                Cost = "35000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "CorsetOfDireWitchcraft",
+                AssetId = "ded0ec6431f54b85be50a464006ac815",
+                Cost = "45000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RobeOfTheOvermind",
+                AssetId = "03def2744aa54aebb034bc164d5b8a1d",
+                Cost = "75000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RobeOfRunes",
+                AssetId = "24542aceda6747ad80ed9566ff715ffa",
+                Cost = "80000",
+                CR = "15",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RobeOfMagma",
+                AssetId = "7dca2a51b1e143cd9ab0b05aedd26ceb",
+                Cost = "112000",
+                CR = "20",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BestialRagsItem",
+                AssetId = "efc86eef11d548d7be4ebfba999b9e9d",
+                Cost = "16000",
+                CR = "11",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "DLC3_RobeOfTheSinmageItem",

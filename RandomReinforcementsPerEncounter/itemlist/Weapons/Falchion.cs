@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "ButcherCleaver_Item",
+                AssetId = "2f09c68b1d0b4754a5f11666f74a8312",
+                Cost = "19000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkFalchion",
@@ -224,15 +231,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "FalchionPlus4",
-                AssetId = "efd42251146fd9847b9f480007e4dae0",
-                Cost = "32000",
-                CR = "13",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "FalchionFlamingPlus3",
                 AssetId = "2a99da2fe47c29b489ddd19bbd030a56",
                 Cost = "35000",
@@ -255,15 +253,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "9979e8242a96c5446be1b599bd84cabd",
                 Cost = "50000",
                 CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FalchionPlus6",
-                AssetId = "19bf1da2b5192164c9921e4b6b7c2086",
-                Cost = "50000",
-                CR = "0",
                 IsNotable = "False"
             },
 

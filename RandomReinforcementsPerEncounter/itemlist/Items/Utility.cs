@@ -9,27 +9,9 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "MagicPowerItem",
-                AssetId = "881b6a4ac97f98c41bb78ee6185ef282",
-                Cost = "4",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "RestItem",
                 AssetId = "efa6c2ee9e630384188a50b1ce6600fe",
                 Cost = "5",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BeltLantern",
-                AssetId = "3fda6b8499c8267469f4a0435cedec4c",
-                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },

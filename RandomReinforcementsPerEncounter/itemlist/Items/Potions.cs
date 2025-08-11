@@ -17,15 +17,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "PotionOfCureLightWounds",
-                AssetId = "d52566ae8cbe8dc4dae977ef51c27d91",
-                Cost = "50",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "PotionOfEnlargePerson",
                 AssetId = "fe7e87dc45fbcb845b7755f0733b5465",
                 Cost = "50",
@@ -37,15 +28,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "PotionOfFeatherStep",
                 AssetId = "a05bfdfe2df01204ab8e367c2c0b72ce",
-                Cost = "50",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "PotionOfInflictLightWounds",
-                AssetId = "115c4dcc899ce9747a6e97335955092a",
                 Cost = "50",
                 CR = "0",
                 IsNotable = "False"
@@ -260,15 +242,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "PotionOfCureModerateWounds",
-                AssetId = "f991f3051c3b9e64fabc87891077b613",
-                Cost = "300",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "PotionOfDelayPoison",
                 AssetId = "0afbffc4d6913f648a923640f4519c0c",
                 Cost = "300",
@@ -289,15 +262,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "PotionOfFoxsCunning",
                 AssetId = "17f132fa2c8c213479640212ae444005",
-                Cost = "300",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "PotionOfInflictModerateWounds",
-                AssetId = "a9991bfea27096f46bb7b4ccf0fb7eb7",
                 Cost = "300",
                 CR = "0",
                 IsNotable = "False"
@@ -413,15 +377,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "PotionOfCureSeriousWounds",
-                AssetId = "e76d14096063ee041bdb1d13d8172599",
-                Cost = "750",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "PotionOfDispelMagic",
                 AssetId = "89417807779c867418fb8efb0c05600b",
                 Cost = "750",
@@ -460,15 +415,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "PotionOfHeroism",
                 AssetId = "42f01c3ad12d4f84c93f89e165384780",
-                Cost = "750",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "PotionOfInflictSeriousWounds",
-                AssetId = "5865436f0210e3b4e8f6bb2144fdff7c",
                 Cost = "750",
                 CR = "0",
                 IsNotable = "False"
@@ -602,15 +548,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "PotionOfCureCriticalWounds",
-                AssetId = "1f45a09f2e072ea4e8d52fadcd7e66f3",
-                Cost = "1400",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "PotionOfDeathWardCast",
                 AssetId = "cac4fbb0a58a0be4484b12159de2011c",
                 Cost = "1400",
@@ -622,15 +559,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "PotionOfFreedomOfMovement",
                 AssetId = "cec58292b1977844aabb6df5ab6b6a5c",
-                Cost = "1400",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "PotionOfInflictCriticalWounds",
-                AssetId = "6cb2eb1b20c05be458e65ba6e91f71f2",
                 Cost = "1400",
                 CR = "0",
                 IsNotable = "False"

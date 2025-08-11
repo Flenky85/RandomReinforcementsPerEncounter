@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "MasterworkSilverDagger",
+                AssetId = "3a72bcad66764e3e888d2d0b5ace8dc7",
+                Cost = "400",
+                CR = "1",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkDagger",
@@ -32,7 +39,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "1",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC5_DazzledDaggerItem",
+                AssetId = "181d1707fef74eab8acfba2b10a0265f",
+                Cost = "20000",
+                CR = "10",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "ColdIronDagger",
@@ -46,7 +60,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "DruchiteDaggerPlus2",
                 AssetId = "cc4e6a46b9b148819d7e1812578582a0",
-                Cost = "1600",
+                Cost = "15000",
                 CR = "1",
                 IsNotable = "False"
             },
@@ -55,15 +69,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "DaggerPlus1",
                 AssetId = "2a45458f776442e43bba57de65f9b738",
-                Cost = "2002",
-                CR = "4",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "DaggerSosielPlus1Item",
-                AssetId = "85cc154284504c74ba1d050bab204b4c",
                 Cost = "2002",
                 CR = "4",
                 IsNotable = "False"
@@ -318,24 +323,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "801183fdc4e6d524f84cb209abb6e2f8",
                 Cost = "50000",
                 CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "DaggerPlus6",
-                AssetId = "7d88fb635e054783aab93ee8af382866",
-                Cost = "50000",
-                CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "DaggerPlus6",
-                AssetId = "82a5d652d250ff747a2292e84948d5fe",
-                Cost = "50000",
-                CR = "0",
                 IsNotable = "False"
             },
 

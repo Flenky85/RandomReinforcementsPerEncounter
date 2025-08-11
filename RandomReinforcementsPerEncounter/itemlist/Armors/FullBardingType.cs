@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "3",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "BardingOfSteadynessArmorItem",
+                AssetId = "3541ca13dba54f69ad277e1515a22897",
+                Cost = "40000",
+                CR = "12",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "FullBardingStandartPlus1",

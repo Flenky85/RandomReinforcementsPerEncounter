@@ -15,7 +15,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_EvercoldHeavyCrossbowWeaponItem",
+                AssetId = "8f2c8e8443ed4b3d83ad349aab2e9949",
+                Cost = "8300",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkHeavyCrossbow",

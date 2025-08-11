@@ -6,42 +6,7 @@ namespace RandomReinforcementsPerEncounter
     {
         public static readonly List<ItemData> Item = new List<ItemData>
         {
-            new ItemData
-            {
-                Name = "FinneanHeavyMaceStage1",
-                AssetId = "f3d4ed29948652149a535f2b93d495a5",
-                Cost = "0",
-                CR = "4",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanHeavyMaceStage2",
-                AssetId = "ac90854ed7541024c85698fda52c3386",
-                Cost = "0",
-                CR = "10",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanHeavyMaceStage3Base",
-                AssetId = "791ed8083d252b6498d0ff826a532bc4",
-                Cost = "0",
-                CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanHeavyMaceStage3Lich",
-                AssetId = "bc9b3a3dc02de574d8244fb8a37cd736",
-                Cost = "0",
-                CR = "16",
-                IsNotable = "False"
-            },
-
+            
             new ItemData
             {
                 Name = "StandardHeavyMace",
@@ -179,15 +144,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "MorningstarMonadicDeva",
-                AssetId = "6a4da1840d6e63548bc0366e9b832824",
-                Cost = "18300",
-                CR = "9",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "HeavyMaceBaneGiantPlus2",
                 AssetId = "af4b8a9eb9419a448891721034ba595d",
                 Cost = "18500",
@@ -271,7 +227,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "RighteousPunishmentItem",
                 AssetId = "7c46e43f88dbd7f418da2ce71439d8b6",
-                Cost = "24300",
+                Cost = "50000",
                 CR = "16",
                 IsNotable = "False"
             },

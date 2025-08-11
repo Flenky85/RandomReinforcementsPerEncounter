@@ -15,7 +15,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_SplintershredGreataxeWeaponItem",
+                AssetId = "865d039c14c04344b834818687b2f218",
+                Cost = "61000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkGreataxe",
@@ -327,15 +334,6 @@ namespace RandomReinforcementsPerEncounter
                 Name = "ExecutionerDevilGreataxe",
                 AssetId = "ba91313daf281704199d58909244a1a2",
                 Cost = "90000",
-                CR = "22",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RetributionGreataxe",
-                AssetId = "dfdb6779e8cd91e48ad096147836ec31",
-                Cost = "97300",
                 CR = "22",
                 IsNotable = "False"
             },

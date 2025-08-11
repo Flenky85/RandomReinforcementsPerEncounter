@@ -118,7 +118,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "GreatswordMovanicDevaPlus3",
                 AssetId = "ddabfb3949a24ff3b8f6ad458d7efb5d",
-                Cost = "8300",
+                Cost = "25000",
                 CR = "7",
                 IsNotable = "False"
             },

@@ -15,7 +15,23 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
+            new ItemData
+            {
+                Name = "DLC3_BeautyslasherGlaiveWeaponItem",
+                AssetId = "d93b496c580943588f69eb1387986cab",
+                Cost = "200000",
+                CR = "0",
+                IsNotable = "False"
+            },
 
+            new ItemData
+            {
+                Name = "DLC3_BeautybreakerGlaiveWeaponItem",
+                AssetId = "91dcaf1b94f746889f761b2271e642c3",
+                Cost = "500000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkGlaive",
@@ -144,15 +160,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "WildHunt_MonarchGlaive",
-                AssetId = "b1eb8017cadea224cb0f09d96199f7b9",
-                Cost = "18500",
-                CR = "10",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "GlaiveCorrosivePlus2",
                 AssetId = "0467350dc5b46af498d07c2de7d8d019",
                 Cost = "18500",
@@ -265,15 +272,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "20d6f6f972cea65408dcfba499d2825f",
                 Cost = "50000",
                 CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "GlaivePlus6",
-                AssetId = "66cf8afce206b204e8a7a0e8cea84b57",
-                Cost = "50000",
-                CR = "0",
                 IsNotable = "False"
             },
 

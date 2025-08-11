@@ -215,15 +215,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "FauchardPlus6",
-                AssetId = "0b6fceec960565645bb8882663f53ee3",
-                Cost = "50000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "DarkBiddingSlingstaffItem",
                 AssetId = "847907dfb635c3446ae9e4ee08a2ff15",
                 Cost = "50666",

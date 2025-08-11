@@ -15,12 +15,11 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
             new ItemData
             {
-                Name = "HalfOrcMaleEnforcerMasterpieceItem",
-                AssetId = "d7604d63d0ee6db418d09c9305d60560",
-                Cost = "75",
+                Name = "DLC3_DefacerWarhammerWeaponItem",
+                AssetId = "51906f1108e6407cb1153cef71d77fe6",
+                Cost = "51312",
                 CR = "0",
                 IsNotable = "False"
             },

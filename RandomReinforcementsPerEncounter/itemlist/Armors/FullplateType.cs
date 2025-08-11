@@ -14,7 +14,22 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "FullplateOfUstalavianOfficerArmorItem",
+                AssetId = "59a33c8783ad4de8b547022ec274c930",
+                Cost = "27000",
+                CR = "12",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "LivingFortress",
+                AssetId = "6c8fd3c960ce4197a3aa0e86dc3a565b",
+                Cost = "250000",
+                CR = "20",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "FullplateStandard",
@@ -23,7 +38,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "3",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC5_AbsoluteDarknessItem",
+                AssetId = "7568156f4cd94875899f1f1fc2cfb85f",
+                Cost = "10000",
+                CR = "11",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "FullplateStandard_Hellknight",

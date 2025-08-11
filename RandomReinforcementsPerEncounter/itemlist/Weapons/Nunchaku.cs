@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_KapaoNunchakuWeaponItem",
+                AssetId = "75437f52a0f941da85eeb25e79bb8e8d",
+                Cost = "8335",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkNunchaku",
@@ -217,17 +224,8 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "NunchakuSpeedPlus5",
                 AssetId = "350127c977c481f4d99e736e794754fb",
-                Cost = "50000",
+                Cost = "100000",
                 CR = "19",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "NunchakuPlus5",
-                AssetId = "c52bed1669839634cb46e359d98bd935",
-                Cost = "50000",
-                CR = "0",
                 IsNotable = "False"
             },
 

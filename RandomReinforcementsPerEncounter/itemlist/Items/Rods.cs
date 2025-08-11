@@ -14,7 +14,82 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
+            new ItemData
+            {
+                Name = "DLC5_RodOfHangoverItem",
+                AssetId = "0f13f6d2f58d4595a5e1972ec65d150f",
+                Cost = "8250",
+                CR = "11",
+                IsNotable = "False"
+            },
 
+            new ItemData
+            {
+                Name = "DLC6_RodOfHangoverItem",
+                AssetId = "67a05c9788664afa8ebcde577391a9d7",
+                Cost = "8250",
+                CR = "11",
+                IsNotable = "False"
+            },
+
+            new ItemData
+            {
+                Name = "MetamagicRodLesserKinetic",
+                AssetId = "289beaa0fe4bf644cb0817a7fa9e9cf2",
+                Cost = "9000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "MetamagicRodLesserIntensified",
+                AssetId = "6f5d788ee7384e47895bc58a291eec7f",
+                Cost = "3500",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "MetamagicRodGreaterIntensified",
+                AssetId = "fd8122d61cc34463a615878dd59aee30",
+                Cost = "30000",
+                CR = "0",
+                IsNotable = "False"
+            },
+
+            new ItemData
+            {
+                Name = "MetamagicRodGreaterPiercing",
+                AssetId = "ae152f07c6494f318735eaa9c4858577",
+                Cost = "30000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "MetamagicRodNormalIntensified",
+                AssetId = "a35044c76afa45c69f4baedf13ad5ac9",
+                Cost = "16750",
+                CR = "0",
+                IsNotable = "False"
+            },
+
+            new ItemData
+            {
+                Name = "MetamagicRodNormalPiercing",
+                AssetId = "b50be8b008be40199903dd0c28c6312e",
+                Cost = "16750",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "MetamagicRodLesserPiercing",
+                AssetId = "de51e892ce5442ba9cbc02d21262b275",
+                Cost = "3500",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MetamagicRodLesserSelective",
@@ -152,15 +227,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "PeridotWyvernItem",
-                AssetId = "2ef3360e54ef1734b97f1c465016b31e",
-                Cost = "31000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "MetamagicRodNormalBolster",
                 AssetId = "01647c118c00482eab6378ca9b81e995",
                 Cost = "32000",
@@ -235,15 +301,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "MetamagicRodGreaterBolsterExtraCharges",
                 AssetId = "837ac0a02d0e41f3af77777c92962c52",
-                Cost = "73000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "OculusItem",
-                AssetId = "a87d4a3f4afc4984194abcc65361d08e",
                 Cost = "73000",
                 CR = "0",
                 IsNotable = "False"
@@ -332,24 +389,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "HalflingFemaleShadytraderMasterpieceItem",
-                AssetId = "643cb499b18a6be4f8a23352df3fd95b",
-                Cost = "132000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "LapisLazuliWyvernItem",
-                AssetId = "b8acd067db6550446a5819acdf80fafa",
-                Cost = "140000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "MetamagicRodGreaterQuickenExtraCharges",
                 AssetId = "89ff878248e24a4fa74989671b55a0b7",
                 Cost = "170000",
@@ -384,14 +423,6 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "CharoiteWyvernItem",
-                AssetId = "c426180be627cf84284bc9abcada55af",
-                Cost = "210000",
-                CR = "0",
-                IsNotable = "False"
-            },
         };
     }
 }

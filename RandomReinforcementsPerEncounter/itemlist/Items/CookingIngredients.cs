@@ -2,50 +2,14 @@
 
 namespace RandomReinforcementsPerEncounter
 {
-    public static class CookingIngredientsList
+    public static class CookingIngredientsItemsList
     {
         public static readonly List<ItemData> Item = new List<ItemData>
         {
             new ItemData
             {
-                Name = "Rice",
-                AssetId = "3f0351bb2f0608047acff46161f7a427",
-                Cost = "4",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "Flour",
-                AssetId = "418a5f5ce964b5244bc7d2f1787bfe4f",
-                Cost = "8",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "Milk",
-                AssetId = "c77df63a09cc4f049af54eeec311280f",
-                Cost = "10",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "Eggs",
-                AssetId = "759a3d9856b4d5d4fa6123150bf46eda",
-                Cost = "15",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "Butter",
-                AssetId = "b5905f7f679cbea4e92a0cf3480901c7",
+                Name = "EdibleMossItem",
+                AssetId = "b4d993b630ac79944a133134a05ac811",
                 Cost = "20",
                 CR = "0",
                 IsNotable = "False"
@@ -53,297 +17,306 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "EdibleMoss",
-                AssetId = "ba7dd9ad4e74e524d98c97b8ba41400b",
-                Cost = "25",
+                Name = "FlametongueItem",
+                AssetId = "fce9f41ff499d7d46ba47f19be889cbf",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Pepperbox",
-                AssetId = "9297060d0d3241029b32d74bcf9107f0",
-                Cost = "25",
+                Name = "FlourItem",
+                AssetId = "88d5fa4520cf59d41b4e145cecab8719",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Vegetables",
-                AssetId = "f486b44aa66cd784da6979a14a4ddc4d",
-                Cost = "29",
+                Name = "MixOfSpicesItem",
+                AssetId = "c60547826d61197449146fe2c074183d",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Nuts",
-                AssetId = "a8f054d586bd41c41acb0b5193eb2f42",
-                Cost = "30",
+                Name = "MutatedFishItem",
+                AssetId = "41765b1ef6660d246b1cd9cd7b941979",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Onion",
-                AssetId = "fc7271d09ff1e9541935f1cc195682c4",
-                Cost = "32",
+                Name = "OnionsItem",
+                AssetId = "908373390dd992f4491a827fbf88b357",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Fruits",
-                AssetId = "3e44c07f1bd3e834fa82486ff1cbab1c",
-                Cost = "33",
+                Name = "ButterItem",
+                AssetId = "59702b51281bd4f4f966d20be9b62c78",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Potatoes",
-                AssetId = "29a240fdb2a2d8d46adb05fd4dde702d",
-                Cost = "33",
+                Name = "CheeseItem",
+                AssetId = "74100d2f1ff98844085e3d7af1df33ac",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Herbs",
-                AssetId = "925ff9cec4010cc4ba72dcd909b42a50",
-                Cost = "34",
+                Name = "EggsItem",
+                AssetId = "5a9c1c8cfdc9c134cbd3cdf48f514438",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Cheese",
-                AssetId = "adaecb26730c2e840883bd8e632921e3",
-                Cost = "35",
+                Name = "MidnightMorelItem",
+                AssetId = "e03a716387e8ee3458771376529cf17c",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Mushrooms",
-                AssetId = "5435c31f1c0a2524dad4ee042500dd50",
-                Cost = "37",
+                Name = "MilkItem",
+                AssetId = "dcd8ab193dbcb4d4d9f0462cf6458069",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Fowl",
-                AssetId = "132d9f3fdf1f00f4db22304ab930e409",
-                Cost = "40",
+                Name = "RiceItem",
+                AssetId = "77509196c5b384e40b5c43543b4a5be5",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Honey",
-                AssetId = "8e21ebf1321b4334d89d32ffcae2d2b1",
-                Cost = "40",
+                Name = "SweetWineItem",
+                AssetId = "c8562b15bf2aa3f429962c811710dde2",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Meat",
-                AssetId = "8faddcf56f3810a4ba2423cb20926333",
-                Cost = "41",
+                Name = "AxisCrystallsItem",
+                AssetId = "9e18724683324e3cbba41833ef6220e2",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Trout",
-                AssetId = "46433d3d45f2e4a4383db22c77899d2f",
-                Cost = "42",
+                Name = "BlueHoneyItem",
+                AssetId = "722821353e9941b788a2eca7c0589c6a",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "SoftCheese",
-                AssetId = "012e57f834bf1ea4eb09236d67d106ca",
-                Cost = "48",
+                Name = "EnergizingSpicesItem",
+                AssetId = "c5bf5e3be1c5461e8918fdafa4d46fe5",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Tenderloin",
-                AssetId = "06470b7a4151ba843a4bf3da19a7c432",
-                Cost = "50",
+                Name = "GlimmeringHerbsItem",
+                AssetId = "ad09ba89a3924cdbb07b413f6f3ef9f8",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "SweetSyrup",
-                AssetId = "04864f80887167d448eafa4781671a0f",
-                Cost = "100",
+                Name = "CursedPlantItem",
+                AssetId = "5eead348b141c0a47a01e8854235a2cf",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Shambletus",
-                AssetId = "3fd94be2a31f060418aad3518ba195bf",
-                Cost = "150",
+                Name = "LeechweedItem",
+                AssetId = "8bc04c341d24bf248b5864aa62f2b12d",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Chocolate",
-                AssetId = "cd7b920bb0752f348a7b4d9ba7970c04",
-                Cost = "220",
+                Name = "MagicalDustItem",
+                AssetId = "6f1718d8e8ec9fb40a364aaa0f690b9e",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "MastodonMeat",
-                AssetId = "79afa696a3b96be4fb4329fbdb889520",
-                Cost = "250",
+                Name = "NutsItem",
+                AssetId = "904e7ade5f9c464489128895c17b2019",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "HydraEye",
-                AssetId = "15891d6d1d8ecea4a875b2f847bdb43f",
-                Cost = "270",
+                Name = "PhosphorousMushroomItem",
+                AssetId = "8102f4c34f8ac2644a7dc54c95cee14e",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Narlbarb",
-                AssetId = "d5617d1f7f1a0a247959013b56aa4add",
-                Cost = "290",
+                Name = "PixieDustItem",
+                AssetId = "81271f38493257b4ca83ae89f141008e",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "GiantSpiderLegs",
-                AssetId = "178983057a1bec24eb290af1b5bcdb92",
-                Cost = "320",
+                Name = "ShadowbloomItem",
+                AssetId = "3b7b99dac3c4b9f43a5700308b39860e",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "SilverEel",
-                AssetId = "da0df47e2d2e36743861ba98e28984ad",
-                Cost = "330",
+                Name = "CrystallizedDemonicRageItem",
+                AssetId = "d4aca765e97d1314789a3d8fcdf61b08",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Kameberry",
-                AssetId = "9673fb63c820b5345ad07c32219edfde",
-                Cost = "350",
+                Name = "MagicalAcornItem",
+                AssetId = "dd818875c6dabb444b6aa5fafe65bf75",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "TuskwaterOysters",
-                AssetId = "f7d4d50f2978aab4db198b97304fbdc5",
-                Cost = "370",
+                Name = "MandrakeRootItem",
+                AssetId = "20dddd5a81cd237429b080548fb59651",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "OwlbearEgg",
-                AssetId = "1d817a453f6b82448839547d3b6046da",
-                Cost = "400",
+                Name = "MixOfDemonicPoisonsItem",
+                AssetId = "973a9726c25d0094b8ba80a2af774322",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "WyvernMeat",
-                AssetId = "e34c8847e4172ad46be8e15d13a73037",
-                Cost = "400",
+                Name = "PhoenixFeatherItem",
+                AssetId = "9ba0194ebcbeb8a428926c1ad9911967",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "PurpleWormCut",
-                AssetId = "008786527b3cf664d9512502cdeb6792",
-                Cost = "2500",
+                Name = "ShadowCloverItem",
+                AssetId = "5bfed09712e38cd44962e20735de275b",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "Chardonnay",
-                AssetId = "21d469dd7bfe29549bf6527b4bc038bc",
-                Cost = "3000",
+                Name = "SkullberryItem",
+                AssetId = "233b68ccbc44dbc4280763659aa3ef64",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "RocEgg",
-                AssetId = "4683f87c04519404ba407d136684665c",
-                Cost = "3000",
+                Name = "CinderbloomItem",
+                AssetId = "5154f0acc97b1ac4ebbcd37e1b63505f",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "LinnormTenderloin",
-                AssetId = "735627add0780bf40a36eaaf1545ed52",
-                Cost = "3500",
+                Name = "CorruptedAnimalMeatItem",
+                AssetId = "74af1ead553ef234fa11f369e7459e62",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },
 
             new ItemData
             {
-                Name = "FirstWorldFruit",
-                AssetId = "cfd6af2c28341d245b635b25cc673535",
-                Cost = "4000",
+                Name = "SpellgorgingFlowerItem",
+                AssetId = "2bd6154284b913b479d38f539d4a00dd",
+                Cost = "20",
+                CR = "0",
+                IsNotable = "False"
+            },
+
+            new ItemData
+            {
+                Name = "TaintedFowltem",
+                AssetId = "5efe9453aed80994b83c262737f7f1ae",
+                Cost = "20",
                 CR = "0",
                 IsNotable = "False"
             },

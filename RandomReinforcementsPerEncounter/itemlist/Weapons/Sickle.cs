@@ -46,7 +46,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "DruchiteSicklePlus2",
                 AssetId = "d9db41f0be1d463aaf78a54e327dc776",
-                Cost = "1600",
+                Cost = "10000",
                 CR = "1",
                 IsNotable = "False"
             },
@@ -208,15 +208,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "SickleBaneHumanFlamingPlus2",
                 AssetId = "7458dd41e4570d440a38632d2fcc3e16",
-                Cost = "32000",
-                CR = "13",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "SicklePlus4Areshkagal",
-                AssetId = "9cb0cb58ef7e4c8ba4bf9c77385022b1",
                 Cost = "32000",
                 CR = "13",
                 IsNotable = "False"

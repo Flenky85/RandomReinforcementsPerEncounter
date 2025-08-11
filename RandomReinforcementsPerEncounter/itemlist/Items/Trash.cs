@@ -711,33 +711,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "RegBook1_CulinaryAlmanach",
-                AssetId = "388a3d709e38dec429accd98353b225e",
-                Cost = "40",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook2_DarkLords",
-                AssetId = "b11981de253a30c45b1632cc23386d4b",
-                Cost = "40",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook3_Everlight",
-                AssetId = "98f17a5556213024cae9663e4cf1164a",
-                Cost = "40",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "SilverRing",
                 AssetId = "212a1a78c7865154482ffda45796510e",
                 Cost = "40",
@@ -846,24 +819,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "RegBook15_ThousandRevolutions",
-                AssetId = "eabdc75e3eae8634f8c353e5ccffb9ae",
-                Cost = "45",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook17_WhyEarthTrembles",
-                AssetId = "5f6660bb0e2a4df4bac3d15625939d69",
-                Cost = "45",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "ClearQuartz",
                 AssetId = "d82dade8fad7c35468c4a48ed4b16962",
                 Cost = "45",
@@ -898,33 +853,7 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "RegBook4_FightingBleaching",
-                AssetId = "2d75995fb43c24d45a22143c4afc3c76",
-                Cost = "50",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook5_Ilthuliak",
-                AssetId = "3cba382ac1b9d6245a40b2d6ebd96087",
-                Cost = "50",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook6_IobariaCurse",
-                AssetId = "dbc6bb4b4cb3381489cc4ab34c74c892",
-                Cost = "50",
-                CR = "0",
-                IsNotable = "False"
-            },
-
+    
             new ItemData
             {
                 Name = "Jasper",
@@ -943,239 +872,6 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "AboutRunelords",
-                AssetId = "9ae51b719e8d4139993c9c80c5c20d14",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "AbyssPolitics",
-                AssetId = "003aacadb40b4285a64d1ba53227f4ed",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BonfireNight",
-                AssetId = "f2772c09d52c423a905e9c11b1efb90d",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BookKostchtchie",
-                AssetId = "e11733ae14364f4ca24916f424ab0ffd",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "CrusadeCrudeHumor",
-                AssetId = "6047e2e493674f5ca08e83a3c3f8b388",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "CrusadeFailures",
-                AssetId = "953d5f1186f94962b4fadbbd9520ebe1",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "DamnedBeKenabres",
-                AssetId = "80ffd7ada93413e4fa6f92747eca29f0",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FearlessCrusaderBriggie",
-                AssetId = "790977474b2e7744bb05e0c428506e35",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FunnyText_HowTo",
-                AssetId = "4435f0233fa6ae04bad0cbfa1207a398",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "GentyCrusader",
-                AssetId = "d4951735396c101499daa2b1cdb0b651",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "HilorStory1",
-                AssetId = "d49988a22fc645d6b4145f8b8c3f3e6b",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "HilorStory2",
-                AssetId = "8de6cf2aef4c41cdb8e757c8a1b2df13",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "HilorStory3",
-                AssetId = "242d6226c7934dff9d8cec6cd6c5a590",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "IncubusChallenge",
-                AssetId = "87c8efff791c48cd88b91d0ec53e0b0b",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "IzArcheology",
-                AssetId = "d5e0281db97e4ddbbf4fca8849096b2e",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "MendevGolfreyHistory",
-                AssetId = "cfd5bb41e6a64431ae4e306516cc980b",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook14_SwordsScribes",
-                AssetId = "88b232b7a1b759147858075978936347",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "SadisticMageBook",
-                AssetId = "7c26c08c2cd89ae4b8adb559bdf3cf0f",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "SisterOfMercy",
-                AssetId = "c4b91691c437bb44bb0e9350efa7bce0",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "UnknownCrusades",
-                AssetId = "49341fd9cae145c88a0143f0a7ae5928",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "WhatIsVermlek",
-                AssetId = "67e64a4731ef4d798feed636d1f10e7b",
-                Cost = "55",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook10_ProdigalSons",
-                AssetId = "100a322d4d1208542a4b11847d17305e",
-                Cost = "60",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook11_RiverFreedoms",
-                AssetId = "b73b70398f90a044c8c20381aea7c8a1",
-                Cost = "60",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook7_LegendOfPathfinder",
-                AssetId = "79b39b89e7a839e4ba2f8cf926550706",
-                Cost = "60",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook8_MonsterGuide",
-                AssetId = "cb3eaa822e14b9d48a3515dedafbb880",
-                Cost = "60",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook9_OnGodsAndDivine",
-                AssetId = "0feedecc3f3df2e44b0dc3a4c5a98d32",
-                Cost = "60",
-                CR = "0",
-                IsNotable = "False"
-            },
 
             new ItemData
             {
@@ -1236,42 +932,6 @@ namespace RandomReinforcementsPerEncounter
                 Name = "SilverInkpot",
                 AssetId = "2eda4fe6826aadc4f9b6fa91c7c773fd",
                 Cost = "64",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook16_ValleyOfFire",
-                AssetId = "dec532c406d2760488927068a98ee121",
-                Cost = "65",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "AlushinirraTouristGuide",
-                AssetId = "e1db930a59e2448cbbafcaf5bbf1fdc9",
-                Cost = "70",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook12_SearchForJoy",
-                AssetId = "fbd4c7e04dd089046ba894cb3993e9bf",
-                Cost = "70",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook13_ShadowsOfAbsalom",
-                AssetId = "7aecf468f0a9ead43b9001c19a8962ce",
-                Cost = "70",
                 CR = "0",
                 IsNotable = "False"
             },
@@ -1852,14 +1512,7 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "LockpickersKitI_Item",
-                AssetId = "f00d1a227450e3b49af4b9cc38145c89",
-                Cost = "1000",
-                CR = "0",
-                IsNotable = "False"
-            },
+
 
             new ItemData
             {
@@ -1942,14 +1595,7 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "LockpickersKitII_Item",
-                AssetId = "fc72ab3061fa71e41973a8125f55713d",
-                Cost = "5000",
-                CR = "0",
-                IsNotable = "False"
-            },
+
 
             new ItemData
             {
@@ -1974,33 +1620,6 @@ namespace RandomReinforcementsPerEncounter
                 Name = "JabberwockPelt",
                 AssetId = "8b80f060dd9381e4a889156ebab5374a",
                 Cost = "7000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "LockpickersKitIII_Item",
-                AssetId = "373b5c5bae5ce41418b97d57f9c004fb",
-                Cost = "10000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "DarekSunhammersWork",
-                AssetId = "5a3463e8f61c4663aa59660ff51e3cb1",
-                Cost = "25000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "RegBook1_CulinaryAlmanachJubielostSign",
-                AssetId = "840333736365481da2448cba4c7f54b0",
-                Cost = "200000",
                 CR = "0",
                 IsNotable = "False"
             },

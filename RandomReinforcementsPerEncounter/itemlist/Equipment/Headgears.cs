@@ -14,22 +14,60 @@ namespace RandomReinforcementsPerEncounter
                 CR = "3",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "MaskOfTheFastBitesItem",
+                AssetId = "e71b0d384c7d47618fcf27be493ee3fd",
+                Cost = "10000",
+                CR = "8",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "JesterCap",
+                AssetId = "d3e3a641c5dd40dd971bd1c587d7f6a8",
+                Cost = "160000",
+                CR = "19",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "EyesOfTheDragon",
+                AssetId = "c3bf24ba54024fbe8f2a682371a9fc51",
+                Cost = "110000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "MindmastersEyes",
+                AssetId = "dd245b8645dc4930af554ab700a99e43",
+                Cost = "25000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "ArachnidGoggles",
+                AssetId = "8c655e837b9f4009a460e6fb8044a312",
+                Cost = "15000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "HatOfTheOwlItem",
+                AssetId = "1d7c3e7ccf5d49d199a5667bacb84fb5",
+                Cost = "56000",
+                CR = "15",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "GooglesOfMadScientistItem",
                 AssetId = "ff4db4ecacfb46bea1c4751dc05b44d8",
                 Cost = "1000",
                 CR = "10",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "EyesOfEagle",
-                AssetId = "303e3a1df232b0747b7fde723828fa45",
-                Cost = "2500",
-                CR = "5",
                 IsNotable = "False"
             },
 
@@ -125,15 +163,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "HatOfHandsomenessItem",
-                AssetId = "6438efb4a6214499bf99255aaacfabad",
-                Cost = "4000",
-                CR = "5",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "RedHatOfHandsomenessItem",
                 AssetId = "a214c412c970429698004e6e880139d4",
                 Cost = "4000",
@@ -192,15 +221,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "2010d68d0aa44615ac3f6b6c41bc4ac3",
                 Cost = "6150",
                 CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "IdentifyingGlasses",
-                AssetId = "2140811c26dede24aa00bf7fe6cf3a1d",
-                Cost = "7000",
-                CR = "7",
                 IsNotable = "False"
             },
 
@@ -487,15 +507,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "GogglesOfPureSightItem",
                 AssetId = "76e7576aedf928e409dba7b2da87fc1e",
-                Cost = "20000",
-                CR = "10",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "LensesOfProlonguedGazeItem",
-                AssetId = "335d50d92efde4f4e91747bfe3c06d6e",
                 Cost = "20000",
                 CR = "10",
                 IsNotable = "False"
@@ -813,15 +824,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "6b4daa6b4c3e1e8418ded841fb7469a6",
                 Cost = "50400",
                 CR = "8",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "HeadbandOfBigBrainsItem",
-                AssetId = "0a64791fd9ad3d645aa80149b0144435",
-                Cost = "51000",
-                CR = "13",
                 IsNotable = "False"
             },
 
@@ -1166,16 +1168,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "22",
                 IsNotable = "False"
             },
-
             new ItemData
             {
-                Name = "MephistophelesGogglesItem",
-                AssetId = "fd724c344be64719a700bc0426e64484",
-                Cost = "110000",
-                CR = "10",
+                Name = "ExpertsHatItem",
+                AssetId = "405abbf543c9cc148a6f091bb5e58d14",
+                Cost = "1500",
+                CR = "0",
                 IsNotable = "False"
             },
-
             new ItemData
             {
                 Name = "MephistophelesGogglesItemCorrect",
@@ -1184,7 +1184,38 @@ namespace RandomReinforcementsPerEncounter
                 CR = "19",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DravensHatItem",
+                AssetId = "0160c8eabe704db41b6309af0d26a8e0",
+                Cost = "8000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "HawksEyesItem",
+                AssetId = "6624d096cb193784a906f0fc1c779e04",
+                Cost = "7000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "RedDragonHelmetItem",
+                AssetId = "e6b06daad1ed43cea2eb80f2eb93bfce",
+                Cost = "2000",
+                CR = "9",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "HatOfHearteningSongItem",
+                AssetId = "0f84e6afc9aed26469d3a00da7caa95f",
+                Cost = "1500",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "CommandantsTiaraItem",

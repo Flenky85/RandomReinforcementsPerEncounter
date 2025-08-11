@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_GuardianBattleaxeWeaponItem",
+                AssetId = "defa42ed81cb4bb0ab79acf6b009cd6d",
+                Cost = "23310",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkBattleaxe",

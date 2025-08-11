@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "SaiSilverPlus3",
+                AssetId = "d6a163ab5229413eaec890e06ef3bb00",
+                Cost = "18500",
+                CR = "10",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkSai",
@@ -127,7 +134,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "DruchiteSaiPlus3",
                 AssetId = "39ca434299a64350acd4026b22fd8f57",
-                Cost = "9204",
+                Cost = "25204",
                 CR = "0",
                 IsNotable = "False"
             },

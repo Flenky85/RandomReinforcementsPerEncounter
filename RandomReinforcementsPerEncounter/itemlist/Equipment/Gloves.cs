@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "13",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "PawsOfTheBearGodItem",
+                AssetId = "bb0d85ae76ed46e2bdba1a218e41dc22",
+                Cost = "120000",
+                CR = "17",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "GlovesOfDuelingLesserItem",
@@ -230,16 +237,6 @@ namespace RandomReinforcementsPerEncounter
                 CR = "13",
                 IsNotable = "False"
             },
-
-            new ItemData
-            {
-                Name = "BloodDrenchedGlovesItem",
-                AssetId = "c81d3b4995393f9449448143a4940256",
-                Cost = "30000",
-                CR = "13",
-                IsNotable = "False"
-            },
-
             new ItemData
             {
                 Name = "GlovesOfResourcefulMagusItem",

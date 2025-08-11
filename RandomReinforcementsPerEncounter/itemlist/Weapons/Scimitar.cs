@@ -18,15 +18,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "WildHuntScimitar",
-                AssetId = "67154e0d348b24f4a8d408d2bc4b98ca",
-                Cost = "75",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "MasterworkScimitar",
                 AssetId = "bd5a0998ef4616a45abf591d78c1452e",
                 Cost = "400",

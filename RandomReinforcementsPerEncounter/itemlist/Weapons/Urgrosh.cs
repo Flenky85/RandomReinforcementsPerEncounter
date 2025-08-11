@@ -297,15 +297,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "CertaintyOfDeathSecondItem",
-                AssetId = "1050ae1293421e24f84a0208fdf0d114",
-                Cost = "72000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "StandardDwarvenUrgroshSpeedPlus4",
                 AssetId = "cca4fb8b78201ca469f9fae9ad4cc980",
                 Cost = "98000",

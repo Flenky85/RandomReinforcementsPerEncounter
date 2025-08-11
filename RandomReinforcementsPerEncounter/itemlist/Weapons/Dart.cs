@@ -206,15 +206,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "DartPlus6",
-                AssetId = "139ac56b2ad5a1a4f9b22a6c4f20c29c",
-                Cost = "50000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "NoxiousStalkerItem",
                 AssetId = "4ec14f874b1ff9b46b872e23fcb99a8d",
                 Cost = "62000",

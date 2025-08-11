@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_BonesnatcherScytheWeaponItem",
+                AssetId = "297adaaaaa0d45278e5a2bc1722d89af",
+                Cost = "70000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkScythe",

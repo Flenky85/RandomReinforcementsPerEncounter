@@ -23,7 +23,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "1",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "LifeInfuser",
+                AssetId = "e5d3c2148c854b5ba5d56390f8fcc72c",
+                Cost = "250000",
+                CR = "22",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "DLC5_BreastplateFluff",

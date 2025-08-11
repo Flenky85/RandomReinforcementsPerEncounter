@@ -15,16 +15,22 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
             new ItemData
             {
-                Name = "ElvenFemaleWeaponsmithMasterpieceItem",
-                AssetId = "8455cef74ea13d340949eaefb240ed22",
-                Cost = "75",
+                Name = "CrimsonMoonItem",
+                AssetId = "e77bb8df912b4e98b6587b179d1bcc80",
+                Cost = "75000",
+                CR = "30",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "DLC3_DemonbaneLongswordWeaponItem",
+                AssetId = "4476c31e248c4cd8b2613fb18c72e046",
+                Cost = "8750",
                 CR = "0",
                 IsNotable = "False"
             },
-
             new ItemData
             {
                 Name = "MasterworkLongsword",
@@ -33,12 +39,11 @@ namespace RandomReinforcementsPerEncounter
                 CR = "1",
                 IsNotable = "False"
             },
-
             new ItemData
             {
-                Name = "StandardColdIronLongsword",
-                AssetId = "8a4c5904f60d2d44e8ba026a74bd3e7c",
-                Cost = "400",
+                Name = "DLC3_NahyndrianBladeWeaponItem",
+                AssetId = "47cc4616419b4c87845b82330353236f",
+                Cost = "80000",
                 CR = "0",
                 IsNotable = "False"
             },
@@ -72,13 +77,12 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "MasterworkColdIronLongsword",
-                AssetId = "a11ec024bc460ab43803f3ac8ef374cb",
-                Cost = "800",
-                CR = "1",
+                Name = "DLC3_NahyndrianVorpalBladeWeaponItem",
+                AssetId = "1b4276c9199c4de0bb49a386a08d4f9b",
+                Cost = "523315",
+                CR = "0",
                 IsNotable = "False"
             },
-
             new ItemData
             {
                 Name = "RadianceMasterwork",
@@ -380,7 +384,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "HolyBaneUndeadLongswordPlus5",
                 AssetId = "34fb9e0a9c674bd082d61e1c6404bdb9",
-                Cost = "50000",
+                Cost = "100000",
                 CR = "16",
                 IsNotable = "False"
             },
@@ -524,15 +528,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "HolyElderFlamingLongswordPlus5",
                 AssetId = "87e49cab3a4f435cb0aace377cbb89ea",
-                Cost = "162000",
-                CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanSoullessWeaponItem",
-                AssetId = "3dbadcf7268d4a73b2773830e8c38433",
                 Cost = "162000",
                 CR = "16",
                 IsNotable = "False"

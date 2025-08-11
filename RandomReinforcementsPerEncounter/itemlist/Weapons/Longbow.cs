@@ -8,27 +8,9 @@ namespace RandomReinforcementsPerEncounter
         {
             new ItemData
             {
-                Name = "ElvenMaleWoodmasterMasterpieceItem",
-                AssetId = "e79e330af91160849b412883bc1824c7",
-                Cost = "75",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "StandardLongbow",
                 AssetId = "201f6150321e09048bd59e9b7f558cb0",
                 Cost = "76",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "WildHuntLongbow",
-                AssetId = "fa3f73e69f4849842b8109ce72394aac",
-                Cost = "200",
                 CR = "0",
                 IsNotable = "False"
             },
@@ -75,15 +57,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "fd732e6688007e449964d8c5f2fc659d",
                 Cost = "2075",
                 CR = "4",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "CompositeLongbow_AcidCutscene",
-                AssetId = "9e74203abc754cf4b94d15f23292e781",
-                Cost = "2400",
-                CR = "0",
                 IsNotable = "False"
             },
 
@@ -483,14 +456,6 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "CompositeLongbowPlus6",
-                AssetId = "b315ffd50f3c0be49a762d3dd675ba9b",
-                Cost = "50000",
-                CR = "0",
-                IsNotable = "False"
-            },
 
             new ItemData
             {

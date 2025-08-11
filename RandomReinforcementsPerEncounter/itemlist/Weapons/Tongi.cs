@@ -8,42 +8,6 @@ namespace RandomReinforcementsPerEncounter
         {
             new ItemData
             {
-                Name = "FinneanTongiStage1",
-                AssetId = "9fb029fe013e0664bbcf987889286f57",
-                Cost = "0",
-                CR = "4",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanTongiStage2",
-                AssetId = "b5245267644022a4f8e73ad7f0724dfd",
-                Cost = "0",
-                CR = "10",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanTongiStage3Base",
-                AssetId = "53770ec0c7b859e4ab8ed7146ab252aa",
-                Cost = "0",
-                CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FinneanTongiStage3Lich",
-                AssetId = "743c57bc52dce634db791844a65e8535",
-                Cost = "0",
-                CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "StandardTongi",
                 AssetId = "b47455bac4f039747ad5e4ddc4e981a4",
                 Cost = "20",

@@ -1941,24 +1941,6 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "ZachariusFallenWandItem",
-                AssetId = "622bb73ea55945b6a3d082e73166cc5c",
-                Cost = "0",
-                CR = "1",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "DLC1ZachariusFallenWandItem",
-                AssetId = "8e7cc05f5d8649718a885210067b4349",
-                Cost = "0",
-                CR = "1",
-                IsNotable = "False"
-            },
-
              new ItemData
             {
                 Name = "WandOfMageLight",

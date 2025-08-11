@@ -8,13 +8,60 @@ namespace RandomReinforcementsPerEncounter
         {
             new ItemData
             {
+                Name = "RootsenseBootsItem",
+                AssetId = "76f24c51fc4f437286261b787df3a1bb",
+                Cost = "8000",
+                CR = "7",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "DaredevilBoots",
+                AssetId = "d6354aa44a4745088ec9bef8900e6394",
+                Cost = "2000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "FreeDancersBootsItem",
+                AssetId = "693b9facfda93fe4cac07c3ac7c32d30",
+                Cost = "2000",
+                CR = "16",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BootsOfTheBattleHerald",
+                AssetId = "039c98d84eba4ab58a95cf7ee1d2964a",
+                Cost = "30000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BootsOfTheCatItem",
+                AssetId = "c26c4b72544948318ec71348ab8931c0",
+                Cost = "19000",
+                CR = "11",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
                 Name = "FluffyBootsItem",
                 AssetId = "c5d49a08ecdc41d3a5d29b9c66a8e07a",
                 Cost = "1000",
                 CR = "16",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "BootsOfTheRat_Item",
+                AssetId = "2bf3589bf5104c4789ac7071192cd256",
+                Cost = "8000",
+                CR = "9",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "BootsOfElvenKind",

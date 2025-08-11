@@ -8,13 +8,36 @@ namespace RandomReinforcementsPerEncounter
         {
             new ItemData
             {
+                Name = "GrandOwlOfWisdomItem",
+                AssetId = "d5da6aefbfb22664c84663f9747bcd73",
+                Cost = "7000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BloodyMeatItem",
+                AssetId = "ede78d969190d8844ba0b7b1c3ab5a0e",
+                Cost = "17000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
                 Name = "ManualOfBodilyHealthPlus2",
                 AssetId = "2d4d510a69da09c48893f945ec197210",
                 Cost = "27500",
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "TomeOfPerfection",
+                AssetId = "0574c938014f45cb82d43b90439e380f",
+                Cost = "150000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "ManualOfGainfulExercisePlus2",

@@ -14,7 +14,46 @@ namespace RandomReinforcementsPerEncounter
                 CR = "3",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "StormlordsResolveItem",
+                AssetId = "28c18f4bdd1321e41aa96dad4732336a",
+                Cost = "37000",
+                CR = "24",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BracersOfMightyBoarItem",
+                AssetId = "6c7ca383c299404caa44841fe0aee062",
+                Cost = "40000",
+                CR = "15",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "SwallowtailBracers",
+                AssetId = "3196e3d722594522926b4cb361be5f17",
+                Cost = "50000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "BracersOfSlaughter",
+                AssetId = "5122fe7ea5af45aba48e8f7438f3e05d",
+                Cost = "350000",
+                CR = "24",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "ScorchingBracersWristItem",
+                AssetId = "5390f43c97a241e7a662b69eb33363e4",
+                Cost = "32000",
+                CR = "12",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "PlayersStartingBracersItem",
@@ -23,7 +62,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "9",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "HellfireBracersWristItem",
+                AssetId = "01611c3a767f4716bd0b7f82ced0627e",
+                Cost = "15000",
+                CR = "12",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "BracersOfArcheryLesser",
@@ -215,27 +261,9 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "CharonsTouch",
-                AssetId = "47f01a08b59205c4eac8c33a1fcb6b6a",
-                Cost = "42000",
-                CR = "9",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "BracersOfMindBreakItem",
                 AssetId = "b474319876ac44f46a934d640bbe52a0",
                 Cost = "43000",
-                CR = "9",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "GoldenHallucinationBracersItem",
-                AssetId = "c994ba965699973479c0a7c57549ba86",
-                Cost = "43250",
                 CR = "9",
                 IsNotable = "False"
             },

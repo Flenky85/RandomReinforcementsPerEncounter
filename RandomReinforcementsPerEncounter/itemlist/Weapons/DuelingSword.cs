@@ -15,7 +15,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DuelingSwordWitchersBlade",
+                AssetId = "e4b1641d66894a7282e910e0fe6b2cd9",
+                Cost = "28500",
+                CR = "10",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkDuelingSword",
@@ -49,15 +56,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "66106d59fd4615842af854cc9b7cbea4",
                 Cost = "2020",
                 CR = "4",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "LordProtector",
-                AssetId = "0a5e909be70d3c841b09a2f175a6e3ce",
-                Cost = "7500",
-                CR = "10",
                 IsNotable = "False"
             },
 

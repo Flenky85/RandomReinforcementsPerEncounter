@@ -15,7 +15,38 @@ namespace RandomReinforcementsPerEncounter
                 CR = "3",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "MesmerizingNecklaceItem",
+                AssetId = "d0a0bd80c6c61ba4495abd1191bd4e8a",
+                Cost = "1500",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "SilverTongueAmuletItem",
+                AssetId = "4d4231b4a395bba4b9819dfbb2dc785d",
+                Cost = "1500",
+                CR = "19",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "MedallionOfDemonicDisruption",
+                AssetId = "96c3f59318944afeaaa003197733e02d",
+                Cost = "40000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "QueenOfNightHagHeartstone",
+                AssetId = "8be02221ec8b4b0e8ff4491fc32814f1",
+                Cost = "350000",
+                CR = "30",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "SwarmbaneClaspItem",
@@ -24,7 +55,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "8",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "AmuletOfNatureCalling_Item",
+                AssetId = "1c257c00832d48a6a97340a15cc18d7e",
+                Cost = "20000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "PeriaptOfPlacebosItem",
@@ -119,15 +157,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "AmuletOfBlackenedMirrorItem",
                 AssetId = "31894ce7e7d5a574d9777a99b45ad9de",
-                Cost = "10000",
-                CR = "19",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "HalfOfPairedPendantSecondItem",
-                AssetId = "31647cd793033f6438eeec296a9c8d00",
                 Cost = "10000",
                 CR = "19",
                 IsNotable = "False"
@@ -353,15 +382,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "GlassAmuletOfClarityItem",
                 AssetId = "eed92946d09c54e4b8e8defc9588c18d",
-                Cost = "32000",
-                CR = "19",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "AmuletOfImprovedHealingItem",
-                AssetId = "66778f4d7e7bbc84197309715c98c456",
                 Cost = "32000",
                 CR = "19",
                 IsNotable = "False"

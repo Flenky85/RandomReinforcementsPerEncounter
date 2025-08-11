@@ -23,7 +23,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "1",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "ShortswordSilverAgilePlus2",
+                AssetId = "7fb5bdd4809d4245b62c24e98edb5e1f",
+                Cost = "18000",
+                CR = "10",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "ColdIronMasterworkShortsword",
@@ -64,7 +71,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "NaturesWillShortSwordItem",
                 AssetId = "70f2f09a2dbbb5045be46fe123f2fe0e",
-                Cost = "4300",
+                Cost = "20000",
                 CR = "11",
                 IsNotable = "False"
             },

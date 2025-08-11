@@ -15,7 +15,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC5_MidnightFlailItem",
+                AssetId = "22a21d0f9a8548908a1b1a62161ef051",
+                Cost = "50000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkFlail",
@@ -247,15 +254,6 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "d6ea06ab8deb34549ae1b8072b36f62b",
                 Cost = "50000",
                 CR = "16",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "FlailPlus6",
-                AssetId = "94909e2a52e99b94e962d1cb10d4c842",
-                Cost = "50000",
-                CR = "0",
                 IsNotable = "False"
             },
 

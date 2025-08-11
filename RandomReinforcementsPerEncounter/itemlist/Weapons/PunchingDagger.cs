@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC3_JabstabberPunchdaggerWeaponItem",
+                AssetId = "e8798433c236481d9572cb4908dad988",
+                Cost = "30000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "MasterworkPunchingDagger",

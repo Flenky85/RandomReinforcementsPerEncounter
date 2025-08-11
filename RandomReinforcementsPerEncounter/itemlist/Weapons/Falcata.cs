@@ -252,15 +252,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "FalcataPlus6",
-                AssetId = "83514f1188e2764429faa191be608284",
-                Cost = "50000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "InvigoratingHeartseekerFalcataPlus3Item",
                 AssetId = "fa77ef271c437ee4581cf4ffc4a1ad69",
                 Cost = "50000",

@@ -14,7 +14,22 @@ namespace RandomReinforcementsPerEncounter
                 CR = "5",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "WarKiltOfSarenrae",
+                AssetId = "6af69da499184fe7ae0839105be416be",
+                Cost = "13000",
+                CR = "0",
+                IsNotable = "False"
+            },
+            new ItemData
+            {
+                Name = "GorgonBelt",
+                AssetId = "a2206ab9a731411dbe5055ab48175a22",
+                Cost = "30000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "BeltOfDexterity2",
@@ -23,7 +38,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "5",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "BeltOfPrimalForceItem",
+                AssetId = "20d22f879231490ab351c63568697191",
+                Cost = "180000",
+                CR = "19",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "BeltOfLesserColdResistanceItem",
@@ -32,7 +54,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "HeartOfIce_Item",
+                AssetId = "a113c68406d74e37951717e417840bfa",
+                Cost = "24000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "BeltOfStrength2",

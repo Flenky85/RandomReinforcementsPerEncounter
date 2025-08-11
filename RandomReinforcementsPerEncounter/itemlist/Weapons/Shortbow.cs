@@ -294,14 +294,6 @@ namespace RandomReinforcementsPerEncounter
                 IsNotable = "False"
             },
 
-            new ItemData
-            {
-                Name = "CompositeShortbowPlus6",
-                AssetId = "0d4a1a256b7f7d4489f8c4fded7f9cb3",
-                Cost = "50000",
-                CR = "0",
-                IsNotable = "False"
-            },
 
             new ItemData
             {

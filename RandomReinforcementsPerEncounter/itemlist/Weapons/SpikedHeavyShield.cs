@@ -82,16 +82,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "BleedSpikedHeavyShieldPlus5",
                 AssetId = "33cb974f254759849a90e7b081dccab1",
-                Cost = "8300",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "SpikedHeavyShieldViciousPlus2",
-                AssetId = "4d26bb6db654e624ca499382ddf525ed",
-                Cost = "18500",
+                Cost = "80000",
                 CR = "0",
                 IsNotable = "False"
             },
@@ -100,7 +91,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "SpikedHeavyShieldHolyPlus3",
                 AssetId = "5de129db16c218f4391d03ff63dd4b3b",
-                Cost = "18500",
+                Cost = "40500",
                 CR = "0",
                 IsNotable = "False"
             },

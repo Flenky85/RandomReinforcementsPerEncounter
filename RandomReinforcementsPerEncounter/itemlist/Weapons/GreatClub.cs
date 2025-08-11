@@ -89,15 +89,6 @@ namespace RandomReinforcementsPerEncounter
 
             new ItemData
             {
-                Name = "HugeGreatclubPlus2",
-                AssetId = "329c02a1ece0fe8459e846852eb21182",
-                Cost = "8300",
-                CR = "7",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
                 Name = "GreatclubFlamingPlus1",
                 AssetId = "897682a798d52e441aa88161e6d02d25",
                 Cost = "8300",

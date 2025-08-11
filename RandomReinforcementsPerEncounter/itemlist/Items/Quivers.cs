@@ -14,7 +14,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "0",
                 IsNotable = "False"
             },
-
+            new ItemData
+            {
+                Name = "DLC5_DruchiteArrowsQuiverItem",
+                AssetId = "9b2b2a852fe84c56b0d26e2535151917",
+                Cost = "5000",
+                CR = "0",
+                IsNotable = "False"
+            },
             new ItemData
             {
                 Name = "ColdIronArrowsQuiverItem",
@@ -100,42 +107,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 Name = "UltrasoundArrowsQuiverItem",
                 AssetId = "110bf851d5d2f354986f44b48fa2e7f8",
-                Cost = "14000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BaneAnimalQuiverItem",
-                AssetId = "aa1803c4ebf8791469cdc6b5f1778b16",
-                Cost = "14000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BaneOutsiderChaoticArrowsQuiverItem",
-                AssetId = "1866ea9baea5d3745a87448efe7a54e0",
-                Cost = "14000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BaneOutsiderEvilArrowsQuiverItem",
-                AssetId = "2e627aa086dd34d43ab3a98c46c87082",
-                Cost = "14000",
-                CR = "0",
-                IsNotable = "False"
-            },
-
-            new ItemData
-            {
-                Name = "BaneUndeadArrowsQuiverItem",
-                AssetId = "0a0ea676fea89d4428e1c7e45402c2f1",
                 Cost = "14000",
                 CR = "0",
                 IsNotable = "False"
