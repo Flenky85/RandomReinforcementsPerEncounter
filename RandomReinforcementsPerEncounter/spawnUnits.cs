@@ -2,11 +2,14 @@
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
+using Kingmaker.PubSubSystem;
 using Kingmaker.UnitLogic;
 using System.Collections.Generic;
 using System.Linq;
 using TurnBased.Controllers;
 using UnityEngine;
+using System.Threading.Tasks;
+
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -18,11 +21,12 @@ namespace RandomReinforcementsPerEncounter
     {
         public static void Postfix()
         {
-            if (CombatFlags.ReinforcementsSpawned)
-            {
-                return;
-            }
-
+            Run();
+        }
+        public static void Run()
+        {
+            if (CombatFlags.ReinforcementsSpawned) return;
+            
             CombatFlags.ReinforcementsSpawned = true;
 
             var playerUnits = Game.Instance.State.Units
@@ -60,6 +64,51 @@ namespace RandomReinforcementsPerEncounter
             ReinforcementState.TrySpawnPendingReinforcements();
         }
 
+    }
+
+    /// <summary>
+    /// Handler that detects combat start and end, also in real-time mode.
+    /// EXPERIMENTAL: Works in testing, but may require adjustments if edge cases appear with units joining/leaving combat.
+    /// </summary>
+    public sealed class MainJoinCombatHandler : IUnitCombatHandler, IGlobalSubscriber
+    {
+        public static void Init()
+        {
+            EventBus.Subscribe(new MainJoinCombatHandler());
+        }
+
+        public async void HandleUnitJoinCombat(UnitEntityData unit)
+        {
+            if (Game.Instance?.Player?.IsTurnBasedModeOn() == true)
+            {
+                UnityEngine.Debug.Log("Skip spawn: TB combat is active");
+                return;
+            }
+
+            var mainRef = Game.Instance?.Player?.MainCharacter;
+            var main = mainRef != null ? mainRef.Value : null;
+            if (unit == null || main == null) return;
+
+            if (unit == main)
+            {
+                await Task.Delay(500);
+                Patch_CombatStart.Run();
+            }
+        }
+
+        public void HandleUnitLeaveCombat(UnitEntityData unit)
+        {
+            if (Game.Instance?.Player?.IsTurnBasedModeOn() == true)
+            {
+                UnityEngine.Debug.Log("Skip chest: TB combat is active");
+                return;
+            }
+
+            bool anyInCombat = Game.Instance.State.Units.Any(u => u != null && u.IsInCombat);
+            if (anyInCombat) return;
+            ChestSpawn.SpawnLootChest("1ccbdc2361534a8d99e4043b8b345e72", LootContext.ChestPosition.Value);
+            CombatFlags.ReinforcementsSpawned = false;
+        }
     }
 
     public static class ReinforcementState

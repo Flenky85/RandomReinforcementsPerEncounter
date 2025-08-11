@@ -18,7 +18,7 @@ namespace RandomReinforcementsPerEncounter
             Initialized = true;
 
             new CloneDeathWatcher();
-            
+            MainJoinCombatHandler.Init();
         }
     }
 }
