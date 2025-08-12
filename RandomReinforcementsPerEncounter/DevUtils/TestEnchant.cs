@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter
 {
-    public static class EnchantMaker
+    public static class EnchantMakerold
     {
         public static BlueprintWeaponEnchantment CloneCorrosive1d8()
         {

@@ -80,12 +80,12 @@ namespace RandomReinforcementsPerEncounter
             /*var enchCorro1d8 = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(
                 GuidUtil.FromString("corrosive.1d8")
             );*/
-            var clone = EnchantMaker.CloneCorrosive1d8();
+            /*var clone = EnchantMaker.CloneCorrosive1d8();
             var cache = (BlueprintsCache)AccessTools
                 .Property(typeof(BlueprintsCache), "Instance")
                 .GetValue(null);
             cache.AddCachedBlueprint(clone.AssetGuid, clone);
-            Debug.Log("[RRE] Clonado corrosive 1d6 -> corrosive.1d8: " + clone.AssetGuid);
+            Debug.Log("[RRE] Clonado corrosive 1d6 -> corrosive.1d8: " + clone.AssetGuid);*/
 
             if (shortswordBp != null && enchBp != null)
             {

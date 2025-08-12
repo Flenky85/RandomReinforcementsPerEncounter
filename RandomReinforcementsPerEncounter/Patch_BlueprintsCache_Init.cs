@@ -27,30 +27,19 @@ namespace RandomReinforcementsPerEncounter
         {
             private System.Collections.IEnumerator Start()
             {
-                yield return null;
+                yield return null; // esperar a que termine Init
 
                 try
                 {
-                    var cache = (BlueprintsCache)AccessTools
-                        .Property(typeof(BlueprintsCache), "Instance")
-                        .GetValue(null);
-
-                    var clone = EnchantMaker.CloneCorrosive1d8_Safe();
-                    if (clone == null)
-                    {
-                        Debug.LogError("[RRE] Clone es null.");
-                        yield break;
-                    }
-
-                    cache.AddCachedBlueprint(clone.AssetGuid, clone);
-                    Debug.Log("[RRE] OK: clon corrosive registrado: " + clone.AssetGuid);
+                    EnchantMaker.RegisterCorrosiveAcidTiers();
+                    Debug.Log("[RRE] Corrosive tiers init done.");
                 }
-                catch (Exception ex)
+                catch (System.Exception ex)
                 {
-                    Debug.LogError("[RRE] EX al registrar clon: " + ex);
+                    Debug.LogError("[RRE] Error registering corrosive tiers: " + ex);
                 }
 
-                Destroy(gameObject);
+                Destroy(gameObject); // limpiar
             }
         }
     }
