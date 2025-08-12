@@ -5,7 +5,7 @@ using UnityEngine;
 
 //Testear si esta cargada y aplicar
 //RandomReinforcementsPerEncounter.TestingTools.CheckEnchantmentInCache("flaming.t6");
-//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("frost.t3");
+//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("frost.t4");
 
 
 namespace RandomReinforcementsPerEncounter

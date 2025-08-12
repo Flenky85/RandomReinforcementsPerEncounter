@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
-using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Enums.Damage;
+using Kingmaker.Localization;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using UnityEngine;
@@ -12,7 +12,7 @@ namespace RandomReinforcementsPerEncounter
 {
     public static class EnchantMaker
     {
-        // Llama a esto en el runner
+        // Llama a esto en el runner/init
         public static void RegisterElementalTiers()
         {
             // Corrosive – base vanilla: 1d6 acid
@@ -25,7 +25,7 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "corrosive.t5",//                        //
                 seedRoot6: "corrosive.t6",////////////////////////////
                 nameRoot: "Corrosive",
-                energyWord: "acid damage"
+                energyDamage: "acid damage"
             );
 
             // Flaming – base vanilla: 1d6 fire
@@ -38,7 +38,7 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "flaming.t5",//                        //
                 seedRoot6: "flaming.t6",////////////////////////////
                 nameRoot: "Flaming",
-                energyWord: "fire damage"
+                energyDamage: "fire damage"
             );
 
             // Frost – base vanilla: 1d6 cold
@@ -51,7 +51,7 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "frost.t5",//                        //
                 seedRoot6: "frost.t6",////////////////////////////
                 nameRoot: "Frost",
-                energyWord: "cold damage"
+                energyDamage: "cold damage"
             );
 
             // Shock – base vanilla: 1d6 electricity
@@ -64,12 +64,12 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "shock.t5",//                        //
                 seedRoot6: "shock.t6",////////////////////////////
                 nameRoot: "Shock",
-                energyWord: "electricity damage"
+                energyDamage: "electricity damage"
             );
 
             // Thundering – base vanilla: 1d6 sonic
             RegisterTiersFor(
-                baseGuid: "7bda5277d36ad114f9f9fd21d0dab658",
+                baseGuid: "690e762f7704e1f4aa1ac69ef0ce6a96",
                 seedRoot1: "thundering.t1",////////////////////////////
                 seedRoot2: "thundering.t2",//                        //
                 seedRoot3: "thundering.t3",//       Dont Touch       //
@@ -77,10 +77,10 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "thundering.t5",//                        //
                 seedRoot6: "thundering.t6",////////////////////////////
                 nameRoot: "Thundering",
-                energyWord: "sonic damage"
+                energyDamage: "sonic damage"
             );
 
-            // Greater Necrotic – base vanilla: 2d6 negative energy damage
+            // Necrotic – base vanilla: 2d6 negative (greater)
             RegisterTiersFor(
                 baseGuid: "c2229230ff9292048b07a8429d6536c6",
                 seedRoot1: "necrotic.t1",////////////////////////////
@@ -90,10 +90,10 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "necrotic.t5",//                        //
                 seedRoot6: "necrotic.t6",////////////////////////////
                 nameRoot: "Necrotic",
-                energyWord: "negative energy damage"
+                energyDamage: "negative energy damage"
             );
 
-            // LightHammerOfRighteousnessEnchantment – base vanilla: 1 holy
+            // Holy (LightHammerOfRighteousnessEnchantment) – base vanilla: 1 holy
             RegisterTiersFor(
                 baseGuid: "dd78f3841a990c44cb8e8f9c4f615879",
                 seedRoot1: "holy.t1",////////////////////////////
@@ -103,38 +103,37 @@ namespace RandomReinforcementsPerEncounter
                 seedRoot5: "holy.t5",//                        //
                 seedRoot6: "holy.t6",////////////////////////////
                 nameRoot: "Holy",
-                energyWord: "holy damage"
+                energyDamage: "holy damage"
             );
 
         }
 
         private static void RegisterTiersFor(
             string baseGuid,
-            string seedRoot1,
-            string seedRoot2,
-            string seedRoot3,
-            string seedRoot4,
-            string seedRoot5,
-            string seedRoot6,
+            string seedRoot1, string seedRoot2, string seedRoot3,
+            string seedRoot4, string seedRoot5, string seedRoot6,
             string nameRoot,
-            string energyWord
-        )
+            string energyDamage)
         {
             var baseBp = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(baseGuid);
             if (baseBp == null) { Debug.LogError("[RRE] Base not found: " + nameRoot); return; }
 
             var tiers = new (string name, string seed, DiceFormula dice, string diceText)[]
             {
-                ($"{nameRoot} 1", $"{seedRoot1}", new DiceFormula(1, DiceType.D3),  "1d3"),
-                ($"{nameRoot} 2", $"{seedRoot2}", new DiceFormula(1, DiceType.D6),  "1d6"),
-                ($"{nameRoot} 3", $"{seedRoot3}", new DiceFormula(1, DiceType.D10), "1d10"),
-                ($"{nameRoot} 4", $"{seedRoot4}", new DiceFormula(2, DiceType.D6),  "2d6"),
-                ($"{nameRoot} 5", $"{seedRoot5}", new DiceFormula(2, DiceType.D8),  "2d8"),
-                ($"{nameRoot} 6", $"{seedRoot6}", new DiceFormula(2, DiceType.D10), "2d10"),
+                ($"{nameRoot} 1", seedRoot1, new DiceFormula(1, DiceType.D3),  "1d3"),
+                ($"{nameRoot} 2", seedRoot2, new DiceFormula(1, DiceType.D6),  "1d6"),
+                ($"{nameRoot} 3", seedRoot3, new DiceFormula(1, DiceType.D10), "1d10"),
+                ($"{nameRoot} 4", seedRoot4, new DiceFormula(2, DiceType.D6),  "2d6"),
+                ($"{nameRoot} 5", seedRoot5, new DiceFormula(2, DiceType.D8),  "2d8"),
+                ($"{nameRoot} 6", seedRoot6, new DiceFormula(2, DiceType.D10), "2d10"),
             };
 
             for (int i = 0; i < tiers.Length; i++)
-                MakeAndRegisterTier(baseBp, tiers[i].name, tiers[i].seed, tiers[i].dice, tiers[i].diceText, nameRoot, energyWord);
+            {
+                var (tName, tSeed, tDice, tText) = tiers[i];
+                try { MakeAndRegisterTier(baseBp, tName, tSeed, tDice, tText, nameRoot, energyDamage); }
+                catch (System.Exception ex) { Debug.LogError($"[RRE] Failed to register tier '{tName}' seed='{tSeed}': {ex}"); }
+            }
         }
 
         private static void MakeAndRegisterTier(
@@ -144,25 +143,25 @@ namespace RandomReinforcementsPerEncounter
             DiceFormula dice,
             string diceText,
             string prefix,
-            string energyWord
-        )
+            string energyDamage)
         {
             var gid = GuidUtil.FromString(guidSeed);
             var gidStr = gid.ToString();
 
-            // Evita duplicados (idempotente)
-            var already = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
-            if (already != null) { Debug.Log("[RRE] already present: " + name); return; }
+            if (ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr) != null)
+            {
+                Debug.Log("[RRE] already present: " + name);
+                return;
+            }
 
-            // Shallow clone del blueprint base (conserva FX/prefab/elemento)
+            // clone (shallow)
             var mwc = typeof(object).GetMethod("MemberwiseClone", BindingFlags.Instance | BindingFlags.NonPublic);
             var bp = (BlueprintWeaponEnchantment)mwc.Invoke(baseBp, null);
-            bp.name = "MOD_" + name.Replace(' ', '_'); // nombre Unity único
+            bp.name = "RRE_" + name.Replace(' ', '_');
 
-            // (opcional) alinear AssetGuid interno
             TrySetGuidDeep(bp, gid);
 
-            // Clonar componentes y ajustar WeaponEnergyDamageDice (solo los dados)
+            // copy components & tweak dice (mantiene el tipo de energía del base)
             var compsBase = baseBp.ComponentsArray;
             if (compsBase != null)
             {
@@ -170,39 +169,103 @@ namespace RandomReinforcementsPerEncounter
                 for (int i = 0; i < compsBase.Length; i++)
                 {
                     var c = compsBase[i];
-                    if (c == null) { compsNew[i] = null; continue; }
-
-                    var cClone = (BlueprintComponent)mwc.Invoke(c, null);
-
-                    var we = cClone as WeaponEnergyDamageDice;
-                    if (we != null)
-                    {
-                        // No tocamos el tipo de energía: lo hereda del base (ácido/fuego)
-                        we.EnergyDamageDice = dice;
-                    }
-
-                    // OwnerBlueprint si existe
-                    var fiOwner = cClone.GetType().GetField("OwnerBlueprint", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                    var cClone = c == null ? null : (BlueprintComponent)mwc.Invoke(c, null);
+                    if (cClone is WeaponEnergyDamageDice we) we.EnergyDamageDice = dice;
+                    var fiOwner = cClone?.GetType().GetField("OwnerBlueprint", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                     if (fiOwner != null) { try { fiOwner.SetValue(cClone, bp); } catch { } }
-
                     compsNew[i] = cClone;
                 }
                 bp.ComponentsArray = compsNew;
             }
 
-            // Textos
-            SetStr(bp, "Name", name);
-            SetStr(bp, "Description",
-                $"This weapon deals an extra <b><color=#703565><link=\"Encyclopedia:Dice\">{diceText}</link></color></b> points of <b><color=#703565><link=\"Encyclopedia:Energy_Damage\">{energyWord}</link></color></b> on a successful hit.");
-            SetStr(bp, "Prefix", prefix);
-            SetStr(bp, "Suffix", "");
+            // descripción uniforme con tu plantilla
+            var diceTextUniform = DiceToText(dice);
+            var newDesc = BuildUniformDescription(diceTextUniform, energyDamage);
 
-            // Registro correcto en la caché global
+            // LocalizedStrings: claves únicas por GUID y SIEMPRE instancia nueva (no compartida)
+            SetEnchantTextViaPack(bp, gidStr, name, prefix, "", newDesc);
+
+            // refresh & register
+            try
+            {
+                var onEnable = typeof(BlueprintScriptableObject).GetMethod("OnEnable", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                onEnable?.Invoke(bp, null);
+            }
+            catch { }
+
             ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(gid, bp);
-            Debug.Log("[RRE] registered: " + name + " → " + gidStr);
+            var test = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
         }
 
-        // ==== helpers ====
+        // ===== helpers =====
+
+        private static string BuildUniformDescription(string diceText, string energyWord)
+        {
+            // Tu formato exacto
+            return $"This weapon deals an extra <b><color=#703565><link=\"Encyclopedia:Dice\">{diceText}</link></color></b> points of <b><color=#703565><link=\"Encyclopedia:Energy_Damage\">{energyWord}</link></color></b> on a successful hit.";
+        }
+
+        private static string DiceToText(DiceFormula d)
+        {
+            var s = d.ToString();
+            if (!string.IsNullOrEmpty(s)) return s;
+
+            // Fallback defensivo por si cambia la impl
+            try
+            {
+                var t = d.GetType();
+                var rolls = (int)(t.GetField("m_Rolls", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)?.GetValue(d) ?? 1);
+                var dice = t.GetField("m_Dice", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)?.GetValue(d);
+                var dieS = dice?.ToString()?.TrimStart('D') ?? "6";
+                return $"{rolls}d{dieS}";
+            }
+            catch { return "1d6"; }
+        }
+
+        // Escribe en el pack y fija Key/Shared/ShouldProcess en LocalizedString (nuevas instancias)
+        private static void SetEnchantTextViaPack(BlueprintWeaponEnchantment bp, string gidStr, string name, string prefix, string suffix, string desc)
+        {
+            if (LocalizationManager.CurrentPack == null)
+                LocalizationManager.WaitForInit();
+
+            PutAndPointLS(bp, "m_EnchantName", $"rre.{gidStr}.name", name);
+            PutAndPointLS(bp, "m_Prefix", $"rre.{gidStr}.pref", prefix ?? "");
+            PutAndPointLS(bp, "m_Suffix", $"rre.{gidStr}.suff", suffix ?? "");
+            PutAndPointLS(bp, "m_Description", $"rre.{gidStr}.desc", desc ?? "");
+        }
+
+        private static void PutAndPointLS(object owner, string fieldName, string key, string text)
+        {
+            LocalizationManager.CurrentPack?.PutString(key, text ?? "");
+
+            var field = GetFieldDeep(owner.GetType(), fieldName);
+            if (field == null) return;
+
+            var lsType = field.FieldType; // Kingmaker.Localization.LocalizedString
+            var newLs = System.Activator.CreateInstance(lsType);
+
+            var keyProp = lsType.GetProperty("Key", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var procProp = lsType.GetProperty("ShouldProcess", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            var sharedFi = lsType.GetField("Shared", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+
+            try { keyProp?.SetValue(newLs, key, null); } catch { }
+            try { procProp?.SetValue(newLs, true, null); } catch { }
+            try { sharedFi?.SetValue(newLs, null); } catch { }
+
+            field.SetValue(owner, newLs);
+        }
+
+        private static FieldInfo GetFieldDeep(System.Type t, string name)
+        {
+            while (t != null)
+            {
+                var fi = t.GetField(name, BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                if (fi != null) return fi;
+                t = t.BaseType;
+            }
+            return null;
+        }
+
         private static bool TrySetGuidDeep(object obj, BlueprintGuid value)
         {
             var t = obj.GetType();
@@ -217,18 +280,6 @@ namespace RandomReinforcementsPerEncounter
                 t = t.BaseType;
             }
             return false;
-        }
-
-        private static void SetStr(object obj, string member, string val)
-        {
-            if (val == null) val = "";
-            var t = obj.GetType();
-            var pi = t.GetProperty(member, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (pi != null && pi.CanWrite && pi.PropertyType == typeof(string)) { try { pi.SetValue(obj, val, null); return; } catch { } }
-            var fi = t.GetField(member, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (fi != null && fi.FieldType == typeof(string)) { try { fi.SetValue(obj, val); return; } catch { } }
-            var fi2 = t.GetField("m_" + member, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-            if (fi2 != null && fi2.FieldType == typeof(string)) { try { fi2.SetValue(obj, val); return; } catch { } }
         }
     }
 }
