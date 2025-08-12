@@ -4,8 +4,8 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using UnityEngine;
 
 //Testear si esta cargada y aplicar
-//RandomReinforcementsPerEncounter.TestingTools.CheckEnchantmentInCache("corrosive.t3");
-//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("corrosive.t3");
+//RandomReinforcementsPerEncounter.TestingTools.CheckEnchantmentInCache("flaming.t6");
+//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("frost.t3");
 
 
 namespace RandomReinforcementsPerEncounter

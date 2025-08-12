@@ -31,7 +31,7 @@ namespace RandomReinforcementsPerEncounter
 
                 try
                 {
-                    EnchantMaker.RegisterCorrosiveAcidTiers();
+                    EnchantMaker.RegisterElementalTiers();
                     Debug.Log("[RRE] Corrosive tiers init done.");
                 }
                 catch (System.Exception ex)
