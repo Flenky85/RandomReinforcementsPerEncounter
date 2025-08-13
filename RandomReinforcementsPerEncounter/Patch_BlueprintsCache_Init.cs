@@ -32,11 +32,13 @@ namespace RandomReinforcementsPerEncounter
                 try
                 {
                     EnchantMaker.RegisterElementalTiers();
-                    Debug.Log("[RRE] Corrosive tiers init done.");
+                    //EnchantMaker.RegisterDebuffTiers(); 
+                    ShakenT1Enchant.Register();
+                    Debug.Log("[RRE] Enhchants tiers init done.");
                 }
                 catch (System.Exception ex)
                 {
-                    Debug.LogError("[RRE] Error registering corrosive tiers: " + ex);
+                    Debug.LogError("[RRE] Error registering enhchants tiers: " + ex);
                 }
 
                 Destroy(gameObject); // limpiar

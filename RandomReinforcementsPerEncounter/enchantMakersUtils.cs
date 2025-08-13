@@ -5,6 +5,10 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using System;
 using System.Reflection;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.ElementsSystem;           // ActionList, GameAction (por si luego lo usas)
+using System.Collections.Generic;         // List<>
+using Newtonsoft.Json;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -19,6 +23,22 @@ namespace RandomReinforcementsPerEncounter
             bp.name = "RRE_" + name.Replace(' ', '_');
             TrySetGuidDeep(bp, gid);
             return bp;
+        }
+
+        private static void TryClearField(object obj, string fieldName)
+        {
+            var fi = obj.GetType().GetField(fieldName, BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+            if (fi != null)
+            {
+                try
+                {
+                    var ft = fi.FieldType;
+                    object val = null;
+                    if (ft.IsArray) val = Array.CreateInstance(ft.GetElementType(), 0);
+                    fi.SetValue(obj, val);
+                }
+                catch { /* ignore */ }
+            }
         }
 
         // Copia componentes y re-asigna Owner; permite mutarlos con un delegado
@@ -153,6 +173,54 @@ namespace RandomReinforcementsPerEncounter
                 return rolls.ToString() + "d" + dieS;
             }
             catch { return "1d6"; }
+        }
+        public static BlueprintBuff MakeBuffCloneWithGuid(BlueprintBuff baseBp, string name, BlueprintGuid gid)
+        {
+            var bp = ShallowClone(baseBp);
+
+            bp.name = "RRE_" + name.Replace(' ', '_');
+            bp.ComponentsArray = Array.Empty<BlueprintComponent>();
+
+            TryClearField(bp, "PrototypeLink");
+            TryClearField(bp, "m_Overrides");
+
+            TrySetGuidDeep(bp, gid);
+            return bp;
+        }
+
+        public static void CopyBuffComponentsWithOwnerRemap(
+            BlueprintBuff from,
+            BlueprintBuff to,
+            Func<BlueprintComponent, BlueprintComponent> mutator = null)
+        {
+            var compsBase = from.ComponentsArray;
+            if (compsBase == null) { to.ComponentsArray = null; return; }
+
+            var compsNew = new BlueprintComponent[compsBase.Length];
+            for (int i = 0; i < compsBase.Length; i++)
+            {
+                var cClone = ShallowClone(compsBase[i]);
+                if (mutator != null) cClone = mutator(cClone);
+
+                var fiOwner = cClone?.GetType().GetField("OwnerBlueprint", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+                if (fiOwner != null) { try { fiOwner.SetValue(cClone, to); } catch { } }
+
+                compsNew[i] = cClone;
+            }
+            to.ComponentsArray = compsNew;
+        }
+
+        public static void RegisterBuff(BlueprintBuff bp, BlueprintGuid gid)
+        {
+            try
+            {
+                var onEnable = typeof(BlueprintScriptableObject)
+                    .GetMethod("OnEnable", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+                onEnable?.Invoke(bp, null);
+            }
+            catch { }
+
+            ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(gid, bp);
         }
     }
 }
