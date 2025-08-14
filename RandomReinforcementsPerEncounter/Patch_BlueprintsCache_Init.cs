@@ -33,7 +33,7 @@ namespace RandomReinforcementsPerEncounter
                 {
                     EnchantMaker.RegisterElementalTiers();
                     //EnchantMaker.RegisterDebuffTiers(); 
-                    ShakenT1Enchant.Register();
+                    EnchantRegister.RegisterAll();
                     Debug.Log("[RRE] Enhchants tiers init done.");
                 }
                 catch (System.Exception ex)

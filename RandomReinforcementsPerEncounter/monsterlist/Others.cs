@@ -187,6 +187,14 @@ namespace RandomReinforcementsPerEncounter
                 CR = "7",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
+
+            new MonsterData
+            {
+                AssetId = "31894935e6b3ed242a513336f092216b",  // IvoryLabyrinthMinotaur (Kingmaker.Localization.SharedStringAsset)
+                Levels = "25",
+                CR = "25",
+                Faction = "0f539babafb47fe4586b719d02aff7c4" //Este resucita y hace que haya oleadas infinitas.
+            },
         };
     }
 }
