@@ -18,11 +18,13 @@ namespace RandomReinforcementsPerEncounter
         public static void RegisterDebuffTiersFor(
             List<DebuffTierConfig> tiers,
             string nameRoot,
-            string buff, // BlueprintGuid del Buff (string)
+            string buff, 
             int durationDiceCount, 
             int durationDiceSides, 
             int savingThrowType,
-            int activationType
+            int activationType,
+            string description,   
+            string condition     
             )
         {
   
@@ -47,7 +49,8 @@ namespace RandomReinforcementsPerEncounter
                     BuildDescription(
                         saveType,
                         tierConfig.DC,
-                        nameRoot,            // "Shaken"
+                        description,
+                        condition,
                         durationDiceCount,
                         durationDiceSides,
                         onlyOnFirstHit
@@ -144,7 +147,9 @@ namespace RandomReinforcementsPerEncounter
 
         private static string BuildDescription(
             SavingThrowType saveType, int dc,
-            string conditionNameTitleCase, int durationCount, int durationSides,
+            string conditionText,       // "blinded"  (Visible word)
+            string conditionLinkKey,    // "Blind"    (Encyclopedia)
+            int durationCount, int durationSides,
             bool onlyOnFirstHit)
         {
             string intro = onlyOnFirstHit
@@ -156,13 +161,10 @@ namespace RandomReinforcementsPerEncounter
             bool isExactlyOneRound = durationSides == 1 && durationCount == 1;
             string roundText = isExactlyOneRound ? "round" : "rounds";
 
-            string condLinkId = $"Condition{conditionNameTitleCase}";
-            string condText = conditionNameTitleCase.ToLowerInvariant();
-
-            // Usa {g|...}...{/g} en lugar de <link=...>...</link>
+            // Enlaces
             string saveChunk = $"{{g|{LINK_SAVE}}}{saveName} saving throw{{/g}}";
             string dcChunk = $"({{g|{LINK_DC}}}DC{{/g}} {dc})";
-            string condChunk = $"{{g|{condLinkId}}}{condText}{{/g}}";
+            string condChunk = $"{{g|Encyclopedia:Condition{conditionLinkKey}}}{conditionText}{{/g}}";
             string diceChunk = $"{{g|{LINK_DICE}}}{diceText}{{/g}}";
             string roundChunk = $"{{g|{LINK_ROUND}}}{roundText}{{/g}}";
 
