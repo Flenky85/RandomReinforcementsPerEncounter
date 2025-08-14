@@ -1,10 +1,15 @@
 ﻿using BlueprintCore.Actions.Builder;
 using BlueprintCore.Actions.Builder.ContextEx;    // ApplyBuff, ContextDuration
 using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
+using BlueprintCore.Blueprints.CustomConfigurators;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Utils;                       // LocalizationTool, BlueprintTool
 using BlueprintCore.Utils.Types;                 // ContextValues
 using Kingmaker.Blueprints;                      // BlueprintGuid
 using Kingmaker.EntitySystem.Stats;              // SavingThrowType
+using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
+using Kingmaker.Localization;
 using Kingmaker.RuleSystem;                      // DiceType
 using Kingmaker.UnitLogic.Buffs.Blueprints;      // BlueprintBuffReference
 using Kingmaker.UnitLogic.Mechanics.Actions;     // ContextActionSavingThrow, ContextActionConditionalSaved
@@ -39,11 +44,12 @@ namespace RandomReinforcementsPerEncounter
             {
                 var tierConfig = tiers[i];
                 var guid = GuidUtil.FromString(tierConfig.Seed);
-                var nameKey = $"RRE.{nameRoot}.T{i + 1}.Name";
-                var descKey = $"RRE.{nameRoot}.T{i + 1}.Desc";
-                var bpName = $"RRE_{nameRoot}_T{i + 1}_Enchant";
-
-                var locName = LocalizationTool.CreateString(nameKey, $"{nameRoot} (T{i + 1})");
+                var keys = BuildKeys(nameRoot, i + 1);
+                var nameKey = keys.nameKey;
+                var descKey = keys.descKey;
+                var bpName = keys.bpName;
+                
+                var locName = keys.locName;
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
                     BuildDescription(
@@ -107,10 +113,101 @@ namespace RandomReinforcementsPerEncounter
             }
         }
 
+        public static void RegisterDamageTiersFor(
+                    List<DebuffTierConfig> tiers,
+                    string nameRoot,          // ej: "Flaming"
+                    string description,       // ej: "fire"
+                    string prefab             // ej: "91e5a56dd421a2941984a36a2af164b6"
+                )
+        {
+            var energy = MapEnergyType(description);
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                var t = tiers[i];
+
+                // Validación rápida
+                var rolls = t.DiceCount <= 0 ? 1 : t.DiceCount;
+                var diceT = MapDiceType(t.DiceSide <= 0 ? 6 : t.DiceSide);
+
+                var guid = GuidUtil.FromString(t.Seed);
+                var keys = BuildKeys(nameRoot, i + 1);
+                var nameKey = keys.nameKey;
+                var descKey = keys.descKey;
+                var bpName = keys.bpName;
+
+                var locName = keys.locName;
+                var locDesc = LocalizationTool.CreateString(
+                    descKey,
+                    BuildEnergyDescription(rolls, t.DiceSide <= 0 ? 6 : t.DiceSide, description)
+                );
+
+                // Crear el enchant
+                var cfg = WeaponEnchantmentConfigurator
+                    .New(bpName, guid.ToString())
+                    .SetEnchantName(locName)
+                    .SetDescription(locDesc);
+
+                // (Opcional) FX de arma si nos pasas el guid
+                if (!string.IsNullOrEmpty(prefab))
+                {
+                    // Nota: Si tu versión de BlueprintCore usa otra firma para el prefab,
+                    // cambia esta línea por la equivalente que uses en tu proyecto.
+                    cfg = cfg.SetWeaponFxPrefab(prefab);
+                }
+
+                // Añadir el componente de daño de energía
+                cfg.AddWeaponEnergyDamageDice(
+                        element: energy,
+                        energyDamageDice: new DiceFormula(rolls, diceT)
+                    )
+                   .Configure();
+            }
+        }
+
+        public static void RegisterWeaponStatsTiersFor(
+            List<DebuffTierConfig> tiers,
+            string nameRoot,                 // p.ej. "Strength"
+            StatType stat,                   // p.ej. StatType.Strength
+            string description                  // p.ej. "Strength" (texto visible)
+        )
+        {
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                var t = tiers[i];
+                int plus = t.Bonus <= 0 ? 1 : t.Bonus;
+
+                var enchGuid = GuidUtil.FromString(t.Seed);
+                var keys = BuildKeys(nameRoot, i + 1);
+                var bpName = keys.bpName;
+                var locName = keys.locName;
+                var descKey = keys.descKey;
+
+                // Usa tu descripción existente (bonus + enlace a stat)
+                var locDesc = LocalizationTool.CreateString(
+                    descKey,
+                    BuildEnhancementDescription(plus, nameRoot, description)
+                );
+
+                WeaponEnchantmentConfigurator
+                    .New(bpName, enchGuid.ToString())
+                    .SetEnchantName(locName)
+                    .SetDescription(locDesc)
+                    .AddStatBonusEquipment(
+                        descriptor: ModifierDescriptor.Enhancement,
+                        stat: stat,
+                        value: plus
+                    )
+                    .Configure();
+            }
+        }
+
         public class DebuffTierConfig
         {
             public string Seed { get; set; }
-            public int DC { get; set; }
+            public int DC { get; set; }              // se ignora en daño de energía
+            public int DiceCount { get; set; }       // NUEVO: usado por daño de energía
+            public int DiceSide { get; set; }        // NUEVO: usado por daño de energía
+            public int Bonus { get; set; }
         }
 
         private static DiceType MapDiceType(int sides)
@@ -139,11 +236,22 @@ namespace RandomReinforcementsPerEncounter
                 _ => SavingThrowType.Fortitude,// fallback
             };
         }
+        private static (string nameKey, string descKey, string bpName, LocalizedString locName) BuildKeys(string nameRoot, int tierIndex)
+        {
+            string nameKey = $"RRE.{nameRoot}.T{tierIndex}.Name";
+            string descKey = $"RRE.{nameRoot}.T{tierIndex}.Desc";
+            string bpName = $"RRE_{nameRoot}_T{tierIndex}_Enchant";
+            var locName = LocalizationTool.CreateString(nameKey, $"{nameRoot} (T{tierIndex})");
+
+            return (nameKey, descKey, bpName, locName);
+        }
 
         private const string LINK_SAVE = "Encyclopedia:Saving_Throw";
         private const string LINK_DC = "Encyclopedia:DC";
         private const string LINK_DICE = "Encyclopedia:Dice";
-        private const string LINK_ROUND = "Encyclopedia:Combat_Round"; // o "Encyclopedia:Round"
+        private const string LINK_ROUND = "Encyclopedia:Combat_Round";
+        private const string LINK_ENERGY = "Encyclopedia:Energy_Damage";
+        private const string LINK_BONUS = "Encyclopedia:Bonus";
 
         private static string BuildDescription(
             SavingThrowType saveType, int dc,
@@ -169,6 +277,40 @@ namespace RandomReinforcementsPerEncounter
             string roundChunk = $"{{g|{LINK_ROUND}}}{roundText}{{/g}}";
 
             return $"{intro}{saveChunk} {dcChunk} or become {condChunk} for {diceChunk} {roundChunk}.";
+        }
+
+        private static string BuildEnergyDescription(int diceCount, int diceSides, string energyWord)
+        {
+            string diceText = diceSides == 1 ? diceCount.ToString() : $"{diceCount}d{diceSides}";
+            string diceChunk = $"{{g|{LINK_DICE}}}{diceText}{{/g}}";
+            string energyChunk = $"{{g|{LINK_ENERGY}}}{energyWord} damage{{/g}}";
+
+            // Mantén la redacción sencilla y consistente con el resto:
+            return $"This weapon deals an extra {diceChunk} points of {energyChunk} on a successful hit.";
+        }
+
+        private static string BuildEnhancementDescription(int bonus, string nameStat, string statWord)
+        {
+            // “This item grants a +X enhancement bonus to Strength.”
+            string bonusChunk = $"{{g|{LINK_BONUS}}}bonus{{/g}}";
+            string statChunk = $"{{g|Encyclopedia:{nameStat}}}{statWord}{{/g}}";
+            return $"This item grants a +{bonus} enhancement {bonusChunk} to {statChunk}.";
+        }
+
+        private static DamageEnergyType MapEnergyType(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return DamageEnergyType.Fire;
+            switch (s.ToLowerInvariant())
+            {
+                case "acid": return DamageEnergyType.Acid;
+                case "fire": return DamageEnergyType.Fire;
+                case "cold": return DamageEnergyType.Cold;
+                case "electricity": return DamageEnergyType.Electricity;
+                case "sonic": return DamageEnergyType.Sonic;
+                case "negative damage": return DamageEnergyType.NegativeEnergy;
+                case "holy": return DamageEnergyType.Holy;
+                default: return DamageEnergyType.Fire;
+            }
         }
 
     }

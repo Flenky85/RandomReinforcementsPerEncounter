@@ -1,4 +1,5 @@
 ﻿using Kingmaker.ElementsSystem;
+using Kingmaker.EntitySystem.Stats;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,32 @@ namespace RandomReinforcementsPerEncounter
 {
     internal class EnchantRegister
     {
+
+        // Prefabs
+        private const string PREFAB_CRIMSON_MOON = "907d3c215c9522d4e8a3b763f1b32935"; // CrimsonMoonEnchantment (blood)
+        private const string PREFAB_UNHOLY = "e098bc50ec458af4cb7c2d828db0ce18"; // Unholy
+        private const string PREFAB_CORROSIVE = "bfafef74d59950242915a8e294e6fac0"; // Corrosive
+        private const string PREFAB_FLAMING = "91e5a56dd421a2941984a36a2af164b6"; // Flaming
+        private const string PREFAB_FROST = "e9930f40a35b67c418e78a98c601c93b"; // Frost
+        private const string PREFAB_SHOCK = "1d1465ffa2699644ba8dfac48cb33195"; // Shock
+        private const string PREFAB_VICIOUS = "d01d77862c68852449895718902c8599"; // Vicious (Thorns)
+        private const string PREFAB_HOLY = "d739a9e236ba6164ab854b356bfb6ed5"; // Holy
+        private const string PREFAB_SONIC = "d31b9df8d99674742a161eb3faa07f3f"; // Sonic
+        private const string PREFAB_SPEED = "eee18332ea407bb4ea9bf2aa5f9ddf90"; // Speed (wind green)
+        private const string PREFAB_BRILLIANT_ENERGY = "fdc7f8f37d3f8da42be2a1d35a617001"; // BrilliantEnergy (magic blue)
+        private const string PREFAB_AXIOMATIC = "9c950f7e0624df24ca74d9b01a3a2cfa"; // Axiomatic (yellow circles)
+        private const string PREFAB_AGILE = "a4eba3360cc5b5d4ba2fe1036ce0cc8c"; // Agile (wind blue)
+        private const string PREFAB_GHOST = "d7b9bfb16264e4d4aad2abef2c80f835"; // Ghost
+        private const string PREFAB_ANARCHIC = "57315bc1e1f62a741be0efde688087e9"; // Anarchic (oxido)
+
         //savingThrowType: 1=fortitude, 2=reflex, 3=will
         //activationType: 1=onlyHit, 2=onlyOnFirstHit
+
         public static void RegisterAll()
-        {   
-            //Debuff onlyHit
+        {
+            //////////////////////////////////////////////////////////////////////////////////
+            //                            Debuff onlyHit                                    //
+            //////////////////////////////////////////////////////////////////////////////////
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
                 {
@@ -186,8 +208,9 @@ namespace RandomReinforcementsPerEncounter
                 savingThrowType: 2,
                 activationType: 1
             );
-
-            //Debuff onlyOnFirstHit
+            //////////////////////////////////////////////////////////////////////////////////
+            //                         Debuff onlyOnFirstHit                                //
+            //////////////////////////////////////////////////////////////////////////////////
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
                 {
@@ -358,6 +381,126 @@ namespace RandomReinforcementsPerEncounter
                 durationDiceSides: 1,
                 savingThrowType: 3,
                 activationType: 2
+            );
+
+            //////////////////////////////////////////////////////////////////////////////////
+            //                            Extra Damage                                      //
+            //////////////////////////////////////////////////////////////////////////////////
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "fire.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "fire.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "fire.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "fire.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "fire.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "fire.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Flaming",
+                description: "fire",
+                prefab: PREFAB_FLAMING
+            );
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "cold.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "cold.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "cold.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "cold.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "cold.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "cold.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Frost",
+                description: "cold",
+                prefab: PREFAB_FROST
+            );
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "electricity.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "electricity.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "electricity.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "electricity.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "electricity.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "electricity.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Shock",
+                description: "electricity",
+                prefab: PREFAB_SHOCK
+            );
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "sonic.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "sonic.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "sonic.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "sonic.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "sonic.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "sonic.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Thundering",
+                description: "sonic",
+                prefab: PREFAB_SONIC
+            );
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "acid.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "acid.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "acid.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "acid.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "acid.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "acid.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Corrosive",
+                description: "acid",
+                prefab: PREFAB_CORROSIVE
+            );
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "unholy.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "unholy.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "unholy.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "unholy.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "unholy.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "unholy.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Unholy",
+                description: "negative damage",
+                prefab: PREFAB_UNHOLY
+            );
+            EnchantFactory.RegisterDamageTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "holy.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "holy.t2", DiceCount = 1, DiceSide = 6 }, //                        //
+                    new DebuffTierConfig { Seed = "holy.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
+                    new DebuffTierConfig { Seed = "holy.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "holy.t5", DiceCount = 2, DiceSide = 8 }, //                        //
+                    new DebuffTierConfig { Seed = "holy.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                },
+                nameRoot: "Holy",
+                description: "holy",
+                prefab: PREFAB_HOLY
+            );
+
+            //////////////////////////////////////////////////////////////////////////////////
+            //                                Stats Bonus                                   //
+            //////////////////////////////////////////////////////////////////////////////////
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "statSTR.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "statSTR.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "statSTR.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "statSTR.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "statSTR.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "statSTR.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Strength",
+                description: "strength",
+                stat: StatType.Strength
             );
         }
     }

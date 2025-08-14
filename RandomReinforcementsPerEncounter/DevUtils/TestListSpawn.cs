@@ -7,7 +7,7 @@ using UnityEngine;
 using Kingmaker.Items;
 
 //Se llama de esta forma en la consola unityexplorer
-//ItemTestUtils.SpawnItemListToInventory(RandomReinforcementsPerEncounter.FullplateTypeItemsList.Item);
+//ItemTestUtils.SpawnItemListToInventory(RandomReinforcementsPerEncounter.EarthBreakerItemsList.Item);
 
 public static class ItemTestUtils
 {
