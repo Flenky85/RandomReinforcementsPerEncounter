@@ -485,9 +485,12 @@ namespace RandomReinforcementsPerEncounter
                 prefab: PREFAB_HOLY
             );
 
+
             //////////////////////////////////////////////////////////////////////////////////
             //                                Stats Bonus                                   //
             //////////////////////////////////////////////////////////////////////////////////
+            
+            //Base Stats
             EnchantFactory.RegisterWeaponStatsTiersFor(
                 new List<DebuffTierConfig>
                 {
@@ -500,7 +503,379 @@ namespace RandomReinforcementsPerEncounter
                 },
                 nameRoot: "Strength",
                 description: "strength",
+                encyclopedia: "Strength",
                 stat: StatType.Strength
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "statDEX.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "statDEX.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "statDEX.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "statDEX.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "statDEX.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "statDEX.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Dexterity",
+                description: "dexterity",
+                encyclopedia: "Dexterity",
+                stat: StatType.Dexterity
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "statCON.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "statCON.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "statCON.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "statCON.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "statCON.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "statCON.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Constitution",
+                description: "constitution",
+                encyclopedia: "Constitution",
+                stat: StatType.Constitution
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "statINT.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "statINT.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "statINT.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "statINT.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "statINT.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "statINT.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Intelligence",
+                description: "intelligence",
+                encyclopedia: "Intelligence",
+                stat: StatType.Intelligence
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "statWIS.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "statWIS.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "statWIS.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "statWIS.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "statWIS.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "statWIS.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Wisdom",
+                description: "wisdom",
+                encyclopedia: "Wisdom",
+                stat: StatType.Wisdom
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "statCHA.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "statCHA.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "statCHA.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "statCHA.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "statCHA.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "statCHA.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Charisma",
+                description: "charisma",
+                encyclopedia: "Charisma",
+                stat: StatType.Charisma
+            );
+
+            //Saves
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "saveFOR.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "saveFOR.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "saveFOR.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "saveFOR.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "saveFOR.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "saveFOR.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Fortitude",
+                description: "saving throw fortitude",
+                encyclopedia: "Saving_Throw",
+                stat: StatType.SaveFortitude
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "saveWIL.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "saveWIL.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "saveWIL.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "saveWIL.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "saveWIL.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "saveWIL.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Will",
+                description: "saving throw will",
+                encyclopedia: "Saving_Throw",
+                stat: StatType.SaveWill
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "saveREF.t1", Bonus = 1 }, ////////////////////////////
+                    new DebuffTierConfig { Seed = "saveREF.t2", Bonus = 2 }, //                        //
+                    new DebuffTierConfig { Seed = "saveREF.t3", Bonus = 3 }, //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "saveREF.t4", Bonus = 4 }, //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "saveREF.t5", Bonus = 5 }, //                        //
+                    new DebuffTierConfig { Seed = "saveREF.t6", Bonus = 6 }  ////////////////////////////
+                },
+                nameRoot: "Reflex",
+                description: "saving throw reflex",
+                encyclopedia: "Saving_Throw",
+                stat: StatType.SaveReflex
+            );
+
+            //Skills
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillMOB.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillMOB.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillMOB.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillMOB.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillMOB.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillMOB.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Mobility",
+                description: "mobility",
+                encyclopedia: "Mobility",
+                stat: StatType.SkillMobility
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillATH.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillATH.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillATH.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillATH.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillATH.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillATH.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Athletics",
+                description: "athletics",
+                encyclopedia: "Athletics",
+                stat: StatType.SkillAthletics
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillARC.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillARC.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillARC.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillARC.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillARC.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillARC.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Knowledge Arcana",
+                description: "knowledge arcana",
+                encyclopedia: "Knowledge_Arcana",
+                stat: StatType.SkillKnowledgeArcana
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillWOR.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillWOR.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillWOR.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillWOR.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillWOR.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillWOR.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Knowledge World",
+                description: "knowledge world",
+                encyclopedia: "Knowledge_World",
+                stat: StatType.SkillKnowledgeWorld
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillNAT.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillNAT.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillNAT.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillNAT.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillNAT.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillNAT.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Lore Nature",
+                description: "lore nature",
+                encyclopedia: "Lore_Nature",
+                stat: StatType.SkillLoreNature
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillREL.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillREL.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillREL.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillREL.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillREL.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillREL.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Lore Religion",
+                description: "lore religion",
+                encyclopedia: "Lore_Religion",
+                stat: StatType.SkillLoreReligion
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillPERC.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillPERC.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillPERC.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillPERC.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillPERC.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillPERC.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Perception",
+                description: "perception",
+                encyclopedia: "Perception",
+                stat: StatType.SkillPerception
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillPERS.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillPERS.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillPERS.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillPERS.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillPERS.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillPERS.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Persuasion",
+                description: "persuasion",
+                encyclopedia: "Persuasion",
+                stat: StatType.SkillPersuasion
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillSTE.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillSTE.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillSTE.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillSTE.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillSTE.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillSTE.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Stealth",
+                description: "stealth",
+                encyclopedia: "Stealth",
+                stat: StatType.SkillStealth
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillTHI.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillTHI.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillTHI.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillTHI.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillTHI.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillTHI.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Trickery",
+                description: "Trickery",
+                encyclopedia: "Trickery",
+                stat: StatType.SkillThievery
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "skillUMD.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "skillUMD.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "skillUMD.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "skillUMD.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "skillUMD.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "skillUMD.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Use Magic Device",
+                description: "use magic device",
+                encyclopedia: "Use_Magic_Device",
+                stat: StatType.SkillUseMagicDevice
+            );
+
+            //others
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "initiative.t1", Bonus = 2 },   ////////////////////////////
+                    new DebuffTierConfig { Seed = "initiative.t2", Bonus = 4 },   //                        //
+                    new DebuffTierConfig { Seed = "initiative.t3", Bonus = 6 },   //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "initiative.t4", Bonus = 8 },   //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "initiative.t5", Bonus = 10 },  //                        //
+                    new DebuffTierConfig { Seed = "initiative.t6", Bonus = 12 }   ////////////////////////////
+                },
+                nameRoot: "Initiative",
+                description: "initiative",
+                encyclopedia: "Initiative",
+                stat: StatType.Initiative
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "CMB.t1", Bonus = 1 },  ////////////////////////////
+                    new DebuffTierConfig { Seed = "CMB.t2", Bonus = 2 },  //                        //
+                    new DebuffTierConfig { Seed = "CMB.t3", Bonus = 3 },  //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "CMB.t4", Bonus = 4 },  //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "CMB.t5", Bonus = 5 },  //                        //
+                    new DebuffTierConfig { Seed = "CMB.t6", Bonus = 6 }   ////////////////////////////
+                },
+                nameRoot: "CMB",
+                description: "combat maneuver bonus",
+                encyclopedia: "CMB",
+                stat: StatType.AdditionalCMB
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "CMD.t1", Bonus = 1 },  ////////////////////////////
+                    new DebuffTierConfig { Seed = "CMD.t2", Bonus = 2 },  //                        //
+                    new DebuffTierConfig { Seed = "CMD.t3", Bonus = 3 },  //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "CMD.t4", Bonus = 4 },  //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "CMD.t5", Bonus = 5 },  //                        //
+                    new DebuffTierConfig { Seed = "CMD.t6", Bonus = 6 }   ////////////////////////////
+                },
+                nameRoot: "CMD",
+                description: "combat maneuver defense",
+                encyclopedia: "CMD",
+                stat: StatType.AdditionalCMD
+            );
+            EnchantFactory.RegisterWeaponStatsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "casterLevel.t1", Bonus = 1 },  ////////////////////////////
+                    new DebuffTierConfig { Seed = "casterLevel.t2", Bonus = 1 },  //                        //
+                    new DebuffTierConfig { Seed = "casterLevel.t3", Bonus = 1 },  //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "casterLevel.t4", Bonus = 2 },  //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "casterLevel.t5", Bonus = 2 },  //                        //
+                    new DebuffTierConfig { Seed = "casterLevel.t6", Bonus = 2 }   ////////////////////////////
+                },
+                nameRoot: "Caster Level",
+                description: "caster level",
+                encyclopedia: "Caster_Level",
+                stat: StatType.BonusCasterLevel
+            );
+
+            //////////////////////////////////////////////////////////////////////////////////
+            //                                Caster Bonus                                  //
+            //////////////////////////////////////////////////////////////////////////////////
+
+            EnchantFactory.RegisterWeaponSpellsTiersFor(
+                new List<DebuffTierConfig>
+                {
+                    new DebuffTierConfig { Seed = "spellDC.t1", Bonus = 1 },  ////////////////////////////
+                    new DebuffTierConfig { Seed = "spellDC.t2", Bonus = 1 },  //                        //
+                    new DebuffTierConfig { Seed = "spellDC.t3", Bonus = 2 },  //       Dont Touch       //
+                    new DebuffTierConfig { Seed = "spellDC.t4", Bonus = 2 },  //     seed for GUID      //
+                    new DebuffTierConfig { Seed = "spellDC.t5", Bonus = 3 },  //                        //
+                    new DebuffTierConfig { Seed = "spellDC.t6", Bonus = 3 }   ////////////////////////////
+                },
+                nameRoot: "Spell DC",
+                description: "spell DC",
+                encyclopedia: "DC",
+                type: "spellDC"
             );
         }
     }

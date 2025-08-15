@@ -8,7 +8,8 @@ namespace RandomReinforcementsPerEncounter
 {
     static class GuidUtil
     {
-        private const string NS_ROOT = "RRE.enchants";      //Base guid for enchants
+        private const string NS_ROOT = "RRE.enchants";
+        private const string NS_FEAT = "RRE.features";       //Base guid for features
         private const string NS_SAVE = "RRE.enchants.save"; //Base guid for ContextActionSavingThrow
         private const string NS_COND = "RRE.enchants.cond"; //Base guid for ContextActionConditionalSaved
         private const string NS_BUFF = "RRE.enchants.buff"; //Base guid for ContextActionApplyBuff
@@ -23,6 +24,15 @@ namespace RandomReinforcementsPerEncounter
                 var bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(NS_ROOT + ":" + id));
                 var g = new Guid(bytes);
                 return BlueprintGuid.Parse(g.ToString("N")); // 32 hex, sin guiones
+            }
+        }
+        public static BlueprintGuid FeatureGuid(string id)
+        {
+            using (var md5 = MD5.Create())
+            {
+                var bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(NS_FEAT + ":" + id));
+                var g = new Guid(bytes);
+                return BlueprintGuid.Parse(g.ToString("N")); // sin guiones
             }
         }
 

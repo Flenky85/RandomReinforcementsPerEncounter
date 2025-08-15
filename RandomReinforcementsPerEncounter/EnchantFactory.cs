@@ -168,7 +168,8 @@ namespace RandomReinforcementsPerEncounter
             List<DebuffTierConfig> tiers,
             string nameRoot,                 // p.ej. "Strength"
             StatType stat,                   // p.ej. StatType.Strength
-            string description                  // p.ej. "Strength" (texto visible)
+            string description,                 // p.ej. "Strength" (texto visible)
+            string encyclopedia
         )
         {
             for (int i = 0; i < tiers.Count; i++)
@@ -185,7 +186,7 @@ namespace RandomReinforcementsPerEncounter
                 // Usa tu descripción existente (bonus + enlace a stat)
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
-                    BuildEnhancementDescription(plus, nameRoot, description)
+                    BuildEnhancementDescription(plus, description, encyclopedia)
                 );
 
                 WeaponEnchantmentConfigurator
@@ -193,8 +194,46 @@ namespace RandomReinforcementsPerEncounter
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
                     .AddStatBonusEquipment(
-                        descriptor: ModifierDescriptor.Enhancement,
+                        descriptor: ModifierDescriptor.UntypedStackable,
                         stat: stat,
+                        value: plus
+                    )
+                    .Configure();
+            }
+        }
+
+        public static void RegisterWeaponSpellsTiersFor(
+            List<DebuffTierConfig> tiers,
+            string nameRoot,     
+            string description,  
+            string encyclopedia,
+            string type
+        )
+        {
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                var t = tiers[i];
+                int plus = t.Bonus <= 0 ? 1 : t.Bonus;
+
+                var enchGuid = GuidUtil.FromString(t.Seed);
+                var keys = BuildKeys(nameRoot, i + 1);
+                var bpName = keys.bpName;
+                var locName = keys.locName;
+                var descKey = keys.descKey;
+
+                // Usa tu descripción existente (bonus + enlace a stat)
+                var locDesc = LocalizationTool.CreateString(
+                    descKey,
+                    BuildEnhancementDescription(plus, description, encyclopedia)
+                );
+
+                WeaponEnchantmentConfigurator
+                    .New(bpName, enchGuid.ToString())
+                    .SetEnchantName(locName)
+                    .SetDescription(locDesc)
+                    .AddIncreaseSpellDC(
+                        descriptor: ModifierDescriptor.UntypedStackable,
+                        B: stat,
                         value: plus
                     )
                     .Configure();
@@ -289,12 +328,12 @@ namespace RandomReinforcementsPerEncounter
             return $"This weapon deals an extra {diceChunk} points of {energyChunk} on a successful hit.";
         }
 
-        private static string BuildEnhancementDescription(int bonus, string nameStat, string statWord)
+        private static string BuildEnhancementDescription(int bonus, string description, string encyclopedia)
         {
             // “This item grants a +X enhancement bonus to Strength.”
             string bonusChunk = $"{{g|{LINK_BONUS}}}bonus{{/g}}";
-            string statChunk = $"{{g|Encyclopedia:{nameStat}}}{statWord}{{/g}}";
-            return $"This item grants a +{bonus} enhancement {bonusChunk} to {statChunk}.";
+            string statChunk = $"{{g|Encyclopedia:{encyclopedia}}}{description}{{/g}}";
+            return $"This item grants a +{bonus} stackable {bonusChunk} to {statChunk}.";
         }
 
         private static DamageEnergyType MapEnergyType(string s)
