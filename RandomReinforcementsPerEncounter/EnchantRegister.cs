@@ -29,8 +29,6 @@ namespace RandomReinforcementsPerEncounter
         private const string PREFAB_GHOST = "d7b9bfb16264e4d4aad2abef2c80f835"; // Ghost
         private const string PREFAB_ANARCHIC = "57315bc1e1f62a741be0efde688087e9"; // Anarchic (oxido)
 
-        //savingThrowType: 1=fortitude, 2=reflex, 3=will
-        //activationType: 1=onlyHit, 2=onlyOnFirstHit
 
         public static void RegisterAll()
         {
@@ -50,11 +48,11 @@ namespace RandomReinforcementsPerEncounter
                 nameRoot: "Shaken",
                 description: "shaken",
                 condition: "Shaken",
-                buff: "20ec6cb6ab1845c48a95f9c20b034220",
+                buff: "25ec6cb6ab1845c48a95f9c20b034220",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 3,
-                activationType:1
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyHit
             ); 
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -72,8 +70,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "0ec36e7596a4928489d2049e1e1c76a7",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 1,
-                activationType: 1
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -91,8 +89,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "df6d1020da07524423afbae248845ecc",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 1,
-                activationType: 1
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -110,8 +108,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "4e42460798665fd4cb9143ffa7ada323",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 1,
-                activationType: 1
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -129,8 +127,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "df3950af5a783bd4d91ab73eb8fa0fd3",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 1,
-                activationType: 1
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -148,8 +146,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "e6f2fc5d73d88064583cb828801172f4",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 1,
-                activationType: 1
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -167,8 +165,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "886c7407dc623dc499b9f1465ff382df",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 3,
-                activationType: 1
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -186,8 +184,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "f7f6260726117cf4b90a6086b05d2e38",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 2,
-                activationType: 1
+                savingThrowType: SavingThrowType.Reflex,
+                activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -205,8 +203,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "488e53ede2802ff4da9372c6a494fb66",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 2,
-                activationType: 1
+                savingThrowType: SavingThrowType.Reflex,
+                activation: ActivationType.onlyHit
             );
             //////////////////////////////////////////////////////////////////////////////////
             //                         Debuff onlyOnFirstHit                                //
@@ -227,8 +225,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "f08a7239aa961f34c8301518e71d4cdf",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 3,
-                activationType: 2
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -246,8 +244,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "09d39b38bb7c6014394b6daced9bacd3",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 1,
-                activationType: 2
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -265,8 +263,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "d2e35b870e4ac574d9873b36402487e5",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 3,
-                activationType: 2
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -284,8 +282,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "c9937d7846aa9ae46991e9f298be644a",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 3,
-                activationType: 2
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -303,8 +301,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "4d5a2e4c34d24acca575c10003cf8fbc",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 3,
-                activationType: 2
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -322,8 +320,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "46d1b9cc3d0fd36469a471b047d773a2",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 1,
-                activationType: 2
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -341,8 +339,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "956331dba5125ef48afe41875a00ca0e",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
-                savingThrowType: 1,
-                activationType: 2
+                savingThrowType: SavingThrowType.Fortitude,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -360,8 +358,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "24cf3deb078d3df4d92ba24b176bda97",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 2,
-                activationType: 2
+                savingThrowType: SavingThrowType.Reflex,
+                activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
                 new List<DebuffTierConfig>
@@ -379,8 +377,8 @@ namespace RandomReinforcementsPerEncounter
                 buff: "c0f4e1c24c9cd334ca988ed1bd9d201f",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
-                savingThrowType: 3,
-                activationType: 2
+                savingThrowType: SavingThrowType.Will,
+                activation: ActivationType.onlyOnFirstHit
             );
 
             //////////////////////////////////////////////////////////////////////////////////
@@ -856,26 +854,6 @@ namespace RandomReinforcementsPerEncounter
                 description: "caster level",
                 encyclopedia: "Caster_Level",
                 stat: StatType.BonusCasterLevel
-            );
-
-            //////////////////////////////////////////////////////////////////////////////////
-            //                                Caster Bonus                                  //
-            //////////////////////////////////////////////////////////////////////////////////
-
-            EnchantFactory.RegisterWeaponSpellsTiersFor(
-                new List<DebuffTierConfig>
-                {
-                    new DebuffTierConfig { Seed = "spellDC.t1", Bonus = 1 },  ////////////////////////////
-                    new DebuffTierConfig { Seed = "spellDC.t2", Bonus = 1 },  //                        //
-                    new DebuffTierConfig { Seed = "spellDC.t3", Bonus = 2 },  //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "spellDC.t4", Bonus = 2 },  //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "spellDC.t5", Bonus = 3 },  //                        //
-                    new DebuffTierConfig { Seed = "spellDC.t6", Bonus = 3 }   ////////////////////////////
-                },
-                nameRoot: "Spell DC",
-                description: "spell DC",
-                encyclopedia: "DC",
-                type: "spellDC"
             );
         }
     }

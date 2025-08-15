@@ -20,14 +20,19 @@ namespace RandomReinforcementsPerEncounter
 {
     public static class EnchantFactory
     {
+        public enum ActivationType
+        {
+            onlyHit,
+            onlyOnFirstHit
+        }
         public static void RegisterDebuffTiersFor(
             List<DebuffTierConfig> tiers,
             string nameRoot,
             string buff, 
             int durationDiceCount, 
-            int durationDiceSides, 
-            int savingThrowType,
-            int activationType,
+            int durationDiceSides,
+            SavingThrowType savingThrowType,
+            ActivationType activation,
             string description,   
             string condition     
             )
@@ -35,10 +40,9 @@ namespace RandomReinforcementsPerEncounter
   
             var buffRef = BlueprintTool.GetRef<BlueprintBuffReference>(buff);
             var diceType = MapDiceType(durationDiceSides);
-            var saveType = MapSavingThrowType(savingThrowType);
 
-            bool onlyHit = activationType == 1;
-            bool onlyOnFirstHit = activationType == 2;
+            bool onlyHit = activation == ActivationType.onlyHit;
+            bool onlyOnFirstHit = activation == ActivationType.onlyOnFirstHit;
 
             for (int i = 0; i < tiers.Count; i++)
             {
@@ -53,7 +57,7 @@ namespace RandomReinforcementsPerEncounter
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
                     BuildDescription(
-                        saveType,
+                        savingThrowType,
                         tierConfig.DC,
                         description,
                         condition,
@@ -88,7 +92,7 @@ namespace RandomReinforcementsPerEncounter
                 var onHitActions = ActionsBuilder.New()
                     .Add<ContextActionSavingThrow>(a =>
                     {
-                        a.Type = saveType;
+                        a.Type = savingThrowType;
                         a.FromBuff = false;
                         a.HasCustomDC = false;
                         a.Actions = savedBranch.Build();
@@ -202,44 +206,6 @@ namespace RandomReinforcementsPerEncounter
             }
         }
 
-        public static void RegisterWeaponSpellsTiersFor(
-            List<DebuffTierConfig> tiers,
-            string nameRoot,     
-            string description,  
-            string encyclopedia,
-            string type
-        )
-        {
-            for (int i = 0; i < tiers.Count; i++)
-            {
-                var t = tiers[i];
-                int plus = t.Bonus <= 0 ? 1 : t.Bonus;
-
-                var enchGuid = GuidUtil.FromString(t.Seed);
-                var keys = BuildKeys(nameRoot, i + 1);
-                var bpName = keys.bpName;
-                var locName = keys.locName;
-                var descKey = keys.descKey;
-
-                // Usa tu descripción existente (bonus + enlace a stat)
-                var locDesc = LocalizationTool.CreateString(
-                    descKey,
-                    BuildEnhancementDescription(plus, description, encyclopedia)
-                );
-
-                WeaponEnchantmentConfigurator
-                    .New(bpName, enchGuid.ToString())
-                    .SetEnchantName(locName)
-                    .SetDescription(locDesc)
-                    .AddIncreaseSpellDC(
-                        descriptor: ModifierDescriptor.UntypedStackable,
-                        B: stat,
-                        value: plus
-                    )
-                    .Configure();
-            }
-        }
-
         public class DebuffTierConfig
         {
             public string Seed { get; set; }
@@ -263,16 +229,6 @@ namespace RandomReinforcementsPerEncounter
                 20 => DiceType.D20,
                 100 => DiceType.D100,
                 _ => DiceType.D3,// fallback
-            };
-        }
-        private static SavingThrowType MapSavingThrowType(int id)
-        {
-            return id switch
-            {
-                1 => SavingThrowType.Fortitude,
-                2 => SavingThrowType.Will,
-                3 => SavingThrowType.Reflex,
-                _ => SavingThrowType.Fortitude,// fallback
             };
         }
         private static (string nameKey, string descKey, string bpName, LocalizedString locName) BuildKeys(string nameRoot, int tierIndex)

@@ -31,8 +31,7 @@ namespace RandomReinforcementsPerEncounter
 
                 try
                 {
-                    //EnchantMaker.RegisterElementalTiers();
-                    //EnchantMaker.RegisterDebuffTiers(); 
+                    FeatureRegister.RegisterAll();
                     EnchantRegister.RegisterAll();
                     Debug.Log("[RRE] Enhchants tiers init done.");
                 }
