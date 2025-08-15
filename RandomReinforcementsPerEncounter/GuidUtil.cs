@@ -8,7 +8,7 @@ namespace RandomReinforcementsPerEncounter
 {
     static class GuidUtil
     {
-        private const string NS_ROOT = "RRE.enchants";
+        private const string NS_ENCH = "RRE.enchants";
         private const string NS_FEAT = "RRE.features";       //Base guid for features
         private const string NS_SAVE = "RRE.enchants.save"; //Base guid for ContextActionSavingThrow
         private const string NS_COND = "RRE.enchants.cond"; //Base guid for ContextActionConditionalSaved
@@ -17,11 +17,11 @@ namespace RandomReinforcementsPerEncounter
         /// <summary>
         /// Para Blueprints raíz (sin guiones). Igual que tenías.
         /// </summary>
-        public static BlueprintGuid FromString(string id)
+        public static BlueprintGuid EnchantGuid(string id)
         {
             using (var md5 = MD5.Create())
             {
-                var bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(NS_ROOT + ":" + id));
+                var bytes = md5.ComputeHash(Encoding.UTF8.GetBytes(NS_ENCH + ":" + id));
                 var g = new Guid(bytes);
                 return BlueprintGuid.Parse(g.ToString("N")); // 32 hex, sin guiones
             }

@@ -77,7 +77,7 @@ namespace RandomReinforcementsPerEncounter
             var shortswordBp = ResourcesLibrary.TryGetBlueprint<BlueprintItem>(ShortswordGuid);
             var enchBp = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(EnchantPlus1Guid);
             var enchanttest = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(
-                GuidUtil.FromString("corrosive.t2")
+                GuidUtil.EnchantGuid("corrosive.t2")
             );
 
             var ctx = new MechanicsContext(default(JsonConstructorMark));

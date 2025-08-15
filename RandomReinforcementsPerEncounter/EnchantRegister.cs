@@ -36,14 +36,14 @@ namespace RandomReinforcementsPerEncounter
             //                            Debuff onlyHit                                    //
             //////////////////////////////////////////////////////////////////////////////////
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "shaken.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "shaken.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "shaken.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "shaken.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "shaken.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "shaken.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Shaken",
                 description: "shaken",
@@ -55,14 +55,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             ); 
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "blindness.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "blindness.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "blindness.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "blindness.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "blindness.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "blindness.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Blindness",
                 description:"blinded",
@@ -74,14 +74,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "dazzled.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "dazzled.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "dazzled.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "dazzled.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "dazzled.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "dazzled.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Dazzled",
                 description: "dazzled",
@@ -93,14 +93,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "sickened.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "sickened.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "sickened.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "sickened.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "sickened.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "sickened.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Sickened",
                 description: "sickened",
@@ -112,14 +112,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "staggered.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "staggered.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "staggered.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "staggered.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "staggered.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "staggered.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Staggered",
                 description: "staggered",
@@ -131,14 +131,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "fatigue.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "fatigue.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "fatigue.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "fatigue.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "fatigue.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "fatigue.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Fatigue",
                 description: "fatigued",
@@ -150,14 +150,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "confusion.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "confusion.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "confusion.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "confusion.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "confusion.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "confusion.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Confusion",
                 description: "confused",
@@ -169,14 +169,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "entangled.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "entangled.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "entangled.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "entangled.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "entangled.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "entangled.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Entangled",
                 description: "entangled",
@@ -188,14 +188,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "slowed.t1", DC = 11 },////////////////////////////
-                    new DebuffTierConfig { Seed = "slowed.t2", DC = 14 },//                        //
-                    new DebuffTierConfig { Seed = "slowed.t3", DC = 17 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "slowed.t4", DC = 20 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "slowed.t5", DC = 23 },//                        //
-                    new DebuffTierConfig { Seed = "slowed.t6", DC = 26 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t1").ToString(), DC = 11 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t2").ToString(), DC = 14 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t3").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t4").ToString(), DC = 20 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t5").ToString(), DC = 23 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t6").ToString(), DC = 26 }
                 },
                 nameRoot: "Slowed",
                 description: "slowed",
@@ -210,14 +210,14 @@ namespace RandomReinforcementsPerEncounter
             //                         Debuff onlyOnFirstHit                                //
             //////////////////////////////////////////////////////////////////////////////////
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "frightened.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "frightened.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "frightened.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "frightened.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "frightened.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "frightened.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Frightened",
                 description: "frightened",
@@ -229,14 +229,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "stunned.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "stunned.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "stunned.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "stunned.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "stunned.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "stunned.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Stunned",
                 description: "stunned",
@@ -248,14 +248,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "daze.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "daze.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "daze.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "daze.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "daze.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "daze.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Daze",
                 description: "dazed",
@@ -267,14 +267,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "sleep.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "sleep.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "sleep.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "sleep.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "sleep.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "sleep.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Sleep",
                 description: "asleep",
@@ -286,14 +286,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "paralyzed.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "paralyzed.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "paralyzed.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "paralyzed.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "paralyzed.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "paralyzed.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Paralyzed",
                 description: "paralyzed",
@@ -305,14 +305,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "exhausted.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "exhausted.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "exhausted.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "exhausted.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "exhausted.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "exhausted.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Exhausted",
                 description: "exhausted",
@@ -324,14 +324,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "nauseated.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "nauseated.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "nauseated.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "nauseated.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "nauseated.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "nauseated.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Nauseated",
                 description: "nauseated",
@@ -343,14 +343,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "prone.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "prone.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "prone.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "prone.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "prone.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "prone.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Prone",
                 description: "prone",
@@ -362,14 +362,14 @@ namespace RandomReinforcementsPerEncounter
                 activation: ActivationType.onlyOnFirstHit
             );
             EnchantFactory.RegisterDebuffTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "domination.t1", DC = 13 },////////////////////////////
-                    new DebuffTierConfig { Seed = "domination.t2", DC = 17 },//                        //
-                    new DebuffTierConfig { Seed = "domination.t3", DC = 21 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "domination.t4", DC = 25 },//     seed for GUID      //
-                    new DebuffTierConfig { Seed = "domination.t5", DC = 29 },//                        //
-                    new DebuffTierConfig { Seed = "domination.t6", DC = 33 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t1").ToString(), DC = 13 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t2").ToString(), DC = 17 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t3").ToString(), DC = 21 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t4").ToString(), DC = 25 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t5").ToString(), DC = 29 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t6").ToString(), DC = 33 }
                 },
                 nameRoot: "Domination",
                 description: "dominated",
@@ -385,98 +385,98 @@ namespace RandomReinforcementsPerEncounter
             //                            Extra Damage                                      //
             //////////////////////////////////////////////////////////////////////////////////
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "fire.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "fire.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "fire.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "fire.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "fire.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "fire.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Flaming",
                 description: "fire",
                 prefab: PREFAB_FLAMING
             );
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "cold.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "cold.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "cold.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "cold.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "cold.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "cold.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Frost",
                 description: "cold",
                 prefab: PREFAB_FROST
             );
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "electricity.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "electricity.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "electricity.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "electricity.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "electricity.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "electricity.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Shock",
                 description: "electricity",
                 prefab: PREFAB_SHOCK
             );
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "sonic.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "sonic.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "sonic.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "sonic.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "sonic.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "sonic.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Thundering",
                 description: "sonic",
                 prefab: PREFAB_SONIC
             );
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "acid.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "acid.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "acid.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "acid.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "acid.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "acid.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Corrosive",
                 description: "acid",
                 prefab: PREFAB_CORROSIVE
             );
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "unholy.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "unholy.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "unholy.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "unholy.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "unholy.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "unholy.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Unholy",
                 description: "negative damage",
                 prefab: PREFAB_UNHOLY
             );
             EnchantFactory.RegisterDamageTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "holy.t1", DiceCount = 1, DiceSide = 3 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "holy.t2", DiceCount = 1, DiceSide = 6 }, //                        //
-                    new DebuffTierConfig { Seed = "holy.t3", DiceCount = 1, DiceSide = 10 },//       Dont Touch       //
-                    new DebuffTierConfig { Seed = "holy.t4", DiceCount = 2, DiceSide = 6 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "holy.t5", DiceCount = 2, DiceSide = 8 }, //                        //
-                    new DebuffTierConfig { Seed = "holy.t6", DiceCount = 2, DiceSide = 10 } ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t1").ToString(), DiceCount = 1, DiceSide = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t2").ToString(), DiceCount = 1, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t3").ToString(), DiceCount = 1, DiceSide = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t4").ToString(), DiceCount = 2, DiceSide = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t5").ToString(), DiceCount = 2, DiceSide = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
                 nameRoot: "Holy",
                 description: "holy",
@@ -490,14 +490,14 @@ namespace RandomReinforcementsPerEncounter
             
             //Base Stats
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "statSTR.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "statSTR.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "statSTR.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "statSTR.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "statSTR.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "statSTR.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Strength",
                 description: "strength",
@@ -505,14 +505,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.Strength
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "statDEX.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "statDEX.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "statDEX.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "statDEX.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "statDEX.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "statDEX.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Dexterity",
                 description: "dexterity",
@@ -520,14 +520,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.Dexterity
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "statCON.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "statCON.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "statCON.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "statCON.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "statCON.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "statCON.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Constitution",
                 description: "constitution",
@@ -535,14 +535,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.Constitution
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "statINT.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "statINT.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "statINT.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "statINT.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "statINT.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "statINT.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Intelligence",
                 description: "intelligence",
@@ -550,14 +550,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.Intelligence
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "statWIS.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "statWIS.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "statWIS.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "statWIS.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "statWIS.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "statWIS.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Wisdom",
                 description: "wisdom",
@@ -565,14 +565,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.Wisdom
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "statCHA.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "statCHA.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "statCHA.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "statCHA.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "statCHA.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "statCHA.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Charisma",
                 description: "charisma",
@@ -582,14 +582,14 @@ namespace RandomReinforcementsPerEncounter
 
             //Saves
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "saveFOR.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "saveFOR.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "saveFOR.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "saveFOR.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "saveFOR.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "saveFOR.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Fortitude",
                 description: "saving throw fortitude",
@@ -597,14 +597,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SaveFortitude
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "saveWIL.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "saveWIL.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "saveWIL.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "saveWIL.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "saveWIL.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "saveWIL.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Will",
                 description: "saving throw will",
@@ -612,14 +612,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SaveWill
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "saveREF.t1", Bonus = 1 }, ////////////////////////////
-                    new DebuffTierConfig { Seed = "saveREF.t2", Bonus = 2 }, //                        //
-                    new DebuffTierConfig { Seed = "saveREF.t3", Bonus = 3 }, //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "saveREF.t4", Bonus = 4 }, //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "saveREF.t5", Bonus = 5 }, //                        //
-                    new DebuffTierConfig { Seed = "saveREF.t6", Bonus = 6 }  ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "Reflex",
                 description: "saving throw reflex",
@@ -629,14 +629,14 @@ namespace RandomReinforcementsPerEncounter
 
             //Skills
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillMOB.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillMOB.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillMOB.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillMOB.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillMOB.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillMOB.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Mobility",
                 description: "mobility",
@@ -644,14 +644,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillMobility
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillATH.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillATH.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillATH.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillATH.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillATH.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillATH.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Athletics",
                 description: "athletics",
@@ -659,14 +659,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillAthletics
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillARC.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillARC.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillARC.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillARC.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillARC.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillARC.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Knowledge Arcana",
                 description: "knowledge arcana",
@@ -674,14 +674,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillKnowledgeArcana
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillWOR.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillWOR.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillWOR.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillWOR.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillWOR.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillWOR.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Knowledge World",
                 description: "knowledge world",
@@ -689,14 +689,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillKnowledgeWorld
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillNAT.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillNAT.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillNAT.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillNAT.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillNAT.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillNAT.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Lore Nature",
                 description: "lore nature",
@@ -704,14 +704,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillLoreNature
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillREL.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillREL.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillREL.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillREL.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillREL.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillREL.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Lore Religion",
                 description: "lore religion",
@@ -719,14 +719,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillLoreReligion
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillPERC.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillPERC.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillPERC.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillPERC.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillPERC.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillPERC.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Perception",
                 description: "perception",
@@ -734,14 +734,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillPerception
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillPERS.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillPERS.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillPERS.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillPERS.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillPERS.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillPERS.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Persuasion",
                 description: "persuasion",
@@ -749,14 +749,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillPersuasion
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillSTE.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillSTE.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillSTE.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillSTE.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillSTE.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillSTE.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Stealth",
                 description: "stealth",
@@ -764,14 +764,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillStealth
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillTHI.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillTHI.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillTHI.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillTHI.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillTHI.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillTHI.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Trickery",
                 description: "Trickery",
@@ -779,14 +779,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.SkillThievery
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "skillUMD.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "skillUMD.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "skillUMD.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "skillUMD.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "skillUMD.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "skillUMD.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Use Magic Device",
                 description: "use magic device",
@@ -796,14 +796,14 @@ namespace RandomReinforcementsPerEncounter
 
             //others
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "initiative.t1", Bonus = 2 },   ////////////////////////////
-                    new DebuffTierConfig { Seed = "initiative.t2", Bonus = 4 },   //                        //
-                    new DebuffTierConfig { Seed = "initiative.t3", Bonus = 6 },   //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "initiative.t4", Bonus = 8 },   //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "initiative.t5", Bonus = 10 },  //                        //
-                    new DebuffTierConfig { Seed = "initiative.t6", Bonus = 12 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t1").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t2").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t3").ToString(), Bonus = 6 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t4").ToString(), Bonus = 8 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t5").ToString(), Bonus = 10 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t6").ToString(), Bonus = 12 }
                 },
                 nameRoot: "Initiative",
                 description: "initiative",
@@ -811,14 +811,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.Initiative
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "CMB.t1", Bonus = 1 },  ////////////////////////////
-                    new DebuffTierConfig { Seed = "CMB.t2", Bonus = 2 },  //                        //
-                    new DebuffTierConfig { Seed = "CMB.t3", Bonus = 3 },  //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "CMB.t4", Bonus = 4 },  //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "CMB.t5", Bonus = 5 },  //                        //
-                    new DebuffTierConfig { Seed = "CMB.t6", Bonus = 6 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "CMB",
                 description: "combat maneuver bonus",
@@ -826,14 +826,14 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.AdditionalCMB
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "CMD.t1", Bonus = 1 },  ////////////////////////////
-                    new DebuffTierConfig { Seed = "CMD.t2", Bonus = 2 },  //                        //
-                    new DebuffTierConfig { Seed = "CMD.t3", Bonus = 3 },  //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "CMD.t4", Bonus = 4 },  //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "CMD.t5", Bonus = 5 },  //                        //
-                    new DebuffTierConfig { Seed = "CMD.t6", Bonus = 6 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t2").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t3").ToString(), Bonus = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t4").ToString(), Bonus = 4 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t5").ToString(), Bonus = 5 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t6").ToString(), Bonus = 6 }
                 },
                 nameRoot: "CMD",
                 description: "combat maneuver defense",
@@ -841,20 +841,39 @@ namespace RandomReinforcementsPerEncounter
                 stat: StatType.AdditionalCMD
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
-                new List<DebuffTierConfig>
+                new List<TierConfig>
                 {
-                    new DebuffTierConfig { Seed = "casterLevel.t1", Bonus = 1 },  ////////////////////////////
-                    new DebuffTierConfig { Seed = "casterLevel.t2", Bonus = 1 },  //                        //
-                    new DebuffTierConfig { Seed = "casterLevel.t3", Bonus = 1 },  //       Dont Touch       //
-                    new DebuffTierConfig { Seed = "casterLevel.t4", Bonus = 2 },  //     seed for GUID      //
-                    new DebuffTierConfig { Seed = "casterLevel.t5", Bonus = 2 },  //                        //
-                    new DebuffTierConfig { Seed = "casterLevel.t6", Bonus = 2 }   ////////////////////////////
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t1").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t2").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t3").ToString(), Bonus = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t4").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t5").ToString(), Bonus = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t6").ToString(), Bonus = 2 }
                 },
                 nameRoot: "Caster Level",
                 description: "caster level",
                 encyclopedia: "Caster_Level",
                 stat: StatType.BonusCasterLevel
             );
+
+            //////////////////////////////////////////////////////////////////////////////////
+            //                                  Caster                                      //
+            //////////////////////////////////////////////////////////////////////////////////
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString() },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString() },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t2").ToString() },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t2").ToString() },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t3").ToString() },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t3").ToString() }
+                },
+                nameRoot: "Spell DC",
+                description: "spell DC",
+                encyclopedia: "DC"
+            );
+
         }
     }
 }

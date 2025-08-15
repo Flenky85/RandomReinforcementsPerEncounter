@@ -26,7 +26,7 @@ namespace RandomReinforcementsPerEncounter
             onlyOnFirstHit
         }
         public static void RegisterDebuffTiersFor(
-            List<DebuffTierConfig> tiers,
+            List<TierConfig> tiers,
             string nameRoot,
             string buff, 
             int durationDiceCount, 
@@ -47,7 +47,6 @@ namespace RandomReinforcementsPerEncounter
             for (int i = 0; i < tiers.Count; i++)
             {
                 var tierConfig = tiers[i];
-                var guid = GuidUtil.FromString(tierConfig.Seed);
                 var keys = BuildKeys(nameRoot, i + 1);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
@@ -68,7 +67,7 @@ namespace RandomReinforcementsPerEncounter
                 );
 
                 WeaponEnchantmentConfigurator
-                    .New(bpName, guid.ToString())
+                    .New(bpName, tierConfig.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
                     .Configure();
@@ -99,7 +98,7 @@ namespace RandomReinforcementsPerEncounter
                     });
 
                 WeaponEnchantmentConfigurator
-                    .For(guid.ToString())
+                    .For(tierConfig.AssetId)
                     .AddInitiatorAttackWithWeaponTrigger(
                         onHitActions,
                         onlyHit: onlyHit,
@@ -118,7 +117,7 @@ namespace RandomReinforcementsPerEncounter
         }
 
         public static void RegisterDamageTiersFor(
-                    List<DebuffTierConfig> tiers,
+                    List<TierConfig> tiers,
                     string nameRoot,          // ej: "Flaming"
                     string description,       // ej: "fire"
                     string prefab             // ej: "91e5a56dd421a2941984a36a2af164b6"
@@ -133,7 +132,6 @@ namespace RandomReinforcementsPerEncounter
                 var rolls = t.DiceCount <= 0 ? 1 : t.DiceCount;
                 var diceT = MapDiceType(t.DiceSide <= 0 ? 6 : t.DiceSide);
 
-                var guid = GuidUtil.FromString(t.Seed);
                 var keys = BuildKeys(nameRoot, i + 1);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
@@ -147,7 +145,7 @@ namespace RandomReinforcementsPerEncounter
 
                 // Crear el enchant
                 var cfg = WeaponEnchantmentConfigurator
-                    .New(bpName, guid.ToString())
+                    .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc);
 
@@ -169,7 +167,7 @@ namespace RandomReinforcementsPerEncounter
         }
 
         public static void RegisterWeaponStatsTiersFor(
-            List<DebuffTierConfig> tiers,
+            List<TierConfig> tiers,
             string nameRoot,                 // p.ej. "Strength"
             StatType stat,                   // p.ej. StatType.Strength
             string description,                 // p.ej. "Strength" (texto visible)
@@ -181,7 +179,6 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int plus = t.Bonus <= 0 ? 1 : t.Bonus;
 
-                var enchGuid = GuidUtil.FromString(t.Seed);
                 var keys = BuildKeys(nameRoot, i + 1);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
@@ -194,7 +191,7 @@ namespace RandomReinforcementsPerEncounter
                 );
 
                 WeaponEnchantmentConfigurator
-                    .New(bpName, enchGuid.ToString())
+                    .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
                     .AddStatBonusEquipment(
@@ -206,13 +203,51 @@ namespace RandomReinforcementsPerEncounter
             }
         }
 
-        public class DebuffTierConfig
+        public static void RegisterWeaponFeaturesTiersFor(
+            List<TierConfig> tiers,
+            string nameRoot,          // p.ej. "Spell DC"
+            string description,       // p.ej. "spell DC" (texto visible)
+            string encyclopedia       // p.ej. "DC" (clave de enciclopedia sin "Encyclopedia:")
+)
         {
-            public string Seed { get; set; }
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                var t = tiers[i];
+
+                // Claves y nombres localizados coherentes con el resto del sistema
+                var keys = BuildKeys(nameRoot, i + 1);
+                var bpName = keys.bpName;
+                var locName = keys.locName;
+                var descKey = keys.descKey;
+
+                int tierGroup = (i / 2) + 1;
+
+                // Descripción visible (linkeando a la enciclopedia)
+                var locDesc = LocalizationTool.CreateString(
+                    descKey,
+                    BuildFeatureDescription(tierGroup, description, encyclopedia)
+                );
+
+                // Referencia al Feature desde el GUID en texto que trae el TierConfig.Feat
+                var featureRef = BlueprintTool.GetRef<BlueprintFeatureReference>(t.Feat);
+
+                WeaponEnchantmentConfigurator
+                    .New(bpName, t.AssetId)
+                    .SetEnchantName(locName)
+                    .SetDescription(locDesc)
+                    .AddUnitFeatureEquipment(featureRef)
+                    .Configure();
+            }
+        }
+
+        public class TierConfig
+        {
+            public string AssetId { get; set; }
             public int DC { get; set; }              // se ignora en daño de energía
             public int DiceCount { get; set; }       // NUEVO: usado por daño de energía
             public int DiceSide { get; set; }        // NUEVO: usado por daño de energía
             public int Bonus { get; set; }
+            public string Feat { get; set; }
         }
 
         private static DiceType MapDiceType(int sides)
@@ -247,6 +282,7 @@ namespace RandomReinforcementsPerEncounter
         private const string LINK_ROUND = "Encyclopedia:Combat_Round";
         private const string LINK_ENERGY = "Encyclopedia:Energy_Damage";
         private const string LINK_BONUS = "Encyclopedia:Bonus";
+        private const string LINK_SPELL = "Encyclopedia:Spell";
 
         private static string BuildDescription(
             SavingThrowType saveType, int dc,
@@ -290,6 +326,15 @@ namespace RandomReinforcementsPerEncounter
             string bonusChunk = $"{{g|{LINK_BONUS}}}bonus{{/g}}";
             string statChunk = $"{{g|Encyclopedia:{encyclopedia}}}{description}{{/g}}";
             return $"This item grants a +{bonus} stackable {bonusChunk} to {statChunk}.";
+        }
+
+        private static string BuildFeatureDescription(int bonus, string description, string encyclopedia)
+        {
+            string bonusChunk = $"{{g|{LINK_BONUS}}}bonus{{/g}}";
+            string statChunk = $"{{g|Encyclopedia:{encyclopedia}}}{description}{{/g}}";
+            string savesChunk = $"{{g|{LINK_SAVE}}}saving trhow{{/g}}";
+            string spellsChunk = $"{{g|{LINK_SPELL}}}spells{{/g}}";
+            return $"This item grants a +{bonus} stackable {bonusChunk} to {statChunk} for all {savesChunk} against {spellsChunk} from the wielder casts.";
         }
 
         private static DamageEnergyType MapEnergyType(string s)

@@ -16,12 +16,11 @@ namespace RandomReinforcementsPerEncounter
             FeatureFactory.RegisterSpellsDCTiersFor(
                 new List<FeatureTierConfig>
                 {
-                    new FeatureTierConfig { Seed = "spellDC.t1", Bonus = 1 },
-                    new FeatureTierConfig { Seed = "spellDC.t2", Bonus = 2 },
-                    new FeatureTierConfig { Seed = "spellDC.t3", Bonus = 3 }
+                    new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("spellDC.t1").ToString(), Bonus = 1 },
+                    new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("spellDC.t2").ToString(), Bonus = 2 },
+                    new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("spellDC.t3").ToString(), Bonus = 3 }
                 },
-                nameRoot: "Spell DC",
-                type: "spellDC"
+                nameRoot: "Spell DC"
             );
         }
     }

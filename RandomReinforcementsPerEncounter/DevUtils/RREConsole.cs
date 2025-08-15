@@ -13,7 +13,7 @@ namespace RandomReinforcementsPerEncounter
         {
             try
             {
-                var gid = GuidUtil.FromString("corrosive.1d8");
+                var gid = GuidUtil.EnchantGuid("corrosive.1d8");
                 var gidStr = gid.ToString();
 
                 // ¿ya está?
@@ -62,7 +62,7 @@ namespace RandomReinforcementsPerEncounter
         // Comprueba si el enchant está en caché
         public static void CheckCorrosive1d8()
         {
-            var gidStr = GuidUtil.FromString("corrosive.1d8").ToString();
+            var gidStr = GuidUtil.EnchantGuid("corrosive.1d8").ToString();
             var bp = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
             Debug.Log(bp != null ? "[RRE] Enchant corrosive.1d8 está en caché" : "[RRE] Enchant corrosive.1d8 NO está en caché");
         }
@@ -70,7 +70,7 @@ namespace RandomReinforcementsPerEncounter
         // Aplica el enchant al arma de la mano principal del protagonista
         public static void ApplyCorrosive1d8ToMain()
         {
-            var gidStr = GuidUtil.FromString("corrosive.1d8").ToString();
+            var gidStr = GuidUtil.EnchantGuid("corrosive.1d8").ToString();
             var ench = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
             if (ench == null) { Debug.LogError("[RRE] Enchant no encontrado. Llama antes a RegisterCorrosive1d8_ViaResLib()."); return; }
 
@@ -85,7 +85,7 @@ namespace RandomReinforcementsPerEncounter
         // (Opcional) Quita el enchant de la caché si quieres limpiar
         public static void UnregisterCorrosive1d8()
         {
-            var gid = GuidUtil.FromString("corrosive.1d8");
+            var gid = GuidUtil.EnchantGuid("corrosive.1d8");
             Kingmaker.Blueprints.ResourcesLibrary.BlueprintsCache.RemoveCachedBlueprint(gid);
             Debug.Log("[RRE] Enchant corrosive.1d8 eliminado de la caché.");
         }

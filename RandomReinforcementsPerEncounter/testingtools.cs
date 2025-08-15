@@ -5,7 +5,7 @@ using UnityEngine;
 
 //Testear si esta cargada y aplicar
 //RandomReinforcementsPerEncounter.TestingTools.CheckEnchantmentInCache("enhancementSTR.t1");
-//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("plusSTR.t4");
+//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("spellDC.t5");
 
 
 namespace RandomReinforcementsPerEncounter
@@ -19,7 +19,7 @@ namespace RandomReinforcementsPerEncounter
         {
             try
             {
-                var gidStr = GuidUtil.FromString(enchantId).ToString();
+                var gidStr = GuidUtil.EnchantGuid(enchantId).ToString();
                 var bp = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
                 Debug.Log(bp != null
                     ? $"[RRE-Test] Enchant '{enchantId}' está en caché ✅"
@@ -38,7 +38,7 @@ namespace RandomReinforcementsPerEncounter
         {
             try
             {
-                var gidStr = GuidUtil.FromString(enchantId).ToString();
+                var gidStr = GuidUtil.EnchantGuid(enchantId).ToString();
                 var ench = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
                 if (ench == null)
                 {

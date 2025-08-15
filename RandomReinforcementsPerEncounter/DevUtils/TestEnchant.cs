@@ -42,7 +42,7 @@ namespace RandomReinforcementsPerEncounter
             // Cambiar nombre Unity
             bp.name = "MOD_Corrosive_1d8";
             // Cambiar GUID
-            var newGuid = GuidUtil.FromString("corrosive.1d8");
+            var newGuid = GuidUtil.EnchantGuid("corrosive.1d8");
             var fiGuid = typeof(BlueprintWeaponEnchantment).GetField("m_AssetGuid", flags);
             if (fiGuid != null) fiGuid.SetValue(bp, newGuid);
 
@@ -81,7 +81,7 @@ namespace RandomReinforcementsPerEncounter
 
             // 2) Nombre Unity único y nuevo GUID
             bp.name = "MOD_Corrosive_1d8";
-            var newGuid = GuidUtil.FromString("corrosive.1d8");
+            var newGuid = GuidUtil.EnchantGuid("corrosive.1d8");
 
             // set GUID (propiedad o campo)
             var setOk = false;

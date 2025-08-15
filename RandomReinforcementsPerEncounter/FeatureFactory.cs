@@ -17,15 +17,13 @@ namespace RandomReinforcementsPerEncounter
     {
         public class FeatureTierConfig
         {
-            public string Seed { get; set; }
+            public string AssetId { get; set; }
             public int Bonus { get; set; }
         }
 
         public static void RegisterSpellsDCTiersFor(
             List<FeatureTierConfig> tiers,
-            string nameRoot,                 
-            string type                 
-
+            string nameRoot
         )
         {
             var result = new List<BlueprintFeatureReference>();
@@ -36,10 +34,9 @@ namespace RandomReinforcementsPerEncounter
                 int plus = t.Bonus <= 0 ? 1 : t.Bonus;
 
                 string bpName = $"RRE_{nameRoot.Replace(' ', '_')}_T{i + 1}_Feature";
-                var featGuid = GuidUtil.FeatureGuid($"{type}:{t.Seed}");
 
                 FeatureConfigurator
-                    .New(bpName, featGuid.ToString())
+                    .New(bpName, t.AssetId)
                     .SetDisplayName("Hidden") 
                     .SetDescription("Hidden")
                     .SetHideInUI(true)

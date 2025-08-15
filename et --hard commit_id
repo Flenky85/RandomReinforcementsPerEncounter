@@ -1,0 +1,34 @@
+[33m9dd3609[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m save point. I going to try refactor more.
+[33mf684230[m Add more enchants. Point for clean a little
+[33m06a9aa6[m Add all enchantments for elemental damage and make constructor for stats bonus
+[33m8f68281[m Add and testing of debuff enchant onlyFirstOnHit
+[33m22b62c5[m Add and test all debuff onlyHit
+[33mb3bbd99[m feat: finished implementation of debuff enchantment creation system
+[33m7dff8ec[m Add a WW-Blueprint an make first functional weaponEnchantDebuff
+[33m059ebcf[m Refactored EnchantMaker: moved shared utilities to EnchantMakerUtils and kept elemental enchantment logic in EnchantMaker.
+[33m0b7f72a[m Enchant system now add correctly name, prefix, sufix and description.
+[33m8c2877a[m Add all element to EnchantMaker
+[33ma41004c[m feat: fully functional automatic enchantment creation system
+[33m69b68e0[m feat(blueprints): found how to register enchantments
+[33m8776239[m Add experimental real-time mode support
+[33m471dc7b[m pausa para testear el spawner en modo tiempo real.
+[33m915678f[m Completed full review and cleanup of armor item lists.
+[33m098ed23[m Completed item import. List review still pending.
+[33m087d09b[m Controlled dynamic loot drops and forced chest to always be unlocked
+[33mc334263[m Refactored chest spawn code: cleaned up logic, added scale control and auto-destroy on empty loot
+[33m174e202[m Finally a functional chest.
+[33meaa7c4b[m Monsters no longer grant loot or XP. Chest spawns after combat (no loot yet). Fixed bug causing enemies to reappear when switching to controller during combat.
+[33m2f2938a[m refactor: clean and modularize reinforcement system logic
+[33m04945dc[m - Refactored project structure for better maintainability. - Integrated Assembly Publicizer to access internal game methods and types. - Prepared the environment for deeper mod development and reflection-based patches.
+[33m2437444[m Migrated to SDK-style .csproj and integrated BepInEx Assembly Publicizer for future accessibility improvements. Also modified Blueprint cloning logic to ensure summoned mobs no longer grant experience or drop loot upon death.
+[33m600beff[m - Eliminación limpia de clones: sin loot, sin experiencia y autodestrucción tras morir - Desactivado el drop de experiencia (GiveExperienceOnDeath = false) - Marcados como Unlootable - Añadido watcher global para detectar muertes de clones - Eliminación del token visual y la unidad lógica tras 4 segundos
+[33m19c0ffb[m Merge branch 'master' of https://github.com/Flenky85/RandomReinforcementsPerEncounter
+[33m8c7d391[m Pequeño ajsute en la lista de spawn y añadido sistema de personalizacion para el spawner.
+[33mc738241[m Update README.md
+[33mb826841[m[33m ([m[1;33mtag: [m[1;33mv1.0.2[m[33m)[m Se quitan de la lista de spawn los enlemigos unicos y los boses.
+[33m9b898dd[m[33m ([m[1;33mtag: [m[1;33mv1.0.1[m[33m)[m Info.json actualizado.
+[33mc266e33[m remove son mobs from the list.
+[33mc8ef58e[m Internal_Manifest añadido
+[33m475371c[m[33m ([m[1;33mtag: [m[1;33mv1.0.0[m[33m)[m Cambios en licencia e info.json
+[33m8f39166[m Agregar archivos de proyecto.
+[33mc95c9d0[m Agregar .gitattributes, .gitignore y LICENSE.txt.
