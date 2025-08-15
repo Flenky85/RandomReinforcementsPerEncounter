@@ -870,7 +870,7 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t3").ToString() }
                 },
                 nameRoot: "Spell DC",
-                description: "spell DC",
+                description: "spell DC for all saving trhow against spells from the wielder casts",
                 encyclopedia: "DC"
             );
 

@@ -187,7 +187,7 @@ namespace RandomReinforcementsPerEncounter
                 // Usa tu descripción existente (bonus + enlace a stat)
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
-                    BuildEnhancementDescription(plus, description, encyclopedia)
+                    BuildStackableBonusDescription(plus, description, encyclopedia)
                 );
 
                 WeaponEnchantmentConfigurator
@@ -225,7 +225,7 @@ namespace RandomReinforcementsPerEncounter
                 // Descripción visible (linkeando a la enciclopedia)
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
-                    BuildFeatureDescription(tierGroup, description, encyclopedia)
+                    BuildStackableBonusDescription(tierGroup, description, encyclopedia)
                 );
 
                 // Referencia al Feature desde el GUID en texto que trae el TierConfig.Feat
@@ -286,8 +286,7 @@ namespace RandomReinforcementsPerEncounter
 
         private static string BuildDescription(
             SavingThrowType saveType, int dc,
-            string conditionText,       // "blinded"  (Visible word)
-            string conditionLinkKey,    // "Blind"    (Encyclopedia)
+            string conditionText, string conditionLinkKey, // ya no lo necesitas si confías en el autolink
             int durationCount, int durationSides,
             bool onlyOnFirstHit)
         {
@@ -300,41 +299,24 @@ namespace RandomReinforcementsPerEncounter
             bool isExactlyOneRound = durationSides == 1 && durationCount == 1;
             string roundText = isExactlyOneRound ? "round" : "rounds";
 
-            // Enlaces
-            string saveChunk = $"{{g|{LINK_SAVE}}}{saveName} saving throw{{/g}}";
-            string dcChunk = $"({{g|{LINK_DC}}}DC{{/g}} {dc})";
-            string condChunk = $"{{g|Encyclopedia:Condition{conditionLinkKey}}}{conditionText}{{/g}}";
-            string diceChunk = $"{{g|{LINK_DICE}}}{diceText}{{/g}}";
-            string roundChunk = $"{{g|{LINK_ROUND}}}{roundText}{{/g}}";
-
-            return $"{intro}{saveChunk} {dcChunk} or become {condChunk} for {diceChunk} {roundChunk}.";
+            string plain = $"{intro}{saveName} saving throw (DC {dc}) or become {conditionText} for {diceText} {roundText}.";
+            return AutoLinker.Apply(plain);
         }
 
         private static string BuildEnergyDescription(int diceCount, int diceSides, string energyWord)
         {
             string diceText = diceSides == 1 ? diceCount.ToString() : $"{diceCount}d{diceSides}";
-            string diceChunk = $"{{g|{LINK_DICE}}}{diceText}{{/g}}";
-            string energyChunk = $"{{g|{LINK_ENERGY}}}{energyWord} damage{{/g}}";
 
             // Mantén la redacción sencilla y consistente con el resto:
-            return $"This weapon deals an extra {diceChunk} points of {energyChunk} on a successful hit.";
+            string plain = $"This weapon deals an extra {diceText} points of {energyWord} on a successful hit.";
+            return AutoLinker.Apply(plain);
         }
 
-        private static string BuildEnhancementDescription(int bonus, string description, string encyclopedia)
+        private static string BuildStackableBonusDescription(int bonus, string description, string encyclopedia)
         {
             // “This item grants a +X enhancement bonus to Strength.”
-            string bonusChunk = $"{{g|{LINK_BONUS}}}bonus{{/g}}";
-            string statChunk = $"{{g|Encyclopedia:{encyclopedia}}}{description}{{/g}}";
-            return $"This item grants a +{bonus} stackable {bonusChunk} to {statChunk}.";
-        }
-
-        private static string BuildFeatureDescription(int bonus, string description, string encyclopedia)
-        {
-            string bonusChunk = $"{{g|{LINK_BONUS}}}bonus{{/g}}";
-            string statChunk = $"{{g|Encyclopedia:{encyclopedia}}}{description}{{/g}}";
-            string savesChunk = $"{{g|{LINK_SAVE}}}saving trhow{{/g}}";
-            string spellsChunk = $"{{g|{LINK_SPELL}}}spells{{/g}}";
-            return $"This item grants a +{bonus} stackable {bonusChunk} to {statChunk} for all {savesChunk} against {spellsChunk} from the wielder casts.";
+            string plain = $"This item grants a +{bonus} stackable bonus to {description}.";
+            return AutoLinker.Apply(plain);
         }
 
         private static DamageEnergyType MapEnergyType(string s)
