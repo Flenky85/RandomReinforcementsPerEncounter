@@ -5,7 +5,7 @@ using UnityEngine;
 
 //Testear si esta cargada y aplicar
 //RandomReinforcementsPerEncounter.TestingTools.CheckEnchantmentInCache("enhancementSTR.t1");
-//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("spellDC.t5");
+//RandomReinforcementsPerEncounter.TestingTools.ApplyEnchantmentToMain("spellDieBonus.t5");
 
 
 namespace RandomReinforcementsPerEncounter

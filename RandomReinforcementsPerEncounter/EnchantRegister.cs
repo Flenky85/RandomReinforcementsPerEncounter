@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 using static RandomReinforcementsPerEncounter.EnchantFactory;
 
 namespace RandomReinforcementsPerEncounter
@@ -45,9 +46,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("shaken.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Shaken",
+                name: "Fearsome",
+                nameRoot: "shaken",
                 description: "shaken",
-                condition: "Shaken",
                 buff: "25ec6cb6ab1845c48a95f9c20b034220",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -64,9 +65,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("blindness.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Blindness",
+                name: "Blinding",
+                nameRoot: "blindness",
                 description:"blinded",
-                condition: "Blind",
                 buff: "0ec36e7596a4928489d2049e1e1c76a7",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -83,9 +84,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("dazzled.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Dazzled",
+                name: "Dazzling",
+                nameRoot: "dazzled",
                 description: "dazzled",
-                condition: "Dazzled",
                 buff: "df6d1020da07524423afbae248845ecc",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -102,9 +103,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("sickened.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Sickened",
+                name: "Sickening",
+                nameRoot: "sickened",
                 description: "sickened",
-                condition: "Sickened",
                 buff: "4e42460798665fd4cb9143ffa7ada323",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -121,9 +122,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("staggered.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Staggered",
+                name: "Staggering",
+                nameRoot: "staggered",
                 description: "staggered",
-                condition: "Staggered",
                 buff: "df3950af5a783bd4d91ab73eb8fa0fd3",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -140,9 +141,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("fatigue.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Fatigue",
+                name: "Fatiguing",
+                nameRoot: "fatigue",
                 description: "fatigued",
-                condition: "Fatigued",
                 buff: "e6f2fc5d73d88064583cb828801172f4",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -159,9 +160,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("confusion.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Confusion",
+                name: "Confusing",
+                nameRoot: "confusion",
                 description: "confused",
-                condition: "Confusion",
                 buff: "886c7407dc623dc499b9f1465ff382df",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -178,9 +179,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("entangled.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Entangled",
+                name: "Entangling",
+                nameRoot: "entangled",
                 description: "entangled",
-                condition: "Entangled",
                 buff: "f7f6260726117cf4b90a6086b05d2e38",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -197,9 +198,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t5").ToString(), DC = 23 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("slowed.t6").ToString(), DC = 26 }
                 },
-                nameRoot: "Slowed",
+                name: "Slowing",
+                nameRoot: "slowed",
                 description: "slowed",
-                condition: "Slowed",
                 buff: "488e53ede2802ff4da9372c6a494fb66",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -219,9 +220,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("frightened.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Frightened",
+                name: "Frightening",
+                nameRoot: "frightened",
                 description: "frightened",
-                condition: "Frightened",
                 buff: "f08a7239aa961f34c8301518e71d4cdf",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -238,9 +239,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("stunned.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Stunned",
+                name: "Stunning",
+                nameRoot: "stunned",
                 description: "stunned",
-                condition: "Stunned",
                 buff: "09d39b38bb7c6014394b6daced9bacd3",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -257,9 +258,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("daze.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Daze",
+                name: "Dazing",
+                nameRoot: "daze",
                 description: "dazed",
-                condition: "Daze",
                 buff: "d2e35b870e4ac574d9873b36402487e5",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -276,9 +277,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("sleep.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Sleep",
+                name: "Slumbering",
+                nameRoot: "sleep",
                 description: "asleep",
-                condition: "Sleep",
                 buff: "c9937d7846aa9ae46991e9f298be644a",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -295,9 +296,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("paralyzed.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Paralyzed",
+                name: "Paralyzing",
+                nameRoot: "paralyzed",
                 description: "paralyzed",
-                condition: "Paralyzed",
                 buff: "4d5a2e4c34d24acca575c10003cf8fbc",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -314,9 +315,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("exhausted.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Exhausted",
+                name: "Exhausting",
+                nameRoot: "exhausted",
                 description: "exhausted",
-                condition: "Exhausted",
                 buff: "46d1b9cc3d0fd36469a471b047d773a2",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -333,9 +334,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("nauseated.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Nauseated",
+                name: "Nauseating",
+                nameRoot: "nauseated",
                 description: "nauseated",
-                condition: "Nauseated",
                 buff: "956331dba5125ef48afe41875a00ca0e",
                 durationDiceCount: 1,
                 durationDiceSides: 3,
@@ -352,9 +353,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("prone.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Prone",
+                name: "Toppling",
+                nameRoot: "prone",
                 description: "prone",
-                condition: "Prone",
                 buff: "24cf3deb078d3df4d92ba24b176bda97",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -371,9 +372,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t5").ToString(), DC = 29 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("domination.t6").ToString(), DC = 33 }
                 },
-                nameRoot: "Domination",
+                name: "Dominating",
+                nameRoot: "domination",
                 description: "dominated",
-                condition: "Domination",
                 buff: "c0f4e1c24c9cd334ca988ed1bd9d201f",
                 durationDiceCount: 1,
                 durationDiceSides: 1,
@@ -394,7 +395,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("fire.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Flaming",
+                name: "Flaming",
+                nameRoot: "fire",
                 description: "fire",
                 prefab: PREFAB_FLAMING
             );
@@ -408,7 +410,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("cold.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Frost",
+                name: "Frost",
+                nameRoot: "cold",
                 description: "cold",
                 prefab: PREFAB_FROST
             );
@@ -422,7 +425,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("electricity.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Shock",
+                name: "Shock",
+                nameRoot: "electricity",
                 description: "electricity",
                 prefab: PREFAB_SHOCK
             );
@@ -436,7 +440,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("sonic.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Thundering",
+                name: "Thundering",
+                nameRoot: "sonic",
                 description: "sonic",
                 prefab: PREFAB_SONIC
             );
@@ -450,7 +455,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("acid.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Corrosive",
+                name: "Corrosive",
+                nameRoot: "acid",
                 description: "acid",
                 prefab: PREFAB_CORROSIVE
             );
@@ -464,7 +470,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("unholy.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Unholy",
+                name: "Unholy",
+                nameRoot: "unholy",
                 description: "negative damage",
                 prefab: PREFAB_UNHOLY
             );
@@ -478,7 +485,8 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t5").ToString(), DiceCount = 2, DiceSide = 8 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("holy.t6").ToString(), DiceCount = 2, DiceSide = 10 }
                 },
-                nameRoot: "Holy",
+                name: "Holy",
+                nameRoot: "holy",
                 description: "holy",
                 prefab: PREFAB_HOLY
             );
@@ -499,9 +507,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statSTR.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Strength",
+                name: "Mighty",
+                nameRoot: "statSTR",
                 description: "strength",
-                encyclopedia: "Strength",
                 stat: StatType.Strength
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -514,9 +522,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statDEX.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Dexterity",
+                name: "Graceful",
+                nameRoot: "statDEX",
                 description: "dexterity",
-                encyclopedia: "Dexterity",
                 stat: StatType.Dexterity
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -529,9 +537,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statCON.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Constitution",
+                name: "Resilient",
+                nameRoot: "statCON",
                 description: "constitution",
-                encyclopedia: "Constitution",
                 stat: StatType.Constitution
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -544,9 +552,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statINT.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Intelligence",
+                name: "Cunning",
+                nameRoot: "statINT",
                 description: "intelligence",
-                encyclopedia: "Intelligence",
                 stat: StatType.Intelligence
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -559,9 +567,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statWIS.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Wisdom",
+                name: "Sage",
+                nameRoot: "statWIS",
                 description: "wisdom",
-                encyclopedia: "Wisdom",
                 stat: StatType.Wisdom
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -574,9 +582,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("statCHA.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Charisma",
+                name: "Glamorous",
+                nameRoot: "statCHA",
                 description: "charisma",
-                encyclopedia: "Charisma",
                 stat: StatType.Charisma
             );
 
@@ -591,9 +599,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("saveFOR.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Fortitude",
-                description: "saving throw fortitude",
-                encyclopedia: "Saving_Throw",
+                name: "Enduring",
+                nameRoot: "saveFOR",
+                description: "fortitude saving throw",
                 stat: StatType.SaveFortitude
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -606,9 +614,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("saveWIL.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Will",
-                description: "saving throw will",
-                encyclopedia: "Saving_Throw",
+                name: "Ironwill",
+                nameRoot: "saveWIL",
+                description: "will saving throw",
                 stat: StatType.SaveWill
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -621,9 +629,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("saveREF.t6").ToString(), Bonus = 6 }
                 },
-                nameRoot: "Reflex",
-                description: "saving throw reflex",
-                encyclopedia: "Saving_Throw",
+                name: "Elusive",
+                nameRoot: "saveREF",
+                description: "reflex saving throw",
                 stat: StatType.SaveReflex
             );
 
@@ -638,9 +646,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillMOB.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Mobility",
+                name: "Mobile",
+                nameRoot: "skillMOB",
                 description: "mobility",
-                encyclopedia: "Mobility",
                 stat: StatType.SkillMobility
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -653,9 +661,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillATH.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Athletics",
+                name: "Vigorous",
+                nameRoot: "skillATH",
                 description: "athletics",
-                encyclopedia: "Athletics",
                 stat: StatType.SkillAthletics
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -668,9 +676,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillARC.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Knowledge Arcana",
+                name: "Arcane",
+                nameRoot: "skillARC",
                 description: "knowledge arcana",
-                encyclopedia: "Knowledge_Arcana",
                 stat: StatType.SkillKnowledgeArcana
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -683,9 +691,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillWOR.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Knowledge World",
+                name: "Scholar",
+                nameRoot: "skillWOR",
                 description: "knowledge world",
-                encyclopedia: "Knowledge_World",
                 stat: StatType.SkillKnowledgeWorld
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -698,9 +706,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillNAT.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Lore Nature",
+                name: "Pathfinder",
+                nameRoot: "skillNAT",
                 description: "lore nature",
-                encyclopedia: "Lore_Nature",
                 stat: StatType.SkillLoreNature
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -713,9 +721,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillREL.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Lore Religion",
+                name: "Saintly",
+                nameRoot: "skillREL",
                 description: "lore religion",
-                encyclopedia: "Lore_Religion",
                 stat: StatType.SkillLoreReligion
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -728,9 +736,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERC.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Perception",
+                name: "Vigilant",
+                nameRoot: "skillPERC",
                 description: "perception",
-                encyclopedia: "Perception",
                 stat: StatType.SkillPerception
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -743,9 +751,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillPERS.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Persuasion",
+                name: "Diplomatic",
+                nameRoot: "skillPERS",
                 description: "persuasion",
-                encyclopedia: "Persuasion",
                 stat: StatType.SkillPersuasion
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -758,9 +766,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillSTE.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Stealth",
+                name: "Silent",
+                nameRoot: "skillSTE",
                 description: "stealth",
-                encyclopedia: "Stealth",
                 stat: StatType.SkillStealth
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -773,9 +781,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillTHI.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Trickery",
+                name: "Gambit",
+                nameRoot: "skillTHI",
                 description: "Trickery",
-                encyclopedia: "Trickery",
                 stat: StatType.SkillThievery
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -788,9 +796,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("skillUMD.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Use Magic Device",
+                name: "Mystic",
+                nameRoot: "skillUMD",
                 description: "use magic device",
-                encyclopedia: "Use_Magic_Device",
                 stat: StatType.SkillUseMagicDevice
             );
 
@@ -805,9 +813,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t5").ToString(), Bonus = 10 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("initiative.t6").ToString(), Bonus = 12 }
                 },
-                nameRoot: "Initiative",
+                name: "Swift",
+                nameRoot: "initiative",
                 description: "initiative",
-                encyclopedia: "Initiative",
                 stat: StatType.Initiative
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -820,9 +828,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("CMB.t6").ToString(), Bonus = 6 }
                 },
+                name: "Grappling",
                 nameRoot: "CMB",
                 description: "combat maneuver bonus",
-                encyclopedia: "CMB",
                 stat: StatType.AdditionalCMB
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -835,9 +843,9 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t5").ToString(), Bonus = 5 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("CMD.t6").ToString(), Bonus = 6 }
                 },
+                name: "Immovable",
                 nameRoot: "CMD",
                 description: "combat maneuver defense",
-                encyclopedia: "CMD",
                 stat: StatType.AdditionalCMD
             );
             EnchantFactory.RegisterWeaponStatsTiersFor(
@@ -848,11 +856,11 @@ namespace RandomReinforcementsPerEncounter
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t3").ToString(), Bonus = 1 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t4").ToString(), Bonus = 2 },
                     new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t5").ToString(), Bonus = 2 },
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t6").ToString(), Bonus = 2 }
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("casterLevel.t6").ToString(), Bonus = 3 }
                 },
-                nameRoot: "Caster Level",
+                name: "Eldritch",
+                nameRoot: "casterLevel",
                 description: "caster level",
-                encyclopedia: "Caster_Level",
                 stat: StatType.BonusCasterLevel
             );
 
@@ -862,18 +870,258 @@ namespace RandomReinforcementsPerEncounter
             EnchantFactory.RegisterWeaponFeaturesTiersFor(
                 new List<TierConfig>
                 {
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString() },
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString() },
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t2").ToString() },
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t2").ToString() },
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t3").ToString() },
-                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t3").ToString() }
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t1").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("spellDC.t3").ToString(), BonusDescription = 3 }
                 },
-                nameRoot: "Spell DC",
-                description: "spell DC for all saving trhow against spells from the wielder casts",
-                encyclopedia: "DC"
+                name: "Hexing",
+                nameRoot: "spellDC",
+                description: "spell DC for all saving trhow against spells from the wielder casts"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDieBonus.t1").ToString(), Feat = GuidUtil.FeatureGuid("spellDieBonus.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDieBonus.t2").ToString(), Feat = GuidUtil.FeatureGuid("spellDieBonus.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDieBonus.t3").ToString(), Feat = GuidUtil.FeatureGuid("spellDieBonus.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDieBonus.t4").ToString(), Feat = GuidUtil.FeatureGuid("spellDieBonus.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDieBonus.t5").ToString(), Feat = GuidUtil.FeatureGuid("spellDieBonus.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("spellDieBonus.t6").ToString(), Feat = GuidUtil.FeatureGuid("spellDieBonus.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Overcharged",
+                nameRoot: "spellDieBonus",
+                description: "each die rolled when casting a spell with descriptor fire, cold, elctricity, acid, sonic, force and cure"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("divinationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("divinationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("divinationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("divinationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("divinationCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("divinationCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Revealing",
+                nameRoot: "divinationCL",
+                description: "caster level on divination school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Amplifier",
+                nameRoot: "enchantmentCL",
+                description: "caster level on enchantment school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("evocationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("evocationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("evocationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("evocationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("evocationCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("evocationCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Blasting",
+                nameRoot: "evocationCL",
+                description: "caster level on evocation school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("conjurationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("conjurationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("conjurationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("conjurationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("conjurationCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("conjurationCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Summoning",
+                nameRoot: "conjurationCL",
+                description: "caster level on conjuration school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("abjurationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("abjurationCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("abjurationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("abjurationCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("abjurationCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("abjurationCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Warding",
+                nameRoot: "abjurationCL",
+                description: "caster level on abjuration school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("illusionCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("illusionCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("illusionCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("illusionCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("illusionCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("illusionCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Mirage",
+                nameRoot: "illusionCL",
+                description: "caster level on illusion school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Morphing",
+                nameRoot: "transmutacionCL",
+                description: "caster level on transmutacion school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyCL.t1").ToString(), Feat = GuidUtil.FeatureGuid("necromancyCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyCL.t2").ToString(), Feat = GuidUtil.FeatureGuid("necromancyCL.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyCL.t3").ToString(), Feat = GuidUtil.FeatureGuid("necromancyCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyCL.t4").ToString(), Feat = GuidUtil.FeatureGuid("necromancyCL.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyCL.t5").ToString(), Feat = GuidUtil.FeatureGuid("necromancyCL.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyCL.t6").ToString(), Feat = GuidUtil.FeatureGuid("necromancyCL.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Grim",
+                nameRoot: "necromancyCL",
+                description: "caster level on necromancy school spells"
             );
 
+            //SpellSchoolsDC
+            //Bonus here its only for description
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("divinationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("divinationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("divinationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("divinationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("divinationDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("divinationDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("divinationDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Insightful",
+                nameRoot: "divinationDC",
+                description: "DC on divination school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("enchantmentDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("enchantmentDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Mesmeric",
+                nameRoot: "enchantmentDC",
+                description: "DC on enchantment school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("evocationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("evocationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("evocationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("evocationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("evocationDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("evocationDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("evocationDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Cataclysmic",
+                nameRoot: "evocationDC",
+                description: "DC on evocation school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("conjurationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("conjurationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("conjurationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("conjurationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("conjurationDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("conjurationDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("conjurationDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Binding",
+                nameRoot: "conjurationDC",
+                description: "DC on conjuration school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("abjurationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("abjurationDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("abjurationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("abjurationDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("abjurationDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("abjurationDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("abjurationDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Repelling",
+                nameRoot: "abjurationDC",
+                description: "DC on abjuration school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("illusionDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("illusionDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("illusionDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("illusionDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("illusionDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("illusionDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("illusionDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Chimeric",
+                nameRoot: "illusionDC",
+                description: "DC on illusion school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("transmutacionDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("transmutacionDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Mutable",
+                nameRoot: "transmutacionDC",
+                description: "DC on transmutacion school spells"
+            );
+            EnchantFactory.RegisterWeaponFeaturesTiersFor(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyDC.t1").ToString(), Feat = GuidUtil.FeatureGuid("necromancyDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyDC.t2").ToString(), Feat = GuidUtil.FeatureGuid("necromancyDC.t1").ToString(), BonusDescription = 1 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyDC.t3").ToString(), Feat = GuidUtil.FeatureGuid("necromancyDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyDC.t4").ToString(), Feat = GuidUtil.FeatureGuid("necromancyDC.t2").ToString(), BonusDescription = 2 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyDC.t5").ToString(), Feat = GuidUtil.FeatureGuid("necromancyDC.t3").ToString(), BonusDescription = 3 },
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("necromancyDC.t6").ToString(), Feat = GuidUtil.FeatureGuid("necromancyDC.t3").ToString(), BonusDescription = 3 }
+                },
+                name: "Deathly",
+                nameRoot: "necromancyDC",
+                description: "DC on necromancy school spells"
+            );
         }
     }
 }

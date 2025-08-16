@@ -27,14 +27,14 @@ namespace RandomReinforcementsPerEncounter
         }
         public static void RegisterDebuffTiersFor(
             List<TierConfig> tiers,
+            string name,
             string nameRoot,
             string buff, 
             int durationDiceCount, 
             int durationDiceSides,
             SavingThrowType savingThrowType,
             ActivationType activation,
-            string description,   
-            string condition     
+            string description
             )
         {
   
@@ -47,7 +47,7 @@ namespace RandomReinforcementsPerEncounter
             for (int i = 0; i < tiers.Count; i++)
             {
                 var tierConfig = tiers[i];
-                var keys = BuildKeys(nameRoot, i + 1);
+                var keys = BuildKeys(nameRoot, i + 1, name);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
                 var bpName = keys.bpName;
@@ -59,7 +59,6 @@ namespace RandomReinforcementsPerEncounter
                         savingThrowType,
                         tierConfig.DC,
                         description,
-                        condition,
                         durationDiceCount,
                         durationDiceSides,
                         onlyOnFirstHit
@@ -118,6 +117,7 @@ namespace RandomReinforcementsPerEncounter
 
         public static void RegisterDamageTiersFor(
                     List<TierConfig> tiers,
+                    string name,
                     string nameRoot,          // ej: "Flaming"
                     string description,       // ej: "fire"
                     string prefab             // ej: "91e5a56dd421a2941984a36a2af164b6"
@@ -132,7 +132,7 @@ namespace RandomReinforcementsPerEncounter
                 var rolls = t.DiceCount <= 0 ? 1 : t.DiceCount;
                 var diceT = MapDiceType(t.DiceSide <= 0 ? 6 : t.DiceSide);
 
-                var keys = BuildKeys(nameRoot, i + 1);
+                var keys = BuildKeys(nameRoot, i + 1, name);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
                 var bpName = keys.bpName;
@@ -168,10 +168,10 @@ namespace RandomReinforcementsPerEncounter
 
         public static void RegisterWeaponStatsTiersFor(
             List<TierConfig> tiers,
+            string name,
             string nameRoot,                 // p.ej. "Strength"
             StatType stat,                   // p.ej. StatType.Strength
-            string description,                 // p.ej. "Strength" (texto visible)
-            string encyclopedia
+            string description                 // p.ej. "Strength" (texto visible)
         )
         {
             for (int i = 0; i < tiers.Count; i++)
@@ -179,7 +179,7 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int plus = t.Bonus <= 0 ? 1 : t.Bonus;
 
-                var keys = BuildKeys(nameRoot, i + 1);
+                var keys = BuildKeys(nameRoot, i + 1, name);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
                 var descKey = keys.descKey;
@@ -187,7 +187,7 @@ namespace RandomReinforcementsPerEncounter
                 // Usa tu descripción existente (bonus + enlace a stat)
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
-                    BuildStackableBonusDescription(plus, description, encyclopedia)
+                    BuildStackableBonusDescription(plus, description)
                 );
 
                 WeaponEnchantmentConfigurator
@@ -205,27 +205,25 @@ namespace RandomReinforcementsPerEncounter
 
         public static void RegisterWeaponFeaturesTiersFor(
             List<TierConfig> tiers,
+            string name,
             string nameRoot,          // p.ej. "Spell DC"
-            string description,       // p.ej. "spell DC" (texto visible)
-            string encyclopedia       // p.ej. "DC" (clave de enciclopedia sin "Encyclopedia:")
-)
+            string description
+        )
         {
             for (int i = 0; i < tiers.Count; i++)
             {
                 var t = tiers[i];
 
                 // Claves y nombres localizados coherentes con el resto del sistema
-                var keys = BuildKeys(nameRoot, i + 1);
+                var keys = BuildKeys(nameRoot, i + 1, name );
                 var bpName = keys.bpName;
                 var locName = keys.locName;
                 var descKey = keys.descKey;
 
-                int tierGroup = (i / 2) + 1;
-
                 // Descripción visible (linkeando a la enciclopedia)
                 var locDesc = LocalizationTool.CreateString(
                     descKey,
-                    BuildStackableBonusDescription(tierGroup, description, encyclopedia)
+                    BuildStackableBonusDescription(t.BonusDescription, description)
                 );
 
                 // Referencia al Feature desde el GUID en texto que trae el TierConfig.Feat
@@ -247,6 +245,7 @@ namespace RandomReinforcementsPerEncounter
             public int DiceCount { get; set; }       // NUEVO: usado por daño de energía
             public int DiceSide { get; set; }        // NUEVO: usado por daño de energía
             public int Bonus { get; set; }
+            public int BonusDescription { get; set; }
             public string Feat { get; set; }
         }
 
@@ -266,28 +265,19 @@ namespace RandomReinforcementsPerEncounter
                 _ => DiceType.D3,// fallback
             };
         }
-        private static (string nameKey, string descKey, string bpName, LocalizedString locName) BuildKeys(string nameRoot, int tierIndex)
+        private static (string nameKey, string descKey, string bpName, LocalizedString locName) BuildKeys(string nameRoot, int tierIndex, string name)
         {
             string nameKey = $"RRE.{nameRoot}.T{tierIndex}.Name";
             string descKey = $"RRE.{nameRoot}.T{tierIndex}.Desc";
             string bpName = $"RRE_{nameRoot}_T{tierIndex}_Enchant";
-            var locName = LocalizationTool.CreateString(nameKey, $"{nameRoot} (T{tierIndex})");
+            var locName = LocalizationTool.CreateString(nameKey, $"{name} (T{tierIndex})");
 
             return (nameKey, descKey, bpName, locName);
         }
 
-        private const string LINK_SAVE = "Encyclopedia:Saving_Throw";
-        private const string LINK_DC = "Encyclopedia:DC";
-        private const string LINK_DICE = "Encyclopedia:Dice";
-        private const string LINK_ROUND = "Encyclopedia:Combat_Round";
-        private const string LINK_ENERGY = "Encyclopedia:Energy_Damage";
-        private const string LINK_BONUS = "Encyclopedia:Bonus";
-        private const string LINK_SPELL = "Encyclopedia:Spell";
-
         private static string BuildDescription(
             SavingThrowType saveType, int dc,
-            string conditionText, string conditionLinkKey, // ya no lo necesitas si confías en el autolink
-            int durationCount, int durationSides,
+            string conditionText, int durationCount, int durationSides,
             bool onlyOnFirstHit)
         {
             string intro = onlyOnFirstHit
@@ -312,7 +302,7 @@ namespace RandomReinforcementsPerEncounter
             return AutoLinker.Apply(plain);
         }
 
-        private static string BuildStackableBonusDescription(int bonus, string description, string encyclopedia)
+        private static string BuildStackableBonusDescription(int bonus, string description)
         {
             // “This item grants a +X enhancement bonus to Strength.”
             string plain = $"This item grants a +{bonus} stackable bonus to {description}.";
