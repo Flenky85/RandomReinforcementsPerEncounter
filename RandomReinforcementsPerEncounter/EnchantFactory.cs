@@ -238,6 +238,32 @@ namespace RandomReinforcementsPerEncounter
             }
         }
 
+        public class RRE_PriceDeltaComponent : BlueprintComponent
+        {
+            public int Delta; // gp a sumar
+        }
+        public static void RegisterWeaponPriceForTiers(
+            List<TierConfig> tiers,
+            int baseDelta = 20,
+            string bpPrefix = "RRE_Price_")
+        {
+            for (int i = 0; i < tiers.Count; i++)
+            {
+                var t = tiers[i];
+                int delta = baseDelta << i; // 20,40,80,...
+
+                // Nombre interno del BP (no visible; el enchant será HiddenInUI)
+                string bpName = $"{bpPrefix}{delta}";
+
+                WeaponEnchantmentConfigurator
+                    .New(bpName, t.AssetId)      // GUID ya viene en t.AssetId
+                    .SetEnchantmentCost(0)       // no consume “budget” de bonos
+                    .SetHiddenInUI(true)         // invisible en la UI
+                    .AddComponent<RRE_PriceDeltaComponent>(c => { c.Delta = delta; })
+                    .Configure();
+            }
+        }
+
         public class TierConfig
         {
             public string AssetId { get; set; }

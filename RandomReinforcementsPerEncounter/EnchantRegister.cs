@@ -30,7 +30,6 @@ namespace RandomReinforcementsPerEncounter
         private const string PREFAB_GHOST = "d7b9bfb16264e4d4aad2abef2c80f835"; // Ghost
         private const string PREFAB_ANARCHIC = "57315bc1e1f62a741be0efde688087e9"; // Anarchic (oxido)
 
-
         public static void RegisterAll()
         {
             //////////////////////////////////////////////////////////////////////////////////
@@ -1121,6 +1120,20 @@ namespace RandomReinforcementsPerEncounter
                 name: "Deathly",
                 nameRoot: "necromancyDC",
                 description: "DC on necromancy school spells"
+            );
+
+            //Item Price
+            EnchantFactory.RegisterWeaponPriceForTiers(
+                new List<TierConfig>
+                {
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_20").ToString()},
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_40").ToString()},
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_80").ToString()},
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_160").ToString()},
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_320").ToString()},
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_640").ToString()},
+                    new TierConfig { AssetId = GuidUtil.EnchantGuid("price_1280").ToString()}
+                }
             );
         }
     }

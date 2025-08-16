@@ -27,6 +27,7 @@ namespace RandomReinforcementsPerEncounter
         {
             if (CombatFlags.ReinforcementsSpawned) return;
             
+            LootContext.EnemyCRs?.Clear();
             CombatFlags.ReinforcementsSpawned = true;
 
             var playerUnits = Game.Instance.State.Units
@@ -42,12 +43,10 @@ namespace RandomReinforcementsPerEncounter
 
             float averageCR = playerCount > 0 ? (float)totalPlayerCR / playerCount : 0;
             int roundedAverageCR = Mathf.CeilToInt(averageCR) + ModSettings.Instance.EncounterDifficultyModifier;
-            LootContext.LootRarityScore = roundedAverageCR;
             int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
 
             int enemyCR = enemies.Sum(u => u.Blueprint.CR);
             int crDifference = adjustedPlayerCR - enemyCR;
-            LootContext.LootQuantityScore = crDifference;
             int reinforcementsToSpawn = averageCR > 0 ? Mathf.CeilToInt(crDifference / averageCR) : 0;
 
             for (int i = 0; i < reinforcementsToSpawn; i++)
@@ -182,6 +181,7 @@ namespace RandomReinforcementsPerEncounter
                 if (filtered.Count > 0)
                 {
                     var chosen = filtered[_rng.Next(filtered.Count)];
+                    LootContext.EnemyCRs.Add(searchCR);
                     return chosen.AssetId;
                 }
 
@@ -248,8 +248,7 @@ namespace RandomReinforcementsPerEncounter
     public static class LootContext
     {
         public static Vector3? ChestPosition;
-        public static int LootRarityScore;
-        public static int LootQuantityScore;
+        public static List<int> EnemyCRs = new List<int>(); // Guarda la CR de cada enemigo spawneado
     }
 
     public static class CombatFlags
