@@ -37,6 +37,8 @@ namespace RandomReinforcementsPerEncounter
                 {
                     FeatureRegister.RegisterAll();
                     EnchantRegister.RegisterAll();
+                    WeaponRegistry.Create_SawtoothSabre_Standard();
+                    WeaponRegistry.BuildAllOversizedFromList();
                     Debug.Log("[RRE] Enhchants tiers init done.");
                 }
                 catch (System.Exception ex)

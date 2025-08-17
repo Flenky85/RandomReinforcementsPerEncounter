@@ -173,8 +173,7 @@ namespace RandomReinforcementsPerEncounter
             });
             if (Random.value < 0.70f)
             {
-                WeaponLootData picked = LootPicker.RandomWeapon();
-                LootPicker.AddPickedWeaponToLoot(lootPart, picked, cr);
+                LootPicker.AddPickedWeaponToLoot(lootPart, cr);
             }
         }
 
