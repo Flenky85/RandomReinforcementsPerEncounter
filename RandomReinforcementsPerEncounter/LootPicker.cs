@@ -3,6 +3,7 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.EntitySystem.Persistence.JsonUtility;
+using Kingmaker.Enums;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.View.MapObjects;
@@ -49,13 +50,13 @@ public static class LootPicker
     }
     
     // 20% por tipo: O1H, O2H, R1H, R2H, Double (tu helper existente)
-    private static WeaponType RollWeaponType20()
+    private static WeaponType RollWeaponType()
     {
         float r = UnityEngine.Random.value;
-        if (r < 0.20f) return WeaponType.OneHandedMelee;
-        if (r < 0.40f) return WeaponType.TwoHandedMelee;
-        if (r < 0.60f) return WeaponType.OneHandedRanged;
-        if (r < 0.80f) return WeaponType.TwoHandedRanged;
+        if (r < 0.30f) return WeaponType.OneHandedMelee;
+        if (r < 0.30f) return WeaponType.TwoHandedMelee;
+        if (r < 0.15f) return WeaponType.OneHandedRanged;
+        if (r < 0.15f) return WeaponType.TwoHandedRanged;
         return WeaponType.Double;
     }
 
@@ -66,7 +67,7 @@ public static class LootPicker
     private static WeaponPick PickRandomWeapon(float oversizedChance = 0.15f)
     {
         bool wantOver = UnityEngine.Random.value < oversizedChance;
-        var wanted = RollWeaponType20();
+        var wanted = RollWeaponType();
 
         // Intenta hasta 5 re-rolls de tipo si el bucket sale vacío
         for (int tries = 0; tries < 5; tries++)
@@ -93,7 +94,7 @@ public static class LootPicker
             }
 
             // Reintenta con otro tipo si el bucket estaba vacío
-            wanted = RollWeaponType20();
+            wanted = RollWeaponType();
         }
 
         // Fallback: cualquier arma de la lista elegida
@@ -118,6 +119,10 @@ public static class LootPicker
     private static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse("e5990dc76d2a613409916071c898eee8");
     private static readonly BlueprintGuid Mithral = BlueprintGuid.Parse("0ae8fc9f2e255584faf4d14835224875");
     private static readonly BlueprintGuid Adamantine = BlueprintGuid.Parse("ab39e7d59dd12f4429ffef5dca88dc7b");
+
+    private static readonly BlueprintGuid MasterWork = BlueprintGuid.Parse("b38844e2bffbac48b63036b66e735be");
+
+    private static readonly BlueprintGuid Composite = BlueprintGuid.Parse("c3209eb058d471548928a200d70765e0");
 
     //Enhancement +1
     private static readonly BlueprintGuid Shield1 = BlueprintGuid.Parse("e90c252e08035294eba39bafce76c119");
@@ -169,10 +174,24 @@ public static class LootPicker
 
             AddEnchants(
                 entity,
+                true,
                 ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(matGuid),
                 PriceRefs.PriceT0
             );
 
+        }
+
+        if (bpWeapon.Category == WeaponCategory.Longbow || bpWeapon.Category == WeaponCategory.Shortbow)
+        {
+            if (UnityEngine.Random.value < 0.50f) 
+            {
+                AddEnchants(
+                    entity,
+                    true,
+                    ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Composite),
+                    PriceRefs.PriceT0
+                );
+            }
         }
 
         if (UnityEngine.Random.value < 0.20f)
@@ -181,66 +200,24 @@ public static class LootPicker
             for (int i = 0; i < chances.Length; i++)
                 Debug.Log($"Tier {i + 1}: {chances[i]}");
            
-            int tier = GetRandomTier(cr);
+            int tier = GetRandomTier(chances);
 
             ApplyRandomTierEnchant(entity, tier, chances);
-
-            /*
-            switch (tier)
-            {
-                case 1:
-                    AddEnchants(
-                        entity,
-                        ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon1),
-                        PriceRefs.PriceT1
-                    );
-                    ApplyRandomTierEnchant(entity, tier);
-                    break;
-                case 2:
-                    AddEnchants(
-                        entity,
-                        ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon2),
-                        PriceRefs.PriceT2
-                    );
-                    ApplyRandomTierEnchant(entity, 2);
-                    break;
-                case 3:
-                    AddEnchants(
-                        entity,
-                        ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon3),
-                        PriceRefs.PriceT3
-                    );
-                    ApplyRandomTierEnchant(entity, 3);
-                    break;
-                case 4:
-                    AddEnchants(
-                        entity,
-                        ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon4),
-                        PriceRefs.PriceT4
-                    );
-                    ApplyRandomTierEnchant(entity, 4);
-                    break;
-                case 5:
-                    AddEnchants(
-                        entity,
-                        ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon5),
-                        PriceRefs.PriceT5
-                    );
-                    ApplyRandomTierEnchant(entity, 5);
-                    break;
-                case 6:
-                    AddEnchants(
-                        entity,
-                        ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon6),
-                        PriceRefs.PriceT6
-                    );
-                    ApplyRandomTierEnchant(entity, 6);
-                    break;
-                default:
-                    // sin tier válido, no aplicar nada
-                    break;
-            }*/
         }
+
+        if (bpWeapon.IsMagic == false)
+        {
+            if (UnityEngine.Random.value < 0.30f) 
+            {
+                var masterworkEnchant = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(MasterWork);
+                if (masterworkEnchant != null)
+                {
+                    AddEnchants(entity, true, masterworkEnchant);
+                    Debug.Log("[RRE] Masterwork enchant aplicado (arma no mágica).");
+                }
+            }
+        }
+
         lootPart.Loot.Add(entity); // mete la instancia en el cofre
     }
     public static int[] CalcTierChances(int cr)
@@ -270,9 +247,8 @@ public static class LootPicker
         }
         return tiers;
     }
-    public static int GetRandomTier(int cr)
+    public static int GetRandomTier(int[] chances)
     {
-        int[] chances = CalcTierChances(cr);
         int total = chances.Sum();
         if (total <= 0) return 0; // 0 = sin tier válido
 
@@ -359,60 +335,74 @@ public static class LootPicker
 
     private static int MapTierWithDiscount(int tier)
     {
-        switch (tier)
+        return tier switch
         {
-            case 1: return 1; // T1 -> T1
-            case 2: return 1; // T2 -> T1
-            case 3: return 2; // T3 -> T2
-            case 4: return 2; // T4 -> T2
-            case 5: return 3; // T5 -> T3
-            case 6: return 4; // T6 -> T4
-            default:
-                // por si algún día pasa de 6: clamp a 1..6 y reusa la lógica
-                return tier < 1 ? 1 : (tier > 6 ? 4 : tier);
-        }
+            1 => 1,// T1 -> T1
+            2 => 1,// T2 -> T1
+            3 => 2,// T3 -> T2
+            4 => 2,// T4 -> T2
+            5 => 3,// T5 -> T3
+            6 => 4,// T6 -> T4
+            _ => tier < 1 ? 1 : (tier > 6 ? 4 : tier),// por si algún día pasa de 6: clamp a 1..6 y reusa la lógica
+        };
     }
-    // Llamada cómoda: añade N encantamientos por clave
-    public static void AddEnchants(ItemEntity entity, params BlueprintItemEnchantment[] enchants)
+    /// <summary>
+    /// Aplica los mismos encantamientos al entity principal y, si se pasa, al secondEntity.
+    /// Evita duplicados en el second con HasEnchant (si lo tienes disponible).
+    /// </summary>
+    public static void AddEnchants(ItemEntityWeapon entity, bool applyToSecond, params BlueprintItemEnchantment[] enchants)
     {
         if (entity == null || enchants == null || enchants.Length == 0) return;
 
         var ctx = RRECtx.Permanent();
+
+        // Principal
         foreach (var e in enchants)
         {
             if (e != null)
                 entity.AddEnchantment(e, ctx);
         }
+
+        // Secundario (si existe y está permitido)
+        if (applyToSecond && entity.Second != null)
+        {
+            var second = entity.Second;
+            foreach (var e in enchants)
+            {
+                if (e == null) continue;
+                if (HasEnchant(second, e)) continue;
+
+                second.AddEnchantment(e, ctx);
+            }
+        }
     }
     private static BlueprintItemEnchantment PriceForTier(int tier)
     {
-        switch (tier)
+        return tier switch
         {
-            case 1: return PriceRefs.PriceT1;
-            case 2: return PriceRefs.PriceT2;
-            case 3: return PriceRefs.PriceT3;
-            case 4: return PriceRefs.PriceT4;
-            case 5: return PriceRefs.PriceT5;
-            case 6: return PriceRefs.PriceT6;
-            default: return PriceRefs.PriceT0;
-        }
+            1 => PriceRefs.PriceT1,
+            2 => PriceRefs.PriceT2,
+            3 => PriceRefs.PriceT3,
+            4 => PriceRefs.PriceT4,
+            5 => PriceRefs.PriceT5,
+            6 => PriceRefs.PriceT6,
+            _ => PriceRefs.PriceT0,
+        };
     }
     private static BlueprintGuid GetWeaponEnchantIdForTier(int tier)
     {
-        // Clamp manual para evitar Math.Clamp (compatibilidad C# 7.3)
-        if (tier < 1) tier = 1;
-        if (tier > 6) tier = 6;
 
-        switch (tier)
+        return tier switch
         {
-            case 1: return Weapon1;
-            case 2: return Weapon2;
-            case 3: return Weapon3;
-            case 4: return Weapon4;
-            case 5: return Weapon5;
-            case 6: return Weapon6;
-        }
-        return Weapon1; // fallback
+            1 => Weapon1,
+            2 => Weapon2,
+            3 => Weapon3,
+            4 => Weapon4,
+            5 => Weapon5,
+            6 => Weapon6,
+            _ => Weapon1
+        };
+
     }
     /// <summary>
     /// Elige un enchant del Tier indicado (ponderado por Value) y lo aplica,
@@ -423,74 +413,64 @@ public static class LootPicker
 
     public static void ApplyRandomTierEnchant(ItemEntityWeapon entity, int tier, int[] chances)
     {
-        AddEnchants(
-            entity,
-            ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(GetWeaponEnchantIdForTier(tier)), // auto por tier
-            PriceForTier(tier) // auto por tier
-        );
+        var baseEnchant = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(GetWeaponEnchantIdForTier(tier));
+        AddEnchants(entity, true, baseEnchant, PriceForTier(tier)); 
 
-        // Tipo de arma
+        // 2) Tipo de arma
         WeaponTypeEnchant weaponType =
             (entity?.Blueprint?.SecondWeapon != null) ? WeaponTypeEnchant.Double :
             (entity?.Blueprint?.IsTwoHanded == true) ? WeaponTypeEnchant.TwoHanded :
             WeaponTypeEnchant.OneHanded;
 
-        var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-
         for (int i = 0; i < tier; i++)
         {
-            // Elegir del pool SIN interferir y excluyendo ya usados
-            var extra = PickRandomEnchantByTier(tier, weaponType, out EnchantType pickedType, usedIds);
+            var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            int[] limitedChances = chances.Take(tier).ToArray();
+            int enchantTier = GetRandomTier(limitedChances);
 
+            var extra = PickRandomEnchantByTier(enchantTier, weaponType, out EnchantType pickedType, usedIds);
             if (extra == null)
             {
                 Debug.Log($"[RRE] Pool vacío en iter {i + 1}/{tier} para T{tier} ({weaponType}).");
                 break;
             }
 
-            // Tier efectivo (post-selección)
-            int effectiveTier = tier;
+            // 3) Descuento de tier (igual que antes)
+            int effectiveTier = enchantTier;
             bool applyDiscount =
                 (weaponType == WeaponTypeEnchant.OneHanded) ||
                 (weaponType == WeaponTypeEnchant.Double &&
-                 (pickedType == EnchantType.OnHit ||
-                  pickedType == EnchantType.OnlyOnFirstHit ||
-                  pickedType == EnchantType.EnergyDamage));
+                 (pickedType == EnchantType.OnHit || pickedType == EnchantType.OnlyOnFirstHit || pickedType == EnchantType.EnergyDamage));
 
             if (applyDiscount)
-                effectiveTier = MapTierWithDiscount(tier);
+                effectiveTier = MapTierWithDiscount(enchantTier);
 
-            var appliedExtra = applyDiscount ? RemapPickedEnchantToTier(extra, effectiveTier) : extra;
-            if (appliedExtra == null) appliedExtra = extra; // fallback por seguridad
+            var mainExtra = applyDiscount ? RemapPickedEnchantToTier(extra, effectiveTier) : extra;
+            if (mainExtra == null) mainExtra = extra;
 
-            string appliedId = appliedExtra.AssetGuid.ToString();
+            string appliedId = mainExtra.AssetGuid.ToString();
 
-            // Revalidar duplicados tras remapear (por si ya existía la versión de tier bajo)
-            if (HasEnchant(entity, appliedExtra) || usedIds.Contains(appliedId))
+            if (HasEnchant(entity, mainExtra) || usedIds.Contains(appliedId))
             {
                 usedIds.Add(appliedId);
-                // también excluimos el original para no volver a caer en el mismo camino
                 usedIds.Add(extra.AssetGuid.ToString());
-                i--; // reintenta esta iteración
+                i--;
                 continue;
             }
 
-            string extraId = extra.AssetGuid.ToString();
-            AddEnchants(entity, appliedExtra, PriceForTier(effectiveTier));
-            usedIds.Add(extraId);
+            // 4) ¿Duplicar a la segunda cabeza para este EXTRA?
+            bool duplicateToSecond =
+                (weaponType == WeaponTypeEnchant.Double) &&
+                (pickedType == EnchantType.OnHit || pickedType == EnchantType.OnlyOnFirstHit || pickedType == EnchantType.EnergyDamage);
 
-            Debug.Log($"[RRE] [{i + 1}/{tier}] Extra enchant T{tier} → T{effectiveTier} aplicado ({weaponType}, {pickedType}): {extra?.name}");
+            // 5) Aplicar el extra con o sin duplicación (SOLO aquí controlamos el false)
+            AddEnchants(entity, duplicateToSecond, mainExtra);
 
-            // Doble: duplica en la segunda cabeza si procede y existe la instancia
-            if (weaponType == WeaponTypeEnchant.Double && applyDiscount)
-            {
-                var second = entity.Second;
-                if (second != null && !HasEnchant(second, extra))
-                {
-                    AddEnchants(second, extra, PriceForTier(effectiveTier));
-                    Debug.Log("[RRE] Enchant duplicado en la segunda parte del arma doble (instancia).");
-                }
-            }
+            usedIds.Add(extra.AssetGuid.ToString());
+            usedIds.Add(appliedId);
+
+            Debug.Log($"[RRE] [{i + 1}/{tier}] Extra enchant T{tier} → T{effectiveTier} aplicado " +
+                      $"({weaponType}, {pickedType}). DuplicadoSecond={duplicateToSecond}");
         }
     }
     // Devuelve el mismo efecto pero en el tier solicitado (si existe). Si no lo encuentra, devuelve el original.
