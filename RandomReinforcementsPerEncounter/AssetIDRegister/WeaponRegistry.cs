@@ -31,7 +31,8 @@ namespace RandomReinforcementsPerEncounter
             _sawtoothStandard = ItemWeaponConfigurator
               .New("RRE_StandardSawtoothSabre", SawtoothSabreGuid.ToString())
               .CopyFrom(origRef)     
-              .ClearEnchantments()   
+              .ClearEnchantments()
+              .SetDisplayNameText(LocalizationTool.CreateString("RRE_StandardSawtoothSabre_Name", "Sawtooth Sabre"))
               .Configure();
 
             _sawtoothStandard.m_Cost = 20;

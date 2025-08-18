@@ -9,6 +9,7 @@ using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter;
 using RandomReinforcementsPerEncounter.itemlist.Weapons;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -112,12 +113,7 @@ public static class LootPicker
         // Si no hay nada, devolvemos default (AssetId nulo) y que el caller corte
         return default;
     }
-
-    private static readonly BlueprintGuid SawtoothSabreGuid = BlueprintGuid.Parse("45e76b1480d14d959d780f1182a6cabf");
-    private static readonly BlueprintGuid SabreEnchantToStrip = BlueprintGuid.Parse("e5990dc76d2a613409916071c898eee8");
     
-    private static readonly BlueprintGuid Oversized = BlueprintGuid.Parse("d8e1ebc1062d8cc42abff78783856b0d");
-        
     private static readonly BlueprintGuid Druchite = BlueprintGuid.Parse("e6a7a2b6f26b488783c612add1e9a8bd");
     private static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse("e5990dc76d2a613409916071c898eee8");
     private static readonly BlueprintGuid Mithral = BlueprintGuid.Parse("0ae8fc9f2e255584faf4d14835224875");
@@ -185,8 +181,10 @@ public static class LootPicker
             for (int i = 0; i < chances.Length; i++)
                 Debug.Log($"Tier {i + 1}: {chances[i]}");
             int total = chances.Sum();
-            
+           
             int tier = GetRandomTier(cr);
+
+            ApplyRandomTierEnchant(entity, tier, chances);
 
             Debug.Log($"Tier elegido: {tier}");
 
@@ -198,6 +196,7 @@ public static class LootPicker
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon1),
                         PriceRefs.PriceT1
                     );
+                    ApplyRandomTierEnchant(entity, tier);
                     break;
                 case 2:
                     AddEnchants(
@@ -205,6 +204,7 @@ public static class LootPicker
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon2),
                         PriceRefs.PriceT2
                     );
+                    ApplyRandomTierEnchant(entity, 2);
                     break;
                 case 3:
                     AddEnchants(
@@ -212,6 +212,7 @@ public static class LootPicker
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon3),
                         PriceRefs.PriceT3
                     );
+                    ApplyRandomTierEnchant(entity, 3);
                     break;
                 case 4:
                     AddEnchants(
@@ -219,6 +220,7 @@ public static class LootPicker
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon4),
                         PriceRefs.PriceT4
                     );
+                    ApplyRandomTierEnchant(entity, 4);
                     break;
                 case 5:
                     AddEnchants(
@@ -226,6 +228,7 @@ public static class LootPicker
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon5),
                         PriceRefs.PriceT5
                     );
+                    ApplyRandomTierEnchant(entity, 5);
                     break;
                 case 6:
                     AddEnchants(
@@ -233,6 +236,7 @@ public static class LootPicker
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(Weapon6),
                         PriceRefs.PriceT6
                     );
+                    ApplyRandomTierEnchant(entity, 6);
                     break;
                 default:
                     // sin tier válido, no aplicar nada
@@ -288,7 +292,78 @@ public static class LootPicker
 
         return 0; // por seguridad, no debería llegar aquí
     }
+    private static string[] GetTierArray(EnchantData d, int tier)
+    {
+        switch (tier)
+        {
+            case 1: return d.AssetIDT1;
+            case 2: return d.AssetIDT2;
+            case 3: return d.AssetIDT3;
+            case 4: return d.AssetIDT4;
+            case 5: return d.AssetIDT5;
+            case 6: return d.AssetIDT6;
+            default: return null;
+        }
+    }
 
+    /// <summary>
+    /// Devuelve un BlueprintItemEnchantment aleatorio del Tier indicado,
+    /// ponderado por EnchantData.Value. Si no hay nada, devuelve null.
+    /// </summary>
+    public static BlueprintItemEnchantment PickRandomEnchantByTier(
+        int tier,
+        WeaponTypeEnchant weaponType,
+        out EnchantType pickedType)
+    {
+        pickedType = EnchantType.Others;
+
+        var pool = new List<(string id, int weight)>();
+        foreach (var d in EnchantList.Item)
+        {
+            if (d == null || d.Value <= 0) continue;
+            var arr = GetTierArray(d, tier);
+            if (arr == null || arr.Length == 0) continue;
+
+            foreach (var id in arr)
+            {
+                if (!string.IsNullOrEmpty(id))
+                    pool.Add((id, d.Value));
+            }
+        }
+
+        int total = pool.Sum(p => p.weight);
+        if (total <= 0) return null;
+
+        int roll = UnityEngine.Random.Range(0, total);
+        int acc = 0;
+        string pickedId = null;
+
+        foreach (var p in pool)
+        {
+            acc += p.weight;
+            if (roll < acc) { pickedId = p.id; break; }
+        }
+
+        if (string.IsNullOrEmpty(pickedId)) return null;
+
+        pickedType = GetEnchantTypeByAssetId(pickedId);
+
+        try
+        {
+            var guid = BlueprintGuid.Parse(pickedId);
+            return ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(guid);
+        }
+        catch
+        {
+            return null;
+        }
+    }
+
+    private static int GetExtraCountFromTier(int tier)
+    {
+        // 2/3 del tier, redondeo hacia abajo, mínimo 1
+        return Math.Max(1, (tier * 2) / 3);
+    }
     // Llamada cómoda: añade N encantamientos por clave
     public static void AddEnchants(ItemEntity entity, params BlueprintItemEnchantment[] enchants)
     {
@@ -301,6 +376,156 @@ public static class LootPicker
                 entity.AddEnchantment(e, ctx);
         }
     }
+    private static BlueprintItemEnchantment PriceForTier(int tier)
+    {
+        switch (tier)
+        {
+            case 1: return PriceRefs.PriceT1;
+            case 2: return PriceRefs.PriceT2;
+            case 3: return PriceRefs.PriceT3;
+            case 4: return PriceRefs.PriceT4;
+            case 5: return PriceRefs.PriceT5;
+            case 6: return PriceRefs.PriceT6;
+            default: return PriceRefs.PriceT0;
+        }
+    }
+    /// <summary>
+    /// Elige un enchant del Tier indicado (ponderado por Value) y lo aplica,
+    /// junto con el price correspondiente a ese Tier.
+    /// </summary>
+    private static bool HasEnchant(ItemEntity item, BlueprintItemEnchantment ench)
+    => item?.Enchantments?.Any(e => e?.Blueprint == ench) == true;
+
+    public static void ApplyRandomTierEnchant(ItemEntityWeapon entity, int tier)
+    {
+        // Tipo de arma
+        WeaponTypeEnchant weaponType =
+            (entity?.Blueprint?.SecondWeapon != null) ? WeaponTypeEnchant.Double :
+            (entity?.Blueprint?.IsTwoHanded == true) ? WeaponTypeEnchant.TwoHanded :
+            WeaponTypeEnchant.OneHanded;
+
+        int count = GetExtraCountFromTier(tier); // nº de encantamientos a aplicar
+        var usedIds = new HashSet<string>();     // para evitar repetir el mismo BP
+
+        for (int i = 0; i < count; i++)
+        {
+            // Elegir del pool SIN interferir y excluyendo ya usados
+            var extra = PickRandomEnchantByTier(tier, weaponType, out EnchantType pickedType, usedIds);
+
+            if (extra == null)
+            {
+                Debug.Log($"[RRE] Pool vacío en iter {i + 1}/{count} para T{tier} ({weaponType}).");
+                break;
+            }
+
+            // Evitar repetir si ya lo trae la instancia
+            string extraId = extra.AssetGuid.ToString();
+            if (HasEnchant(entity, extra))
+            {
+                usedIds.Add(extraId);
+                i--; // reintenta esta iteración con otro
+                continue;
+            }
+
+            // Tier efectivo (post-selección)
+            int effectiveTier = tier;
+            bool applyDiscount =
+                (weaponType == WeaponTypeEnchant.OneHanded) ||
+                (weaponType == WeaponTypeEnchant.Double &&
+                 (pickedType == EnchantType.OnHit ||
+                  pickedType == EnchantType.OnlyOnFirstHit ||
+                  pickedType == EnchantType.EnergyDamage));
+
+            if (applyDiscount)
+                effectiveTier = Math.Max(1, tier - GetExtraCountFromTier(tier));
+
+            // Principal
+            AddEnchants(entity, extra, PriceForTier(effectiveTier));
+            usedIds.Add(extraId);
+
+            Debug.Log($"[RRE] [{i + 1}/{count}] Extra enchant T{tier} → T{effectiveTier} aplicado ({weaponType}, {pickedType}): {extra?.name}");
+
+            // Doble: duplica en la segunda cabeza si procede y existe la instancia
+            if (weaponType == WeaponTypeEnchant.Double && applyDiscount)
+            {
+                var second = entity.Second;
+                if (second != null && !HasEnchant(second, extra))
+                {
+                    AddEnchants(second, extra, PriceForTier(effectiveTier));
+                    Debug.Log("[RRE] Enchant duplicado en la segunda parte del arma doble (instancia).");
+                }
+            }
+        }
+    }
+    public static BlueprintItemEnchantment PickRandomEnchantByTier(
+        int tier,
+        WeaponTypeEnchant weaponType,
+        out EnchantType pickedType,
+        HashSet<string> excludeIds // NUEVO
+    )
+    {
+        pickedType = EnchantType.Others;
+        var pool = new List<(string id, int weight)>();
+
+        foreach (var d in EnchantList.Item)
+        {
+            if (d == null || d.Value <= 0) continue;
+            var arr = GetTierArray(d, tier);
+            if (arr == null || arr.Length == 0) continue;
+
+            foreach (var id in arr)
+            {
+                if (!string.IsNullOrEmpty(id) && (excludeIds == null || !excludeIds.Contains(id)))
+                    pool.Add((id, d.Value));
+            }
+        }
+
+        int total = pool.Sum(p => p.weight);
+        if (total <= 0) return null;
+
+        int roll = UnityEngine.Random.Range(0, total);
+        int acc = 0;
+        string pickedId = null;
+
+        foreach (var p in pool)
+        {
+            acc += p.weight;
+            if (roll < acc) { pickedId = p.id; break; }
+        }
+        if (string.IsNullOrEmpty(pickedId)) return null;
+
+        pickedType = GetEnchantTypeByAssetId(pickedId);
+
+        try
+        {
+            var guid = BlueprintGuid.Parse(pickedId);
+            return ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(guid);
+        }
+        catch { return null; }
+    }
+
+
+    public enum WeaponTypeEnchant
+    {
+        OneHanded,
+        TwoHanded,
+        Double
+    }
+
+    private static EnchantType GetEnchantTypeByAssetId(string assetId)
+    {
+        foreach (var d in EnchantList.Item)
+        {
+            if (d.AssetIDT1 != null && Array.IndexOf(d.AssetIDT1, assetId) >= 0) return d.Type;
+            if (d.AssetIDT2 != null && Array.IndexOf(d.AssetIDT2, assetId) >= 0) return d.Type;
+            if (d.AssetIDT3 != null && Array.IndexOf(d.AssetIDT3, assetId) >= 0) return d.Type;
+            if (d.AssetIDT4 != null && Array.IndexOf(d.AssetIDT4, assetId) >= 0) return d.Type;
+            if (d.AssetIDT5 != null && Array.IndexOf(d.AssetIDT5, assetId) >= 0) return d.Type;
+            if (d.AssetIDT6 != null && Array.IndexOf(d.AssetIDT6, assetId) >= 0) return d.Type;
+        }
+        return EnchantType.Others;
+    }
+
 }
 
 

@@ -56,7 +56,7 @@ namespace RandomReinforcementsPerEncounter
         public WeaponType Type;
         public WeaponFocusMod Focus;
     }
-
+    /*
     public enum EnchantType
     {
         OnHit,
@@ -81,5 +81,5 @@ namespace RandomReinforcementsPerEncounter
         public string[] AssetIDT6;
         public int Value;
         public EnchantType Type;
-    }
+    }*/
 }

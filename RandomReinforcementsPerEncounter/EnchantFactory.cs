@@ -69,6 +69,7 @@ namespace RandomReinforcementsPerEncounter
                     .New(bpName, tierConfig.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
+                    .SetPrefix(locName)
                     .Configure();
 
                 var onSuccess = ActionsBuilder.New();
@@ -147,7 +148,8 @@ namespace RandomReinforcementsPerEncounter
                 var cfg = WeaponEnchantmentConfigurator
                     .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
-                    .SetDescription(locDesc);
+                    .SetDescription(locDesc)
+                    .SetPrefix(locName);
 
                 // (Opcional) FX de arma si nos pasas el guid
                 if (!string.IsNullOrEmpty(prefab))
@@ -170,8 +172,8 @@ namespace RandomReinforcementsPerEncounter
             List<TierConfig> tiers,
             string name,
             string nameRoot,                 // p.ej. "Strength"
-            StatType stat,                   // p.ej. StatType.Strength
-            string description                 // p.ej. "Strength" (texto visible)
+            string description,
+            StatType stat
         )
         {
             for (int i = 0; i < tiers.Count; i++)
@@ -194,6 +196,7 @@ namespace RandomReinforcementsPerEncounter
                     .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
+                    .SetPrefix(locName)
                     .AddStatBonusEquipment(
                         descriptor: ModifierDescriptor.UntypedStackable,
                         stat: stat,
@@ -233,6 +236,7 @@ namespace RandomReinforcementsPerEncounter
                     .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
+                    .SetPrefix(locName)
                     .AddUnitFeatureEquipment(featureRef)
                     .Configure();
             }
