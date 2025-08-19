@@ -70,14 +70,22 @@ namespace RandomReinforcementsPerEncounter
     static class Patch_ItemEntity_get_Name_ComboRRE
     {
         // Materiales/componentes: se añaden TODOS los que estén
-        private static readonly string[] MaterialIdsOrdered = {
-            "d8e1ebc1062d8cc42abff78783856b0d", // Oversized
+        private static readonly string[] MaterialIds = {
             "b38844e2bffbac48b63036b66e735be", // MasterWork
             "e6a7a2b6f26b488783c612add1e9a8bd", // Druchite
             "e5990dc76d2a613409916071c898eee8", // ColdIron
             "0ae8fc9f2e255584faf4d14835224875", // Mithral
             "ab39e7d59dd12f4429ffef5dca88dc7b", // Adamantine
             "c3209eb058d471548928a200d70765e0"  // Composite
+        };
+
+        private static readonly string[] WeaponEnhancementIds = {
+            "d42fc23b92c640846ac137dc26e000d4", // Weapon +1
+            "eb2faccc4c9487d43b3575d7e77ff3f5", // Weapon +2
+            "80bb8a737579e35498177e1e3c75899b", // Weapon +3
+            "783d7d496da6ac44f9511011fc5f1979", // Weapon +4
+            "bdba267e951851449af552aa9f9e3992", // Weapon +5
+            "0326d02d2e24d254a9ef626cc7a3850f", // Weapon +6
         };
 
         static void Postfix(ItemEntity __instance, ref string __result)
@@ -95,44 +103,58 @@ namespace RandomReinforcementsPerEncounter
             bool hasRRE = enchBps.Any(bp => bp.GetComponent<RRE_PriceDeltaComponent>() != null);
             if (!hasRRE) return;
 
-            // 2) MATERIALES: añade TODOS los que estén en el orden definido
-            var materialPrefixes = new List<string>();
-            foreach (var id in MaterialIdsOrdered)
+            // 2) PREFIJOS: materiales (todos) + un RRE_ principal
+            var prefixes = new List<string>();
+
+            // Materiales
+            foreach (var id in MaterialIds)
             {
-                var mat = enchBps.FirstOrDefault(bp =>
-                    bp.AssetGuid.ToString().Equals(id, StringComparison.OrdinalIgnoreCase));
+                var mat = enchBps.FirstOrDefault(bp => bp.AssetGuid.ToString()
+                    .Equals(id, StringComparison.OrdinalIgnoreCase));
                 if (mat == null) continue;
 
                 var text = GetPrefixLikeText(mat);
                 if (!string.IsNullOrWhiteSpace(text))
-                    materialPrefixes.Add(text);
+                    prefixes.Add(text);
             }
 
-            // 3) ENCANTAMIENTO PRINCIPAL:
-            //    uno cuyo internal name empiece por "RRE_" y NO tenga RRE_PriceDeltaComponent
+            // RRE principal
             var mainEnchant = enchBps
                 .Where(bp => (bp.name?.StartsWith("RRE_", StringComparison.OrdinalIgnoreCase) ?? false)
                              && bp.GetComponent<RRE_PriceDeltaComponent>() == null)
-                .OrderByDescending(bp => bp.EnchantmentCost)                 // criterio “mejor”
+                .OrderByDescending(bp => bp.EnchantmentCost)
                 .ThenBy(bp => bp.AssetGuid.ToString(), StringComparer.Ordinal)
                 .FirstOrDefault();
 
             var mainPrefix = GetPrefixLikeText(mainEnchant);
-
-            // 4) Construcción del nombre final
-            var prefixes = new List<string>();
-            prefixes.AddRange(materialPrefixes);
             if (!string.IsNullOrWhiteSpace(mainPrefix))
                 prefixes.Add(mainPrefix);
 
-            if (prefixes.Count == 0) return;
-
-            var finalPrefix = string.Join(" ", prefixes).Trim();
-            if (string.IsNullOrEmpty(finalPrefix)) return;
-
-            // Evitar repetir si ya arranca exactamente igual
-            if (!__result.StartsWith(finalPrefix + " ", StringComparison.OrdinalIgnoreCase))
+            // Aplicar prefijos si hay
+            var finalPrefix = prefixes.Count > 0 ? string.Join(" ", prefixes).Trim() : null;
+            if (!string.IsNullOrWhiteSpace(finalPrefix) &&
+                !__result.StartsWith(finalPrefix + " ", StringComparison.OrdinalIgnoreCase))
+            {
                 __result = $"{finalPrefix} {__result}";
+            }
+
+            // 3) SUFIJO: enhancement de arma (solo uno por arma)
+            // (Opcional) limitar a armas: if (!(__instance is ItemEntityWeapon)) return;
+            BlueprintItemEnchantment weaponEnh = null;
+            foreach (var id in WeaponEnhancementIds)
+            {
+                weaponEnh = enchBps.FirstOrDefault(bp => bp.AssetGuid.ToString()
+                    .Equals(id, StringComparison.OrdinalIgnoreCase));
+                if (weaponEnh != null) break;
+            }
+
+            var suffix = GetSuffixLikeText(weaponEnh);
+            if (!string.IsNullOrWhiteSpace(suffix))
+            {
+                // Evitar duplicados si ya contiene el sufijo
+                if (__result.IndexOf(" " + suffix, StringComparison.OrdinalIgnoreCase) < 0)
+                    __result = $"{__result} {suffix}";
+            }
         }
 
         // Prefiere Prefix; si no, m_EnchantName (arma); si no, name interno
@@ -152,88 +174,22 @@ namespace RandomReinforcementsPerEncounter
 
             return bp.name?.Trim();
         }
+
+        // Para Enhancement: Suffix explícito o "+{cost}" como fallback
+        private static string GetSuffixLikeText(BlueprintItemEnchantment bp)
+        {
+            if (bp == null) return null;
+
+            if (!string.IsNullOrWhiteSpace(bp.Suffix))
+                return bp.Suffix.Trim();
+
+            // Enhancement1..6 suelen no traer Suffix -> formateamos "+N"
+            var cost = bp.EnchantmentCost;
+            if (cost > 0 && (bp.name?.StartsWith("Enhancement", StringComparison.OrdinalIgnoreCase) ?? false))
+                return $"+{cost}";
+
+            // Último recurso: no añadir nada raro
+            return null;
+        }
     }
-
-
-
-
-    /*
-    [HarmonyPatch(typeof(ItemEntity), "get_Name")]
-    static class Patch_ItemEntity_get_Name
-    {
-        // Mapa GUID -> prioridad (0 es la más alta)
-        private static Dictionary<string, int> _prio;
-        private static void EnsurePrio()
-        {
-            if (_prio != null) return;
-            var ordered = new[]
-            {
-                //"d8e1ebc1062d8cc42abff78783856b0d", // Oversized
-                "b38844e2bffbac48b63036b66e735be", // MasterWork
-                "e6a7a2b6f26b488783c612add1e9a8bd", // Druchite
-                "e5990dc76d2a613409916071c898eee8", // ColdIron
-                "0ae8fc9f2e255584faf4d14835224875", // Mithral
-                "ab39e7d59dd12f4429ffef5dca88dc7b", // Adamantine
-                "c3209eb058d471548928a200d70765e0"  // Composite
-            };
-            _prio = ordered
-                .Select((id, idx) => new { id = id.ToLowerInvariant(), idx })
-                .ToDictionary(x => x.id, x => x.idx);
-        }
-
-        static void Postfix(ItemEntity __instance, ref string __result)
-        {
-            if (__instance == null || __instance.Blueprint == null) return;
-            if (!__instance.IsIdentified) return;             // por si algún caso no está identificado
-            if (string.IsNullOrEmpty(__result)) return;
-
-            EnsurePrio();
-
-            // Si quieres restringir además a tus ítems RRE_, descomenta:
-            // var bpName = __instance.Blueprint.name ?? string.Empty;
-            // if (!bpName.StartsWith("RRE_", StringComparison.Ordinal)) return;
-
-            // 1) Buscar entre LOS TUSOS: enchants que tengan RRE_PriceDeltaComponent
-            //    y que además estén en la lista de prioridad
-            var chosen = __instance.Enchantments?
-                .Select(e => e?.Blueprint)
-                .Where(bp => bp != null
-                             && bp.GetComponent<RRE_PriceDeltaComponent>() != null) // <- tu misma señal que en el coste
-                .Select(bp => new
-                {
-                    bp,
-                    id = bp.AssetGuid.ToString().ToLowerInvariant(),
-                    hasPrio = _prio.TryGetValue(bp.AssetGuid.ToString().ToLowerInvariant(), out var _),
-                    prio = _prio.TryGetValue(bp.AssetGuid.ToString().ToLowerInvariant(), out var p) ? p : int.MaxValue
-                })
-                .Where(x => x.hasPrio)
-                .OrderBy(x => x.prio)
-                .Select(x => x.bp)
-                .FirstOrDefault();
-
-            if (chosen == null) return;
-
-            // 2) Determinar el texto del prefijo
-            //    - Primero bp.Prefix si existe
-            //    - Si no, m_EnchantName (en armas), y si tampoco, el name interno
-            string prefix = null;
-
-            // algunos enchants tienen Prefix/Suffix directamente en BlueprintItemEnchantment
-            if (!string.IsNullOrWhiteSpace(chosen.Prefix))
-                prefix = chosen.Prefix;
-            else if (chosen is BlueprintWeaponEnchantment bwe && !string.IsNullOrWhiteSpace(bwe.m_EnchantName?.ToString()))
-                prefix = bwe.m_EnchantName.ToString();
-            else
-                prefix = chosen.name;
-
-            prefix = prefix?.Trim();
-            if (string.IsNullOrEmpty(prefix)) return;
-
-            // 3) Evitar duplicados (si ya empieza por ese prefijo)
-            if (__result.StartsWith(prefix + " ", StringComparison.OrdinalIgnoreCase))
-                return;
-
-            __result = $"{prefix} {__result}";
-        }
-    }*/
 }

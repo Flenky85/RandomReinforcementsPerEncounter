@@ -48,15 +48,26 @@ public static class LootPicker
         public WeaponFocusMod Focus;
         public bool IsOversized;
     }
-    
+
     // 20% por tipo: O1H, O2H, R1H, R2H, Double (tu helper existente)
     private static WeaponType RollWeaponType()
     {
-        float r = UnityEngine.Random.value;
-        if (r < 0.30f) return WeaponType.OneHandedMelee;
-        if (r < 0.30f) return WeaponType.TwoHandedMelee;
-        if (r < 0.15f) return WeaponType.OneHandedRanged;
-        if (r < 0.15f) return WeaponType.TwoHandedRanged;
+        int wOHM = 30; // OneHandedMelee
+        int wTHM = 30; // TwoHandedMelee
+        int wOHR = 15; // OneHandedRanged
+        int wTHR = 15; // TwoHandedRanged
+        int wDBL = 10; // Double
+
+        int total = wOHM + wTHM + wOHR + wTHR + wDBL;
+        int roll = UnityEngine.Random.Range(1, total + 1); // [1..total]
+
+        if (roll <= wOHM) return WeaponType.OneHandedMelee;
+        roll -= wOHM;
+        if (roll <= wTHM) return WeaponType.TwoHandedMelee;
+        roll -= wTHM;
+        if (roll <= wOHR) return WeaponType.OneHandedRanged;
+        roll -= wOHR;
+        if (roll <= wTHR) return WeaponType.TwoHandedRanged;
         return WeaponType.Double;
     }
 
