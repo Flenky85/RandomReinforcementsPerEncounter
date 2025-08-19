@@ -3,6 +3,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Items;
+using RandomReinforcementsPerEncounter.Patches;
 using System;
 using System.Collections.Generic;
 using System.Linq;

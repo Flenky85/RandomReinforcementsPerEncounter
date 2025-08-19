@@ -1,4 +1,4 @@
-﻿using HarmonyLib;
+﻿/*using HarmonyLib;
 using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
@@ -11,6 +11,7 @@ using Kingmaker.EntitySystem.Persistence.JsonUtility;
 using Kingmaker.Items;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.View.MapObjects;
+using RandomReinforcementsPerEncounter.State;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -66,11 +67,6 @@ namespace RandomReinforcementsPerEncounter
                 AddLootFromEnemyCRs(lootPart, cr);
             }
 
-            /*
-            if (view != null)
-            {
-                view.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            }*/
             int maxPlus =
             lootPart?.Loot?.Items?
                 .OfType<ItemEntityWeapon>()
@@ -81,47 +77,6 @@ namespace RandomReinforcementsPerEncounter
             float s = ChestScale.ForPlus(maxPlus);
             view.transform.localScale = new Vector3(s, s, s);
 
-
-
-            /*
-            const string ShortswordGuid = "f717b39c351b8b44388c471d4d272f4e"; // Shortsword simple
-            const string EnchantPlus1Guid = "d42fc23b92c640846ac137dc26e000d4"; // Enhancement +1
-                       
-            var shortswordBp = ResourcesLibrary.TryGetBlueprint<BlueprintItem>(ShortswordGuid);
-            var enchBp = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(EnchantPlus1Guid);
-            var enchanttest = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(
-                GuidUtil.EnchantGuid("corrosive.t2")
-            );
-
-            var ctx = new MechanicsContext(default(JsonConstructorMark));
-
-
-
-            if (shortswordBp != null && enchBp != null)
-            {
-
-                var item = shortswordBp.CreateEntity();
-                if (item is ItemEntityWeapon weap)
-                {
-                    weap.AddEnchantment(enchBp, ctx); // permanente en esta instancia
-                    weap.AddEnchantment(enchanttest, ctx); // permanente en esta instancia
-                    
-                    lootPart.Loot.Add(weap);           // usar directamente la ItemsCollection existente
-                }
-            }
-
-
-            var gold = ResourcesLibrary.TryGetBlueprint<BlueprintItem>("f2bc0997c24e573448c6c91d2be88afa");
-            if (gold != null)
-            {
-                lootEntries.Add(new LootEntry
-                {
-                    Item = gold.ToReference<BlueprintItemReference>(),
-                    Count = 3
-                });
-            }
-
-            lootPart.AddItems(lootEntries);*/
         }
         private static readonly Dictionary<int, int> GoldByCR = new Dictionary<int, int>
         {
@@ -141,7 +96,6 @@ namespace RandomReinforcementsPerEncounter
 
             int baseGold = GoldByCR.TryGetValue(cr, out int v) ? v : 2000;
 
-            // Sesgo cuadrático estilo Excel: 1 + 9 * (rand^2)
             float r = UnityEngine.Random.value;
             float bias = 1f + 9f * Mathf.Pow(r, 2f);
             int finalGold = Mathf.RoundToInt(baseGold * bias);
@@ -329,5 +283,5 @@ namespace RandomReinforcementsPerEncounter
 
 
     }
-}
+}*/
 
