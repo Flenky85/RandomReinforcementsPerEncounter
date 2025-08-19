@@ -15,7 +15,6 @@ namespace RandomReinforcementsPerEncounter
             //a3f0ed9a361b4e5eb84e1ab8abd77a67
             //1ccbdc2361534a8d99e4043b8b345e72
             ChestSpawn.SpawnLootChest("1ccbdc2361534a8d99e4043b8b345e72", LootContext.ChestPosition.Value);
-            //ItemLogger.LogItems();
         }
     }
 }

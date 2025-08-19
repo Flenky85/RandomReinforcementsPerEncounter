@@ -212,7 +212,12 @@ public static class LootPicker
                 var masterworkEnchant = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(MasterWork);
                 if (masterworkEnchant != null)
                 {
-                    AddEnchants(entity, true, masterworkEnchant);
+                    AddEnchants(
+                        entity, 
+                        true, 
+                        masterworkEnchant,
+                        PriceRefs.PriceT0
+                    );
                     Debug.Log("[RRE] Masterwork enchant aplicado (arma no mágica).");
                 }
             }
@@ -592,21 +597,3 @@ public static class LootPicker
     }
 
 }
-
-
-/*
- var entity = bpWeapon.CreateEntity() as ItemEntityWeapon;
-var ctx = new MechanicsContext(default(Kingmaker.EntitySystem.Persistence.JsonUtility.JsonConstructorMark));
-
-// Ejemplo: aplicar +160 gp
-var price160 = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(
-    GuidUtil.EnchantGuid("price_160"));
-if (price160 != null) entity.AddEnchantment(price160, ctx);
-
-// O apilar el mismo BP varias veces (p.ej. 4× +320 = +1280):
-var price320 = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(
-    GuidUtil.EnchantGuid("price_320"));
-for (int i = 0; i < 4; i++) entity.AddEnchantment(price320, ctx);
-
-lootPart.Loot.Add(entity);
-  */

@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace RandomReinforcementsPerEncounter
+namespace RandomReinforcementsPerEncounter.DevUtils
 {
     public static class EnchantDebug
     {
@@ -128,8 +128,8 @@ namespace RandomReinforcementsPerEncounter
                 // Intenta leer m_LoadedString y/o m_Key
                 var fiLoaded = v.GetType().GetField("m_LoadedString", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
                 var fiKey = v.GetType().GetField("m_Key", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-                var loaded = fiLoaded != null ? (fiLoaded.GetValue(v) as string) : null;
-                var key = fiKey != null ? (fiKey.GetValue(v) as string) : null;
+                var loaded = fiLoaded != null ? fiLoaded.GetValue(v) as string : null;
+                var key = fiKey != null ? fiKey.GetValue(v) as string : null;
                 return $"[LS] key='{key}' loaded='{loaded}'";
             }
 

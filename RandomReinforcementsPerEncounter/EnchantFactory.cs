@@ -64,12 +64,13 @@ namespace RandomReinforcementsPerEncounter
                         onlyOnFirstHit
                     )
                 );
+                var locPrefix = keys.locPrefix;
 
                 WeaponEnchantmentConfigurator
                     .New(bpName, tierConfig.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
-                    .SetPrefix(locName)
+                    .SetPrefix(locPrefix)
                     .Configure();
 
                 var onSuccess = ActionsBuilder.New();
@@ -143,13 +144,14 @@ namespace RandomReinforcementsPerEncounter
                     descKey,
                     BuildEnergyDescription(rolls, t.DiceSide <= 0 ? 6 : t.DiceSide, description)
                 );
+                var locPrefix = keys.locPrefix;
 
                 // Crear el enchant
                 var cfg = WeaponEnchantmentConfigurator
                     .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
-                    .SetPrefix(locName);
+                    .SetPrefix(locPrefix);
 
                 // (Opcional) FX de arma si nos pasas el guid
                 if (!string.IsNullOrEmpty(prefab))
@@ -191,12 +193,13 @@ namespace RandomReinforcementsPerEncounter
                     descKey,
                     BuildStackableBonusDescription(plus, description)
                 );
+                var locPrefix = keys.locPrefix;
 
                 WeaponEnchantmentConfigurator
                     .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
-                    .SetPrefix(locName)
+                    .SetPrefix(locPrefix)
                     .AddStatBonusEquipment(
                         descriptor: ModifierDescriptor.UntypedStackable,
                         stat: stat,
@@ -228,6 +231,7 @@ namespace RandomReinforcementsPerEncounter
                     descKey,
                     BuildStackableBonusDescription(t.BonusDescription, description)
                 );
+                var locPrefix = keys.locPrefix;
 
                 // Referencia al Feature desde el GUID en texto que trae el TierConfig.Feat
                 var featureRef = BlueprintTool.GetRef<BlueprintFeatureReference>(t.Feat);
@@ -236,7 +240,7 @@ namespace RandomReinforcementsPerEncounter
                     .New(bpName, t.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
-                    .SetPrefix(locName)
+                    .SetPrefix(locPrefix)
                     .AddUnitFeatureEquipment(featureRef)
                     .Configure();
             }
@@ -295,14 +299,16 @@ namespace RandomReinforcementsPerEncounter
                 _ => DiceType.D3,// fallback
             };
         }
-        private static (string nameKey, string descKey, string bpName, LocalizedString locName) BuildKeys(string nameRoot, int tierIndex, string name)
+        private static (string nameKey, string descKey, string bpName, LocalizedString locName, LocalizedString locPrefix) BuildKeys(string nameRoot, int tierIndex, string name)
         {
             string nameKey = $"RRE.{nameRoot}.T{tierIndex}.Name";
+            string prefixKey = $"RRE.{nameRoot}.T{tierIndex}.Prefix";
             string descKey = $"RRE.{nameRoot}.T{tierIndex}.Desc";
             string bpName = $"RRE_{nameRoot}_T{tierIndex}_Enchant";
             var locName = LocalizationTool.CreateString(nameKey, $"{name} (T{tierIndex})");
+            var locPrefix = LocalizationTool.CreateString(prefixKey, $"{name}");
 
-            return (nameKey, descKey, bpName, locName);
+            return (nameKey, descKey, bpName, locName, locPrefix);
         }
 
         private static string BuildDescription(

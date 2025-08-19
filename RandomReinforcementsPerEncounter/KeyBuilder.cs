@@ -1,4 +1,9 @@
-﻿using BlueprintCore.Utils;
+﻿using BlueprintCore.Blueprints.Configurators.Items.Weapons;
+using BlueprintCore.Utils;
+using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Items;
 using Kingmaker.Localization;
 using System;
 using System.Collections.Generic;
@@ -21,4 +26,5 @@ namespace RandomReinforcementsPerEncounter
             return (nameKey, descKey, bpName, locName);
         }
     }
+
 }
