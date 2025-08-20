@@ -1,7 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
-using RandomReinforcementsPerEncounter;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
 using Kingmaker.Items;

@@ -4,8 +4,10 @@ using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
 using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.State;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
+using RandomReinforcementsPerEncounter.GameApi.Clones;
 
 namespace RandomReinforcementsPerEncounter.GameApi
 {
@@ -75,8 +77,8 @@ namespace RandomReinforcementsPerEncounter.GameApi
 
         private static int ApplyCRVariability(int baseCR)
         {
-            int variability = ModSettings.Instance.VariabilityRange;
-            int mode = ModSettings.Instance.VariabilityMode;
+            int variability = Config.Settings.ModSettings.Instance.VariabilityRange;
+            int mode = Config.Settings.ModSettings.Instance.VariabilityMode;
             if (variability <= 0) return baseCR;
 
             return mode switch

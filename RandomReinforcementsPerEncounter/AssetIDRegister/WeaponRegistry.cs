@@ -5,7 +5,7 @@ using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Items;
 using Kingmaker.RuleSystem;
-using RandomReinforcementsPerEncounter;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.itemlist.Weapons;
 using System;
 using System.Collections.Generic;

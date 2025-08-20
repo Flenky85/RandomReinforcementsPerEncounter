@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {

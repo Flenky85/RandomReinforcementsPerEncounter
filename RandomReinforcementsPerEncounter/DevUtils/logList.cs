@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Equipment;
 using System.Collections.Generic;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;

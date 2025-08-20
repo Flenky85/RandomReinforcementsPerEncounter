@@ -1,6 +1,4 @@
-﻿using System.Security.Permissions;
-
-namespace RandomReinforcementsPerEncounter
+﻿namespace RandomReinforcementsPerEncounter.Domain.Models
 {
     public class MonsterData
     {
@@ -9,6 +7,7 @@ namespace RandomReinforcementsPerEncounter
         public string CR;
         public string Faction;
     }
+
     public class ItemData
     {
         public string AssetId;
@@ -26,6 +25,7 @@ namespace RandomReinforcementsPerEncounter
         TwoHandedRanged,
         Double
     }
+
     public enum WeaponFocusMod
     {
         Axe,
@@ -41,6 +41,7 @@ namespace RandomReinforcementsPerEncounter
         Thrown,
         Double,
     }
+
     public class WeaponLootData
     {
         public string AssetId;
@@ -48,6 +49,7 @@ namespace RandomReinforcementsPerEncounter
         public WeaponType Type;
         public WeaponFocusMod Focus;
     }
+
     public class WeaponOverLootData
     {
         public string AssetId;

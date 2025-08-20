@@ -33,8 +33,8 @@ namespace RandomReinforcementsPerEncounter.Domain
             int totalPlayerCR = playerUnits.Sum(u => u.Descriptor.Progression.CharacterLevel);
 
             float averageCR = playerCount > 0 ? (float)totalPlayerCR / playerCount : 0f;
-            int roundedAverageCR = Mathf.CeilToInt(averageCR) + ModSettings.Instance.EncounterDifficultyModifier;
-            int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + ModSettings.Instance.PartyDifficultyOffset));
+            int roundedAverageCR = Mathf.CeilToInt(averageCR) + Config.Settings.ModSettings.Instance.EncounterDifficultyModifier;
+            int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + Config.Settings.ModSettings.Instance.PartyDifficultyOffset));
 
             int enemyCR = enemies.Sum(u => u.Blueprint.CR);
             int crDifference = adjustedPlayerCR - enemyCR;

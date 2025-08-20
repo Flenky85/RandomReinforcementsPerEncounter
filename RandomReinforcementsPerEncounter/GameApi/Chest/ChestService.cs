@@ -9,8 +9,10 @@ using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter.Config;
 using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.State;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 namespace RandomReinforcementsPerEncounter.GameApi.Chest
 {

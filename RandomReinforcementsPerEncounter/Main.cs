@@ -1,5 +1,7 @@
 ﻿using UnityModManagerNet;
 using HarmonyLib;
+using RandomReinforcementsPerEncounter.UI;
+using RandomReinforcementsPerEncounter.GameApi.Clones;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -9,7 +11,7 @@ namespace RandomReinforcementsPerEncounter
 
         public static void Load(UnityModManager.ModEntry modEntry)
         {
-            ModSettings.Init(modEntry); 
+            Config.Settings.ModSettings.Init(modEntry); 
 
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = ModUI.OnGUI;
