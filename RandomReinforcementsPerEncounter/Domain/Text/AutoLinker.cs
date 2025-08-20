@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace RandomReinforcementsPerEncounter
+namespace RandomReinforcementsPerEncounter.Domain.Text
 {
     internal static class AutoLinker
     {
@@ -55,26 +53,26 @@ namespace RandomReinforcementsPerEncounter
         // Mapea texto -> key de enciclopedia (ej. "blinded" -> "ConditionBlind")
         private static string MapConditionKey(string conditionLower)
         {
-            switch (conditionLower.ToLowerInvariant())
+            return conditionLower.ToLowerInvariant() switch
             {
-                case "blinded": return "ConditionBlind";
-                case "shaken": return "ConditionShaken";
-                case "frightened": return "ConditionFrightened";
-                case "stunned": return "ConditionStunned";
-                case "dazed": return "ConditionDaze";
-                case "sickened": return "ConditionSickened";
-                case "nauseated": return "ConditionNauseated";
-                case "paralyzed": return "ConditionParalyzed";
-                case "petrified": return "ConditionPetrified";
-                case "prone": return "ConditionProne";
-                case "entangled": return "ConditionEntangled";
-                case "exhausted": return "ConditionExhausted";
-                case "fatigued": return "ConditionFatigued";
-                case "confused": return "ConditionConfused";
-                case "poisoned": return "ConditionPoisoned";
-                case "diseased": return "ConditionDiseased";
-                default: return "Condition"; // fallback genérico
-            }
+                "blinded" => "ConditionBlind",
+                "shaken" => "ConditionShaken",
+                "frightened" => "ConditionFrightened",
+                "stunned" => "ConditionStunned",
+                "dazed" => "ConditionDaze",
+                "sickened" => "ConditionSickened",
+                "nauseated" => "ConditionNauseated",
+                "paralyzed" => "ConditionParalyzed",
+                "petrified" => "ConditionPetrified",
+                "prone" => "ConditionProne",
+                "entangled" => "ConditionEntangled",
+                "exhausted" => "ConditionExhausted",
+                "fatigued" => "ConditionFatigued",
+                "confused" => "ConditionConfused",
+                "poisoned" => "ConditionPoisoned",
+                "diseased" => "ConditionDiseased",
+                _ => "Condition",// fallback genérico
+            };
         }
 
         /// Aplica reglas evitando tocar texto que ya esté dentro de {g|...}{/g}

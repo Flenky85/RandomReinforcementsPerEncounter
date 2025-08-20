@@ -8,6 +8,7 @@ using Kingmaker.Items;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter;
+using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.itemlist.Weapons;
 using System;
 using System.Collections.Generic;
@@ -126,39 +127,39 @@ public static class LootPicker
         return default;
     }
     
-    private static readonly BlueprintGuid Druchite = BlueprintGuid.Parse("e6a7a2b6f26b488783c612add1e9a8bd");
-    private static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse("e5990dc76d2a613409916071c898eee8");
-    private static readonly BlueprintGuid Mithral = BlueprintGuid.Parse("0ae8fc9f2e255584faf4d14835224875");
-    private static readonly BlueprintGuid Adamantine = BlueprintGuid.Parse("ab39e7d59dd12f4429ffef5dca88dc7b");
+    private static readonly BlueprintGuid Druchite = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Druchite);
+    private static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.ColdIron);
+    private static readonly BlueprintGuid Mithral = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Mithral);
+    private static readonly BlueprintGuid Adamantine = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Adamantine);
 
-    private static readonly BlueprintGuid MasterWork = BlueprintGuid.Parse("b38844e2bffbac48b63036b66e735be");
+    private static readonly BlueprintGuid MasterWork = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.MasterWork);
 
-    private static readonly BlueprintGuid Composite = BlueprintGuid.Parse("c3209eb058d471548928a200d70765e0");
+    private static readonly BlueprintGuid Composite = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Composite);
 
     //Enhancement +1
-    private static readonly BlueprintGuid Shield1 = BlueprintGuid.Parse("e90c252e08035294eba39bafce76c119");
-    private static readonly BlueprintGuid Weapon1 = BlueprintGuid.Parse("d42fc23b92c640846ac137dc26e000d4");
-    private static readonly BlueprintGuid Armor1 = BlueprintGuid.Parse("a9ea95c5e02f9b7468447bc1010fe152");
+    private static readonly BlueprintGuid Shield1 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus1);
+    private static readonly BlueprintGuid Weapon1 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus1);
+    private static readonly BlueprintGuid Armor1 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus1);
     //Enhancement +2
-    private static readonly BlueprintGuid Shield2 = BlueprintGuid.Parse("7b9f2f78a83577d49927c78be0f7fbc1");
-    private static readonly BlueprintGuid Weapon2 = BlueprintGuid.Parse("eb2faccc4c9487d43b3575d7e77ff3f5");
-    private static readonly BlueprintGuid Armor2 = BlueprintGuid.Parse("758b77a97640fd747abf149f5bf538d0");
+    private static readonly BlueprintGuid Shield2 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus2);
+    private static readonly BlueprintGuid Weapon2 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus2);
+    private static readonly BlueprintGuid Armor2 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus2);
     //Enhancement +3
-    private static readonly BlueprintGuid Shield3 = BlueprintGuid.Parse("ac2e3a582b5faa74aab66e0a31c935a9");
-    private static readonly BlueprintGuid Weapon3 = BlueprintGuid.Parse("80bb8a737579e35498177e1e3c75899b");
-    private static readonly BlueprintGuid Armor3 = BlueprintGuid.Parse("9448d3026111d6d49b31fc85e7f3745a");
+    private static readonly BlueprintGuid Shield3 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus3);
+    private static readonly BlueprintGuid Weapon3 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus3);
+    private static readonly BlueprintGuid Armor3 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus3);
     //Enhancement +4
-    private static readonly BlueprintGuid Shield4 = BlueprintGuid.Parse("a5d27d73859bd19469a6dde3b49750ff");
-    private static readonly BlueprintGuid Weapon4 = BlueprintGuid.Parse("783d7d496da6ac44f9511011fc5f1979");
-    private static readonly BlueprintGuid Armor4 = BlueprintGuid.Parse("eaeb89df5be2b784c96181552414ae5a");
+    private static readonly BlueprintGuid Shield4 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus4);
+    private static readonly BlueprintGuid Weapon4 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus4);
+    private static readonly BlueprintGuid Armor4 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus4);
     //Enhancement +5
-    private static readonly BlueprintGuid Shield5 = BlueprintGuid.Parse("84d191a748edef84ba30c13b8ab83bd9");
-    private static readonly BlueprintGuid Weapon5 = BlueprintGuid.Parse("bdba267e951851449af552aa9f9e3992");
-    private static readonly BlueprintGuid Armor5 = BlueprintGuid.Parse("6628f9d77fd07b54c911cd8930c0d531");
+    private static readonly BlueprintGuid Shield5 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus5);
+    private static readonly BlueprintGuid Weapon5 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus5);
+    private static readonly BlueprintGuid Armor5 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus5);
     //Enhancement +6
-    private static readonly BlueprintGuid Shield6 = BlueprintGuid.Parse("70c26c66adb96d74baec38fc8d20c139");
-    private static readonly BlueprintGuid Weapon6 = BlueprintGuid.Parse("0326d02d2e24d254a9ef626cc7a3850f");
-    private static readonly BlueprintGuid Armor6 = BlueprintGuid.Parse("de15272d1f4eb7244aa3af47dbb754ef");
+    private static readonly BlueprintGuid Shield6 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus6);
+    private static readonly BlueprintGuid Weapon6 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus6);
+    private static readonly BlueprintGuid Armor6 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus6);
 
     public static void AddPickedWeaponToLoot(InteractionLootPart lootPart, int cr)
     {

@@ -6,6 +6,7 @@ using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Enums;
+using RandomReinforcementsPerEncounter.GameApi.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,13 +65,7 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int perDie = t.Bonus <= 0 ? 1 : t.Bonus;
 
-                var keys = KeyBuilderUtils.BuildKeys(nameRoot, i + 1, nameRoot);
-                /*
-                string bpName = $"RRE_{nameRoot.Replace(' ', '_')}_T{i + 1}_Feature";
-                var nameKey = $"RRE.{nameRoot}.T{i + 1}.Name";
-                var descKey = $"RRE.{nameRoot}.T{i + 1}.Desc";
-
-                var locName = LocalizationTool.CreateString(nameKey, $"{nameRoot} (T{i + 1})");*/
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature);
 
                 var anyEnergy =
                     SpellDescriptor.Fire |

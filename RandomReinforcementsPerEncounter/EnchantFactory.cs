@@ -14,6 +14,8 @@ using Kingmaker.RuleSystem;                      // DiceType
 using Kingmaker.UnitLogic.Buffs.Blueprints;      // BlueprintBuffReference
 using Kingmaker.UnitLogic.Mechanics.Actions;     // ContextActionSavingThrow, ContextActionConditionalSaved
 using Kingmaker.UnitLogic.Mechanics.Components;
+using RandomReinforcementsPerEncounter.Domain.Text;
+using RandomReinforcementsPerEncounter.GameApi.Localization;
 using System.Collections.Generic;  // ContextSetAbilityParams
 
 namespace RandomReinforcementsPerEncounter
@@ -47,7 +49,7 @@ namespace RandomReinforcementsPerEncounter
             for (int i = 0; i < tiers.Count; i++)
             {
                 var tierConfig = tiers[i];
-                var keys = BuildKeys(nameRoot, i + 1, name);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
                 var bpName = keys.bpName;
@@ -134,7 +136,7 @@ namespace RandomReinforcementsPerEncounter
                 var rolls = t.DiceCount <= 0 ? 1 : t.DiceCount;
                 var diceT = MapDiceType(t.DiceSide <= 0 ? 6 : t.DiceSide);
 
-                var keys = BuildKeys(nameRoot, i + 1, name);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
                 var bpName = keys.bpName;
@@ -183,7 +185,7 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int plus = t.Bonus <= 0 ? 1 : t.Bonus;
 
-                var keys = BuildKeys(nameRoot, i + 1, name);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
                 var descKey = keys.descKey;
@@ -221,7 +223,7 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
 
                 // Claves y nombres localizados coherentes con el resto del sistema
-                var keys = BuildKeys(nameRoot, i + 1, name );
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
                 var descKey = keys.descKey;
@@ -299,7 +301,7 @@ namespace RandomReinforcementsPerEncounter
                 _ => DiceType.D3,// fallback
             };
         }
-        private static (string nameKey, string descKey, string bpName, LocalizedString locName, LocalizedString locPrefix) BuildKeys(string nameRoot, int tierIndex, string name)
+        /*private static (string nameKey, string descKey, string bpName, LocalizedString locName, LocalizedString locPrefix) BuildKeys(string nameRoot, int tierIndex, string name)
         {
             string nameKey = $"RRE.{nameRoot}.T{tierIndex}.Name";
             string prefixKey = $"RRE.{nameRoot}.T{tierIndex}.Prefix";
@@ -309,7 +311,7 @@ namespace RandomReinforcementsPerEncounter
             var locPrefix = LocalizationTool.CreateString(prefixKey, $"{name}");
 
             return (nameKey, descKey, bpName, locName, locPrefix);
-        }
+        }*/
 
         private static string BuildDescription(
             SavingThrowType saveType, int dc,

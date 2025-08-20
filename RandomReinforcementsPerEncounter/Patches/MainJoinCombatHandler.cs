@@ -1,9 +1,9 @@
 ﻿using Kingmaker;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.PubSubSystem;
-using RandomReinforcementsPerEncounter.Config;
+using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.Domain;
-using RandomReinforcementsPerEncounter.GameApi;
+using RandomReinforcementsPerEncounter.GameApi.Chest;
 using RandomReinforcementsPerEncounter.State;
 using System.Linq;
 using System.Threading.Tasks;
@@ -38,7 +38,7 @@ namespace RandomReinforcementsPerEncounter.Patches
             // Spawn del cofre solo si tenemos posición
             if (LootContext.ChestPosition.HasValue)
             {
-                ChestService.SpawnLootChest(ChestIds.DefaultLootChest, LootContext.ChestPosition.Value);
+                ChestService.SpawnLootChest(BlueprintGuids.Chests.DefaultLootChest, LootContext.ChestPosition.Value);
             }
 
             // Reset de estado para el siguiente combate

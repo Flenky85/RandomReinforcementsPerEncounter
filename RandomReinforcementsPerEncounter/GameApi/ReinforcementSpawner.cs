@@ -2,10 +2,9 @@
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
-using RandomReinforcementsPerEncounter.Config;
+using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.State;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.GameApi
@@ -66,10 +65,10 @@ namespace RandomReinforcementsPerEncounter.GameApi
         {
             return factionId switch
             {
-                FactionIds.Bandits => BanditList.Monsters,
-                FactionIds.Mob => MobList.Monsters,
-                FactionIds.Ooze => OozeList.Monsters,
-                FactionIds.WildAnimals => WildAnimalsList.Monsters,
+                BlueprintGuids.FactionIds.Bandits => BanditList.Monsters,
+                BlueprintGuids.FactionIds.Mob => MobList.Monsters,
+                BlueprintGuids.FactionIds.Ooze => OozeList.Monsters,
+                BlueprintGuids.FactionIds.WildAnimals => WildAnimalsList.Monsters,
                 _ => null
             };
         }

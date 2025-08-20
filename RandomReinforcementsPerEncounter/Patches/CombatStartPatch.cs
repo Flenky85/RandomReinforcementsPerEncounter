@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker;
 using RandomReinforcementsPerEncounter.Config;
+using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.State;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace RandomReinforcementsPerEncounter.Patches
     /// Patch that triggers at the start of combat to evaluate CRs and schedule reinforcements.
     /// </summary>
     [HarmonyPatch(typeof(CombatController), "HandleCombatStart")]
-    public static class Patch_CombatStart
+    public static class CombatStartPatch
     {
         public static void Postfix()
         {
@@ -60,7 +61,7 @@ namespace RandomReinforcementsPerEncounter.Patches
 
                 LootContext.ChestPosition = position;
 
-                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? FactionIds.Unknown;
+                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.FactionIds.Unknown;
                 ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
             }
 
