@@ -2,10 +2,10 @@
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Items;
 using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.GameApi.Enchantments.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static RandomReinforcementsPerEncounter.EnchantFactory;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Items
 {

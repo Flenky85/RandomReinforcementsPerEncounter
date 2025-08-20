@@ -5,6 +5,7 @@ using UnityEngine;
 using Kingmaker.Enums;
 using Kingmaker.EntitySystem.Stats;
 using static RandomReinforcementsPerEncounter.EnchantFactory;
+using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {

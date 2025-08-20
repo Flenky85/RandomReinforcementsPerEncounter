@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Items;
+using RandomReinforcementsPerEncounter.GameApi.Enchantments.Components;
 using System.Linq;
 using static RandomReinforcementsPerEncounter.EnchantFactory;
 
