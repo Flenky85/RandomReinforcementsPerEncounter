@@ -12,6 +12,7 @@ using RandomReinforcementsPerEncounter.State;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
+using RandomReinforcementsPerEncounter.GameApi.Loot;
 
 
 namespace RandomReinforcementsPerEncounter.GameApi.Chest
