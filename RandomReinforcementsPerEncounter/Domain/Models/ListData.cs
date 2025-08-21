@@ -58,4 +58,14 @@
         public WeaponType Type;
         public WeaponFocusMod Focus;
     }
+    public enum Handedness { 
+        OneHanded, 
+        TwoHanded,
+        Double
+    }
+    public enum AffixKind
+    {
+        Prefix,
+        Suffix
+    }
 }

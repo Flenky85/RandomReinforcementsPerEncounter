@@ -18,11 +18,11 @@ namespace RandomReinforcementsPerEncounter.GameApi.Localization
         /// <summary>
         /// Genera keys de localización + nombre técnico del blueprint (bpName) con sufijo por tipo (Enchant/Feature).
         /// </summary>
-        internal static (string nameKey, string descKey, string bpName, LocalizedString locName, LocalizedString locPrefix)
-        BuildTierKeys(string nameRoot, int tierIndex, string name, ArtifactKind kind)
+        internal static (string nameKey, string descKey, string bpName, LocalizedString locName, LocalizedString locAffix)
+        BuildTierKeys(string nameRoot, int tierIndex, string name, ArtifactKind kind, string suffixName = null)
         {
             string nameKey = $"{ModPrefix}{nameRoot}.T{tierIndex}.Name";
-            string prefixKey = $"{ModPrefix}{nameRoot}.T{tierIndex}.Prefix";
+            string affixKey = $"{ModPrefix}{nameRoot}.T{tierIndex}.Affix";
             string descKey = $"{ModPrefix}{nameRoot}.T{tierIndex}.Desc";
 
             // Sufijo según tipo
@@ -33,9 +33,18 @@ namespace RandomReinforcementsPerEncounter.GameApi.Localization
             string bpName = $"RRE_{safeRoot}_T{tierIndex}_{suffix}";
 
             var locName = LocalizationTool.CreateString(nameKey, $"{name} (T{tierIndex})");
-            var locPrefix = LocalizationTool.CreateString(prefixKey, $"{name}");
+            string affix;
+            if (suffixName == null) { 
+                affix = name;
+            }
+            else
+            {
+                affix = suffixName;
+            }
 
-            return (nameKey, descKey, bpName, locName, locPrefix);
+            var locAffix = LocalizationTool.CreateString(affixKey, $"{affix}");
+            
+            return (nameKey, descKey, bpName, locName, locAffix);
         }
 
         private static string SuffixOf(ArtifactKind kind)

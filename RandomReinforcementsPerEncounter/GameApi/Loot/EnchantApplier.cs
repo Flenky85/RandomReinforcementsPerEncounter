@@ -63,10 +63,10 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             var baseEnchant = LootUtils.TryLoadEnchant(LootRefs.GetWeaponEnchantIdForTier(tier));
             AddEnchants(entity, true, baseEnchant, PriceForTier(tier));
 
-            WeaponTypeEnchant weaponType =
-                (entity?.Blueprint?.SecondWeapon != null) ? WeaponTypeEnchant.Double :
-                (entity?.Blueprint?.IsTwoHanded == true) ? WeaponTypeEnchant.TwoHanded :
-                WeaponTypeEnchant.OneHanded;
+            Handedness weaponType =
+                (entity?.Blueprint?.SecondWeapon != null) ? Handedness.Double :
+                (entity?.Blueprint?.IsTwoHanded == true) ? Handedness.TwoHanded :
+                Handedness.OneHanded;
 
             var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
@@ -86,8 +86,8 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
 
                 int effectiveTier = enchantTier;
                 bool applyDiscount =
-                    (weaponType == WeaponTypeEnchant.OneHanded) ||
-                    (weaponType == WeaponTypeEnchant.Double &&
+                    (weaponType == Handedness.OneHanded) ||
+                    (weaponType == Handedness.Double &&
                      (pickedType == EnchantType.OnHit || pickedType == EnchantType.OnlyOnFirstHit || pickedType == EnchantType.EnergyDamage));
 
                 if (applyDiscount)
@@ -107,7 +107,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 }
 
                 bool duplicateToSecond =
-                    (weaponType == WeaponTypeEnchant.Double) &&
+                    (weaponType == Handedness.Double) &&
                     (pickedType == EnchantType.OnHit || pickedType == EnchantType.OnlyOnFirstHit || pickedType == EnchantType.EnergyDamage);
 
                 AddEnchants(entity, duplicateToSecond, mainExtra);

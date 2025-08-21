@@ -25,7 +25,7 @@ namespace RandomReinforcementsPerEncounter
                 var bpName = keys.bpName;
                 var locName = keys.locName;
                 var descKey = keys.descKey;
-                var locPrefix = keys.locPrefix;
+                var locPrefix = keys.locAffix;
 
                 var locDesc = LocalizationTool.CreateString(
                     descKey,

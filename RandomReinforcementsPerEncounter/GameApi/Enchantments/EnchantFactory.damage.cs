@@ -37,7 +37,7 @@ namespace RandomReinforcementsPerEncounter
                     descKey,
                     FactoryText.BuildEnergyDescription(rolls, sides, description)
                 );
-                var locPrefix = keys.locPrefix;
+                var locPrefix = keys.locAffix;
 
                 var cfg = WeaponEnchantmentConfigurator
                     .New(bpName, t.AssetId)

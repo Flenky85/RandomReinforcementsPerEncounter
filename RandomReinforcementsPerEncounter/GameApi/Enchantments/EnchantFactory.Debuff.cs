@@ -61,7 +61,7 @@ namespace RandomReinforcementsPerEncounter
                         onlyOnFirstHit
                     )
                 );
-                var locPrefix = keys.locPrefix;
+                var locPrefix = keys.locAffix;
 
                 // Crear el enchant vacío con nombre/desc
                 WeaponEnchantmentConfigurator
