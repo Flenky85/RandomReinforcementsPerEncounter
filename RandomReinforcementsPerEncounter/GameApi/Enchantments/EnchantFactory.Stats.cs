@@ -12,7 +12,7 @@ namespace RandomReinforcementsPerEncounter
     public static partial class EnchantFactory
     {
         public static void RegisterWeaponStatsTiersFor(
-            List<TierConfig> tiers,
+            List<EnchantTierConfig> tiers,
             string name,
             string nameRoot,   // p.ej. "Strength"
             string description,

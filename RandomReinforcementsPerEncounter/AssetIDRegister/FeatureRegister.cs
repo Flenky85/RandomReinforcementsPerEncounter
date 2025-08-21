@@ -1,12 +1,8 @@
 ﻿using Kingmaker.Blueprints.Classes.Spells;
-using Kingmaker.ElementsSystem;
-using Kingmaker.EntitySystem.Stats;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static RandomReinforcementsPerEncounter.FeatureFactory;
+using RandomReinforcementsPerEncounter.Domain.Models;
+
+
 
 namespace RandomReinforcementsPerEncounter
 {

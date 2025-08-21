@@ -24,7 +24,7 @@ namespace RandomReinforcementsPerEncounter
         }
 
         public static void RegisterDebuffTiersFor(
-            List<TierConfig> tiers,
+            List<EnchantTierConfig> tiers,
             string name,
             string nameRoot,
             string buff,
@@ -43,7 +43,7 @@ namespace RandomReinforcementsPerEncounter
 
             for (int i = 0; i < tiers.Count; i++)
             {
-                var tierConfig = tiers[i];
+                var EnchantTierConfig = tiers[i];
                 var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
@@ -54,7 +54,7 @@ namespace RandomReinforcementsPerEncounter
                     descKey,
                     BuildDescription(
                         savingThrowType,
-                        tierConfig.DC,
+                        EnchantTierConfig.DC,
                         description,
                         durationDiceCount,
                         durationDiceSides,
@@ -65,7 +65,7 @@ namespace RandomReinforcementsPerEncounter
 
                 // Crear el enchant vacío con nombre/desc
                 WeaponEnchantmentConfigurator
-                    .New(bpName, tierConfig.AssetId)
+                    .New(bpName, EnchantTierConfig.AssetId)
                     .SetEnchantName(locName)
                     .SetDescription(locDesc)
                     .SetPrefix(locPrefix)
@@ -99,7 +99,7 @@ namespace RandomReinforcementsPerEncounter
 
                 // Trigger + seteo de DC desde contexto
                 WeaponEnchantmentConfigurator
-                    .For(tierConfig.AssetId)
+                    .For(EnchantTierConfig.AssetId)
                     .AddInitiatorAttackWithWeaponTrigger(
                         onHitActions,
                         onlyHit: onlyHit,
@@ -108,7 +108,7 @@ namespace RandomReinforcementsPerEncounter
                     .AddComponent<ContextSetAbilityParams>(c =>
                     {
                         c.Add10ToDC = false;
-                        c.DC = ContextValues.Constant(tierConfig.DC);
+                        c.DC = ContextValues.Constant(EnchantTierConfig.DC);
                         c.CasterLevel = ContextValues.Constant(0);
                         c.Concentration = ContextValues.Constant(0);
                         c.SpellLevel = ContextValues.Constant(0);

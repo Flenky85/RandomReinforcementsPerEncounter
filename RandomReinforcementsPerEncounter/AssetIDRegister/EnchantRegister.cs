@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
-using Kingmaker.Enums;
 using Kingmaker.EntitySystem.Stats;
 using static RandomReinforcementsPerEncounter.EnchantFactory;
 using RandomReinforcementsPerEncounter.Domain.Models;
@@ -210,7 +207,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 var meta = DebuffOnlyHitMeta[root];
                 var tiers = Enumerable.Range(1, 6)
-                    .Select(t => new TierConfig { AssetId = Id(root, t), DC = DebuffOnlyHitDC[t - 1] })
+                    .Select(t => new EnchantTierConfig { AssetId = Id(root, t), DC = DebuffOnlyHitDC[t - 1] })
                     .ToList();
 
                 RegisterDebuffTiersFor(
@@ -232,7 +229,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 var meta = DebuffFirstHitMeta[root];
                 var tiers = Enumerable.Range(1, 6)
-                    .Select(t => new TierConfig { AssetId = Id(root, t), DC = DebuffFirstHitDC[t - 1] })
+                    .Select(t => new EnchantTierConfig { AssetId = Id(root, t), DC = DebuffFirstHitDC[t - 1] })
                     .ToList();
 
                 RegisterDebuffTiersFor(
@@ -253,7 +250,7 @@ namespace RandomReinforcementsPerEncounter
             foreach (var (root, name, desc, prefab) in DamageDefs)
             {
                 var tiers = Enumerable.Range(1, 6)
-                    .Select(t => new TierConfig
+                    .Select(t => new EnchantTierConfig
                     {
                         AssetId = Id(root, t),
                         DiceCount = DamageTier[t - 1].dice,
@@ -299,7 +296,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 var inc = (root == "casterLevel") ? new[] { 1, 1, 1, 2, 2, 3 } : new[] { 2, 4, 6, 8, 10, 12 };
                 var tiers = Enumerable.Range(1, 6)
-                    .Select(t => new TierConfig { AssetId = Id(root, t), Bonus = inc[t - 1] })
+                    .Select(t => new EnchantTierConfig { AssetId = Id(root, t), Bonus = inc[t - 1] })
                     .ToList();
 
                 RegisterWeaponStatsTiersFor(tiers, name, root, desc, stat);
@@ -310,7 +307,7 @@ namespace RandomReinforcementsPerEncounter
             // Caster genéricos (features): spellDC, spellDieBonus
             foreach (var (root, name, desc) in CasterGeneric)
             {
-                var tiers = Enumerable.Range(1, 6).Select(t => new TierConfig
+                var tiers = Enumerable.Range(1, 6).Select(t => new EnchantTierConfig
                 {
                     AssetId = Id(root, t),
                     Feat = Feature(root, t),
@@ -324,7 +321,7 @@ namespace RandomReinforcementsPerEncounter
             // SchoolCL (features)
             foreach (var (root, name, desc) in SchoolCLRoots)
             {
-                var tiers = Enumerable.Range(1, 6).Select(t => new TierConfig
+                var tiers = Enumerable.Range(1, 6).Select(t => new EnchantTierConfig
                 {
                     AssetId = Id(root, t),
                     Feat = Feature(root, MapCLFeatTier(t)),
@@ -338,7 +335,7 @@ namespace RandomReinforcementsPerEncounter
             // SchoolDC (features)
             foreach (var (root, name, desc) in SchoolDCRoots)
             {
-                var tiers = Enumerable.Range(1, 6).Select(t => new TierConfig
+                var tiers = Enumerable.Range(1, 6).Select(t => new EnchantTierConfig
                 {
                     AssetId = Id(root, t),
                     Feat = Feature(root, MapCLFeatTier(t)),
@@ -350,15 +347,15 @@ namespace RandomReinforcementsPerEncounter
             }
 
             // Precios (tal cual)
-            RegisterWeaponPriceForTiers(new List<TierConfig>
+            RegisterWeaponPriceForTiers(new List<EnchantTierConfig>
             {
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_20").ToString() },
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_40").ToString() },
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_80").ToString() },
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_160").ToString() },
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_320").ToString() },
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_640").ToString() },
-                new TierConfig { AssetId = GuidUtil.EnchantGuid("price_1280").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_20").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_40").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_80").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_160").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_320").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_640").ToString() },
+                new EnchantTierConfig { AssetId = GuidUtil.EnchantGuid("price_1280").ToString() },
             });
         }
 
@@ -367,11 +364,11 @@ namespace RandomReinforcementsPerEncounter
         // -----------------------------
         private static string Id(string root, int tier) => GuidUtil.EnchantGuid($"{root}.t{tier}").ToString();
 
-        private static List<TierConfig> TierLinear(string root, int bonusPerTier)
+        private static List<EnchantTierConfig> TierLinear(string root, int bonusPerTier)
         {
             var bonuses = Enumerable.Range(1, 6).Select(t => t * bonusPerTier).ToArray();
             return Enumerable.Range(1, 6)
-                .Select(t => new TierConfig { AssetId = Id(root, t), Bonus = bonuses[t - 1] })
+                .Select(t => new EnchantTierConfig { AssetId = Id(root, t), Bonus = bonuses[t - 1] })
                 .ToList();
         }
 

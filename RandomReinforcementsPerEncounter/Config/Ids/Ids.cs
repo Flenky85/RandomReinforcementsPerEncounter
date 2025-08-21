@@ -73,5 +73,24 @@ namespace RandomReinforcementsPerEncounter.Config.Ids
             /// <summary>Fallback si no se reconoce la facción.</summary>
             public const string Unknown = "UNKNOWN";
         }
+
+        internal static class EnchantsPrefabs
+        {
+            public const string CrimsonMoon = "907d3c215c9522d4e8a3b763f1b32935"; // (blood)
+            public const string Unholy = "e098bc50ec458af4cb7c2d828db0ce18";
+            public const string Corrosive = "bfafef74d59950242915a8e294e6fac0";
+            public const string Flaming = "91e5a56dd421a2941984a36a2af164b6";
+            public const string Frost = "e9930f40a35b67c418e78a98c601c93b";
+            public const string Shock = "1d1465ffa2699644ba8dfac48cb33195";
+            public const string Vicious = "d01d77862c68852449895718902c8599"; // (Thorns)
+            public const string Holy = "d739a9e236ba6164ab854b356bfb6ed5";
+            public const string Sonic = "d31b9df8d99674742a161eb3faa07f3f";
+            public const string Speed = "eee18332ea407bb4ea9bf2aa5f9ddf90"; // (wind green)
+            public const string BrilliantEnergy = "fdc7f8f37d3f8da42be2a1d35a617001"; // (magic blue)
+            public const string Axiomatic = "9c950f7e0624df24ca74d9b01a3a2cfa"; // (yellow circles)
+            public const string Agile = "a4eba3360cc5b5d4ba2fe1036ce0cc8c"; // (wind blue)
+            public const string Ghost = "d7b9bfb16264e4d4aad2abef2c80f835";
+            public const string Anarchic = "57315bc1e1f62a741be0efde688087e9"; // (oxido)
+        }
     }
 }

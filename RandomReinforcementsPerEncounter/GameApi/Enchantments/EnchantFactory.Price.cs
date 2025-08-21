@@ -12,7 +12,7 @@ namespace RandomReinforcementsPerEncounter
         /// Genera: RRE_Price_20, RRE_Price_40, RRE_Price_80, ...
         /// </summary>
         public static void RegisterWeaponPriceForTiers(
-            List<TierConfig> tiers,
+            List<EnchantTierConfig> tiers,
             int baseDelta = 20,
             string bpPrefix = "RRE_Price_")
         {
