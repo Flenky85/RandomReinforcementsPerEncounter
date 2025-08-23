@@ -13,13 +13,13 @@ namespace RandomReinforcementsPerEncounter
         /// </summary>
         public static void RegisterWeaponPriceForTiers(
             List<EnchantTierConfig> tiers,
-            int baseDelta = 20,
+            int baseDelta = 200,
             string bpPrefix = "RRE_Price_")
         {
             for (int i = 0; i < tiers.Count; i++)
             {
                 var t = tiers[i];
-                int delta = baseDelta << i; // 20, 40, 80, 160, ...
+                int delta = baseDelta << i; 
 
                 string bpName = $"{bpPrefix}{delta}";
 

@@ -1,5 +1,6 @@
-﻿using RandomReinforcementsPerEncounter;                          // EnchantCatalog, LootBuckets, EnchantList
-using RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder;     // EnchantBuilder
+﻿using RandomReinforcementsPerEncounter.Domain.Models;                 // EnchantTierConfig
+using RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder;
+using System.Collections.Generic;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Enchantments
 {
@@ -109,6 +110,21 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments
 
             foreach (var def in enchantList)
                 EnchantBuilder.Build(def);
+
+            // --- Price tiers T1..T6: 200 → 6400 (doblando)
+            var tiers = new List<EnchantTierConfig>(6);
+            int delta = 200;
+            for (int i = 0; i < 6; i++)
+            {
+                tiers.Add(new EnchantTierConfig
+                {
+                    AssetId = GuidUtil.EnchantGuid($"price_{delta}").ToString()
+                    // si prefieres helper: AssetId = GuidUtil.EnchantId($"price_{delta}")
+                });
+                delta <<= 1; 
+            }
+
+            EnchantFactory.RegisterWeaponPriceForTiers(tiers, baseDelta: 200);
 
             // 3) Volcar a la lista final
             LootBuckets.FlushToEnchantList(EnchantList.Item);

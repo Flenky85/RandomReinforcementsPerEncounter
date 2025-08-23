@@ -55,7 +55,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             4 => PriceRefs.PriceT4,
             5 => PriceRefs.PriceT5,
             6 => PriceRefs.PriceT6,
-            _ => PriceRefs.PriceT0,
+            _ => PriceRefs.PriceT1,
         };
 
         public static void ApplyRandomTierEnchant(ItemEntityWeapon entity, int tier, int[] chances)

@@ -46,7 +46,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                     entity,
                     true,
                     ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(matGuid),
-                    PriceRefs.PriceT0
+                    PriceRefs.PriceT1
                 );
 
             }
@@ -59,7 +59,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                         entity,
                         true,
                         ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(LootRefs.Composite),
-                        PriceRefs.PriceT0
+                        PriceRefs.PriceT1
                     );
                 }
             }
@@ -86,7 +86,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                             entity,
                             true,
                             masterworkEnchant,
-                            PriceRefs.PriceT0
+                            PriceRefs.PriceT1
                         );
                         Debug.Log("[RRE] Masterwork enchant aplicado (arma no mágica).");
                     }
