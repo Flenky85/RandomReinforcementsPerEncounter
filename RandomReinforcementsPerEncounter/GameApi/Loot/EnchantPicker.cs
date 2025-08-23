@@ -30,16 +30,16 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 if (d.AssetIDT5 != null && Array.IndexOf(d.AssetIDT5, assetId) >= 0) return d.Type;
                 if (d.AssetIDT6 != null && Array.IndexOf(d.AssetIDT6, assetId) >= 0) return d.Type;
             }
-            return EnchantType.Maneuver;
+            return EnchantType.Others;
         }
 
         public static BlueprintItemEnchantment PickRandomEnchantByTier(
             int tier,
-            Handedness HandednessType,
+            WeaponGrip WeaponGripType,
             out EnchantType pickedType,
             HashSet<string> excludeIds)
         {
-            pickedType = EnchantType.Maneuver;
+            pickedType = EnchantType.Others;
             var pool = new List<(string id, int weight)>();
 
             foreach (var d in EnchantList.Item)
@@ -73,7 +73,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
 
         // wrapper sin excludeIds (para usos antiguos)
         public static BlueprintItemEnchantment PickRandomEnchantByTier(
-            int tier, Handedness HandednessType, out EnchantType pickedType)
-            => PickRandomEnchantByTier(tier, HandednessType, out pickedType, null);
+            int tier, WeaponGrip WeaponGripType, out EnchantType pickedType)
+            => PickRandomEnchantByTier(tier, WeaponGripType, out pickedType, null);
     }
 }

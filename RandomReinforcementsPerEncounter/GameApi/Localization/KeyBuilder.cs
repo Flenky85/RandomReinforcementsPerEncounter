@@ -19,7 +19,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Localization
         /// Genera keys de localización + nombre técnico del blueprint (bpName) con sufijo por tipo (Enchant/Feature).
         /// </summary>
         internal static (string nameKey, string descKey, string bpName, LocalizedString locName, LocalizedString locAffix)
-        BuildTierKeys(string nameRoot, int tierIndex, string name, ArtifactKind kind, string suffixName = null)
+        BuildTierKeys(string nameRoot, int tierIndex, string name, ArtifactKind kind, string affixName)
         {
             string nameKey = $"{ModPrefix}{nameRoot}.T{tierIndex}.Name";
             string affixKey = $"{ModPrefix}{nameRoot}.T{tierIndex}.Affix";
@@ -33,16 +33,8 @@ namespace RandomReinforcementsPerEncounter.GameApi.Localization
             string bpName = $"RRE_{safeRoot}_T{tierIndex}_{suffix}";
 
             var locName = LocalizationTool.CreateString(nameKey, $"{name} (T{tierIndex})");
-            string affix;
-            if (suffixName == null) { 
-                affix = name;
-            }
-            else
-            {
-                affix = suffixName;
-            }
-
-            var locAffix = LocalizationTool.CreateString(affixKey, $"{affix}");
+    
+            var locAffix = LocalizationTool.CreateString(affixKey, $"{affixName}");
             
             return (nameKey, descKey, bpName, locName, locAffix);
         }

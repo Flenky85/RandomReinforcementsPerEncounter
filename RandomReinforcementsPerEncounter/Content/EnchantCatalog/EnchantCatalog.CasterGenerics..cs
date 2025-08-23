@@ -1,0 +1,38 @@
+﻿using RandomReinforcementsPerEncounter.Domain.Models;
+
+namespace RandomReinforcementsPerEncounter
+{
+    internal static partial class EnchantCatalog
+    {
+        private static EnchantDef MakeCasterFeature(
+            string seed, 
+            string name, 
+            string desc)
+        {
+            int[] CasterBonusOne = { 1, 1, 1, 1, 2, 2 };
+            int[] CasterBonusTwo = { 1, 1, 2, 2, 3, 3 };
+            int chance = 10;
+
+            return new EnchantDef
+            {
+                Type = EnchantType.CasterFeature,
+                Seed = seed,
+
+                Name = name,
+                AffixDisplay = name,          // prefijo visible
+                Desc = desc,
+                Affix = AffixKind.Prefix,     // estos van como prefijo
+
+                Chance = chance,
+
+                TierMapOneHanded = CasterBonusOne,
+                TierMapTwoHanded = CasterBonusTwo,
+
+            };
+        }
+
+        // ---- Definiciones (CasterFeature) ----
+        internal static readonly EnchantDef SpellDC = MakeCasterFeature("spellDC", "Hexing", "spell DC for all saving throws against spells the wielder casts");
+        internal static readonly EnchantDef SpellDieBonus = MakeCasterFeature("spellDieBonus", "Overcharged", "each die rolled when casting a spell with descriptor fire, cold, electricity, acid, sonic, force or cure");
+    }
+}

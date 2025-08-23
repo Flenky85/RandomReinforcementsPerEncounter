@@ -1,6 +1,6 @@
 ﻿using RandomReinforcementsPerEncounter.Domain.Text;
 
-namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Util
+namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils
 {
     internal static class FactoryText
     {
@@ -29,7 +29,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Util
 
         public static string BuildStackableBonusDescription(int bonus, string description)
         {
-            string plain = $"This item grants a +{bonus} stackable bonus to {description}.";
+            string plain = $"This item grants a +{bonus} bonus to {description}.";
             return AutoLinker.Apply(plain);
         }
     }

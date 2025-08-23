@@ -1,6 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints.JsonSystem;
 using RandomReinforcementsPerEncounter.GameApi.Clones;
+using RandomReinforcementsPerEncounter.GameApi.Enchantments;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.Patches.Bootstrap

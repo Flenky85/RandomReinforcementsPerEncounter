@@ -1,7 +1,7 @@
 ﻿using Kingmaker.Enums.Damage;
 using Kingmaker.RuleSystem;
 
-namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Util
+namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils
 {
     internal static class FactoryMaps
     {

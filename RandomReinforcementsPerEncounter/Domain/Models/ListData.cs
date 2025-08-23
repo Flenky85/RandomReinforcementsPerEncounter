@@ -58,7 +58,7 @@
         public WeaponType Type;
         public WeaponFocusMod Focus;
     }
-    public enum Handedness { 
+    public enum WeaponGrip { 
         OneHanded, 
         TwoHanded,
         Double
@@ -67,5 +67,18 @@
     {
         Prefix,
         Suffix
+    }
+    public enum EnchantType
+    {
+        OnHit,
+        OnlyOnFirstHit,
+        EnergyDamage,
+        StatsBonus,
+        SkillsBonus,
+        Others,
+        Caster,
+        CasterFeature,
+        SchoolCL,
+        SchoolDC
     }
 }

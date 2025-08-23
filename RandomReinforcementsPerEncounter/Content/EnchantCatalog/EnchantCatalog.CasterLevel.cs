@@ -1,0 +1,40 @@
+﻿using Kingmaker.EntitySystem.Stats;
+using RandomReinforcementsPerEncounter.Domain.Models;
+
+namespace RandomReinforcementsPerEncounter
+{
+    internal static partial class EnchantCatalog
+    {
+        private static EnchantDef MakeCasterBonus(
+            string seed,
+            string name,           // "Eldritch"
+            string desc)
+        {
+            int[] CasterBonusOne = { 1, 1, 1, 1, 2, 2 };
+            int[] CasterBonusTwo = { 1, 1, 2, 2, 3, 3 };
+            int chance = 10;
+
+            return new EnchantDef
+            {
+                Type = EnchantType.Caster,   
+                Seed = seed,
+
+                Name = name,
+                AffixDisplay = name,
+                Desc = desc,
+                Affix = AffixKind.Prefix,
+
+                Chance = chance,
+
+                TierMapOneHanded = CasterBonusOne,
+                TierMapTwoHanded = CasterBonusTwo,
+
+                Stat = StatType.BonusCasterLevel
+            };
+        }
+
+        // ---- Definición ----
+        internal static readonly EnchantDef CasterLevel =
+            MakeCasterBonus("casterLevel", "Eldritch", "caster level");
+    }
+}

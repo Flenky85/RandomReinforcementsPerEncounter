@@ -26,7 +26,7 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int plus = ClampBonus(t.Bonus);
 
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature, nameRoot);
 
                 var featRef = FeatureConfigurator
                     .New(keys.bpName, t.AssetId)

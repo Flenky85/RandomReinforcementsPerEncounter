@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
-
-
 namespace RandomReinforcementsPerEncounter
 {
     internal class FeatureRegister
@@ -98,7 +96,7 @@ namespace RandomReinforcementsPerEncounter
                 {
                     new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("transmutacionCL.t1").ToString(), Bonus = 1 },
                     new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("transmutacionCL.t2").ToString(), Bonus = 2 },
-                    new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("transmutacionCL.t3").ToString(), Bonus = 3 }
+                    new FeatureTierConfig { AssetId = GuidUtil.FeatureGuid("transmutacionCL.t3").ToString(), Bonus = 3 },
                 },
                 nameRoot: "Transmutation Caster Level",
                 SpellSchool.Transmutation
