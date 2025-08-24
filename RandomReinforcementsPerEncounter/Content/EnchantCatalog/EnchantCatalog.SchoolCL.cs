@@ -1,4 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -31,13 +32,13 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        internal static readonly EnchantDef DivinationCL = MakeSchoolCLFeature("divinationCL", "Revealing", "caster level on divination school spells");
-        internal static readonly EnchantDef EnchantmentCL = MakeSchoolCLFeature("enchantmentCL", "Amplifier", "caster level on enchantment school spells");
-        internal static readonly EnchantDef EvocationCL = MakeSchoolCLFeature("evocationCL", "Blasting", "caster level on evocation school spells");
-        internal static readonly EnchantDef ConjurationCL = MakeSchoolCLFeature("conjurationCL", "Summoning", "caster level on conjuration school spells");
-        internal static readonly EnchantDef AbjurationCL = MakeSchoolCLFeature("abjurationCL", "Warding", "caster level on abjuration school spells");
-        internal static readonly EnchantDef IllusionCL = MakeSchoolCLFeature("illusionCL", "Mirage", "caster level on illusion school spells");
-        internal static readonly EnchantDef TransmutationCL = MakeSchoolCLFeature("transmutationCL", "Morphing", "caster level on transmutation school spells");
-        internal static readonly EnchantDef NecromancyCL = MakeSchoolCLFeature("necromancyCL", "Grim", "caster level on necromancy school spells");
+        internal static readonly EnchantDef DivinationCL = MakeSchoolCLFeature(Seed.divinationCL, "Revealing", "caster level on divination school spells");
+        internal static readonly EnchantDef EnchantmentCL = MakeSchoolCLFeature(Seed.enchantmentCL, "Amplifier", "caster level on enchantment school spells");
+        internal static readonly EnchantDef EvocationCL = MakeSchoolCLFeature(Seed.evocationCL, "Blasting", "caster level on evocation school spells");
+        internal static readonly EnchantDef ConjurationCL = MakeSchoolCLFeature(Seed.conjurationCL, "Summoning", "caster level on conjuration school spells");
+        internal static readonly EnchantDef AbjurationCL = MakeSchoolCLFeature(Seed.abjurationCL, "Warding", "caster level on abjuration school spells");
+        internal static readonly EnchantDef IllusionCL = MakeSchoolCLFeature(Seed.illusionCL, "Mirage", "caster level on illusion school spells");
+        internal static readonly EnchantDef TransmutationCL = MakeSchoolCLFeature(Seed.transmutationCL, "Morphing", "caster level on transmutation school spells");
+        internal static readonly EnchantDef NecromancyCL = MakeSchoolCLFeature(Seed.necromancyCL, "Grim", "caster level on necromancy school spells");
     }
 }

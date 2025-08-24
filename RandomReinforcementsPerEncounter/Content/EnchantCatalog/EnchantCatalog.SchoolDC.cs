@@ -1,4 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -31,14 +32,14 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        
-        internal static readonly EnchantDef DivinationDC = MakeSchoolDCFeature("divinationDC", "Insightful", "DC on divination school spells");
-        internal static readonly EnchantDef EnchantmentDC = MakeSchoolDCFeature("enchantmentDC", "Mesmeric", "DC on enchantment school spells");
-        internal static readonly EnchantDef EvocationDC = MakeSchoolDCFeature("evocationDC", "Cataclysmic", "DC on evocation school spells");
-        internal static readonly EnchantDef ConjurationDC = MakeSchoolDCFeature("conjurationDC", "Binding", "DC on conjuration school spells");
-        internal static readonly EnchantDef AbjurationDC = MakeSchoolDCFeature("abjurationDC", "Repelling", "DC on abjuration school spells");
-        internal static readonly EnchantDef IllusionDC = MakeSchoolDCFeature("illusionDC", "Chimeric", "DC on illusion school spells");
-        internal static readonly EnchantDef TransmutationDC = MakeSchoolDCFeature("transmutationDC", "Mutable", "DC on transmutation school spells");
-        internal static readonly EnchantDef NecromancyDC = MakeSchoolDCFeature("necromancyDC", "Deathly", "DC on necromancy school spells");
+
+        internal static readonly EnchantDef DivinationDC = MakeSchoolDCFeature(Seed.divinationDC, "Insightful", "DC on divination school spells");
+        internal static readonly EnchantDef EnchantmentDC = MakeSchoolDCFeature(Seed.enchantmentDC, "Mesmeric", "DC on enchantment school spells");
+        internal static readonly EnchantDef EvocationDC = MakeSchoolDCFeature(Seed.evocationDC, "Cataclysmic", "DC on evocation school spells");
+        internal static readonly EnchantDef ConjurationDC = MakeSchoolDCFeature(Seed.conjurationDC, "Binding", "DC on conjuration school spells");
+        internal static readonly EnchantDef AbjurationDC = MakeSchoolDCFeature(Seed.abjurationDC, "Repelling", "DC on abjuration school spells");
+        internal static readonly EnchantDef IllusionDC = MakeSchoolDCFeature(Seed.illusionDC, "Chimeric", "DC on illusion school spells");
+        internal static readonly EnchantDef TransmutationDC = MakeSchoolDCFeature(Seed.transmutationDC, "Mutable", "DC on transmutation school spells");
+        internal static readonly EnchantDef NecromancyDC = MakeSchoolDCFeature(Seed.necromancyDC, "Deathly", "DC on necromancy school spells");
     }
 }

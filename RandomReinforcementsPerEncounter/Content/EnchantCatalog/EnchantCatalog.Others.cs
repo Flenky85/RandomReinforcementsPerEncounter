@@ -1,4 +1,5 @@
 ﻿using Kingmaker.EntitySystem.Stats;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
@@ -37,16 +38,16 @@ namespace RandomReinforcementsPerEncounter
 
         // --- Definiciones (Others) ---
         // Maneuvers
-        internal static readonly EnchantDef CMB = MakeOtherBonus("CMB", "Grappling", "of Grapple", "combat maneuver bonus", StatType.AdditionalCMB);
-        internal static readonly EnchantDef CMD = MakeOtherBonus("CMD", "Immovable", "of Immovable", "combat maneuver defense", StatType.AdditionalCMD);
+        internal static readonly EnchantDef CMB = MakeOtherBonus(Seed.CMB, "Grappling", "of Grapple", "combat maneuver bonus", StatType.AdditionalCMB);
+        internal static readonly EnchantDef CMD = MakeOtherBonus(Seed.CMD, "Immovable", "of Immovable", "combat maneuver defense", StatType.AdditionalCMD);
 
         // Initiative
-        internal static readonly EnchantDef Initiative = MakeOtherBonus("initiative", "Swift", "of Alacrity", "initiative", StatType.Initiative);
+        internal static readonly EnchantDef Initiative = MakeOtherBonus(Seed.initiative, "Swift", "of Alacrity", "initiative", StatType.Initiative);
 
         // Saves
-        internal static readonly EnchantDef SaveFOR = MakeOtherBonus("saveFOR", "Enduring", "of Endurance", "fortitude saving throw", StatType.SaveFortitude);
-        internal static readonly EnchantDef SaveWIL = MakeOtherBonus("saveWIL", "Ironwill", "of Willpower", "will saving throw", StatType.SaveWill);
-        internal static readonly EnchantDef SaveREF = MakeOtherBonus("saveREF", "Elusive", "of Evasion", "reflex saving throw", StatType.SaveReflex);
-        
+        internal static readonly EnchantDef SaveFOR = MakeOtherBonus(Seed.saveFOR, "Enduring", "of Endurance", "fortitude saving throw", StatType.SaveFortitude);
+        internal static readonly EnchantDef SaveWIL = MakeOtherBonus(Seed.saveWIL, "Ironwill", "of Willpower", "will saving throw", StatType.SaveWill);
+        internal static readonly EnchantDef SaveREF = MakeOtherBonus(Seed.saveREF, "Elusive", "of Evasion", "reflex saving throw", StatType.SaveReflex);
+
     }
 }

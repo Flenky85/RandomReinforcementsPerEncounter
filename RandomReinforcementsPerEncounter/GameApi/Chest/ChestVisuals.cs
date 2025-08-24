@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Kingmaker.Blueprints.Items.Ecnchantments;
-using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 
 
 namespace RandomReinforcementsPerEncounter.GameApi.Chest
@@ -16,29 +16,29 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
             new Dictionary<BlueprintGuid, int>
             {
                 // +1
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus1)] = 1,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus1)] = 1,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus1)] = 1,
+                [BlueprintGuid.Parse(BlueprintGuids.WeaponPlus1)] = 1,
+                [BlueprintGuid.Parse(BlueprintGuids.ArmorPlus1)] = 1,
+                [BlueprintGuid.Parse(BlueprintGuids.ShieldPlus1)] = 1,
                 // +2
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus2)] = 2,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus2)] = 2,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus2)] = 2,
+                [BlueprintGuid.Parse(BlueprintGuids.WeaponPlus2)] = 2,
+                [BlueprintGuid.Parse(BlueprintGuids.ArmorPlus2)] = 2,
+                [BlueprintGuid.Parse(BlueprintGuids.ShieldPlus2)] = 2,
                 // +3
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus3)] = 3,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus3)] = 3,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus3)] = 3,
+                [BlueprintGuid.Parse(BlueprintGuids.WeaponPlus3)] = 3,
+                [BlueprintGuid.Parse(BlueprintGuids.ArmorPlus3)] = 3,
+                [BlueprintGuid.Parse(BlueprintGuids.ShieldPlus3)] = 3,
                 // +4
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus4)] = 4,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus4)] = 4,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus4)] = 4,
+                [BlueprintGuid.Parse(BlueprintGuids.WeaponPlus4)] = 4,
+                [BlueprintGuid.Parse(BlueprintGuids.ArmorPlus4)] = 4,
+                [BlueprintGuid.Parse(BlueprintGuids.ShieldPlus4)] = 4,
                 // +5
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus5)] = 5,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus5)] = 5,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus5)] = 5,
+                [BlueprintGuid.Parse(BlueprintGuids.WeaponPlus5)] = 5,
+                [BlueprintGuid.Parse(BlueprintGuids.ArmorPlus5)] = 5,
+                [BlueprintGuid.Parse(BlueprintGuids.ShieldPlus5)] = 5,
                 // +6
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus6)] = 6,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ArmorPlus6)] = 6,
-                [BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.ShieldPlus6)] = 6,
+                [BlueprintGuid.Parse(BlueprintGuids.WeaponPlus6)] = 6,
+                [BlueprintGuid.Parse(BlueprintGuids.ArmorPlus6)] = 6,
+                [BlueprintGuid.Parse(BlueprintGuids.ShieldPlus6)] = 6,
             };
 
         public static int GetWeaponEnhancementPlus(ItemEntityWeapon w)

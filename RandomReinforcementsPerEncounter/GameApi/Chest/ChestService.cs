@@ -7,12 +7,12 @@ using Kingmaker.Blueprints.Loot;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter.Config;
-using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.State;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
 using RandomReinforcementsPerEncounter.GameApi.Loot;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 
 
 namespace RandomReinforcementsPerEncounter.GameApi.Chest
@@ -20,9 +20,9 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
     internal static class ChestService
     {
         private static readonly BlueprintLoot _dummyLootBlueprint =
-            ResourcesLibrary.TryGetBlueprint<BlueprintLoot>(BlueprintGuids.Loot.DummyLootTable);
+            ResourcesLibrary.TryGetBlueprint<BlueprintLoot>(BlueprintGuids.DummyLootTable);
         private static readonly BlueprintItem _goldItemBlueprint =
-            ResourcesLibrary.TryGetBlueprint<BlueprintItem>(BlueprintGuids.Loot.GoldItem);
+            ResourcesLibrary.TryGetBlueprint<BlueprintItem>(BlueprintGuids.GoldItem);
        
         private static readonly AccessTools.FieldRef<InteractionLootPart, bool> _destroyWhenEmptyRef =
             AccessTools.FieldRefAccess<InteractionLootPart, bool>("m_DestroyWhenEmpty");
@@ -77,7 +77,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
         internal static void TrySpawnDefaultChestAt(Vector3? maybePosition)
         {
             if (!maybePosition.HasValue) return;
-            SpawnLootChest(BlueprintGuids.Chests.DefaultLootChest, maybePosition.Value);
+            SpawnLootChest(BlueprintGuids.DefaultLootChest, maybePosition.Value);
     
         }
 

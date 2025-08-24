@@ -1,4 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;
+﻿using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 
 namespace RandomReinforcementsPerEncounter
@@ -13,7 +14,7 @@ namespace RandomReinforcementsPerEncounter
             for (int t = 1; t <= MaxTier; t++)
             {
                 var seed = RootWithHand(root, hand) + ".t" + t;
-                var guid = GuidUtil.EnchantGuid(seed).ToString();
+                var guid = IdGenerators.EnchantId(seed).ToString();
                 tiers[t - 1].Add(guid);
 
                 _handById[guid] = hand;   // etiqueta variante

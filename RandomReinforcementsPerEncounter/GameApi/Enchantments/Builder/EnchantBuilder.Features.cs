@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using RandomReinforcementsPerEncounter.Config.Ids.Generators;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using static RandomReinforcementsPerEncounter.EnchantFactory; // Id, RootWithHand, Feature
 
@@ -20,8 +21,8 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
 
                             return new EnchantTierConfig
                             {
-                                AssetId = Id(def.Seed, t, grip),
-                                Feat = Feature(def.Seed, featTier),
+                                AssetId = EnchantIds.Id(def.Seed, t, grip),
+                                Feat = FeatureIds.ForTier(def.Seed, featTier),
                                 BonusDescription = featTier // <- en int, sin MapBonusDesc
                             };
                         })
@@ -30,7 +31,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                     RegisterWeaponFeaturesTiersFor(
                         tiers: tiers,
                         name: def.Name,                                 // "Hexing"
-                        nameRoot: RootWithHand(def.Seed, grip),         // raíz 1H/2H
+                        nameRoot: EnchantIds.RootWithHand(def.Seed, grip),         // raíz 1H/2H
                         description: def.Desc,                          // "spell DC..."
                         AffixDisplay: def.AffixDisplay,                 // texto afijo
                         affix: def.Affix                                // Prefix/Suffix

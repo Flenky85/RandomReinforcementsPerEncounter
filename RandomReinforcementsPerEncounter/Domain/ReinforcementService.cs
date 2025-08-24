@@ -1,5 +1,5 @@
 ﻿using Kingmaker;
-using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using System.Linq;
 using UnityEngine;
 
@@ -50,7 +50,7 @@ namespace RandomReinforcementsPerEncounter.Domain
 
                 State.LootContext.ChestPosition = position;
 
-                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.FactionIds.Unknown;
+                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.Unknown;
                 State.ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
             }
 

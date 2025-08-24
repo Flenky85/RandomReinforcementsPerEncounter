@@ -1,6 +1,7 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;                                       // BlueprintTool, LocalizationTool
 using Kingmaker.Blueprints;                                      // BlueprintFeatureReference
+using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
 using RandomReinforcementsPerEncounter.GameApi.Localization;
@@ -10,8 +11,6 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class EnchantFactory
     {
-        internal static string Feature(string seed, int tier) => GuidUtil.FeatureGuid($"{seed}.t{tier}").ToString();
-
         public static void RegisterWeaponFeaturesTiersFor(
             List<EnchantTierConfig> tiers,
             string name,

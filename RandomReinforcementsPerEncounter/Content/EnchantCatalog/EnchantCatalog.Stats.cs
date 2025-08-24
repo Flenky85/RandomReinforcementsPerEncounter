@@ -1,4 +1,5 @@
 ﻿using Kingmaker.EntitySystem.Stats;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
@@ -41,13 +42,11 @@ namespace RandomReinforcementsPerEncounter
         }
 
         // ---- Definiciones (StatsBonus) ----
-        // Nota: en tu StatRoots hay una errata: "of Strnght" → "of Strength".
-        internal static readonly EnchantDef StatSTR = MakeStatBonus("statSTR", "Mighty", "of Strength", "strength", StatType.Strength);
-        internal static readonly EnchantDef StatDEX = MakeStatBonus("statDEX", "Graceful", "of Agility", "dexterity", StatType.Dexterity);
-        internal static readonly EnchantDef StatCON = MakeStatBonus("statCON", "Resilient", "of Constitution", "constitution", StatType.Constitution);
-        internal static readonly EnchantDef StatINT = MakeStatBonus("statINT", "Cunning", "of Intelligence", "intelligence", StatType.Intelligence);
-        internal static readonly EnchantDef StatWIS = MakeStatBonus("statWIS", "Sage", "of Wisdom", "wisdom", StatType.Wisdom);
-        internal static readonly EnchantDef StatCHA = MakeStatBonus("statCHA", "Glamorous", "of Charisma", "charisma", StatType.Charisma);
-
+        internal static readonly EnchantDef StatSTR = MakeStatBonus(Seed.statSTR, "Mighty", "of Might", "strength", StatType.Strength);
+        internal static readonly EnchantDef StatDEX = MakeStatBonus(Seed.statDEX, "Graceful", "of Grace", "dexterity", StatType.Dexterity);
+        internal static readonly EnchantDef StatCON = MakeStatBonus(Seed.statCON, "Resilient", "of Resilience", "constitution", StatType.Constitution);
+        internal static readonly EnchantDef StatINT = MakeStatBonus(Seed.statINT, "Cunning", "of Guile", "intelligence", StatType.Intelligence);
+        internal static readonly EnchantDef StatWIS = MakeStatBonus(Seed.statWIS, "Sage", "of Sagacity", "wisdom", StatType.Wisdom);
+        internal static readonly EnchantDef StatCHA = MakeStatBonus(Seed.statCHA, "Glamorous", "of Glamour", "charisma", StatType.Charisma);
     }
 }

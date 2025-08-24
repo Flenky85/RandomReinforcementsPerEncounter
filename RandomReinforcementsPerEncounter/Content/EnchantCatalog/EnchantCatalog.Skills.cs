@@ -1,4 +1,5 @@
 ﻿using Kingmaker.EntitySystem.Stats;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
@@ -39,16 +40,16 @@ namespace RandomReinforcementsPerEncounter
         }
 
         // ---- Definiciones (Skills) ----
-        internal static readonly EnchantDef SkillMOB = MakeSkillBonus("skillMOB", "Mobile", "of Mobile", "mobility", StatType.SkillMobility);
-        internal static readonly EnchantDef SkillATH = MakeSkillBonus("skillATH", "Vigorous", "of Vigor", "athletics", StatType.SkillAthletics);
-        internal static readonly EnchantDef SkillARC = MakeSkillBonus("skillARC", "Arcane", "of the Arcanist", "knowledge arcana", StatType.SkillKnowledgeArcana);
-        internal static readonly EnchantDef SkillWOR = MakeSkillBonus("skillWOR", "Scholar", "of the Scholar", "knowledge world", StatType.SkillKnowledgeWorld);
-        internal static readonly EnchantDef SkillNAT = MakeSkillBonus("skillNAT", "Pathfinder", "of the Pathfinder", "lore nature", StatType.SkillLoreNature);
-        internal static readonly EnchantDef SkillREL = MakeSkillBonus("skillREL", "Saintly", "of the Zealot", "lore religion", StatType.SkillLoreReligion);
-        internal static readonly EnchantDef SkillPERC = MakeSkillBonus("skillPERC", "Vigilant", "of Vigilance", "perception", StatType.SkillPerception);
-        internal static readonly EnchantDef SkillPERS = MakeSkillBonus("skillPERS", "Diplomatic", "of Diplomacy", "persuasion", StatType.SkillPersuasion);
-        internal static readonly EnchantDef SkillSTE = MakeSkillBonus("skillSTE", "Silent", "of Silence", "stealth", StatType.SkillStealth);
-        internal static readonly EnchantDef SkillTHI = MakeSkillBonus("skillTHI", "Gambit", "of Guile", "trickery", StatType.SkillThievery);
-        internal static readonly EnchantDef SkillUMD = MakeSkillBonus("skillUMD", "Mystic", "of Attunement", "use magic device", StatType.SkillUseMagicDevice);
+        internal static readonly EnchantDef SkillMOB = MakeSkillBonus(Seed.skillMOB, "Mobile", "of Mobile", "mobility", StatType.SkillMobility);
+        internal static readonly EnchantDef SkillATH = MakeSkillBonus(Seed.skillATH, "Vigorous", "of Vigor", "athletics", StatType.SkillAthletics);
+        internal static readonly EnchantDef SkillARC = MakeSkillBonus(Seed.skillARC, "Arcane", "of the Arcanist", "knowledge arcana", StatType.SkillKnowledgeArcana);
+        internal static readonly EnchantDef SkillWOR = MakeSkillBonus(Seed.skillWOR, "Scholar", "of the Scholar", "knowledge world", StatType.SkillKnowledgeWorld);
+        internal static readonly EnchantDef SkillNAT = MakeSkillBonus(Seed.skillNAT, "Pathfinder", "of the Pathfinder", "lore nature", StatType.SkillLoreNature);
+        internal static readonly EnchantDef SkillREL = MakeSkillBonus(Seed.skillREL, "Saintly", "of the Zealot", "lore religion", StatType.SkillLoreReligion);
+        internal static readonly EnchantDef SkillPERC = MakeSkillBonus(Seed.skillPERC, "Vigilant", "of Vigilance", "perception", StatType.SkillPerception);
+        internal static readonly EnchantDef SkillPERS = MakeSkillBonus(Seed.skillPERS, "Diplomatic", "of Diplomacy", "persuasion", StatType.SkillPersuasion);
+        internal static readonly EnchantDef SkillSTE = MakeSkillBonus(Seed.skillSTE, "Silent", "of Silence", "stealth", StatType.SkillStealth);
+        internal static readonly EnchantDef SkillTHI = MakeSkillBonus(Seed.skillTHI, "Gambit", "of Guile", "trickery", StatType.SkillThievery);
+        internal static readonly EnchantDef SkillUMD = MakeSkillBonus(Seed.skillUMD, "Mystic", "of Attunement", "use magic device", StatType.SkillUseMagicDevice);
     }
 }

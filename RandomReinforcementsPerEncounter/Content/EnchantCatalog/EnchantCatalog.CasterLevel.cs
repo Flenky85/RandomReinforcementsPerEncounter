@@ -1,4 +1,5 @@
 ﻿using Kingmaker.EntitySystem.Stats;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
@@ -34,7 +35,6 @@ namespace RandomReinforcementsPerEncounter
         }
 
         // ---- Definición ----
-        internal static readonly EnchantDef CasterLevel =
-            MakeCasterBonus("casterLevel", "Eldritch", "caster level");
+        internal static readonly EnchantDef CasterLevel = MakeCasterBonus(Seed.casterLevel, "Eldritch", "caster level");
     }
 }

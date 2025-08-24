@@ -3,7 +3,7 @@ using UnityEngine;
 using Kingmaker.Enums;
 using RandomReinforcementsPerEncounter.Config;
 using RandomReinforcementsPerEncounter.Domain.Models;
-using RandomReinforcementsPerEncounter.itemlist.Weapons;
+using RandomReinforcementsPerEncounter.Content.WeaponCatalog;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
@@ -37,7 +37,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             {
                 if (wantOver)
                 {
-                    var bucket = weaponListOversized.Item.Where(w => w.Type == wanted).ToList();
+                    var bucket = WeaponCatalogOversized.Item.Where(w => w.Type == wanted).ToList();
                     if (bucket.Count > 0)
                     {
                         var it = bucket[UnityEngine.Random.Range(0, bucket.Count)];
@@ -46,7 +46,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 }
                 else
                 {
-                    var bucket = weaponList.Item.Where(w => w.Type == wanted).ToList();
+                    var bucket = WeaponCatalog.Item.Where(w => w.Type == wanted).ToList();
                     if (bucket.Count > 0)
                     {
                         var it = bucket[UnityEngine.Random.Range(0, bucket.Count)];
@@ -56,14 +56,14 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 wanted = RollWeaponType();
             }
 
-            if (wantOver && weaponListOversized.Item.Count > 0)
+            if (wantOver && WeaponCatalogOversized.Item.Count > 0)
             {
-                var it = weaponListOversized.Item[UnityEngine.Random.Range(0, weaponListOversized.Item.Count)];
+                var it = WeaponCatalogOversized.Item[UnityEngine.Random.Range(0, WeaponCatalogOversized.Item.Count)];
                 return new WeaponPick { Name = it.Name, AssetId = it.AssetId, Type = it.Type, Focus = it.Focus, IsOversized = true };
             }
-            if (!wantOver && weaponList.Item.Count > 0)
+            if (!wantOver && WeaponCatalog.Item.Count > 0)
             {
-                var it = weaponList.Item[UnityEngine.Random.Range(0, weaponList.Item.Count)];
+                var it = WeaponCatalog.Item[UnityEngine.Random.Range(0, WeaponCatalog.Item.Count)];
                 return new WeaponPick { Name = it.Name, AssetId = it.AssetId, Type = it.Type, Focus = it.Focus, IsOversized = false };
             }
             return default;

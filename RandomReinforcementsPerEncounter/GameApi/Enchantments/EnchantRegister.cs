@@ -1,4 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;                 // EnchantTierConfig
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Generators;
+using RandomReinforcementsPerEncounter.Domain.Models;                 // EnchantTierConfig
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder;
 using System.Collections.Generic;
 
@@ -118,8 +119,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments
             {
                 tiers.Add(new EnchantTierConfig
                 {
-                    AssetId = GuidUtil.EnchantGuid($"price_{delta}").ToString()
-                    // si prefieres helper: AssetId = GuidUtil.EnchantId($"price_{delta}")
+                    AssetId = PriceIds.ForValue(delta)
                 });
                 delta <<= 1; 
             }

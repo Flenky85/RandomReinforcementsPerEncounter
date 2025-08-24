@@ -2,12 +2,12 @@
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
-using RandomReinforcementsPerEncounter.Config.Ids;
 using RandomReinforcementsPerEncounter.State;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
 using RandomReinforcementsPerEncounter.GameApi.Clones;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 
 namespace RandomReinforcementsPerEncounter.GameApi
 {
@@ -67,10 +67,10 @@ namespace RandomReinforcementsPerEncounter.GameApi
         {
             return factionId switch
             {
-                BlueprintGuids.FactionIds.Bandits => BanditList.Monsters,
-                BlueprintGuids.FactionIds.Mob => MobList.Monsters,
-                BlueprintGuids.FactionIds.Ooze => OozeList.Monsters,
-                BlueprintGuids.FactionIds.WildAnimals => WildAnimalsList.Monsters,
+                BlueprintGuids.Bandits => BanditList.Monsters,
+                BlueprintGuids.Mob => MobList.Monsters,
+                BlueprintGuids.Ooze => OozeList.Monsters,
+                BlueprintGuids.WildAnimals => WildAnimalsList.Monsters,
                 _ => null
             };
         }

@@ -1,26 +1,25 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Items.Weapons;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.Items;
 using Kingmaker.RuleSystem;
+using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Ids.Generators;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Content.WeaponCatalog;
 using RandomReinforcementsPerEncounter.Domain.Models;
-using RandomReinforcementsPerEncounter.itemlist.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 
-namespace RandomReinforcementsPerEncounter
+namespace RandomReinforcementsPerEncounter.GameApi.Weapons
 {
     internal static class WeaponRegistry
     {
         private static BlueprintItemWeapon _sawtoothStandard;
-        private static readonly string ColdIronSawtoothSabreId = "45e76b1480d14d959d780f1182a6cabf";
-        private static readonly BlueprintGuid SawtoothSabreGuid = GuidUtil.WeaponGuid("SawtoothSabre");
-
-        private static readonly BlueprintGuid OversizedEnchantGuid = BlueprintGuid.Parse("d8e1ebc1062d8cc42abff78783856b0d");
+        private static readonly string ColdIronSawtoothSabreId = BlueprintGuids.ColdIronSawtoothSabreId;
+        private static readonly BlueprintGuid SawtoothSabreGuid = IdGenerators.WeaponId(Seed.sawtoothSabre);
+        private static readonly BlueprintGuid OversizedEnchantGuid = BlueprintGuid.Parse(BlueprintGuids.OverSized);
 
         public static BlueprintItemWeapon Create_SawtoothSabre_Standard()
         {
@@ -41,7 +40,7 @@ namespace RandomReinforcementsPerEncounter
         }
         public static void BuildAllOversizedFromList()
         {
-            foreach (var entry in weaponListOversized.Item)
+            foreach (var entry in WeaponCatalogOversized.Item)
             {
                 try
                 {
@@ -88,7 +87,7 @@ namespace RandomReinforcementsPerEncounter
 
             var baseDamage = clone.m_OverrideDamageDice
                 ? clone.m_DamageDice
-                : (clone.m_Type?.Get()?.m_BaseDamage ?? clone.m_DamageDice);
+                : clone.m_Type?.Get()?.m_BaseDamage ?? clone.m_DamageDice;
 
             var stepped = StepUp(baseDamage);
             clone.m_OverrideDamageDice = true;
@@ -101,7 +100,7 @@ namespace RandomReinforcementsPerEncounter
                 var secondOrig = clone.m_SecondWeapon.Get();
                 if (secondOrig != null)
                 {
-                    var secondNewGuid = GuidUtil.WeaponGuid($"{data.AssetId}:Second");
+                    var secondNewGuid = DoubleSecondIds.ForVariant(data.AssetId);
                     var secondName = data.Name + "_Second";
 
                     ItemWeaponConfigurator
@@ -114,7 +113,7 @@ namespace RandomReinforcementsPerEncounter
                     {
                         var secBase = secondClone.m_OverrideDamageDice
                             ? secondClone.m_DamageDice
-                            : (secondClone.m_Type?.Get()?.m_BaseDamage ?? secondClone.m_DamageDice);
+                            : secondClone.m_Type?.Get()?.m_BaseDamage ?? secondClone.m_DamageDice;
 
                         secondClone.m_OverrideDamageDice = true;
                         secondClone.m_DamageDice = StepUp(secBase);

@@ -18,6 +18,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
         public static BlueprintItemEnchantment PriceT6 => _p6400 ??= Get("price_6400");
 
         private static BlueprintItemEnchantment Get(string key)
-            => ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(GuidUtil.EnchantGuid(key));
+            => ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(IdGenerators.EnchantId(key));
     }
 }

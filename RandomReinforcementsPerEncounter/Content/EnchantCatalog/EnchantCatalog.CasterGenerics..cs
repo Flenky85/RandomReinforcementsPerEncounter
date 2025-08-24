@@ -1,4 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -32,7 +33,8 @@ namespace RandomReinforcementsPerEncounter
         }
 
         // ---- Definiciones (CasterFeature) ----
-        internal static readonly EnchantDef SpellDC = MakeCasterFeature("spellDC", "Hexing", "spell DC for all saving throws against spells the wielder casts");
-        internal static readonly EnchantDef SpellDieBonus = MakeCasterFeature("spellDieBonus", "Overcharged", "each die rolled when casting a spell with descriptor fire, cold, electricity, acid, sonic, force or cure");
+        internal static readonly EnchantDef SpellDC = MakeCasterFeature(Seed.spellDC, "Hexing", "spell DC for all saving throws against spells the wielder casts");
+        internal static readonly EnchantDef SpellDieBonus = MakeCasterFeature(Seed.spellDieBonus, "Overcharged", "each die rolled when casting a spell with descriptor fire, cold, electricity, acid, sonic, force or cure");
+
     }
 }

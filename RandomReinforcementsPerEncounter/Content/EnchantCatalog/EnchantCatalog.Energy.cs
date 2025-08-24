@@ -1,6 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;
-using System;
-using static RandomReinforcementsPerEncounter.Config.Ids.BlueprintGuids;
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -37,12 +36,14 @@ namespace RandomReinforcementsPerEncounter
         }
 
         // Instancias (si prefieres exponerlas individualmente)
-        internal static readonly EnchantDef Flaming = MakeEnergyDamage("fire", "Flaming", "fire", EnchantsPrefabs.Flaming);
-        internal static readonly EnchantDef Frost = MakeEnergyDamage("cold", "Frost", "cold", EnchantsPrefabs.Frost);
-        internal static readonly EnchantDef Shock = MakeEnergyDamage("electricity", "Shock", "electricity", EnchantsPrefabs.Shock);
-        internal static readonly EnchantDef Thundering = MakeEnergyDamage("sonic", "Thundering", "sonic", EnchantsPrefabs.Sonic);
-        internal static readonly EnchantDef Corrosive = MakeEnergyDamage("acid", "Corrosive", "acid", EnchantsPrefabs.Corrosive);
-        internal static readonly EnchantDef Unholy = MakeEnergyDamage("unholy", "Unholy", "negative damage", EnchantsPrefabs.Unholy);
-        internal static readonly EnchantDef Holy = MakeEnergyDamage("holy", "Holy", "holy", EnchantsPrefabs.Holy);
+
+        internal static readonly EnchantDef Flaming = MakeEnergyDamage(Seed.fire, "Flaming", "fire", BlueprintGuids.Flaming);
+        internal static readonly EnchantDef Frost = MakeEnergyDamage(Seed.cold, "Frost", "cold", BlueprintGuids.Frost);
+        internal static readonly EnchantDef Shock = MakeEnergyDamage(Seed.electricity, "Shock", "electricity", BlueprintGuids.Shock);
+        internal static readonly EnchantDef Thundering = MakeEnergyDamage(Seed.sonic, "Thundering", "sonic", BlueprintGuids.Sonic);
+        internal static readonly EnchantDef Corrosive = MakeEnergyDamage(Seed.acid, "Corrosive", "acid", BlueprintGuids.Corrosive);
+        internal static readonly EnchantDef Unholy = MakeEnergyDamage(Seed.unholy, "Unholy", "negative damage", BlueprintGuids.Unholy);
+        internal static readonly EnchantDef Holy = MakeEnergyDamage(Seed.holy, "Holy", "holy", BlueprintGuids.Holy);
+
     }
 }

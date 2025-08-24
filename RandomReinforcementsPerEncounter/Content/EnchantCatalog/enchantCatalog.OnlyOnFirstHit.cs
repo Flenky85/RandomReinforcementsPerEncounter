@@ -1,6 +1,6 @@
 ﻿using Kingmaker.EntitySystem.Stats; // SavingThrowType
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
-using System;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -46,14 +46,14 @@ namespace RandomReinforcementsPerEncounter
         }
 
         // ---- Definiciones (OnlyOnFirstHit) ----
-        internal static readonly EnchantDef Frightening = MakeOnlyFirstHit("frightened", "Frightening", "frightened", "f08a7239aa961f34c8301518e71d4cdf", SavingThrowType.Will, 1, 3);
-        internal static readonly EnchantDef Stunning = MakeOnlyFirstHit("stunned", "Stunning", "stunned", "09d39b38bb7c6014394b6daced9bacd3", SavingThrowType.Fortitude, 1, 1);
-        internal static readonly EnchantDef Dazing = MakeOnlyFirstHit("daze", "Dazing", "dazed", "d2e35b870e4ac574d9873b36402487e5", SavingThrowType.Will, 1, 3);
-        internal static readonly EnchantDef Slumbering = MakeOnlyFirstHit("sleep", "Slumbering", "asleep", "c9937d7846aa9ae46991e9f298be644a", SavingThrowType.Will, 1, 3);
-        internal static readonly EnchantDef Paralyzing = MakeOnlyFirstHit("paralyzed", "Paralyzing", "paralyzed", "4d5a2e4c34d24acca575c10003cf8fbc", SavingThrowType.Will, 1, 1);
-        internal static readonly EnchantDef Exhausting = MakeOnlyFirstHit("exhausted", "Exhausting", "exhausted", "46d1b9cc3d0fd36469a471b047d773a2", SavingThrowType.Fortitude, 1, 3);
-        internal static readonly EnchantDef Nauseating = MakeOnlyFirstHit("nauseated", "Nauseating", "nauseated", "956331dba5125ef48afe41875a00ca0e", SavingThrowType.Fortitude, 1, 3);
-        internal static readonly EnchantDef Toppling = MakeOnlyFirstHit("prone", "Toppling", "prone", "24cf3deb078d3df4d92ba24b176bda97", SavingThrowType.Reflex, 1, 1);
-        internal static readonly EnchantDef Dominating = MakeOnlyFirstHit("domination", "Dominating", "dominated", "c0f4e1c24c9cd334ca988ed1bd9d201f", SavingThrowType.Will, 1, 1);
+        internal static readonly EnchantDef Frightening = MakeOnlyFirstHit(Seed.frightened, "Frightening", "frightened", BlueprintGuids.Frightened, SavingThrowType.Will, 1, 3);
+        internal static readonly EnchantDef Stunning = MakeOnlyFirstHit(Seed.stunned, "Stunning", "stunned", BlueprintGuids.Stunned, SavingThrowType.Fortitude, 1, 1);
+        internal static readonly EnchantDef Dazing = MakeOnlyFirstHit(Seed.daze, "Dazing", "dazed", BlueprintGuids.Dazed, SavingThrowType.Will, 1, 3);
+        internal static readonly EnchantDef Slumbering = MakeOnlyFirstHit(Seed.sleep, "Slumbering", "asleep", BlueprintGuids.Asleep, SavingThrowType.Will, 1, 3);
+        internal static readonly EnchantDef Paralyzing = MakeOnlyFirstHit(Seed.paralyzed, "Paralyzing", "paralyzed", BlueprintGuids.Paralyzed, SavingThrowType.Will, 1, 1);
+        internal static readonly EnchantDef Exhausting = MakeOnlyFirstHit(Seed.exhausted, "Exhausting", "exhausted", BlueprintGuids.Exhausted, SavingThrowType.Fortitude, 1, 3);
+        internal static readonly EnchantDef Nauseating = MakeOnlyFirstHit(Seed.nauseated, "Nauseating", "nauseated", BlueprintGuids.Nauseated, SavingThrowType.Fortitude, 1, 3);
+        internal static readonly EnchantDef Toppling = MakeOnlyFirstHit(Seed.prone, "Toppling", "prone", BlueprintGuids.Prone, SavingThrowType.Reflex, 1, 1);
+        internal static readonly EnchantDef Dominating = MakeOnlyFirstHit(Seed.domination, "Dominating", "dominated", BlueprintGuids.Dominated, SavingThrowType.Will, 1, 1);
     }
 }

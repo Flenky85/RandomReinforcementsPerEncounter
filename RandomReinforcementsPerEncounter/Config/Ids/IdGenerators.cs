@@ -4,9 +4,9 @@ using System.Security.Cryptography;
 using System.Text;
 
 
-namespace RandomReinforcementsPerEncounter
+namespace RandomReinforcementsPerEncounter.Config.Ids
 {
-    static class GuidUtil
+    static class IdGenerators
     {
         private const string NS_ENCH = "RRE.enchants";
         private const string NS_FEAT = "RRE.features";       //Base guid for features
@@ -15,7 +15,7 @@ namespace RandomReinforcementsPerEncounter
         /// <summary>
         /// Para Blueprints raíz (sin guiones). Igual que tenías.
         /// </summary>
-        public static BlueprintGuid EnchantGuid(string id)
+        public static BlueprintGuid EnchantId(string id)
         {
             using (var md5 = MD5.Create())
             {
@@ -24,7 +24,8 @@ namespace RandomReinforcementsPerEncounter
                 return BlueprintGuid.Parse(g.ToString("N")); // 32 hex, sin guiones
             }
         }
-        public static BlueprintGuid FeatureGuid(string id)
+
+        public static BlueprintGuid FeatureId(string id)
         {
             using (var md5 = MD5.Create())
             {
@@ -34,7 +35,7 @@ namespace RandomReinforcementsPerEncounter
             }
         }
 
-        public static BlueprintGuid WeaponGuid(string id)
+        public static BlueprintGuid WeaponId(string id)
         {
             using (var md5 = MD5.Create())
             {

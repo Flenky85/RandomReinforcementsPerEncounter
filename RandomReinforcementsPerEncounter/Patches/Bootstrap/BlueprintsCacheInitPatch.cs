@@ -2,6 +2,7 @@
 using Kingmaker.Blueprints.JsonSystem;
 using RandomReinforcementsPerEncounter.GameApi.Clones;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments;
+using RandomReinforcementsPerEncounter.GameApi.Weapons;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.Patches.Bootstrap

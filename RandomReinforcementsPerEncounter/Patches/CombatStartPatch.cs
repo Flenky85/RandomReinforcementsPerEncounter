@@ -1,7 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker;
 using RandomReinforcementsPerEncounter.Config;
-using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.State;
 using System;
 using System.Collections.Generic;
@@ -61,7 +61,7 @@ namespace RandomReinforcementsPerEncounter.Patches
 
                 LootContext.ChestPosition = position;
 
-                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.FactionIds.Unknown;
+                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.Unknown;
                 ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
             }
 

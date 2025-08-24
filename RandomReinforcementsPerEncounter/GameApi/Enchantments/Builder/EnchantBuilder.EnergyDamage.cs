@@ -1,4 +1,5 @@
-﻿using RandomReinforcementsPerEncounter.Domain.Models;
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Generators;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Linq;
 using static RandomReinforcementsPerEncounter.EnchantFactory;
 
@@ -19,7 +20,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                                 : def.DamageMapTwoHanded[t - 1]);
                             return new EnchantTierConfig
                             {
-                                AssetId = Id(def.Seed, t, grip),
+                                AssetId = EnchantIds.Id(def.Seed, t, grip),
                                 DiceCount = dice,
                                 DiceSide = sides
                             };
@@ -29,7 +30,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                     RegisterDamageTiersFor(
                         tiers: tiers,
                         name: def.AffixDisplay,
-                        nameRoot: RootWithHand(def.Seed, grip),
+                        nameRoot: EnchantIds.RootWithHand(def.Seed, grip),
                         description: def.Desc,
                         prefab: def.DamagePrefab,
                         affix: def.AffixDisplay

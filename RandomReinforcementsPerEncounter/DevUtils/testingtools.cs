@@ -1,6 +1,7 @@
 ﻿using Kingmaker;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using RandomReinforcementsPerEncounter.Config.Ids;
 using UnityEngine;
 
 //Testear si esta cargada y aplicar
@@ -19,7 +20,7 @@ namespace RandomReinforcementsPerEncounter
         {
             try
             {
-                var gidStr = GuidUtil.EnchantGuid(enchantId).ToString();
+                var gidStr = IdGenerators.EnchantId(enchantId).ToString();
                 var bp = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
                 Debug.Log(bp != null
                     ? $"[RRE-Test] Enchant '{enchantId}' está en caché ✅"
@@ -38,7 +39,7 @@ namespace RandomReinforcementsPerEncounter
         {
             try
             {
-                var gidStr = GuidUtil.EnchantGuid(enchantId).ToString();
+                var gidStr = IdGenerators.EnchantId(enchantId).ToString();
                 var ench = ResourcesLibrary.TryGetBlueprint<BlueprintWeaponEnchantment>(gidStr);
                 if (ench == null)
                 {

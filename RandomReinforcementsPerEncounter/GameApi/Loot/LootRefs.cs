@@ -1,26 +1,26 @@
 ﻿using Kingmaker.Blueprints;
-using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
     internal static class LootRefs
     {
         // Materiales / calidades
-        public static readonly BlueprintGuid Druchite = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Druchite);
-        public static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.ColdIron);
-        public static readonly BlueprintGuid Mithral = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Mithral);
-        public static readonly BlueprintGuid Adamantine = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Adamantine);
+        public static readonly BlueprintGuid Druchite = BlueprintGuid.Parse(BlueprintGuids.Druchite);
+        public static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse(BlueprintGuids.ColdIron);
+        public static readonly BlueprintGuid Mithral = BlueprintGuid.Parse(BlueprintGuids.Mithral);
+        public static readonly BlueprintGuid Adamantine = BlueprintGuid.Parse(BlueprintGuids.Adamantine);
 
-        public static readonly BlueprintGuid MasterWork = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.MasterWork);
-        public static readonly BlueprintGuid Composite = BlueprintGuid.Parse(BlueprintGuids.ItemQuality.Composite);
+        public static readonly BlueprintGuid MasterWork = BlueprintGuid.Parse(BlueprintGuids.MasterWork);
+        public static readonly BlueprintGuid Composite = BlueprintGuid.Parse(BlueprintGuids.Composite);
 
         // Enhancements arma +X
-        public static readonly BlueprintGuid Weapon1 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus1);
-        public static readonly BlueprintGuid Weapon2 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus2);
-        public static readonly BlueprintGuid Weapon3 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus3);
-        public static readonly BlueprintGuid Weapon4 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus4);
-        public static readonly BlueprintGuid Weapon5 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus5);
-        public static readonly BlueprintGuid Weapon6 = BlueprintGuid.Parse(BlueprintGuids.EnhancementPlus.WeaponPlus6);
+        public static readonly BlueprintGuid Weapon1 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus1);
+        public static readonly BlueprintGuid Weapon2 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus2);
+        public static readonly BlueprintGuid Weapon3 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus3);
+        public static readonly BlueprintGuid Weapon4 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus4);
+        public static readonly BlueprintGuid Weapon5 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus5);
+        public static readonly BlueprintGuid Weapon6 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus6);
 
         public static BlueprintGuid GetWeaponEnchantIdForTier(int tier) => tier switch
         {

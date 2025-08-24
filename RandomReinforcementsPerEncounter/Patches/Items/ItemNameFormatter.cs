@@ -1,7 +1,7 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Items;
-using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Components;
 using System;
 using System.Collections.Generic;
@@ -13,22 +13,22 @@ namespace RandomReinforcementsPerEncounter.GameApi.Items
     {
         private static readonly string[] MaterialIds =
         {
-            BlueprintGuids.ItemQuality.MasterWork,
-            BlueprintGuids.ItemQuality.Druchite,
-            BlueprintGuids.ItemQuality.ColdIron,
-            BlueprintGuids.ItemQuality.Mithral,
-            BlueprintGuids.ItemQuality.Adamantine,
-            BlueprintGuids.ItemQuality.Composite,
+            BlueprintGuids.MasterWork,
+            BlueprintGuids.Druchite,
+            BlueprintGuids.ColdIron,
+            BlueprintGuids.Mithral,
+            BlueprintGuids.Adamantine,
+            BlueprintGuids.Composite,
         };
 
         private static readonly string[] WeaponEnhancementIds =
         {
-            BlueprintGuids.EnhancementPlus.WeaponPlus1,
-            BlueprintGuids.EnhancementPlus.WeaponPlus2,
-            BlueprintGuids.EnhancementPlus.WeaponPlus3,
-            BlueprintGuids.EnhancementPlus.WeaponPlus4,
-            BlueprintGuids.EnhancementPlus.WeaponPlus5,
-            BlueprintGuids.EnhancementPlus.WeaponPlus6,
+            BlueprintGuids.WeaponPlus1,
+            BlueprintGuids.WeaponPlus2,
+            BlueprintGuids.WeaponPlus3,
+            BlueprintGuids.WeaponPlus4,
+            BlueprintGuids.WeaponPlus5,
+            BlueprintGuids.WeaponPlus6,
         };
 
         public static bool TryDecorateName(ItemEntity item, ref string name)
