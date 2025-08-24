@@ -6,13 +6,13 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.View.MapObjects;
-using RandomReinforcementsPerEncounter.Config;
 using RandomReinforcementsPerEncounter.State;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Collections.Generic;
 using UnityEngine;
 using RandomReinforcementsPerEncounter.GameApi.Loot;
 using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Config.Loot;
 
 
 namespace RandomReinforcementsPerEncounter.GameApi.Chest
@@ -132,7 +132,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
             int totalGold = 0;
             var entries = new List<LootEntry>(8);
 
-            int baseGold = Config.LootEconomy.GetBaseGoldForCR(cr);
+            int baseGold = LootEconomy.GetBaseGoldForCR(cr);
             totalGold += RollBiasedGold(baseGold); // usa el helper nuevo
 
             // Compras según plan

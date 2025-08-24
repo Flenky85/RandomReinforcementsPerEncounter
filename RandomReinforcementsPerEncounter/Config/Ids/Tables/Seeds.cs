@@ -25,11 +25,11 @@
         public const string domination = "domination";
 
         //CasterGenerics
-        public const string spellDC = "spellDC";
-        public const string spellDieBonus = "spellDieBonus";
+        public const string spellDC = "spelldc";
+        public const string spellDieBonus = "spelldiebonus";
 
         //CasterLevel
-        public const string casterLevel = "casterLevel";
+        public const string casterLevel = "casterlevel";
 
         //EnergyDamage
         public const string fire = "fire";
@@ -41,119 +41,119 @@
         public const string holy = "holy";
 
         //Others
-        public const string CMB = "CMB";
-        public const string CMD = "CMD";
+        public const string CMB = "cmb";
+        public const string CMD = "cmd";
         public const string initiative = "initiative";
-        public const string saveFOR = "saveFOR";
-        public const string saveWIL = "saveWIL";
-        public const string saveREF = "saveREF";
+        public const string saveFOR = "savefor";
+        public const string saveWIL = "savewil";
+        public const string saveREF = "saveref";
 
         //SchoolCL
-        public const string divinationCL = "divinationCL";
-        public const string enchantmentCL = "enchantmentCL";
-        public const string evocationCL = "evocationCL";
-        public const string conjurationCL = "conjurationCL";
-        public const string abjurationCL = "abjurationCL";
-        public const string illusionCL = "illusionCL";
-        public const string transmutationCL = "transmutationCL"; 
-        public const string necromancyCL = "necromancyCL";
+        public const string divinationCL = "divinationcl";
+        public const string enchantmentCL = "enchantmentcl";
+        public const string evocationCL = "evocationcl";
+        public const string conjurationCL = "conjurationcl";
+        public const string abjurationCL = "abjurationcl";
+        public const string illusionCL = "illusioncl";
+        public const string transmutationCL = "transmutationcl"; 
+        public const string necromancyCL = "necromancycl";
 
         //SchoolDC
-        public const string divinationDC = "divinationDC";
-        public const string enchantmentDC = "enchantmentDC";
-        public const string evocationDC = "evocationDC";
-        public const string conjurationDC = "conjurationDC";
-        public const string abjurationDC = "abjurationDC";
-        public const string illusionDC = "illusionDC";
-        public const string transmutationDC = "transmutationDC"; 
-        public const string necromancyDC = "necromancyDC";
+        public const string divinationDC = "divinationdc";
+        public const string enchantmentDC = "enchantmentdc";
+        public const string evocationDC = "evocationdc";
+        public const string conjurationDC = "conjurationdc";
+        public const string abjurationDC = "abjurationdc";
+        public const string illusionDC = "illusiondc";
+        public const string transmutationDC = "transmutationdc"; 
+        public const string necromancyDC = "necromancydc";
 
         //Skills
-        public const string skillMOB = "skillMOB";
-        public const string skillATH = "skillATH";
-        public const string skillARC = "skillARC";
-        public const string skillWOR = "skillWOR";
-        public const string skillNAT = "skillNAT";
-        public const string skillREL = "skillREL";
-        public const string skillPERC = "skillPERC";
-        public const string skillPERS = "skillPERS";
-        public const string skillSTE = "skillSTE";
-        public const string skillTHI = "skillTHI";
-        public const string skillUMD = "skillUMD";
+        public const string skillMOB = "skillmob";
+        public const string skillATH = "skillath";
+        public const string skillARC = "skillarc";
+        public const string skillWOR = "skillwor";
+        public const string skillNAT = "skillnat";
+        public const string skillREL = "skillrel";
+        public const string skillPERC = "skillperc";
+        public const string skillPERS = "skillpers";
+        public const string skillSTE = "skillste";
+        public const string skillTHI = "skillthi";
+        public const string skillUMD = "skillumd";
 
         //Stats
-        public const string statSTR = "statSTR";
-        public const string statDEX = "statDEX";
-        public const string statCON = "statCON";
-        public const string statINT = "statINT";
-        public const string statWIS = "statWIS";
-        public const string statCHA = "statCHA";
+        public const string statSTR = "statstr";
+        public const string statDEX = "statdex";
+        public const string statCON = "statcon";
+        public const string statINT = "statint";
+        public const string statWIS = "statwis";
+        public const string statCHA = "statcha";
 
         //Weapons
-        public const string sawtoothSabre = "SawtoothSabre";
+        public const string sawtoothSabre = "sawtoothsabre";
 
         //WeaponsOversized
-        public const string OverBardiche = "OverBardiche";
-        public const string OverBastardSword = "OverBastardSword";
-        public const string OverBattleaxe = "OverBattleaxe";
-        public const string OverDagger = "OverDagger";
-        public const string OverDart = "OverDart";
-        public const string OverDoubleAxe = "OverDoubleAxe";
-        public const string OverDoubleSword = "OverDoubleSword";
-        public const string OverDuelingSword = "OverDuelingSword";
-        public const string OverDwarvenWaraxe = "OverDwarvenWaraxe";
-        public const string OverEarthBreaker = "OverEarthBreaker";
-        public const string OverElvenCurvedBlade = "OverElvenCurvedBlade";
-        public const string OverEstoc = "OverEstoc";
-        public const string OverFalcata = "OverFalcata";
-        public const string OverFalchion = "OverFalchion";
-        public const string OverFauchard = "OverFauchard";
-        public const string OverFlail = "OverFlail";
-        public const string OverGlaive = "OverGlaive";
-        public const string OverGreataxe = "OverGreataxe";
-        public const string OverGreatclub = "OverGreatclub";
-        public const string OverGreatsword = "OverGreatsword";
-        public const string OverHandaxe = "OverHandaxe";
-        public const string OverHeavyCrossbow = "OverHeavyCrossbow";
-        public const string OverHeavyFlail = "OverHeavyFlail";
-        public const string OverHeavyMace = "OverHeavyMace";
-        public const string OverHeavyPick = "OverHeavyPick";
-        public const string OverGnomeHookedHammer = "OverGnomeHookedHammer";
-        public const string OverJavelin = "OverJavelin";
-        public const string OverKama = "OverKama";
-        public const string OverKukri = "OverKukri";
-        public const string OverLightCrossbow = "OverLightCrossbow";
-        public const string OverLightHammer = "OverLightHammer";
-        public const string OverLightMace = "OverLightMace";
-        public const string OverLightPick = "OverLightPick";
-        public const string OverLongbow = "OverLongbow";
-        public const string OverLongspear = "OverLongspear";
-        public const string OverLongsword = "OverLongsword";
-        public const string OverNunchaku = "OverNunchaku";
-        public const string OverPunchingDagger = "OverPunchingDagger";
-        public const string OverQuarterstaff = "OverQuarterstaff";
-        public const string OverRapier = "OverRapier";
-        public const string OverSai = "OverSai";
-        public const string OverSawtoothSabre = "OverSawtoothSabre";
-        public const string OverScimitar = "OverScimitar";
-        public const string OverScythe = "OverScythe";
-        public const string OverShortbow = "OverShortbow";
-        public const string OverShortspear = "OverShortspear";
-        public const string OverShortsword = "OverShortsword";
-        public const string OverSickle = "OverSickle";
-        public const string OverSlingStaff = "OverSlingStaff";
-        public const string OverSpear = "OverSpear";
-        public const string OverSpikedHeavyShield = "OverSpikedHeavyShield";
-        public const string OverSpikedLightShield = "OverSpikedLightShield";
-        public const string OverStarknife = "OverStarknife";
-        public const string OverThrowingAxe = "OverThrowingAxe";
-        public const string OverTongi = "OverTongi";
-        public const string OverTrident = "OverTrident";
-        public const string OverDwarvenUrgrosh = "OverDwarvenUrgrosh";
-        public const string OverWarhammer = "OverWarhammer";
-        public const string OverClub = "OverClub";
-        public const string OverWeaponHeavyShield = "OverWeaponHeavyShield";
-        public const string OverWeaponLightShield = "OverWeaponLightShield";
+        public const string OverBardiche = "overbardiche";
+        public const string OverBastardSword = "overbastardsword";
+        public const string OverBattleaxe = "overbattleaxe";
+        public const string OverDagger = "overdagger";
+        public const string OverDart = "overdart";
+        public const string OverDoubleAxe = "overdoubleaxe";
+        public const string OverDoubleSword = "averdoublesword";
+        public const string OverDuelingSword = "overduelingsword";
+        public const string OverDwarvenWaraxe = "overdwarvenwaraxe";
+        public const string OverEarthBreaker = "overearthbreaker";
+        public const string OverElvenCurvedBlade = "overelvencurvedblade";
+        public const string OverEstoc = "overestoc";
+        public const string OverFalcata = "overfalcata";
+        public const string OverFalchion = "overfalchion";
+        public const string OverFauchard = "overfauchard";
+        public const string OverFlail = "overflail";
+        public const string OverGlaive = "overglaive";
+        public const string OverGreataxe = "overgreataxe";
+        public const string OverGreatclub = "overgreatclub";
+        public const string OverGreatsword = "overgreatsword";
+        public const string OverHandaxe = "overhandaxe";
+        public const string OverHeavyCrossbow = "overheavycrossbow";
+        public const string OverHeavyFlail = "overheavyflail";
+        public const string OverHeavyMace = "overheavyMace";
+        public const string OverHeavyPick = "overheavyPick";
+        public const string OverGnomeHookedHammer = "overgnomehookedhammer";
+        public const string OverJavelin = "overjavelin";
+        public const string OverKama = "overkama";
+        public const string OverKukri = "overkukri";
+        public const string OverLightCrossbow = "overlightcrossbow";
+        public const string OverLightHammer = "overlighthammer";
+        public const string OverLightMace = "overlightmace";
+        public const string OverLightPick = "overlightpick";
+        public const string OverLongbow = "overlongbow";
+        public const string OverLongspear = "overlongspear";
+        public const string OverLongsword = "overlongsword";
+        public const string OverNunchaku = "overnunchaku";
+        public const string OverPunchingDagger = "overnunchingdagger";
+        public const string OverQuarterstaff = "overquarterstaff";
+        public const string OverRapier = "overrapier";
+        public const string OverSai = "oversai";
+        public const string OverSawtoothSabre = "oversawtoothsabre";
+        public const string OverScimitar = "overscimitar";
+        public const string OverScythe = "overscythe";
+        public const string OverShortbow = "overshortbow";
+        public const string OverShortspear = "overshortspear";
+        public const string OverShortsword = "overshortsword";
+        public const string OverSickle = "oversickle";
+        public const string OverSlingStaff = "overslingstaff";
+        public const string OverSpear = "overspear";
+        public const string OverSpikedHeavyShield = "overspikedheavyshield";
+        public const string OverSpikedLightShield = "overspikedlightshield";
+        public const string OverStarknife = "overstarknife";
+        public const string OverThrowingAxe = "overthrowingaxe";
+        public const string OverTongi = "overtongi";
+        public const string OverTrident = "overtrident";
+        public const string OverDwarvenUrgrosh = "overdwarvenurgrosh";
+        public const string OverWarhammer = "overwarhammer";
+        public const string OverClub = "overclub";
+        public const string OverWeaponHeavyShield = "overweaponheavyshield";
+        public const string OverWeaponLightShield = "overweaponlightshield";
 
         
     }

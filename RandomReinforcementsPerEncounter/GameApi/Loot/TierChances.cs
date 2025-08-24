@@ -9,7 +9,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
         {
             int[] initial = { 52, 40, 30, 22, 16, 10 };
             int[] inc = { 6, 5, 4, 3, 2, 1 };
-            int[] shift = { 1, 6, 11, 15, 18, 21 };
+            int[] shift = { 1, 6, 11, 15, 18, 20 };
 
             int[] tiers = new int[6];
             for (int i = 0; i < 6; i++)

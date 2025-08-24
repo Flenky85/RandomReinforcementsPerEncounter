@@ -49,7 +49,14 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
             {
                 var tiers = makeTiers(grip);
                 register(tiers, grip);
-                LootBuckets.AddRootVariant(lootType, def.Seed, grip, def.Affix, def.Chance);
+                LootBuckets.AddRootVariant(
+                    lootType,
+                    def.Seed,
+                    grip,
+                    def.Affix,
+                    value: def.Chance,
+                    applyToBothHeadsOnDouble: def.ApplyToBothHeadsOnDouble // ← IMPORTANTE
+                );
             }
         }
     }

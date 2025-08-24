@@ -4,10 +4,10 @@
     internal static class WeaponLootBalance
     {
         // Pesos (suman lo que quieras; se normalizan en runtime)
-        public const int OneHandedMelee = 30;
-        public const int TwoHandedMelee = 30;
-        public const int OneHandedRanged = 15;
-        public const int TwoHandedRanged = 15;
+        public const int OneHandedMelee = 0;
+        public const int TwoHandedMelee = 0;
+        public const int OneHandedRanged = 0;
+        public const int TwoHandedRanged = 0;
         public const int Double = 10;
 
         // Probabilidad por defecto de elegir “oversized”

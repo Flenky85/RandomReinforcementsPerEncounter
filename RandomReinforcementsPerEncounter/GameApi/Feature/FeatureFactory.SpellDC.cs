@@ -1,11 +1,12 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Enums;
-using RandomReinforcementsPerEncounter.GameApi.Localization;
+using RandomReinforcementsPerEncounter.Config.Localization;
+using RandomReinforcementsPerEncounter.Domain.Models;
 using System;
 using System.Collections.Generic;
-using RandomReinforcementsPerEncounter.Domain.Models;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -26,12 +27,13 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int plus = ClampBonus(t.Bonus);
 
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature, nameRoot);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature, nameRoot, nameRoot);
+                var locDesc = keys.locDesc;
 
                 var featRef = FeatureConfigurator
                     .New(keys.bpName, t.AssetId)
-                    .SetDisplayName(keys.locName)   // mantenemos locs aunque esté oculto
-                    .SetDescription(keys.descKey)
+                    .SetDisplayName(keys.locName)   
+                    .SetDescription(locDesc)
                     .SetHideInUI(true)
                     .AddIncreaseSpellDC(
                         bonusDC: plus,

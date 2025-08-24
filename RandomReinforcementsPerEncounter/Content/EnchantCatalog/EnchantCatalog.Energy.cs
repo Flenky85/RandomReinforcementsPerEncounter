@@ -13,7 +13,7 @@ namespace RandomReinforcementsPerEncounter
             string prefab)
         {
             
-            (int dice, int sides)[] DamageTierOneHanded = {(1,3),(2,3),(2,4),(2,6),(2,8),(2,10)};
+            (int dice, int sides)[] DamageTierOneHanded = {(1,4),(2,3),(2,4),(2,6),(2,8),(2,10)};
             (int dice, int sides)[] DamageTierTwoHanded = {(1,6),(3,3),(3,4),(3,6),(3,8),(3,10)};
             int chance = 10;
 

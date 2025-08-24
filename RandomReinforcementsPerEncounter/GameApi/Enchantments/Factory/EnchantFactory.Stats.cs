@@ -2,9 +2,9 @@
 using BlueprintCore.Utils;                                       // LocalizationTool
 using Kingmaker.EntitySystem.Stats;                              // StatType
 using Kingmaker.Enums;                                           // ModifierDescriptor
+using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
-using RandomReinforcementsPerEncounter.GameApi.Localization;
 using System.Collections.Generic;
 
 namespace RandomReinforcementsPerEncounter
@@ -24,17 +24,13 @@ namespace RandomReinforcementsPerEncounter
             for (int i = 0; i < tiers.Count; i++)
             {
                 var t = tiers[i];
-
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, AffixDisplay);
+                var desc = FactoryText.BuildStackableBonusDescription(t.Bonus, description);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, AffixDisplay, desc);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
-                var descKey = keys.descKey;
                 var locPrefix = keys.locAffix; // lo llamas así en el resto
 
-                var locDesc = LocalizationTool.CreateString(
-                    descKey,
-                    FactoryText.BuildStackableBonusDescription(t.Bonus, description)
-                );
+                var locDesc = keys.locDesc;
 
                 var cfg = WeaponEnchantmentConfigurator
                     .New(bpName, t.AssetId)

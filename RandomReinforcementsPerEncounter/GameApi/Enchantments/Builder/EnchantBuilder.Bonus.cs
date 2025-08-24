@@ -24,7 +24,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                 register: (tiers, grip) =>
                     RegisterWeaponStatsTiersFor(
                         tiers: tiers,
-                        name: def.AffixDisplay,
+                        name: def.Name,
                         nameRoot: EnchantIds.RootWithHand(def.Seed, grip),
                         stat: def.Stat,
                         description: def.Desc,

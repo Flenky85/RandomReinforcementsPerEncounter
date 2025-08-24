@@ -57,7 +57,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             6 => PriceRefs.PriceT6,
             _ => PriceRefs.PriceT1,
         };
-
+        /*
         public static void ApplyRandomTierEnchant(ItemEntityWeapon entity, int tier, int[] chances)
         {
             var baseEnchant = LootUtils.TryLoadEnchant(LootRefs.GetWeaponEnchantIdForTier(tier));
@@ -118,6 +118,72 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 UnityEngine.Debug.Log($"[RRE] [{i + 1}/{tier}] Extra enchant T{tier} → T{effectiveTier} aplicado " +
                           $"({weaponType}, {pickedType}). DuplicadoSecond={duplicateToSecond}");
             }
+        }*/
+
+        public static void ApplyRandomTierEnchant(ItemEntityWeapon entity, int tier, int[] chances)
+        {
+            // 1) Enchant base por tier (igual que antes)
+            var baseEnchant = LootUtils.TryLoadEnchant(LootRefs.GetWeaponEnchantIdForTier(tier));
+            AddEnchants(entity, true, baseEnchant, PriceForTier(tier));
+
+            // 2) Tipo de empuñadura y si es a distancia
+            WeaponGrip weaponGrip =
+                (entity?.Blueprint?.SecondWeapon != null) ? WeaponGrip.Double :
+                (entity?.Blueprint?.IsTwoHanded == true) ? WeaponGrip.TwoHanded :
+                WeaponGrip.OneHanded;
+
+            bool isRanged = entity?.Blueprint?.IsRanged == true;
+
+            // 3) Control de duplicados en esta ejecución
+            var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            // 4) chances → distribución de tiers válida para este item (limitada al tier del arma)
+            int[] limitedChances = (chances == null || tier <= 0) ? Array.Empty<int>() : chances.Take(tier).ToArray();
+            if (limitedChances.Length == 0) return;
+
+            // 5) Alternancia: empezamos aleatorio y luego alternamos estricto
+            AffixKind desiredAffix = UnityEngine.Random.value < 0.5f ? AffixKind.Prefix : AffixKind.Suffix;
+
+            for (int i = 0; i < tier; i++)
+            {
+                // 5.a) Elegimos el TIER del extra con la distribución 'chances'
+                int enchantTier = TierChances.GetRandomTier(limitedChances);
+
+                // 5.b) Elegimos un enchant ponderado por 'value' dentro del pool filtrado
+                //      (tier, 1H/2H/Double, melee/ranged, affix) y evitando IDs ya usados.
+                var pick = EnchantPicker.PickWeighted(
+                    enchantTier,
+                    weaponGrip,
+                    isRanged,
+                    desiredAffix,
+                    usedIds
+                );
+
+                if (pick.enchant == null)
+                {
+                    UnityEngine.Debug.Log($"[RRE] Pool vacío en iter {i + 1}/{tier} (T{enchantTier}, {weaponGrip}, {(isRanged ? "Ranged" : "Melee")}, {desiredAffix}).");
+                    break;
+                }
+
+                string appliedId = pick.enchant.AssetGuid.ToString();
+                if (HasEnchant(entity, pick.enchant) || usedIds.Contains(appliedId))
+                {
+                    // Reintenta esta iteración
+                    i--;
+                    usedIds.Add(appliedId);
+                    continue;
+                }
+
+                // 5.c) Aplicamos (duplicando a la segunda cabeza si procede)
+                AddEnchants(entity, pick.duplicateToSecond, pick.enchant);
+                usedIds.Add(appliedId);
+
+                UnityEngine.Debug.Log($"[RRE] [{i + 1}/{tier}] Extra {desiredAffix} T{enchantTier} aplicado " +
+                                      $"({weaponGrip}, {(isRanged ? "Ranged" : "Melee")}, dupSecond={pick.duplicateToSecond}).");
+
+                // 5.d) Alternamos afijo para la siguiente pasada
+                desiredAffix = (desiredAffix == AffixKind.Prefix) ? AffixKind.Suffix : AffixKind.Prefix;
+            }
         }
 
         // remapea el mismo efecto a otro tier del mismo “root”; si falla, devuelve el original
@@ -158,5 +224,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 return LootUtils.TryLoadEnchant(id);
             }
         }
+
     }
 }

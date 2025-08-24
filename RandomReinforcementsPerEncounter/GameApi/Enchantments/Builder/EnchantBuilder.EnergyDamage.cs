@@ -29,7 +29,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                 register: (tiers, grip) =>
                     RegisterDamageTiersFor(
                         tiers: tiers,
-                        name: def.AffixDisplay,
+                        name: def.Name,
                         nameRoot: EnchantIds.RootWithHand(def.Seed, grip),
                         description: def.Desc,
                         prefab: def.DamagePrefab,

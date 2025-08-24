@@ -26,7 +26,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                 register: (tiers, grip) =>
                     RegisterDebuffTiersFor(
                         tiers: tiers,
-                        name: def.AffixDisplay,
+                        name: def.Name,
                         nameRoot: EnchantIds.RootWithHand(def.Seed, grip),
                         buff: def.OnHitBuffBlueprintId,
                         durationDiceCount: def.OnHitDurDiceCount ?? 1,

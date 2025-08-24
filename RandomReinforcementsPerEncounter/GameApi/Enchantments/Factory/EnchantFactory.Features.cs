@@ -2,9 +2,9 @@
 using BlueprintCore.Utils;                                       // BlueprintTool, LocalizationTool
 using Kingmaker.Blueprints;                                      // BlueprintFeatureReference
 using RandomReinforcementsPerEncounter.Config.Ids;
+using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
-using RandomReinforcementsPerEncounter.GameApi.Localization;
 using System.Collections.Generic;
 
 namespace RandomReinforcementsPerEncounter
@@ -23,18 +23,13 @@ namespace RandomReinforcementsPerEncounter
             for (int i = 0; i < tiers.Count; i++)
             {
                 var t = tiers[i];
-
+                var desc = FactoryText.BuildStackableBonusDescription(t.BonusDescription, description);
                 // estilo unificado
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, AffixDisplay);
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, AffixDisplay, desc);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
-                var descKey = keys.descKey;
                 var locPrefix = keys.locAffix;
-
-                var locDesc = LocalizationTool.CreateString(
-                    descKey,
-                    FactoryText.BuildStackableBonusDescription(t.BonusDescription, description)
-                );
+                var locDesc = keys.locDesc;
 
                 var featureRef = BlueprintTool.GetRef<BlueprintFeatureReference>(t.Feat);
 

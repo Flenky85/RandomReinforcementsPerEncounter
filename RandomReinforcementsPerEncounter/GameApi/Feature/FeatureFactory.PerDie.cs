@@ -1,10 +1,11 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
-using RandomReinforcementsPerEncounter.GameApi.Localization;
-using System.Collections.Generic;
+using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
+using System.Collections.Generic;
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -25,7 +26,9 @@ namespace RandomReinforcementsPerEncounter
                 var t = tiers[i];
                 int perDie = ClampBonus(t.Bonus);
 
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature, nameRoot);
+
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, nameRoot, ArtifactKind.Feature, nameRoot, nameRoot);
+                var locDesc = keys.locDesc;
 
                 var anyEnergy =
                     SpellDescriptor.Fire |
@@ -39,7 +42,7 @@ namespace RandomReinforcementsPerEncounter
                 var featRef = FeatureConfigurator
                     .New(keys.bpName, t.AssetId)
                     .SetDisplayName(keys.locName)
-                    .SetDescription(keys.descKey)
+                    .SetDescription(locDesc)
                     .SetHideInUI(true)
                     .AddDraconicBloodlineArcana(
                         spellDescriptor: anyEnergy,

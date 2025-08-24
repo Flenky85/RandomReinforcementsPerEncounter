@@ -1,9 +1,9 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Utils;                                       // LocalizationTool
 using Kingmaker.RuleSystem;                                      // DiceType, DiceFormula
+using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
-using RandomReinforcementsPerEncounter.GameApi.Localization;
 using System.Collections.Generic;
 
 namespace RandomReinforcementsPerEncounter
@@ -30,14 +30,12 @@ namespace RandomReinforcementsPerEncounter
                 int sides = t.DiceSide > 0 ? t.DiceSide : 6;
                 var diceT = FactoryMaps.MapDiceType(sides);
 
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, affix);
+                var desc = FactoryText.BuildEnergyDescription(rolls, sides, description);
+
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, affix, desc);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
-                var descKey = keys.descKey;
-                var locDesc = LocalizationTool.CreateString(
-                    descKey,
-                    FactoryText.BuildEnergyDescription(rolls, sides, description)
-                );
+                var locDesc = keys.locDesc;
                 var locPrefix = keys.locAffix;
 
                 var cfg = WeaponEnchantmentConfigurator

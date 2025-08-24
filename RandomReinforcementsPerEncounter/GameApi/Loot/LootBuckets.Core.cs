@@ -21,6 +21,7 @@ namespace RandomReinforcementsPerEncounter
             _store.Clear();
             _handById.Clear();
             _affixById.Clear();
+            _applyBothOnDoubleById.Clear();
         }
 
         // ---------- helpers internos ----------
@@ -67,9 +68,37 @@ namespace RandomReinforcementsPerEncounter
 
         private static readonly Dictionary<string, WeaponGrip> _handById = new Dictionary<string, WeaponGrip>();
         private static readonly Dictionary<string, AffixKind> _affixById = new Dictionary<string, AffixKind>();
+        private static readonly Dictionary<string, bool> _applyBothOnDoubleById = new Dictionary<string, bool>();
+        private static readonly Dictionary<string, string> _rootById = new Dictionary<string, string>();
+        /// <summary>
+        /// Devuelve todos los GUIDs candidatos en un tier dado filtrados por Affix,
+        /// junto con su "peso" (value) y la mano declarada para ese enchant.
+        /// No modifica estado; solo lectura.
+        /// </summary>
+        public static IEnumerable<(string id, int weight, WeaponGrip hand, bool applyBothOnDouble)>
+        GetCandidatesByTierAndAffix(int tier, AffixKind affix)
+        {
+            if (tier < 1 || tier > MaxTier) yield break;
 
-        // Si ya tienes RootWithHand en otro sitio, borra este y usa el tuyo.
-        private static string RootWithHand(string root, WeaponGrip hand)
-            => $"{root}.{hand.ToString().ToLower()}";
+            foreach (var byValue in _store.Values)
+                foreach (var kv in byValue) // kv.Key = weight, kv.Value = [MaxTier sets]
+                {
+                    int weight = kv.Key;
+                    var set = kv.Value[tier - 1];
+
+                    foreach (var id in set)
+                    {
+                        if (_affixById.TryGetValue(id, out var a) && a == affix
+                            && _handById.TryGetValue(id, out var h))
+                        {
+                            bool dup = _applyBothOnDoubleById.TryGetValue(id, out var b) && b;
+                            yield return (id, weight, h, dup);
+                        }
+                    }
+                }
+        }
+
+
+
     }
 }

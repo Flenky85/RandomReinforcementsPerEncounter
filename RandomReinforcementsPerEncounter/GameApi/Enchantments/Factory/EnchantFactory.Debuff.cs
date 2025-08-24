@@ -9,9 +9,9 @@ using Kingmaker.EntitySystem.Stats;                     // SavingThrowType
 using Kingmaker.UnitLogic.Mechanics.Actions;            // ContextActionSavingThrow, ContextActionConditionalSaved
 using Kingmaker.UnitLogic.Mechanics.Components;         // ContextSetAbilityParams
 using RandomReinforcementsPerEncounter.Domain.Models;
-using RandomReinforcementsPerEncounter.Domain.Text;
-using RandomReinforcementsPerEncounter.GameApi.Localization;
-using RandomReinforcementsPerEncounter.GameApi.Enchantments; // DiceMapper
+using RandomReinforcementsPerEncounter.GameApi.Enchantments;
+using RandomReinforcementsPerEncounter.Config.Localization;
+using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils; // DiceMapper
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -44,24 +44,23 @@ namespace RandomReinforcementsPerEncounter
 
             for (int i = 0; i < tiers.Count; i++)
             {
+     
                 var EnchantTierConfig = tiers[i];
-                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, affix);
+                var desc = FactoryText.BuildDebuffDescription(
+                    savingThrowType,
+                    EnchantTierConfig.DC,
+                    description,
+                    durationDiceCount,
+                    durationDiceSides,
+                    onlyOnFirstHit
+                );
+                var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, affix, desc);
                 var nameKey = keys.nameKey;
                 var descKey = keys.descKey;
                 var bpName = keys.bpName;
 
                 var locName = keys.locName;
-                var locDesc = LocalizationTool.CreateString(
-                    descKey,
-                    BuildDescription(
-                        savingThrowType,
-                        EnchantTierConfig.DC,
-                        description,
-                        durationDiceCount,
-                        durationDiceSides,
-                        onlyOnFirstHit
-                    )
-                );
+                var locDesc = keys.locDesc;
                 var locPrefix = keys.locAffix;
 
                 // Crear el enchant vacío con nombre/desc
@@ -116,28 +115,6 @@ namespace RandomReinforcementsPerEncounter
                     })
                     .Configure();
             }
-        }
-
-        private static string BuildDescription(
-            SavingThrowType saveType,
-            int dc,
-            string conditionText,
-            int durationCount,
-            int durationSides,
-            bool onlyOnFirstHit
-        )
-        {
-            string intro = onlyOnFirstHit
-                ? "The first time this weapon hits a given enemy, that enemy must pass a "
-                : "Whenever this weapon lands a hit, the enemy must pass a ";
-
-            string saveName = saveType.ToString().ToLowerInvariant();
-            string diceText = durationSides == 1 ? durationCount.ToString() : $"{durationCount}d{durationSides}";
-            bool isExactlyOneRound = durationSides == 1 && durationCount == 1;
-            string roundText = isExactlyOneRound ? "round" : "rounds";
-
-            string plain = $"{intro}{saveName} saving throw (DC {dc}) or become {conditionText} for {diceText} {roundText}.";
-            return AutoLinker.Apply(plain);
         }
     }
 }
