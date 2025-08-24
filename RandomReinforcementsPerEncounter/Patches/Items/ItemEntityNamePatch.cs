@@ -1,6 +1,5 @@
 ﻿using HarmonyLib;
 using Kingmaker.Items;
-using RandomReinforcementsPerEncounter.GameApi.Items;
 
 namespace RandomReinforcementsPerEncounter.Patches.Items
 {
