@@ -1,5 +1,4 @@
-﻿// EnchantBuilder.Debuff.cs
-using Kingmaker.EntitySystem.Stats; // SavingThrowType
+﻿using Kingmaker.EntitySystem.Stats; 
 using RandomReinforcementsPerEncounter.Config.Ids.Generators;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using System.Linq;

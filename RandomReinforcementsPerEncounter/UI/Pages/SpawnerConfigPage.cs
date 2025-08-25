@@ -1,5 +1,4 @@
-﻿// File: UI/Pages/SpawnerConfigPage.cs
-using UnityEngine;
+﻿using UnityEngine;
 using UnityModManagerNet;
 using RandomReinforcementsPerEncounter.Config.Settings;
 
@@ -41,7 +40,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             GUILayout.Label("How the spawner works:", _boldLabel);
             GUILayout.Label(HelpText, GUILayout.Width(SliderWidth));
 
-            // Encounter CR modifier
             GUILayout.Label("Increases or decreases your party’s average level to determine the CR of the summoned enemies:", GUILayout.Width(SliderWidth));
             int encounterMod = Mathf.RoundToInt(
                 GUILayout.HorizontalSlider(settings.EncounterDifficultyModifier, -20, 20, GUILayout.Width(SliderWidth))
@@ -55,7 +53,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
 
             GUILayout.Space(15);
 
-            // Party difficulty offset
             GUILayout.Label("Adjusts the total party level used for the challenge budget calculation, which results in more or fewer enemies being spawned:", GUILayout.Width(SliderWidth));
             float partyOffset = Mathf.Round(
                 GUILayout.HorizontalSlider(settings.PartyDifficultyOffset, -10f, 10f, GUILayout.Width(SliderWidth)) * 10f
@@ -69,7 +66,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
 
             GUILayout.Space(15);
 
-            // Variability mode
             GUILayout.Label("Enables CR variation in summoned enemies, making them potentially stronger or weaker:", GUILayout.Width(SliderWidth));
             int mode = GUILayout.SelectionGrid(
                 settings.VariabilityMode,
@@ -85,7 +81,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
 
             GUILayout.Space(5);
 
-            // Variability range
             GUILayout.Label("Defines the variability range within which enemy CR can fluctuate:", GUILayout.Width(SliderWidth));
             int variability = Mathf.RoundToInt(
                 GUILayout.HorizontalSlider(settings.VariabilityRange, 0, 20, GUILayout.Width(SliderWidth))

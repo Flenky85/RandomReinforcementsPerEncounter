@@ -1,4 +1,4 @@
-﻿using Kingmaker.RuleSystem; // DiceType
+﻿using Kingmaker.RuleSystem; 
 
 namespace RandomReinforcementsPerEncounter.GameApi.Enchantments
 {
@@ -17,7 +17,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments
                 12 => DiceType.D12,
                 20 => DiceType.D20,
                 100 => DiceType.D100,
-                _ => DiceType.D3, // fallback conservador
+                _ => DiceType.D3, 
             };
         }
     }

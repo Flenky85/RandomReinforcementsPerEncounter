@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Kingmaker.PubSubSystem;
-using Kingmaker.Blueprints.Area;
-using RandomReinforcementsPerEncounter.GameApi.Clones;
+﻿using Kingmaker.PubSubSystem;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Clones
 {

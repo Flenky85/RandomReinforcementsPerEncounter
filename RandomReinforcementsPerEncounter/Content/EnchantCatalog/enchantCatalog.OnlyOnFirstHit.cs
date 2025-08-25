@@ -1,4 +1,4 @@
-﻿using Kingmaker.EntitySystem.Stats; // SavingThrowType
+﻿using Kingmaker.EntitySystem.Stats; 
 using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
@@ -6,11 +6,11 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class EnchantCatalog
     {
-        // Helper para crear EnchantDef de tipo OnlyOnFirstHit
+       
         private static EnchantDef MakeOnlyFirstHit(
             string seed,
             string affixName,
-            string condition,        // "frightened", "stunned", ...
+            string condition,        
             string buffId,
             SavingThrowType save,
             int durDiceCount,
@@ -33,11 +33,9 @@ namespace RandomReinforcementsPerEncounter
 
                 ApplyToBothHeadsOnDouble = true,
 
-                // DC por tier lógico
                 TierMapOneHanded = OnlyOnFirstHitDCOneHanded,
                 TierMapTwoHanded = OnlyOnFirstHitDCTwoHanded,
-
-                // Específico de debuff on-hit
+                              
                 OnHitBuffBlueprintId = buffId,
                 OnHitSave = save,
                 OnHitDurDiceCount = durDiceCount,
@@ -45,7 +43,6 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        // ---- Definiciones (OnlyOnFirstHit) ----
         internal static readonly EnchantDef Frightening = MakeOnlyFirstHit(Seed.frightened, "Frightening", "frightened", BlueprintGuids.Frightened, SavingThrowType.Will, 1, 3);
         internal static readonly EnchantDef Stunning = MakeOnlyFirstHit(Seed.stunned, "Stunning", "stunned", BlueprintGuids.Stunned, SavingThrowType.Fortitude, 1, 1);
         internal static readonly EnchantDef Dazing = MakeOnlyFirstHit(Seed.daze, "Dazing", "dazed", BlueprintGuids.Dazed, SavingThrowType.Will, 1, 3);

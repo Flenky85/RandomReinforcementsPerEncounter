@@ -1,5 +1,4 @@
-﻿// File: UI/Pages/EnchantEncyclopediaPage.cs
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -24,13 +23,11 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
 
         private static EnchantType _selectedFamily = EnchantType.OnHit;
         private static int _selectedTypeIndex = 0;
-
-        // ---- índices y metadatos ----
+               
         private struct IdMeta { public WeaponGrip hand; public bool applyBothOnDouble; }
         private static readonly Dictionary<string, IdMeta> _idMeta =
             new Dictionary<string, IdMeta>(StringComparer.OrdinalIgnoreCase);
 
-        // id -> tier (1..6) y id -> EnchantData (para saber familia aunque no usemos EnchantList como fuente)
         private static readonly Dictionary<string, int> _idToTier =
             new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
         private static readonly Dictionary<string, EnchantData> _idToData =
@@ -41,28 +38,25 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
 
         private class TypeGroup
         {
-            public string Label;                           // “Flaming”, “Frost”, etc.
-            public HashSet<string> Ids = new HashSet<string>(StringComparer.OrdinalIgnoreCase); // todos los IDs de ese tipo
+            public string Label;                           
+            public HashSet<string> Ids = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         }
 
         private struct TierResult { public int Tier; public BlueprintItemEnchantment Bp; }
 
-        // ---------------- MAIN ----------------
         public static void Draw(UnityModManager.ModEntry modEntry)
         {
             EnsureStyles();
-            EnsureMetaCache();   // grip + applyBothOnDouble (desde LootBuckets)
-            EnsureIdIndex();     // id->tier / id->EnchantData (desde EnchantList)
+            EnsureMetaCache();   
+            EnsureIdIndex();     
 
             GUILayout.BeginVertical(GUILayout.Width(MaxWidth));
 
-            // 1) Grip
-            _gripIndex = GUILayout.Toolbar(_gripIndex, _gripTabs, GUILayout.Width(MaxWidth));
+              _gripIndex = GUILayout.Toolbar(_gripIndex, _gripTabs, GUILayout.Width(MaxWidth));
             WeaponGrip grip = (_gripIndex == 1) ? WeaponGrip.TwoHanded : (_gripIndex == 2) ? WeaponGrip.Double : WeaponGrip.OneHanded;
 
             GUILayout.Space(8);
 
-            // 2) Familias
             EnchantType[] families = GetFamiliesForGrip(grip).ToArray();
             if (families.Length == 0)
             {
@@ -80,7 +74,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             }
             GUILayout.Space(8);
 
-            // 3) Types (desde LootBuckets, clasificados por familia)
             List<TypeGroup> groups = new List<TypeGroup>(BuildTypeGroupsFromPools(grip, _selectedFamily));
             if (groups.Count == 0)
             {
@@ -97,7 +90,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             }
             GUILayout.Space(8);
 
-            // 4) Tiers (T1..T6)
             TypeGroup chosen = groups[_selectedTypeIndex];
             GUILayout.Label("Tiers", _bold);
 
@@ -114,9 +106,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             GUILayout.EndVertical();
         }
 
-        // ---------------- Datos ----------------
-
-        // Familias que tengan al menos un id compatible con el grip (vía pools)
+        
         private static IEnumerable<EnchantType> GetFamiliesForGrip(WeaponGrip grip)
         {
             HashSet<EnchantType> set = new HashSet<EnchantType>();
@@ -139,7 +129,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             return list;
         }
 
-        // Construye los “types” a partir de los pools reales
         private static IEnumerable<TypeGroup> BuildTypeGroupsFromPools(WeaponGrip grip, EnchantType fam)
         {
             Dictionary<string, TypeGroup> byLabel = new Dictionary<string, TypeGroup>(StringComparer.OrdinalIgnoreCase);
@@ -158,7 +147,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                         if (foundFam != fam) continue;
 
                         var bp = LootUtils.TryLoadEnchant(c.id);
-                        string label = BuildBaseLabel(bp); // “Flaming”, “Frost”, etc.
+                        string label = BuildBaseLabel(bp); 
                         if (string.IsNullOrWhiteSpace(label)) label = "(Unnamed) <" + ShortId(c.id) + ">";
 
                         TypeGroup g;
@@ -168,8 +157,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                             byLabel[label] = g;
                         }
                         g.Ids.Add(c.id);
-
-                        // Asegura que tengamos el tier si no vino por EnchantList (fallback: nombre “(Tn)”)
+                                               
                         if (!_idToTier.ContainsKey(c.id))
                         {
                             int parsedTier;
@@ -189,7 +177,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
         {
             for (int tier = 1; tier <= 6; tier++)
             {
-                // ids de este grupo que sean de ese tier
                 List<string> candidates = new List<string>();
                 foreach (var id in group.Ids)
                 {
@@ -205,7 +192,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             }
         }
 
-        // id -> familia (prefiere índice; si no, intenta inferir por EnchantList directamente)
         private static bool TryGetFamilyById(string id, out EnchantType fam)
         {
             EnchantData d;
@@ -215,7 +201,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                 return true;
             }
 
-            // Fallback: recorre EnchantList (por si el índice aún no tiene ese id).
             foreach (var x in EnchantList.Item)
             {
                 if (x == null) continue;
@@ -238,8 +223,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             return false;
         }
 
-        // ---------------- índices/metas ----------------
-
         private static void EnsureMetaCache()
         {
             if (_metaBuilt) return;
@@ -254,7 +237,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                         {
                             IdMeta meta = new IdMeta();
                             meta.hand = c.hand;
-                            meta.applyBothOnDouble = c.applyBothOnDouble; // mapea de ApplyToBothHeadsOnDouble en tu registro
+                            meta.applyBothOnDouble = c.applyBothOnDouble; 
                             _idMeta[c.id] = meta;
                         }
                     }
@@ -266,7 +249,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
         private static void EnsureIdIndex()
         {
             if (_indexBuilt) return;
-            // id -> tier y id -> EnchantData usando EnchantList
             
             foreach (var d in EnchantList.Item)
             {
@@ -295,12 +277,10 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             }
         }
 
-        // ---------------- utilidades grip/labels ----------------
-
         private static bool HasGripMatch(string id, WeaponGrip grip)
         {
             IdMeta meta;
-            if (!_idMeta.TryGetValue(id, out meta)) return true; // sin meta → mostrar
+            if (!_idMeta.TryGetValue(id, out meta)) return true; 
             if (grip == WeaponGrip.OneHanded) return meta.hand == WeaponGrip.OneHanded;
             if (grip == WeaponGrip.TwoHanded) return meta.hand == WeaponGrip.TwoHanded;
             return meta.hand == WeaponGrip.TwoHanded || (meta.hand == WeaponGrip.OneHanded && meta.applyBothOnDouble);
@@ -312,17 +292,14 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
 
             if (grip == WeaponGrip.Double)
             {
-                // 1) 1H que duplica
                 for (int i = 0; i < ids.Count; i++)
                 {
                     IdMeta m; if (_idMeta.TryGetValue(ids[i], out m) && m.hand == WeaponGrip.OneHanded && m.applyBothOnDouble) return ids[i];
                 }
-                // 2) 2H
                 for (int i = 0; i < ids.Count; i++)
                 {
                     IdMeta m; if (_idMeta.TryGetValue(ids[i], out m) && m.hand == WeaponGrip.TwoHanded) return ids[i];
                 }
-                // 3) 1H
                 for (int i = 0; i < ids.Count; i++)
                 {
                     IdMeta m; if (_idMeta.TryGetValue(ids[i], out m) && m.hand == WeaponGrip.OneHanded) return ids[i];
@@ -336,7 +313,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                     IdMeta m; if (_idMeta.TryGetValue(ids[i], out m) && m.hand == WeaponGrip.OneHanded) return ids[i];
                 }
             }
-            else // TwoHanded
+            else 
             {
                 for (int i = 0; i < ids.Count; i++)
                 {
@@ -350,7 +327,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
         {
             string n = TryGetEnchantName(bp);
             if (string.IsNullOrWhiteSpace(n)) return null;
-            // quita sufijo " (Tn)"
             var m = Regex.Match(n, @"\s*\(T(\d)\)\s*$");
             if (m.Success) return n.Substring(0, m.Index).Trim();
             return n.Trim();
@@ -368,8 +344,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             if (int.TryParse(m.Groups[1].Value, out t) && t >= 1 && t <= 6) { tier = t; return true; }
             return false;
         }
-
-        // ---------------- UI helpers ----------------
 
         private static void EnsureStyles()
         {
@@ -417,7 +391,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             }
         }
 
-        // Reemplaza este método:
         private static string FriendlyFamilyName(EnchantType t)
         {
             var tokens = TokenizeEnumName(t.ToString());
@@ -427,17 +400,15 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             {
                 var w = tokens[i];
                 if (i == 0)
-                    tokens[i] = IsAcronym(w) ? w : Capitalize(w);   // Primera palabra: capitalizada
+                    tokens[i] = IsAcronym(w) ? w : Capitalize(w);   
                 else
-                    tokens[i] = IsAcronym(w) ? w : w.ToLowerInvariant(); // Restantes: minúsculas (salvo acrónimos)
+                    tokens[i] = IsAcronym(w) ? w : w.ToLowerInvariant(); 
             }
             return string.Join(" ", tokens);
         }
 
-        // Helpers genéricos (ponlos en la misma clase)
         private static List<string> TokenizeEnumName(string name)
         {
-            // Sustituye _ por espacio y tokeniza por camel/pascal case, acrónimos y dígitos
             name = name.Replace('_', ' ');
             var tokens = new List<string>();
             var parts = name.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
@@ -467,7 +438,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                     if (!char.IsUpper(ch)) return false;
                 }
             }
-            return hasLetter && w.Length >= 2; // CL, DC, etc.
+            return hasLetter && w.Length >= 2;
         }
 
         private static string Capitalize(string w)
@@ -476,7 +447,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             if (w.Length == 1) return w.ToUpperInvariant();
             return char.ToUpperInvariant(w[0]) + w.Substring(1).ToLowerInvariant();
         }
-
 
         private static string TryGetEnchantName(BlueprintItemEnchantment bp)
         {
@@ -497,38 +467,31 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             return "";
         }
 
-        // Quita tags <link=...>, <b>, <i>, <color>, <br>, etc. y normaliza espacios/saltos
         private static string SanitizeDescription(string s)
         {
             if (string.IsNullOrEmpty(s)) return "";
 
             string text = s;
 
-            // <br> -> salto de línea
             text = System.Text.RegularExpressions.Regex.Replace(
                 text, @"<br\s*/?>", "\n",
                 System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
-            // <link=...>inner</link> -> inner
             text = System.Text.RegularExpressions.Regex.Replace(
                 text, @"<link[^>]*>(.*?)</link>", "$1",
                 System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
-            // Etiquetas emparejadas comunes -> inner
             text = System.Text.RegularExpressions.Regex.Replace(
                 text, @"<(b|i|u|color|size|indent|nobr)[^>]*>(.*?)</\1>",
                 "$2",
                 System.Text.RegularExpressions.RegexOptions.Singleline | System.Text.RegularExpressions.RegexOptions.IgnoreCase);
 
-            // Cualquier otra etiqueta residual -> nada
             text = System.Text.RegularExpressions.Regex.Replace(
                 text, @"<[^>]+>", "",
                 System.Text.RegularExpressions.RegexOptions.Singleline);
 
-            // Decodifica entidades HTML (&nbsp;, &lt;, …)
             text = System.Net.WebUtility.HtmlDecode(text);
 
-            // Normaliza saltos y espacios
             text = text.Replace("\r\n", "\n").Replace("\r", "\n");
             text = System.Text.RegularExpressions.Regex.Replace(text, @"[ \t]+\n", "\n");
             text = System.Text.RegularExpressions.Regex.Replace(text, @"\n{3,}", "\n\n");

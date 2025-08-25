@@ -8,10 +8,10 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
     [XmlRoot("ModSettings")]
     public class ModSettings
     {
-        public int EncounterDifficultyModifier = 0;   // -20..+20
-        public float PartyDifficultyOffset = 0f;      // -10..+10
-        public int VariabilityMode = 0;               // 0=ambos, 1=solo abajo, 2=solo arriba
-        public int VariabilityRange = 0;              // -20..+20
+        public int EncounterDifficultyModifier = 0;   
+        public float PartyDifficultyOffset = 0f;      
+        public int VariabilityMode = 0;               
+        public int VariabilityRange = 0;              
 
         private static string _settingsPath;
         public static ModSettings Instance { get; private set; } = new ModSettings();
@@ -27,7 +27,7 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
                     using var reader = new StreamReader(_settingsPath);
                     var serializer = new XmlSerializer(typeof(ModSettings));
                     Instance = serializer.Deserialize(reader) as ModSettings ?? new ModSettings();
-                    Clamp(); // opcional: asegurar rangos tras cargar
+                    Clamp(); 
                 }
                 catch
                 {
@@ -37,13 +37,12 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             }
             else
             {
-                // Primera vez: crea el dir si hiciera falta y guarda por defecto
                 try
                 {
                     Directory.CreateDirectory(modEntry.Path);
                     Save();
                 }
-                catch { /* opcional log */ }
+                catch { }
             }
         }
 
@@ -57,13 +56,9 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
                 var serializer = new XmlSerializer(typeof(ModSettings));
                 serializer.Serialize(writer, Instance);
             }
-            catch
-            {
-                // opcional: log
-            }
+            catch { }
         }
 
-        // Opcional: validación de límites para evitar valores fuera de rango
         private static void Clamp()
         {
             Instance.EncounterDifficultyModifier = Mathf.Clamp(Instance.EncounterDifficultyModifier, -20, 20);

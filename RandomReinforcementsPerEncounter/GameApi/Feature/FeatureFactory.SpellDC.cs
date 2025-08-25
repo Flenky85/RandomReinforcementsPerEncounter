@@ -14,7 +14,6 @@ namespace RandomReinforcementsPerEncounter
     {
         private static int ClampBonus(int v) => Math.Max(1, v);
 
-        // Spell DC (global): +X DC a todos los hechizos
         public static List<BlueprintFeatureReference> RegisterSpellsDCTiersFor(
             List<FeatureTierConfig> tiers,
             string nameRoot

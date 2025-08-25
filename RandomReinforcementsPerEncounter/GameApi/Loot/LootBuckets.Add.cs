@@ -1,5 +1,4 @@
-﻿using RandomReinforcementsPerEncounter.Config.Ids;
-using RandomReinforcementsPerEncounter.Config.Ids.Generators;
+﻿using RandomReinforcementsPerEncounter.Config.Ids.Generators;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
 

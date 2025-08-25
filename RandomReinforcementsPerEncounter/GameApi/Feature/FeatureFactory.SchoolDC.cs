@@ -12,7 +12,6 @@ namespace RandomReinforcementsPerEncounter
 {
     public static partial class FeatureFactory
     {
-        // +DC a una escuela concreta
         public static List<BlueprintFeatureReference> RegisterSpellSchoolDCTiersFor(
             List<FeatureTierConfig> tiers,
             string nameRoot,

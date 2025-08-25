@@ -1,21 +1,14 @@
 ﻿using HarmonyLib;
 using Kingmaker;
-using RandomReinforcementsPerEncounter.Config;
 using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.State;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TurnBased.Controllers;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.Patches
 {
-    /// <summary>
-    /// Patch that triggers at the start of combat to evaluate CRs and schedule reinforcements.
-    /// </summary>
+
     [HarmonyPatch(typeof(CombatController), "HandleCombatStart")]
     public static class CombatStartPatch
     {

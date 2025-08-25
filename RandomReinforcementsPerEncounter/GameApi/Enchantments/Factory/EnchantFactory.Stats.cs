@@ -1,7 +1,6 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
-using BlueprintCore.Utils;                                       // LocalizationTool
-using Kingmaker.EntitySystem.Stats;                              // StatType
-using Kingmaker.Enums;                                           // ModifierDescriptor
+using Kingmaker.EntitySystem.Stats;                              
+using Kingmaker.Enums;                                           
 using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
@@ -28,7 +27,7 @@ namespace RandomReinforcementsPerEncounter
                 var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, AffixDisplay, desc);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
-                var locPrefix = keys.locAffix; // lo llamas así en el resto
+                var locPrefix = keys.locAffix; 
 
                 var locDesc = keys.locDesc;
 
@@ -37,8 +36,7 @@ namespace RandomReinforcementsPerEncounter
                     .SetEnchantName(locName)
                     .SetDescription(locDesc);
 
-                // Prefijo / Sufijo según 'affix'
-                if (affix == AffixKind.Prefix)
+                 if (affix == AffixKind.Prefix)
                     cfg.SetPrefix(locPrefix);
                 else
                     cfg.SetSuffix(locPrefix);

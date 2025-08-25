@@ -5,7 +5,6 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class LootBuckets
     {
-        /// Vuelca todo a EnchantList.Item. Cada (Type,Value) genera un EnchantData con ese Value.
         public static void FlushToEnchantList(List<EnchantData> target)
         {
             target.Clear();
@@ -17,10 +16,9 @@ namespace RandomReinforcementsPerEncounter
                 foreach (var byValue in byType.Value)
                 {
                     int value = byValue.Key;
-                    var tiers = byValue.Value; // HashSet<string>[MaxTier]
+                    var tiers = byValue.Value; 
                     if (IsAllEmpty(tiers)) continue;
 
-                    // buffers por variante y por tier
                     var perHand = new Dictionary<WeaponGrip, List<string>[]> {
                         { WeaponGrip.OneHanded, NewTierLists() },
                         { WeaponGrip.TwoHanded, NewTierLists()  },
@@ -36,7 +34,6 @@ namespace RandomReinforcementsPerEncounter
                         }
                     }
 
-                    // emite hasta 3 EnchantData (uno por mano que tenga contenido)
                     foreach (var kv in perHand)
                     {
                         var hand = kv.Key;

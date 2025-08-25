@@ -1,4 +1,4 @@
-﻿using Kingmaker.EntitySystem.Stats; // SavingThrowType
+﻿using Kingmaker.EntitySystem.Stats; 
 using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
 
@@ -6,11 +6,11 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class EnchantCatalog
     {
-        // Helper mínimo para OnHit (Prefix por defecto)
+     
         private static EnchantDef MakeOnHit(
             string seed,
             string affixName,
-            string condition,           // "shaken", "blinded", ...
+            string condition,           
             string buffId,
             SavingThrowType save,
             int durDiceCount,
@@ -32,11 +32,9 @@ namespace RandomReinforcementsPerEncounter
 
                 ApplyToBothHeadsOnDouble = true,
 
-                // DC por tier lógico
                 TierMapOneHanded = OnHitDCOneHanded,
                 TierMapTwoHanded = OnHitDCTwoHanded,
 
-                // Específico OnHit
                 OnHitBuffBlueprintId = buffId,
                 OnHitSave = save,
                 OnHitDurDiceCount = durDiceCount,
@@ -44,8 +42,6 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        // ---- Definiciones ----
-        // ---- Definiciones ----
         internal static readonly EnchantDef Fearsome = MakeOnHit(Seed.shaken, "Fearsome", "shaken", BlueprintGuids.Shaken, SavingThrowType.Will, 1, 3);
         internal static readonly EnchantDef Blinding = MakeOnHit(Seed.blindness, "Blinding", "blinded", BlueprintGuids.Blinded, SavingThrowType.Fortitude, 1, 3);
         internal static readonly EnchantDef Dazzling = MakeOnHit(Seed.dazzled, "Dazzling", "dazzled", BlueprintGuids.Dazzled, SavingThrowType.Fortitude, 1, 3);

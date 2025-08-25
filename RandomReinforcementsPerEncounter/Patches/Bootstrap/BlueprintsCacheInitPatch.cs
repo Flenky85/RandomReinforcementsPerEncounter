@@ -28,7 +28,7 @@ namespace RandomReinforcementsPerEncounter.Patches.Bootstrap
         {
             private System.Collections.IEnumerator Start()
             {
-                yield return null; // esperar un frame tras Init
+                yield return null; 
 
                 try
                 {
@@ -39,9 +39,9 @@ namespace RandomReinforcementsPerEncounter.Patches.Bootstrap
                 }
                 catch (System.Exception ex)
                 {
-                    Debug.LogError("[RRE] Error registering blueprints: " + ex);
+                    Debug.LogError("[RRE] Failed to register blueprints: " + ex);
                 }
-                Destroy(gameObject); // limpiar
+                Destroy(gameObject); 
             }
         }
     }

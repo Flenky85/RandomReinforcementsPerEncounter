@@ -36,7 +36,6 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        // --- Definiciones (Others) ---
         // Maneuvers
         internal static readonly EnchantDef CMB = MakeOtherBonus(Seed.CMB, "Grappling", "of Grapple", "combat maneuver bonus", StatType.AdditionalCMB);
         internal static readonly EnchantDef CMD = MakeOtherBonus(Seed.CMD, "Immovable", "of Immovable", "combat maneuver defense", StatType.AdditionalCMD);

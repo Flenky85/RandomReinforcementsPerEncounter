@@ -1,5 +1,4 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes;
-using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Enums;
@@ -11,7 +10,6 @@ namespace RandomReinforcementsPerEncounter
 {
     public static partial class FeatureFactory
     {
-        // +Caster Level a una escuela concreta
         public static List<BlueprintFeatureReference> RegisterSpellSchoolCLTiersFor(
             List<FeatureTierConfig> tiers,
             string nameRoot,

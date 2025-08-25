@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using UnityEngine;
-using Kingmaker.Enums;
 using RandomReinforcementsPerEncounter.Config;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.Content.WeaponCatalog;
@@ -27,7 +25,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             return WeaponType.Double;
         }
 
-        /// <summary> 20% por categoría de WeaponType; soporta oversize. </summary>
         public static WeaponPick PickRandomWeapon(float oversizedChance = 0.15f)
         {
             bool wantOver = UnityEngine.Random.value < oversizedChance;

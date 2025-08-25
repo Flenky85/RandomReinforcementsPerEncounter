@@ -10,10 +10,8 @@ using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
-
     public static class LootPicker
     {
-        
         public static void AddPickedWeaponToLoot(InteractionLootPart lootPart, int cr)
         {
             if (lootPart == null) return;
@@ -84,12 +82,11 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                             masterworkEnchant,
                             PriceRefs.PriceT1
                         );
-                        Debug.Log("[RRE] Masterwork enchant aplicado (arma no mágica).");
                     }
                 }
             }
 
-            lootPart.Loot.Add(entity); // mete la instancia en el cofre
+            lootPart.Loot.Add(entity); 
         }
     }
 }

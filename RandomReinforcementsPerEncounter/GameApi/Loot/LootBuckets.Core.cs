@@ -8,7 +8,6 @@ namespace RandomReinforcementsPerEncounter
     {
         private const int MaxTier = 6;
 
-        // Mapa: Tipo -> (Value -> [MaxTier listas de tiers])
         private static readonly Dictionary<EnchantType, Dictionary<int, HashSet<string>[]>>
           _store = new Dictionary<EnchantType, Dictionary<int, HashSet<string>[]>>();
 
@@ -24,7 +23,6 @@ namespace RandomReinforcementsPerEncounter
             _applyBothOnDoubleById.Clear();
         }
 
-        // ---------- helpers internos ----------
         private static HashSet<string>[] GetBucket(EnchantType type, int value)
         {
             if (!_store.TryGetValue(type, out var byValue))
@@ -70,18 +68,14 @@ namespace RandomReinforcementsPerEncounter
         private static readonly Dictionary<string, AffixKind> _affixById = new Dictionary<string, AffixKind>();
         private static readonly Dictionary<string, bool> _applyBothOnDoubleById = new Dictionary<string, bool>();
         private static readonly Dictionary<string, string> _rootById = new Dictionary<string, string>();
-        /// <summary>
-        /// Devuelve todos los GUIDs candidatos en un tier dado filtrados por Affix,
-        /// junto con su "peso" (value) y la mano declarada para ese enchant.
-        /// No modifica estado; solo lectura.
-        /// </summary>
+
         public static IEnumerable<(string id, int weight, WeaponGrip hand, bool applyBothOnDouble)>
         GetCandidatesByTierAndAffix(int tier, AffixKind affix)
         {
             if (tier < 1 || tier > MaxTier) yield break;
 
             foreach (var byValue in _store.Values)
-                foreach (var kv in byValue) // kv.Key = weight, kv.Value = [MaxTier sets]
+                foreach (var kv in byValue) 
                 {
                     int weight = kv.Key;
                     var set = kv.Value[tier - 1];
@@ -97,8 +91,5 @@ namespace RandomReinforcementsPerEncounter
                     }
                 }
         }
-
-
-
     }
 }

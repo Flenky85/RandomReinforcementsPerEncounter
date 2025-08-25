@@ -1,5 +1,4 @@
 ﻿using BlueprintCore.Blueprints.CustomConfigurators.Classes;
-using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
@@ -11,7 +10,6 @@ namespace RandomReinforcementsPerEncounter
 {
     public static partial class FeatureFactory
     {
-        // +X por dado a hechizos con descriptor elemental/cura
         public static List<BlueprintFeatureReference> RegisterSpellsPerDieBonusTiersFor(
             List<FeatureTierConfig> tiers,
             string nameRoot,
@@ -48,7 +46,7 @@ namespace RandomReinforcementsPerEncounter
                         spellDescriptor: anyEnergy,
                         spellsOnly: spellsOnly,
                         useContextBonus: useContextBonus,
-                        value: ContextValues.Constant(perDie) // +X por dado
+                        value: ContextValues.Constant(perDie) 
                     )
                     .Configure()
                     .ToReference<BlueprintFeatureReference>();

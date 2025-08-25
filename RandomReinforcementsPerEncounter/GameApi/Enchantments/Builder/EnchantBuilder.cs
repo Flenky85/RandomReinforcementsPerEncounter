@@ -1,9 +1,5 @@
-﻿// EnchantBuilder.cs  (principal)
-using Kingmaker.EntitySystem.Stats; // SavingThrowType
-using RandomReinforcementsPerEncounter.Domain.Models;
-using System.Linq;
-using UnityEngine;
-using static RandomReinforcementsPerEncounter.EnchantFactory; // Id, RootWithHand, RegisterDebuffTiersFor, RegisterDamageTiersFor
+﻿using RandomReinforcementsPerEncounter.Domain.Models;
+using static RandomReinforcementsPerEncounter.EnchantFactory;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
 {
@@ -38,7 +34,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
             }
         }
 
-        // Helper común 1H / 2H
         private static void BuildTiersForBothHands(
             EnchantDef def,
             System.Func<WeaponGrip, System.Collections.Generic.List<EnchantTierConfig>> makeTiers,
@@ -55,7 +50,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Enchantments.Builder
                     grip,
                     def.Affix,
                     value: def.Chance,
-                    applyToBothHeadsOnDouble: def.ApplyToBothHeadsOnDouble // ← IMPORTANTE
+                    applyToBothHeadsOnDouble: def.ApplyToBothHeadsOnDouble 
                 );
             }
         }

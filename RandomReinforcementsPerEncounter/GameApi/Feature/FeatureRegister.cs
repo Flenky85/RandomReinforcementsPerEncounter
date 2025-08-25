@@ -10,17 +10,15 @@ namespace RandomReinforcementsPerEncounter
     {
         private static bool _done;
 
-
         private static readonly int[] SpellDcBonuses = { 1, 2, 3 };
         private static readonly int[] SpellDieBonuses = { 1, 2, 3 };
 
         private static readonly int[] SchoolClBonuses = { 1, 2, 3 };
         private static readonly int[] SchoolDcBonuses = { 1, 2, 3 };
-        
-
+       
         public static void RegisterAll()
         {
-            if (_done) return; // idempotente
+            if (_done) return;
             _done = true;
 
             // --- Spell DC / Die Bonus ---
@@ -49,7 +47,6 @@ namespace RandomReinforcementsPerEncounter
 
         }
 
-        /// Construye tantos tiers como elementos tenga 'bonuses'.
         private static List<FeatureTierConfig> BuildTiers(string keyRoot, int[] bonuses)
         {
             var list = new List<FeatureTierConfig>(bonuses.Length);

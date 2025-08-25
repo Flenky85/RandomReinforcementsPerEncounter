@@ -71,21 +71,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             return LootUtils.TryLoadEnchant(pickedId);
         }
 
-        // wrapper sin excludeIds (para usos antiguos)
-        public static BlueprintItemEnchantment PickRandomEnchantByTier(
-            int tier, WeaponGrip WeaponGripType, out EnchantType pickedType)
-            => PickRandomEnchantByTier(tier, WeaponGripType, out pickedType, null);
-
-        /// <summary>
-        /// Devuelve un enchant candidato para el tier dado, filtrando por grip del arma,
-        /// melee/ranged (en esta versión se asume que el pool ya viene filtrado en registro)
-        /// y el afijo deseado. Selección ponderada por "value".
-        ///
-        /// Reglas Double:
-        /// - Por defecto usa enchants TwoHanded.
-        /// - Si el candidato es OneHanded, se considerará aplicable a ambas cabezas: duplicateToSecond = true.
-        ///   (Si más adelante quieres restringir esto a algunos enchants, añadimos un flag sin tocar esta firma.)
-        /// </summary>
         public static (BlueprintItemEnchantment enchant, bool duplicateToSecond) PickWeighted(
                     int tier,
                     WeaponGrip weaponGrip,
@@ -93,11 +78,8 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                     AffixKind affix,
                     ISet<string> usedIds)
         {
-            // 1) Pool base (tier+affix)
-            var raw = LootBuckets.GetCandidatesByTierAndAffix(tier, affix).ToList();
 
-            // (Opcional) filtrar por melee/ranged cuando tengas ese metadato
-            // raw = raw.Where(x => EnchantMeta.IsCompatibleWithRanged(x.id) == isRanged).ToList();
+            var raw = LootBuckets.GetCandidatesByTierAndAffix(tier, affix).ToList();
 
             IEnumerable<(string id, int weight, WeaponGrip hand, bool applyBothOnDouble)> pool;
 
@@ -108,12 +90,10 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                         var bothHeads = raw.Where(c => c.hand == WeaponGrip.OneHanded && c.applyBothOnDouble).ToList();
                         if (bothHeads.Count > 0)
                         {
-                            // Preferimos SIEMPRE los 1H con flag (y duplicaremos)
                             pool = bothHeads;
                         }
                         else
                         {
-                            // Si no hay 1H con flag, usamos 2H normales (sin duplicar)
                             pool = raw.Where(c => c.hand == WeaponGrip.TwoHanded);
                         }
                         break;
@@ -123,18 +103,16 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                     pool = raw.Where(c => c.hand == WeaponGrip.TwoHanded);
                     break;
 
-                default: // OneHanded
+                default: 
                     pool = raw.Where(c => c.hand == WeaponGrip.OneHanded);
                     break;
             }
 
-            // 2) Excluir ya usados
             if (usedIds != null) pool = pool.Where(x => !usedIds.Contains(x.id));
 
             var list = pool.ToList();
             if (list.Count == 0) return (null, false);
 
-            // 3) Selección ponderada por "weight" (mínimo 1)
             int total = 0;
             foreach (var c in list) total += Math.Max(1, c.weight);
             int roll = UnityEngine.Random.Range(1, total + 1);

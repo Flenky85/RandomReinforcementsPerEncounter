@@ -1,7 +1,6 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
-using BlueprintCore.Utils;                                       // BlueprintTool, LocalizationTool
-using Kingmaker.Blueprints;                                      // BlueprintFeatureReference
-using RandomReinforcementsPerEncounter.Config.Ids;
+using BlueprintCore.Utils;                                       
+using Kingmaker.Blueprints;                                      
 using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
@@ -14,9 +13,9 @@ namespace RandomReinforcementsPerEncounter
         public static void RegisterWeaponFeaturesTiersFor(
             List<EnchantTierConfig> tiers,
             string name,
-            string nameRoot,      // p.ej. "Spell DC"
+            string nameRoot,     
             string description,
-            string AffixDisplay,  // texto del afijo (puede ser null si usas 'name')
+            string AffixDisplay, 
             AffixKind affix
         )
         {
@@ -24,7 +23,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 var t = tiers[i];
                 var desc = FactoryText.BuildStackableBonusDescription(t.BonusDescription, description);
-                // estilo unificado
+                
                 var keys = KeyBuilder.BuildTierKeys(nameRoot, i + 1, name, ArtifactKind.Enchant, AffixDisplay, desc);
                 var bpName = keys.bpName;
                 var locName = keys.locName;
@@ -38,7 +37,7 @@ namespace RandomReinforcementsPerEncounter
                     .SetEnchantName(locName)
                     .SetDescription(locDesc);
 
-                // prefix/suffix según 'affix' (normalizado)
+                
                 if (affix == AffixKind.Prefix)
                     cfg.SetPrefix(locPrefix);
                 else

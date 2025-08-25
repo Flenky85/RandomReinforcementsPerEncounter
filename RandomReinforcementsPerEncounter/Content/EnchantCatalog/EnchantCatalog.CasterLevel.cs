@@ -8,7 +8,7 @@ namespace RandomReinforcementsPerEncounter
     {
         private static EnchantDef MakeCasterBonus(
             string seed,
-            string name,           // "Eldritch"
+            string name,           
             string desc)
         {
             int[] CasterBonusOne = { 1, 1, 1, 1, 2, 2 };
@@ -34,7 +34,6 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        // ---- Definición ----
         internal static readonly EnchantDef CasterLevel = MakeCasterBonus(Seed.casterLevel, "Eldritch", "caster level");
     }
 }

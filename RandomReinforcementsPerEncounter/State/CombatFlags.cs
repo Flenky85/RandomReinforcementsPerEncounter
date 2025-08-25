@@ -1,17 +1,17 @@
 ﻿namespace RandomReinforcementsPerEncounter.State
 {
     /// <summary>
-    /// Estado efímero para proteger lógica de combate (por ejemplo, no spawnear refuerzos dos veces).
+    /// Ephemeral state used to guard combat logic (e.g., avoid spawning reinforcements twice).
     /// </summary>
     internal static class CombatFlags
     {
         /// <summary>
-        /// Marca si ya se generaron refuerzos en este combate.
-        /// Se debe resetear a false al terminar el encuentro.
+        /// Marks whether reinforcements have already been generated in this combat.
+        /// Must be reset to false when the encounter ends.
         /// </summary>
         internal static bool ReinforcementsSpawned { get; set; } = false;
 
-        /// <summary>Reinicia todos los flags de combate.</summary>
+        /// <summary>Resets all combat flags.</summary>
         internal static void Reset()
         {
             ReinforcementsSpawned = false;

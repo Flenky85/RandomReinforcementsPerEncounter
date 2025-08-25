@@ -7,10 +7,6 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class EnchantFactory
     {
-        /// <summary>
-        /// Crea enchants ocultos por tier para ajustar el precio (no consumen budget).
-        /// Genera: RRE_Price_20, RRE_Price_40, RRE_Price_80, ...
-        /// </summary>
         public static void RegisterWeaponPriceForTiers(
             List<EnchantTierConfig> tiers,
             int baseDelta = 200,
@@ -24,9 +20,9 @@ namespace RandomReinforcementsPerEncounter
                 string bpName = $"{bpPrefix}{delta}";
 
                 WeaponEnchantmentConfigurator
-                    .New(bpName, t.AssetId)   // GUID viene desde TierConfig
-                    .SetEnchantmentCost(0)    // no consume “budget” de bonos
-                    .SetHiddenInUI(true)      // oculto en la UI
+                    .New(bpName, t.AssetId)   
+                    .SetEnchantmentCost(0)    
+                    .SetHiddenInUI(true)      
                     .AddComponent<RRE_PriceDeltaComponent>(c => { c.Delta = delta; })
                     .Configure();
             }

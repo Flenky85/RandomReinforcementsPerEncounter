@@ -5,15 +5,12 @@ using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.Domain
 {
+    // Schedules reinforcements based on party vs enemy CR: compute gap, queue N spawns near enemies, then try to spawn.
     internal static class ReinforcementService
     {
-        /// <summary>
-        /// Calcula CRs, agenda refuerzos y dispara el spawn.
-        /// Mantiene el comportamiento actual de Run().
-        /// </summary>
         internal static void ScheduleFromCurrentCombat()
         {
-            if (State.CombatFlags.ReinforcementsSpawned) return;
+            if (State.CombatFlags.ReinforcementsSpawned) return; // idempotent: run once per combat
 
             State.LootContext.EnemyCRs.Clear();
             State.CombatFlags.ReinforcementsSpawned = true;
@@ -30,28 +27,28 @@ namespace RandomReinforcementsPerEncounter.Domain
                 return;
 
             int playerCount = playerUnits.Count;
-            int totalPlayerCR = playerUnits.Sum(u => u.Descriptor.Progression.CharacterLevel);
+            int totalPlayerCR = playerUnits.Sum(u => u.Descriptor.Progression.CharacterLevel); 
 
-            float averageCR = playerCount > 0 ? (float)totalPlayerCR / playerCount : 0f;
-            int roundedAverageCR = Mathf.CeilToInt(averageCR) + Config.Settings.ModSettings.Instance.EncounterDifficultyModifier;
-            int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + Config.Settings.ModSettings.Instance.PartyDifficultyOffset));
+            float averageCR = playerCount > 0 ? (float)totalPlayerCR / playerCount : 0f; 
+            int roundedAverageCR = Mathf.CeilToInt(averageCR) + Config.Settings.ModSettings.Instance.EncounterDifficultyModifier; 
+            int adjustedPlayerCR = Mathf.CeilToInt(totalPlayerCR * (1 + Config.Settings.ModSettings.Instance.PartyDifficultyOffset)); 
 
-            int enemyCR = enemies.Sum(u => u.Blueprint.CR);
-            int crDifference = adjustedPlayerCR - enemyCR;
+            int enemyCR = enemies.Sum(u => u.Blueprint.CR); 
+            int crDifference = adjustedPlayerCR - enemyCR;  
 
             int reinforcementsToSpawn = 0;
             if (averageCR > 0f && crDifference > 0)
-                reinforcementsToSpawn = Mathf.CeilToInt(crDifference / averageCR);
+                reinforcementsToSpawn = Mathf.CeilToInt(crDifference / averageCR); 
 
             for (int i = 0; i < reinforcementsToSpawn; i++)
             {
-                var enemy = enemies[i % enemies.Count];
+                var enemy = enemies[i % enemies.Count]; 
                 var position = enemy.Position;
 
-                State.LootContext.ChestPosition = position;
+                State.LootContext.ChestPosition = position; 
 
-                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.Unknown;
-                State.ReinforcementState.Pending.Add((position, roundedAverageCR, factionId));
+                string factionId = enemy.Blueprint.m_Faction?.Guid.ToString() ?? BlueprintGuids.Unknown; 
+                State.ReinforcementState.Pending.Add((position, roundedAverageCR, factionId)); 
             }
 
             State.ReinforcementState.TrySpawnPendingReinforcements();

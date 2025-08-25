@@ -22,7 +22,7 @@ namespace RandomReinforcementsPerEncounter.Patches
             if (unit == null || main == null) return;
             if (unit != main) return;
 
-            // Pequeño delay para que el estado de combate se estabilice
+            // Small delay to allow the combat state to stabilize
             await Task.Delay(500);
 
             ReinforcementService.ScheduleFromCurrentCombat();
@@ -35,13 +35,11 @@ namespace RandomReinforcementsPerEncounter.Patches
             bool anyInCombat = Game.Instance.State.Units.Any(u => u != null && u.IsInCombat);
             if (anyInCombat) return;
 
-            // Spawn del cofre solo si tenemos posición
             if (LootContext.ChestPosition.HasValue)
             {
                 ChestService.SpawnLootChest(BlueprintGuids.DefaultLootChest, LootContext.ChestPosition.Value);
             }
 
-            // Reset de estado para el siguiente combate
             CombatFlags.Reset();
             LootContext.Reset();
             ReinforcementState.Clear();

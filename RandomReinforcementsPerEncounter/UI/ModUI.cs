@@ -1,5 +1,4 @@
-﻿// File: UI/ModUI.cs
-using UnityEngine;
+﻿using UnityEngine;
 using UnityModManagerNet;
 
 namespace RandomReinforcementsPerEncounter.UI

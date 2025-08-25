@@ -5,7 +5,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
     internal static class LootRefs
     {
-        // Materiales / calidades
         public static readonly BlueprintGuid Druchite = BlueprintGuid.Parse(BlueprintGuids.Druchite);
         public static readonly BlueprintGuid ColdIron = BlueprintGuid.Parse(BlueprintGuids.ColdIron);
         public static readonly BlueprintGuid Mithral = BlueprintGuid.Parse(BlueprintGuids.Mithral);
@@ -14,7 +13,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
         public static readonly BlueprintGuid MasterWork = BlueprintGuid.Parse(BlueprintGuids.MasterWork);
         public static readonly BlueprintGuid Composite = BlueprintGuid.Parse(BlueprintGuids.Composite);
 
-        // Enhancements arma +X
         public static readonly BlueprintGuid Weapon1 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus1);
         public static readonly BlueprintGuid Weapon2 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus2);
         public static readonly BlueprintGuid Weapon3 = BlueprintGuid.Parse(BlueprintGuids.WeaponPlus3);

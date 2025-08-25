@@ -20,9 +20,9 @@ namespace RandomReinforcementsPerEncounter
                 Seed = seed,
 
                 Name = name,
-                AffixDisplay = name,          // prefijo visible
+                AffixDisplay = name,          
                 Desc = desc,
-                Affix = AffixKind.Prefix,     // estos van como prefijo
+                Affix = AffixKind.Prefix,     
 
                 Chance = chance,
 

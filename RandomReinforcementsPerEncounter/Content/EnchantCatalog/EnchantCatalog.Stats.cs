@@ -6,15 +6,14 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class EnchantCatalog
     {
-        // Dentro de EnchantCatalog (el mismo sitio donde tienes StatRoots y los arrays)
+        
         private static EnchantDef MakeStatBonus(
             string seed,
-            string Name,   // p.ej. "Mighty"
-            string suffixName,   // p.ej. "of Strength"
-            string desc,         // p.ej. "strength"
+            string Name,  
+            string suffixName,   
+            string desc,         
             StatType stat)
         {
-            // Usa tus tablas por tier
             int[] statBonusOne = { 1, 2, 2, 3, 3, 4 };
             int[] statBonusTwo = { 1, 2, 3, 4, 5, 6 };
             int chance = 10;
@@ -24,24 +23,20 @@ namespace RandomReinforcementsPerEncounter
                 Type = EnchantType.StatsBonus,
                 Seed = seed,
 
-                // naming / UI
-                Name = Name,          // nombre "corto" interno (prefijo)
-                AffixDisplay = suffixName,  // lo que se muestra como sufijo: "of Strength"
-                Desc = desc,                // texto base: "strength"
-                Affix = AffixKind.Suffix,   // estos van como sufijo
+                Name = Name,   
+                AffixDisplay = suffixName, 
+                Desc = desc,               
+                Affix = AffixKind.Suffix,  
 
                 Chance = chance,
 
-                // el builder reutiliza estos mapas como "valor" por tier
                 TierMapOneHanded = statBonusOne,
                 TierMapTwoHanded = statBonusTwo,
 
-                // dato específico de stats
-                Stat = stat                  // <-- añade este campo en EnchantDef si aún no existe (StatType Stat)
+                Stat = stat      
             };
         }
 
-        // ---- Definiciones (StatsBonus) ----
         internal static readonly EnchantDef StatSTR = MakeStatBonus(Seed.statSTR, "Mighty", "of Might", "strength", StatType.Strength);
         internal static readonly EnchantDef StatDEX = MakeStatBonus(Seed.statDEX, "Graceful", "of Grace", "dexterity", StatType.Dexterity);
         internal static readonly EnchantDef StatCON = MakeStatBonus(Seed.statCON, "Resilient", "of Resilience", "constitution", StatType.Constitution);

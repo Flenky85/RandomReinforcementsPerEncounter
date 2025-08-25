@@ -5,7 +5,6 @@ namespace RandomReinforcementsPerEncounter
 {
     internal static partial class EnchantCatalog
     {
-        // Progresión de daño por tier (tal cual tu patrón)
         private static EnchantDef MakeEnergyDamage(
             string seed,
             string affixName,
@@ -22,7 +21,7 @@ namespace RandomReinforcementsPerEncounter
                 Seed = seed,
                 Name = affixName,
                 AffixDisplay = affixName,
-                Desc = descriptor,                 // "fire", "cold", etc. (lo enlaza AutoLinker en la factory)
+                Desc = descriptor,                 
                 Affix = AffixKind.Prefix,
                 Type = EnchantType.EnergyDamage,
                 Chance = chance,
@@ -34,8 +33,6 @@ namespace RandomReinforcementsPerEncounter
                 DamagePrefab = prefab,
             };
         }
-
-        // Instancias (si prefieres exponerlas individualmente)
 
         internal static readonly EnchantDef Flaming = MakeEnergyDamage(Seed.fire, "Flaming", "fire", BlueprintGuids.Flaming);
         internal static readonly EnchantDef Frost = MakeEnergyDamage(Seed.cold, "Frost", "cold", BlueprintGuids.Frost);

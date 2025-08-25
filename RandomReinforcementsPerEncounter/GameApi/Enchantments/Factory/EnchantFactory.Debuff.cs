@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using BlueprintCore.Actions.Builder;
-using BlueprintCore.Actions.Builder.ContextEx;         // ApplyBuff, ContextDuration
+using BlueprintCore.Actions.Builder.ContextEx;         
 using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
-using BlueprintCore.Utils;                              // LocalizationTool
-using BlueprintCore.Utils.Types;                        // ContextValues
-using Kingmaker.Blueprints;                             // BlueprintGuid
-using Kingmaker.EntitySystem.Stats;                     // SavingThrowType
-using Kingmaker.UnitLogic.Mechanics.Actions;            // ContextActionSavingThrow, ContextActionConditionalSaved
-using Kingmaker.UnitLogic.Mechanics.Components;         // ContextSetAbilityParams
+using BlueprintCore.Utils;                             
+using BlueprintCore.Utils.Types;                       
+using Kingmaker.Blueprints;                            
+using Kingmaker.EntitySystem.Stats;                     
+using Kingmaker.UnitLogic.Mechanics.Actions;            
+using Kingmaker.UnitLogic.Mechanics.Components;         
 using RandomReinforcementsPerEncounter.Domain.Models;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments;
 using RandomReinforcementsPerEncounter.Config.Localization;
-using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils; // DiceMapper
+using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils; 
 
 namespace RandomReinforcementsPerEncounter
 {
@@ -63,7 +63,6 @@ namespace RandomReinforcementsPerEncounter
                 var locDesc = keys.locDesc;
                 var locPrefix = keys.locAffix;
 
-                // Crear el enchant vacío con nombre/desc
                 WeaponEnchantmentConfigurator
                     .New(bpName, EnchantTierConfig.AssetId)
                     .SetEnchantName(locName)
@@ -71,7 +70,6 @@ namespace RandomReinforcementsPerEncounter
                     .SetPrefix(locPrefix)
                     .Configure();
 
-                // Rama de éxito/fracaso
                 var onSuccess = ActionsBuilder.New();
                 var onFail = ActionsBuilder.New()
                     .ApplyBuff(
@@ -97,7 +95,6 @@ namespace RandomReinforcementsPerEncounter
                         a.Actions = savedBranch.Build();
                     });
 
-                // Trigger + seteo de DC desde contexto
                 WeaponEnchantmentConfigurator
                     .For(EnchantTierConfig.AssetId)
                     .AddInitiatorAttackWithWeaponTrigger(

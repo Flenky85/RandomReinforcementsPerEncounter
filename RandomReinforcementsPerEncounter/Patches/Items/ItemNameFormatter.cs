@@ -10,7 +10,6 @@ using System.Text.RegularExpressions;
 
 internal static class ItemNameFormatter
 {
-    // Asegúrate de tener esta lista (ajústala a tus GUIDs reales)
     private static readonly string[] MaterialIds =
     {
         BlueprintGuids.MasterWork,
@@ -31,7 +30,6 @@ internal static class ItemNameFormatter
         BlueprintGuids.WeaponPlus1,
     };
 
-    // arriba, junto a campos estáticos
     private static readonly HashSet<string> EnhancementIdsSet =
         new HashSet<string>(WeaponEnhancementIds, StringComparer.OrdinalIgnoreCase);
 
@@ -48,9 +46,9 @@ internal static class ItemNameFormatter
     {
         if (string.IsNullOrWhiteSpace(s)) return null;
         var t = s.Trim();
-        // Si es exactamente "+N", lo ignoramos
+
         if (System.Text.RegularExpressions.Regex.IsMatch(t, @"^\+\d+$")) return null;
-        // Si empieza con "+N " por error, lo quitamos
+
         t = System.Text.RegularExpressions.Regex.Replace(t, @"^\+\d+\s+", "");
         return string.IsNullOrWhiteSpace(t) ? null : t;
     }
@@ -73,7 +71,6 @@ internal static class ItemNameFormatter
 
         if (!hasRREMagic) return false;
 
-        // Prefijo mágico más alto (excluye materiales y enhancement)
         var bestPrefixBp = enchBps
             .Where(bp => !string.IsNullOrWhiteSpace(bp.Prefix) && !IsMaterial(bp) && !IsEnhancement(bp))
             .OrderByDescending(bp => bp.EnchantmentCost)
@@ -89,9 +86,8 @@ internal static class ItemNameFormatter
                 bp.AssetGuid.ToString().Equals(id, StringComparison.OrdinalIgnoreCase));
             if (bestEnh != null) break;
         }
-        var plusN = GetEnhancementPlus(bestEnh); // "+1", "+2", ...
+        var plusN = GetEnhancementPlus(bestEnh); 
 
-        // Sufijo mágico más alto (excluye materiales, enhancement y sufijos que sean solo "+N")
         var bestSuffixBp = enchBps
             .Where(bp => !string.IsNullOrWhiteSpace(bp.Suffix) && !IsMaterial(bp) && !IsEnhancement(bp) && !IsPurePlusSuffix(bp.Suffix))
             .OrderByDescending(bp => bp.EnchantmentCost)
@@ -106,7 +102,6 @@ internal static class ItemNameFormatter
 
         bool changed = false;
 
-        // 0) Limpia un posible prefijo mágico al PRINCIPIO (de versiones anteriores)
         if (!string.IsNullOrWhiteSpace(prefixText) &&
             name.StartsWith(prefixText + " ", StringComparison.OrdinalIgnoreCase))
         {
@@ -114,10 +109,8 @@ internal static class ItemNameFormatter
             changed = true;
         }
 
-        // 1) Separa el bloque inicial de materiales tal cual aparece en el nombre
         var (materialLead, rest) = SplitLeadingMaterials(name, enchBps);
 
-        // 2) Inserta el prefijo mágico justo DESPUÉS de los materiales (si no está ya)
         if (!string.IsNullOrWhiteSpace(prefixText) &&
             !rest.StartsWith(prefixText + " ", StringComparison.OrdinalIgnoreCase))
         {
@@ -125,24 +118,21 @@ internal static class ItemNameFormatter
             changed = true;
         }
 
-        // 3) Reconstruye nombre con materiales intactos
         name = string.IsNullOrEmpty(materialLead) ? rest : $"{materialLead} {rest}";
 
-        // 4) Normaliza cola "+N Sufijo"
-        //    4.1) Quita sufijo viejo si ya está al final
         if (EndsWithToken(name, suffixText))
         {
             name = TrimEndToken(name, suffixText);
             changed = true;
         }
-        // quita cualquier " +N ..." final previo (para recomponerlo limpio)
+
         var newName = System.Text.RegularExpressions.Regex.Replace(name, @"\s\+\d(?:\s+.+)?$", "", RegexOptions.IgnoreCase);
         if (!ReferenceEquals(newName, name))
         {
             name = newName;
             changed = true;
         }
-        //    4.3) Añade "+N Sufijo" en orden
+
         string tail = null;
         if (!string.IsNullOrWhiteSpace(plusN)) tail = plusN;
         if (!string.IsNullOrWhiteSpace(suffixText))
@@ -163,7 +153,6 @@ internal static class ItemNameFormatter
 
     private static (string leading, string rest) SplitLeadingMaterials(string currentName, List<BlueprintItemEnchantment> enchBps)
     {
-        // Candidatos de texto de materiales sacados de los blueprints
         var materialTexts = enchBps
             .Where(IsMaterial)
             .Select(GetPrefixLikeText)
@@ -176,7 +165,6 @@ internal static class ItemNameFormatter
         string leading = string.Empty;
         string rest = currentName;
 
-        // Consume en el mismo orden en que aparecen al principio del nombre
         for (int i = 0; i < materialTexts.Count; i++)
         {
             bool matched = false;
@@ -195,11 +183,19 @@ internal static class ItemNameFormatter
         return (leading, rest);
     }
 
+    private static int EnhancementRankFromId(string id)
+    {
+        for (int i = 0; i < WeaponEnhancementIds.Length; i++)
+            if (string.Equals(WeaponEnhancementIds[i], id, StringComparison.OrdinalIgnoreCase))
+                return WeaponEnhancementIds.Length - i; 
+        return 0;
+    }
+
     private static string GetEnhancementPlus(BlueprintItemEnchantment bp)
     {
         if (bp == null) return null;
-        var cost = bp.EnchantmentCost;
-        return cost > 0 ? $"+{cost}" : null;
+        int rank = EnhancementRankFromId(bp.AssetGuid.ToString()); 
+        return rank > 0 ? $"+{rank}" : null;
     }
 
     private static bool EndsWithToken(string s, string token)

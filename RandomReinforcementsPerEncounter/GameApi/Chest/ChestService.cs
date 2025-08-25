@@ -61,19 +61,14 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
             new PurchaseRule(TrashList.Item,                   PurchaseChances.Trash),
         };
 
-
-
         private static int RollBiasedGold(int baseGold)
         {
-            // Sesgo cuadrático (más prob. de valores altos)
             float r = Random.value;
             float bias = 1f + 9f * Mathf.Pow(r, 2f);
             int finalGold = Mathf.RoundToInt(baseGold * bias);
             return Mathf.Max(1, finalGold);
         }
 
-
-        // Wrapper null-safe para el handler
         internal static void TrySpawnDefaultChestAt(Vector3? maybePosition)
         {
             if (!maybePosition.HasValue) return;
@@ -101,22 +96,18 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
 
             var lootPart = entityData.Parts.Get<InteractionLootPart>() ?? entityData.Parts.Add<InteractionLootPart>();
 
-            // En vez de reflection:
             _destroyWhenEmptyRef(lootPart) = true;
             lootPart.AlreadyUnlocked = true;
 
             var interactionLoot = view.gameObject.GetComponent<InteractionLoot>() ?? view.gameObject.AddComponent<InteractionLoot>();
 
-            // Dummy loot table (la que usabas)
             if (_dummyLootBlueprint == null || interactionLoot.Settings == null) return;
 
-            // En vez de reflection:
             _lootTablesRef(interactionLoot.Settings) = new[]
             {
                 _dummyLootBlueprint.ToReference<BlueprintLootReference>()
             };
 
-            // Genera el contenido
             foreach (var cr in LootContext.EnemyCRs)
             {
                 AddLootFromEnemyCRs(lootPart, cr);
@@ -133,9 +124,8 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
             var entries = new List<LootEntry>(8);
 
             int baseGold = LootEconomy.GetBaseGoldForCR(cr);
-            totalGold += RollBiasedGold(baseGold); // usa el helper nuevo
+            totalGold += RollBiasedGold(baseGold); 
 
-            // Compras según plan
             foreach (var rule in PurchasePlan)
             {
                 if (rule.BestHealing)
@@ -144,7 +134,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
                     TryBuyRandomItemInto(entries, rule.Items, ref totalGold, rule.ChancePercent);
             }
 
-            // Oro restante → convertir a ítem oro (escala 1:10 como ya hacías)
             entries.Add(new LootEntry
             {
                 Item = _goldItemBlueprint.ToReference<BlueprintItemReference>(),
@@ -159,7 +148,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
                 LootPicker.AddPickedWeaponToLoot(lootPart, cr);
             }
         }
-
 
         private static void TryBuyBestHealingPotionInto(List<LootEntry> entries, ref int totalGold, float chancePercent)
         {

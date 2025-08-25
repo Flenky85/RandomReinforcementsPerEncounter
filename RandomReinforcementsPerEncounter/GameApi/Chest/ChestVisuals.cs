@@ -61,9 +61,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
 
     internal static class ChestVisuals
     {
-        /// <summary>
-        /// Lee el loot del cofre, detecta el +X más alto en armas y aplica la escala al view.
-        /// </summary>
         public static void ApplyScaleFromLoot(MapObjectView view, InteractionLootPart lootPart)
         {
             if (view == null || lootPart?.Loot?.Items == null) return;

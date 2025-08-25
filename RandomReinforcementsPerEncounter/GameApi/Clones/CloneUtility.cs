@@ -11,7 +11,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Clones
             var units = Game.Instance?.State?.Units;
             if (units == null) return;
 
-            foreach (var unit in units.ToList()) // snapshot
+            foreach (var unit in units.ToList())
             {
                 if (unit?.View?.GetComponent<CloneMarker>() != null)
                     unit.MarkForDestroy();

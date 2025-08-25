@@ -20,9 +20,9 @@ namespace RandomReinforcementsPerEncounter
                 Seed = seed,
 
                 Name = name,
-                AffixDisplay = name,          // prefijo visible
+                AffixDisplay = name,          
                 Desc = desc,
-                Affix = AffixKind.Prefix,     // estos van como prefijo
+                Affix = AffixKind.Prefix,     
 
                 Chance = chance,
 
@@ -32,7 +32,6 @@ namespace RandomReinforcementsPerEncounter
             };
         }
 
-        // ---- Definiciones (CasterFeature) ----
         internal static readonly EnchantDef SpellDC = MakeCasterFeature(Seed.spellDC, "Hexing", "spell DC for all saving throws against spells the wielder casts");
         internal static readonly EnchantDef SpellDieBonus = MakeCasterFeature(Seed.spellDieBonus, "Overcharged", "each die rolled when casting a spell with descriptor fire, cold, electricity, acid, sonic, force or cure");
 

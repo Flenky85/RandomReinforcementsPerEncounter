@@ -11,7 +11,6 @@ using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 
 namespace RandomReinforcementsPerEncounter.GameApi
 {
-    // Sigue siendo public si lo usas desde fuera; si no, cámbialo a internal.
     public static class ReinforcementSpawner
     {
         private static readonly System.Random _rng = new System.Random();
@@ -24,7 +23,6 @@ namespace RandomReinforcementsPerEncounter.GameApi
             var blueprint = ResourcesLibrary.TryGetBlueprint<BlueprintUnit>(assetId);
             if (blueprint == null) return;
 
-            // 1) Spawn en el ANCLA (enemigo)...
             var spawned = Game.Instance.EntityCreator.SpawnUnit(
                 blueprint,
                 position,
@@ -33,7 +31,6 @@ namespace RandomReinforcementsPerEncounter.GameApi
             );
             if (spawned == null || spawned.View == null) return;
 
-            // 2) ...y luego lo movemos un poco (offset corto, [-2, 2] en X/Z), como en tu versión original.
             Vector3 spawnPos = FindValidPositionNear(position);
             ConfigureSpawnedUnit(spawned);
             MoveSpawnedToPosition(spawned, spawnPos);
@@ -90,7 +87,6 @@ namespace RandomReinforcementsPerEncounter.GameApi
             };
         }
 
-        // MISMO comportamiento que tenías: desplazamiento pequeño alrededor del ancla
         private static Vector3 FindValidPositionNear(Vector3 origin)
         {
             float offsetX = (float)(_rng.NextDouble() * 4.0 - 2.0);

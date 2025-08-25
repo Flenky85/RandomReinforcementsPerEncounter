@@ -8,9 +8,9 @@ namespace RandomReinforcementsPerEncounter
     {
         private static EnchantDef MakeSkillBonus(
             string seed,
-            string name,        // p.ej. "Mobile"
-            string suffixName,  // p.ej. "of Mobile"
-            string desc,        // p.ej. "mobility"
+            string name,        
+            string suffixName,  
+            string desc,        
             StatType stat)
         {
             int[] skillBonusOne = { 2, 3, 4, 5, 6, 8 };
@@ -21,8 +21,7 @@ namespace RandomReinforcementsPerEncounter
             {
                 Type = EnchantType.SkillsBonus,
                 Seed = seed,
-
-                // naming / UI
+                              
                 Name = name,
                 AffixDisplay = suffixName,
                 Desc = desc,
@@ -30,16 +29,13 @@ namespace RandomReinforcementsPerEncounter
 
                 Chance = chance,
                 
-                // mapas de valor por tier
                 TierMapOneHanded = skillBonusOne,
                 TierMapTwoHanded = skillBonusTwo,
 
-                // dato específico (stat/skill)
                 Stat = stat
             };
         }
 
-        // ---- Definiciones (Skills) ----
         internal static readonly EnchantDef SkillMOB = MakeSkillBonus(Seed.skillMOB, "Mobile", "of Mobile", "mobility", StatType.SkillMobility);
         internal static readonly EnchantDef SkillATH = MakeSkillBonus(Seed.skillATH, "Vigorous", "of Vigor", "athletics", StatType.SkillAthletics);
         internal static readonly EnchantDef SkillARC = MakeSkillBonus(Seed.skillARC, "Arcane", "of the Arcanist", "knowledge arcana", StatType.SkillKnowledgeArcana);

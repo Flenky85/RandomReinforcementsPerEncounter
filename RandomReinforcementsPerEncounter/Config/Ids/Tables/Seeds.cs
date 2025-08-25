@@ -155,6 +155,5 @@
         public const string OverWeaponHeavyShield = "overweaponheavyshield";
         public const string OverWeaponLightShield = "overweaponlightshield";
 
-        
     }
 }

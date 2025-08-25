@@ -2,10 +2,6 @@
 
 namespace RandomReinforcementsPerEncounter.Config.Ids.Tables
 {
-    /// <summary>
-    /// Fuente única de GUIDs, en string, sin prefijos raros.
-    /// Mantener EXACTAMENTE las mismas cadenas siempre (ver tu regla de estabilidad de GUIDs).
-    /// </summary>
     internal static class BlueprintGuids
     {
         //Enanchements plus

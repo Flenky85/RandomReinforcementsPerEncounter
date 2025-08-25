@@ -5,7 +5,6 @@ namespace RandomReinforcementsPerEncounter.GameApi.Mechanics
 {
     internal static class RRECtx
     {
-        // Contexto “dummy” para marcar enchant como externo/persistente
         public static MechanicsContext Permanent()
             => new MechanicsContext(default(JsonConstructorMark));
     }
