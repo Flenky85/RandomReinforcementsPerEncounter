@@ -2,14 +2,10 @@
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
-using Kingmaker.EntitySystem.Persistence.JsonUtility;
 using Kingmaker.Enums;
 using Kingmaker.Items;
-using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter.Config;
-using System;
-using System.Linq;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
