@@ -78,6 +78,11 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
 
         internal static void SpawnLootChest(string chestBlueprintGuid, Vector3 position)
         {
+            if (!Config.Settings.ModSettings.Instance.Chestspawn)
+                return;
+
+            if (LootContext.EnemyCRs.Count == 0) return;
+
             var chestBlueprint = ResourcesLibrary.TryGetBlueprint<BlueprintDynamicMapObject>(chestBlueprintGuid);
             if (chestBlueprint?.Prefab == null) return;
 

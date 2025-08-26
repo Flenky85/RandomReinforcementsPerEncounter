@@ -2,12 +2,14 @@
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.UnitLogic;
-using RandomReinforcementsPerEncounter.State;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Domain.Models;
+using RandomReinforcementsPerEncounter.GameApi.Clones;
+using RandomReinforcementsPerEncounter.State;
 using System.Collections.Generic;
 using UnityEngine;
-using RandomReinforcementsPerEncounter.GameApi.Clones;
-using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using RandomReinforcementsPerEncounter.Config.Settings;
+
 
 namespace RandomReinforcementsPerEncounter.GameApi
 {
@@ -17,6 +19,9 @@ namespace RandomReinforcementsPerEncounter.GameApi
 
         public static void SpawnReinforcementAt(Vector3 position, int cr, string factionId)
         {
+            if (!ModSettings.Instance.spawnerenable)
+                return;
+
             var assetId = GetRandomAssetIdByCRAndFaction(cr, factionId);
             if (string.IsNullOrEmpty(assetId)) return;
 
@@ -74,8 +79,8 @@ namespace RandomReinforcementsPerEncounter.GameApi
 
         private static int ApplyCRVariability(int baseCR)
         {
-            int variability = Config.Settings.ModSettings.Instance.VariabilityRange;
-            int mode = Config.Settings.ModSettings.Instance.VariabilityMode;
+            int variability = ModSettings.Instance.VariabilityRange;
+            int mode = ModSettings.Instance.VariabilityMode;
             if (variability <= 0) return baseCR;
 
             return mode switch
@@ -96,7 +101,7 @@ namespace RandomReinforcementsPerEncounter.GameApi
 
         private static void ConfigureSpawnedUnit(UnitEntityData unit)
         {
-            unit.GiveExperienceOnDeath = false;
+            unit.GiveExperienceOnDeath = ModSettings.Instance.monsterspawnerexp;
             unit.Descriptor.State.AddCondition(UnitCondition.Unlootable);
             unit.View?.gameObject?.AddComponent<CloneMarker>();
         }

@@ -13,7 +13,7 @@ namespace RandomReinforcementsPerEncounter
         {
             int[] CasterBonusOne = { 1, 1, 1, 1, 2, 2 };
             int[] CasterBonusTwo = { 1, 1, 2, 2, 3, 3 };
-            int chance = 10;
+            int chance = 5;
 
             return new EnchantDef
             {

@@ -18,7 +18,7 @@ namespace RandomReinforcementsPerEncounter
         {
             int[] OnHitDCOneHanded = { 11, 15, 19, 24, 28, 32 };
             int[] OnHitDCTwoHanded = { 13, 17, 21, 26, 30, 34 };
-            int chance = 10;
+            int chance = 5;
 
             return new EnchantDef
             {

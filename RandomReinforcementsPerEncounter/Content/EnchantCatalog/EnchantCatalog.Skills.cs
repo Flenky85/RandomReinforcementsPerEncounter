@@ -15,7 +15,7 @@ namespace RandomReinforcementsPerEncounter
         {
             int[] skillBonusOne = { 2, 3, 4, 5, 6, 8 };
             int[] skillBonusTwo = { 2, 4, 6, 8, 10, 12 };
-            int chance = 10;
+            int chance = 3;
 
             return new EnchantDef
             {

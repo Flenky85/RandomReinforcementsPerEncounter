@@ -28,7 +28,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                 "You’ll be able to customize:\n" +
                 "• How much gold appears in chests and on enemies.\n" +
                 "• Price multipliers for the randomly enchanted magic items created by the mod.\n" +
-                "• Chances/weights to get one enchant or another (e.g., Flaming vs. Frost).\n\n" +
+                "• Chances/weights to get one enchant or another.\n\n" +
                 "This page is a stub for now — settings will be added in the next update.",
                 _wrap, GUILayout.Width(500f)
             );
