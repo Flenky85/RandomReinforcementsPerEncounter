@@ -92,6 +92,52 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
                 changed = true;
             }
 
+            GUILayout.Space(15);
+
+            GUILayout.Label("Rewards & post-combat options", _boldLabel);
+                        GUILayout.Space(5);
+
+            bool exp = GUILayout.Toggle(
+                settings.monsterspawnerexp,
+                "Grant XP for spawned reinforcements."
+            );
+            if (exp != settings.monsterspawnerexp)
+            {
+                settings.monsterspawnerexp = exp;
+                changed = true;
+            }
+
+            bool chest = GUILayout.Toggle(
+                settings.Chestspawn,
+                "Chest spawn after combat."
+            );
+            if (chest != settings.Chestspawn)
+            {
+                settings.Chestspawn = chest;
+                changed = true;
+            }
+
+            GUILayout.Space(15);
+            GUILayout.Label("Global switch:", _boldLabel);
+
+            bool enableSpawner = GUILayout.Toggle(
+                settings.spawnerenable,
+                "Enable reinforcements spawner."
+            );
+            if (enableSpawner != settings.spawnerenable)
+            {
+                settings.spawnerenable = enableSpawner;
+                changed = true;
+            }
+
+            GUILayout.Space(20);
+            GUILayout.Label("Reset", _boldLabel);
+
+            if (GUILayout.Button("Restore defaults", GUILayout.Width(200)))
+            {
+                ModSettings.ResetToDefaultsSpawner();
+            }
+
             if (changed)
                 ModSettings.Save();
         }

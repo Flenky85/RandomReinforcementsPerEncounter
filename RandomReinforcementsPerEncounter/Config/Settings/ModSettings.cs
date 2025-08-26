@@ -8,10 +8,14 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
     [XmlRoot("ModSettings")]
     public class ModSettings
     {
+        //Spawner options
         public int EncounterDifficultyModifier = 0;   
         public float PartyDifficultyOffset = 0f;      
         public int VariabilityMode = 0;               
-        public int VariabilityRange = 0;              
+        public int VariabilityRange = 0;
+        public bool monsterspawnerexp = false; 
+        public bool Chestspawn = true;         
+        public bool spawnerenable = true;      
 
         private static string _settingsPath;
         public static ModSettings Instance { get; private set; } = new ModSettings();
@@ -65,6 +69,18 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             Instance.PartyDifficultyOffset = Mathf.Clamp(Instance.PartyDifficultyOffset, -10f, 10f);
             Instance.VariabilityMode = Mathf.Clamp(Instance.VariabilityMode, 0, 2);
             Instance.VariabilityRange = Mathf.Clamp(Instance.VariabilityRange, -20, 20);
+        }
+        public static void ResetToDefaultsSpawner()
+        {
+            var d = new ModSettings();
+            Instance.EncounterDifficultyModifier = d.EncounterDifficultyModifier;
+            Instance.PartyDifficultyOffset = d.PartyDifficultyOffset;
+            Instance.VariabilityMode = d.VariabilityMode;
+            Instance.VariabilityRange = d.VariabilityRange;
+            Instance.monsterspawnerexp = d.monsterspawnerexp;
+            Instance.Chestspawn = d.Chestspawn;
+            Instance.spawnerenable = d.spawnerenable;
+            Save();
         }
     }
 }
