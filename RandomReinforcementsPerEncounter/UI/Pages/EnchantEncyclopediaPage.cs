@@ -51,8 +51,9 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             EnsureIdIndex();     
 
             GUILayout.BeginVertical(GUILayout.Width(MaxWidth));
-
-              _gripIndex = GUILayout.Toolbar(_gripIndex, _gripTabs, GUILayout.Width(MaxWidth));
+            
+            GUILayout.Label("Weapons", _bold);
+            _gripIndex = GUILayout.Toolbar(_gripIndex, _gripTabs, GUILayout.Width(MaxWidth));
             WeaponGrip grip = (_gripIndex == 1) ? WeaponGrip.TwoHanded : (_gripIndex == 2) ? WeaponGrip.Double : WeaponGrip.OneHanded;
 
             GUILayout.Space(8);
