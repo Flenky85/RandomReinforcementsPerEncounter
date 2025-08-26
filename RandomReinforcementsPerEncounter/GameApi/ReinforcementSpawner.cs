@@ -36,6 +36,8 @@ namespace RandomReinforcementsPerEncounter.GameApi
             );
             if (spawned == null || spawned.View == null) return;
 
+            Main.ModEntry?.Logger?.Log($"[Spawn] id={assetId} asset='{blueprint.name}' display='{spawned.CharacterName}'");
+
             Vector3 spawnPos = FindValidPositionNear(position);
             ConfigureSpawnedUnit(spawned);
             MoveSpawnedToPosition(spawned, spawnPos);
