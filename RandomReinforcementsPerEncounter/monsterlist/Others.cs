@@ -228,6 +228,21 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
+            new MonsterData
+            {
+                AssetId = "55c53da863764abe889db65105f773f3",  // CR4_SchirStandard_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "5",
+                CR = "4",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "cd05c1add5a443679c8757152111d532",  // DLC4_CR10_Bear_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "10",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///Sumonean al siguiente al morir.

@@ -53,6 +53,18 @@ internal static class ItemNameFormatter
         return string.IsNullOrWhiteSpace(t) ? null : t;
     }
 
+    private static string BuildMaterialLead(List<BlueprintItemEnchantment> enchBps)
+    {
+        var mats = enchBps
+            .Where(IsMaterial)
+            .Select(GetPrefixLikeText)
+            .Where(s => !string.IsNullOrWhiteSpace(s))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+
+        return string.Join(" ", mats);
+    }
+
     public static bool TryDecorateName(ItemEntity item, ref string name)
     {
         if (item == null || !item.IsIdentified || string.IsNullOrEmpty(name))
@@ -69,7 +81,8 @@ internal static class ItemNameFormatter
             enchBps.Any(bp => bp.GetComponent<RRE_PriceDeltaComponent>() != null) ||
             enchBps.Any(bp => !string.IsNullOrWhiteSpace(bp.Prefix) || !string.IsNullOrWhiteSpace(bp.Suffix));
 
-        if (!hasRREMagic) return false;
+        bool hasInteresting = hasRREMagic || enchBps.Any(IsMaterial);
+        if (!hasInteresting) return false;
 
         var bestPrefixBp = enchBps
             .Where(bp => !string.IsNullOrWhiteSpace(bp.Prefix) && !IsMaterial(bp) && !IsEnhancement(bp))
@@ -78,7 +91,6 @@ internal static class ItemNameFormatter
             .FirstOrDefault();
         var prefixText = bestPrefixBp?.Prefix?.Trim();
 
-        // Enhancement +N más alto presente
         BlueprintItemEnchantment bestEnh = null;
         foreach (var id in WeaponEnhancementIds)
         {
@@ -86,7 +98,7 @@ internal static class ItemNameFormatter
                 bp.AssetGuid.ToString().Equals(id, StringComparison.OrdinalIgnoreCase));
             if (bestEnh != null) break;
         }
-        var plusN = GetEnhancementPlus(bestEnh); 
+        var plusN = GetEnhancementPlus(bestEnh);
 
         var bestSuffixBp = enchBps
             .Where(bp => !string.IsNullOrWhiteSpace(bp.Suffix) && !IsMaterial(bp) && !IsEnhancement(bp) && !IsPurePlusSuffix(bp.Suffix))
@@ -95,9 +107,12 @@ internal static class ItemNameFormatter
             .FirstOrDefault();
         var suffixText = SanitizeSuffix(bestSuffixBp?.Suffix);
 
+        var materialLeadWanted = BuildMaterialLead(enchBps);
+
         if (string.IsNullOrWhiteSpace(prefixText) &&
             string.IsNullOrWhiteSpace(plusN) &&
-            string.IsNullOrWhiteSpace(suffixText))
+            string.IsNullOrWhiteSpace(suffixText) &&
+            string.IsNullOrWhiteSpace(materialLeadWanted))
             return false;
 
         bool changed = false;
@@ -109,7 +124,7 @@ internal static class ItemNameFormatter
             changed = true;
         }
 
-        var (materialLead, rest) = SplitLeadingMaterials(name, enchBps);
+        var (materialLeadCurrent, rest) = SplitLeadingMaterials(name, enchBps);
 
         if (!string.IsNullOrWhiteSpace(prefixText) &&
             !rest.StartsWith(prefixText + " ", StringComparison.OrdinalIgnoreCase))
@@ -118,7 +133,17 @@ internal static class ItemNameFormatter
             changed = true;
         }
 
-        name = string.IsNullOrEmpty(materialLead) ? rest : $"{materialLead} {rest}";
+        if (!string.IsNullOrWhiteSpace(materialLeadWanted))
+        {
+            if (!materialLeadWanted.Equals(materialLeadCurrent, StringComparison.OrdinalIgnoreCase))
+                changed = true;
+
+            name = $"{materialLeadWanted} {rest}".Trim();
+        }
+        else
+        {
+            name = rest;
+        }
 
         if (EndsWithToken(name, suffixText))
         {
@@ -126,7 +151,8 @@ internal static class ItemNameFormatter
             changed = true;
         }
 
-        var newName = System.Text.RegularExpressions.Regex.Replace(name, @"\s\+\d(?:\s+.+)?$", "", RegexOptions.IgnoreCase);
+        var newName = System.Text.RegularExpressions.Regex.Replace(
+            name, @"\s\+\d(?:\s+.+)?$", "", RegexOptions.IgnoreCase);
         if (!ReferenceEquals(newName, name))
         {
             name = newName;

@@ -58,7 +58,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 }
             }
 
-            if (UnityEngine.Random.value < 0.20f)
+            if (UnityEngine.Random.value < 0.10f)
             {
                 int[] chances = TierChances.CalcTierChances(cr);
                 for (int i = 0; i < chances.Length; i++)

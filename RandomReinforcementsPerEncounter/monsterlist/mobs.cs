@@ -2570,14 +2570,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "55c53da863764abe889db65105f773f3",  // CR4_SchirStandard_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "4",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "f90e38b845b328a4f9878f1a96ca2082",  // CR4_SchirStandard (Kingmaker.Localization.SharedStringAsset)
                 Levels = "5",
                 CR = "4",
