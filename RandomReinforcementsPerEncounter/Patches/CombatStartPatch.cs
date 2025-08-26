@@ -23,8 +23,8 @@ namespace RandomReinforcementsPerEncounter.Patches
             LootContext.EnemyCRs?.Clear();
             CombatFlags.ReinforcementsSpawned = true;
 
-            var playerUnits = Game.Instance.State.Units
-                .Where(u => u != null && u.IsInCombat && u.IsPlayerFaction)
+            var playerUnits = Game.Instance.Player.Party
+                .Where(u => u != null && u.IsInCombat)
                 .ToList();
 
             var enemies = Game.Instance.State.Units
