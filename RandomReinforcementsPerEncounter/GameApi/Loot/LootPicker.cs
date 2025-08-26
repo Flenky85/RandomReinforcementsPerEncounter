@@ -6,6 +6,9 @@ using Kingmaker.Enums;
 using Kingmaker.Items;
 using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter.Config;
+using RandomReinforcementsPerEncounter.Config.Ids.Tables;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
@@ -58,7 +61,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 }
             }
 
-            if (UnityEngine.Random.value < 0.10f)
+            if (UnityEngine.Random.value < 0.05f)
             {
                 int[] chances = TierChances.CalcTierChances(cr);
                 for (int i = 0; i < chances.Length; i++)
@@ -67,23 +70,14 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 int tier = TierChances.GetRandomTier(chances);
 
                 EnchantApplier.ApplyRandomTierEnchant(entity, tier, chances);
-            }
-
-            if (bpWeapon.IsMagic == false)
+            } else if (UnityEngine.Random.value < 0.30f)
             {
-                if (UnityEngine.Random.value < 0.30f)
-                {
-                    var masterworkEnchant = ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(LootRefs.MasterWork);
-                    if (masterworkEnchant != null)
-                    {
-                        EnchantApplier.AddEnchants(
-                            entity,
-                            true,
-                            masterworkEnchant,
-                            PriceRefs.PriceT1
-                        );
-                    }
-                }
+                EnchantApplier.AddEnchants(
+                    entity,
+                    true,
+                    ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(LootRefs.MasterWork),
+                    PriceRefs.PriceT1
+                );
             }
 
             lootPart.Loot.Add(entity); 

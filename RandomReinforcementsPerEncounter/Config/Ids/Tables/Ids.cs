@@ -40,7 +40,7 @@ namespace RandomReinforcementsPerEncounter.Config.Ids.Tables
         public const string ColdIron = "e5990dc76d2a613409916071c898eee8";
         public const string Mithral = "0ae8fc9f2e255584faf4d14835224875";
         public const string Adamantine = "ab39e7d59dd12f4429ffef5dca88dc7b";
-        public const string MasterWork = "b38844e2bffbac48b63036b66e735be";
+        public const string MasterWork = "6b38844e2bffbac48b63036b66e735be";
         public const string Composite = "c3209eb058d471548928a200d70765e0";
         public const string OverSized = "d8e1ebc1062d8cc42abff78783856b0d";
 
