@@ -2,7 +2,7 @@
   "Id": "RandomReinforcementsPerEncounter",
   "DisplayName": "Random Reinforcements per Encounter",
   "Author": "Flenky",
-  "Version": "1.0.2",
+  "Version": "1.1.0",
   "Description": "Adds random enemy reinforcements at the start of combat to dynamically adjust difficulty and increase replayability. Only works in turn-based mode.",
   "GameId": "wrath",
   "Requirements": [],
