@@ -153,6 +153,37 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "b1525b4b33efe0241b4cbf28486cd2cc"
             },
 
+            
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///Revisar, parece que tienen una CA inferior a la real.
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+            new MonsterData
+            {
+                AssetId = "f5095d9827534dcd8515eda1e29fc8aa",  // DLC4_Ghost_Curser (Kingmaker.Localization.SharedStringAsset)
+                Levels = "5",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "3f00cf56280942a89513b66a46ff0b7e",  // DLC4_Ghost_Bruiser (Kingmaker.Localization.SharedStringAsset)
+                Levels = "3",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "727336b5ad3c48da96a57a700ea90cbe",  // DLC4_Ghost_Glasscannon (Kingmaker.Localization.SharedStringAsset)
+                Levels = "3",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+
+
 
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///Sumonean un bicho de CR altisima cuando mueren.
@@ -186,6 +217,40 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "b3805a0a7ee0495db81c2fdc7376efc9",  // CR9_GundrunShamansWarrior_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
                 Levels = "8",
                 CR = "7",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
+                AssetId = "921a61c8b58541b7a916e61dfcde6bb1",  // DLC4_Horse_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "2",
+                CR = "3",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///Sumonean al siguiente al morir.
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new MonsterData
+            {
+                AssetId = "a25f39ad9db445e594e3a3c366a776ae",  // DLC6_CR10_KalavakusStandard (Kingmaker.Localization.SharedStringAsset)
+                Levels = "10",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "6e618be8048b4bf2b199c897af1628ea",  // DLC6_CR20_GalluAdvanced (Kingmaker.Localization.SharedStringAsset)
+                Levels = "19",
+                CR = "20",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "5581a03d1f4441b997474812e7547739",  // DLC6_CR25M_Prebuff_GreaterKalavakusAdvanced (Kingmaker.Localization.SharedStringAsset)
+                Levels = "6",
+                CR = "25",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 

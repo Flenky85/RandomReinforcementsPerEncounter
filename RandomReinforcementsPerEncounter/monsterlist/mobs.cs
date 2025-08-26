@@ -2378,14 +2378,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "921a61c8b58541b7a916e61dfcde6bb1",  // DLC4_Horse_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
-                Levels = "2",
-                CR = "3",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "1ff5ac93580141509641ed40f6744e7c",  // CR3_ZombieStandard_Ranger (Kingmaker.Localization.SharedStringAsset)
                 Levels = "2",
                 CR = "3",
@@ -7191,13 +7183,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "a25f39ad9db445e594e3a3c366a776ae",  // DLC6_CR10_KalavakusStandard (Kingmaker.Localization.SharedStringAsset)
-                Levels = "10",
-                CR = "10",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -7395,30 +7381,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 AssetId = "cd05c1add5a443679c8757152111d532",  // DLC4_CR10_Bear_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
                 Levels = "10",
-                CR = "10",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "3f00cf56280942a89513b66a46ff0b7e",  // DLC4_Ghost_Bruiser (Kingmaker.Localization.SharedStringAsset)
-                Levels = "3",
-                CR = "10",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "f5095d9827534dcd8515eda1e29fc8aa",  // DLC4_Ghost_Curser (Kingmaker.Localization.SharedStringAsset)
-                Levels = "5",
-                CR = "10",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "727336b5ad3c48da96a57a700ea90cbe",  // DLC4_Ghost_Glasscannon (Kingmaker.Localization.SharedStringAsset)
-                Levels = "3",
                 CR = "10",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
@@ -13262,14 +13224,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "6e618be8048b4bf2b199c897af1628ea",  // DLC6_CR20_GalluAdvanced (Kingmaker.Localization.SharedStringAsset)
-                Levels = "19",
-                CR = "20",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "338ad824744a4d38880c9d6a4ce0c24b",  // CR20_GolemGold (Kingmaker.Localization.SharedStringAsset)
                 Levels = "29",
                 CR = "20",
@@ -14417,14 +14371,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 AssetId = "1109322e6ec542bc97946177d6a90bcb",  // DLC3_CR25_SkeletalChampionArcher (Kingmaker.Localization.SharedStringAsset)
                 Levels = "4",
-                CR = "25",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "5581a03d1f4441b997474812e7547739",  // DLC6_CR25M_Prebuff_GreaterKalavakusAdvanced (Kingmaker.Localization.SharedStringAsset)
-                Levels = "6",
                 CR = "25",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
