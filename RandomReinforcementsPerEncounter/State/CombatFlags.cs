@@ -15,6 +15,7 @@
         internal static void Reset()
         {
             ReinforcementsSpawned = false;
+            ReinforcementState.Pending.Clear();
         }
     }
 }

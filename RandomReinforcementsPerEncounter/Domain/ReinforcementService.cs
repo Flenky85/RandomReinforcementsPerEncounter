@@ -12,7 +12,7 @@ namespace RandomReinforcementsPerEncounter.Domain
         {
             if (State.CombatFlags.ReinforcementsSpawned) return; // idempotent: run once per combat
 
-            State.LootContext.EnemyCRs.Clear();
+            State.LootContext.Reset();
             State.CombatFlags.ReinforcementsSpawned = true;
 
             var playerUnits = Game.Instance.State.Units
