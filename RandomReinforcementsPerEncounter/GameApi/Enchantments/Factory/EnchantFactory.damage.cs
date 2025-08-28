@@ -2,6 +2,7 @@
 using Kingmaker.RuleSystem;                                     
 using RandomReinforcementsPerEncounter.Config.Localization;
 using RandomReinforcementsPerEncounter.Domain.Models;
+using RandomReinforcementsPerEncounter.GameApi.Enchantments;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Factory.Utils;
 using System.Collections.Generic;
 
@@ -26,7 +27,7 @@ namespace RandomReinforcementsPerEncounter
 
                 int rolls = t.DiceCount > 0 ? t.DiceCount : 1;
                 int sides = t.DiceSide > 0 ? t.DiceSide : 6;
-                var diceT = FactoryMaps.MapDiceType(sides);
+                var diceT = DiceMapper.MapDiceType(sides);
 
                 var desc = FactoryText.BuildEnergyDescription(rolls, sides, description);
 

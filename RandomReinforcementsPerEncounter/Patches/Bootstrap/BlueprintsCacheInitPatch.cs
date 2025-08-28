@@ -3,7 +3,6 @@ using Kingmaker.Blueprints.JsonSystem;
 using RandomReinforcementsPerEncounter.GameApi.Clones;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments;
 using RandomReinforcementsPerEncounter.GameApi.Weapons;
-using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.Patches.Bootstrap
 {
@@ -20,30 +19,22 @@ namespace RandomReinforcementsPerEncounter.Patches.Bootstrap
 
             new CloneDeathWatcher();
             new AreaUnloadWatcher();
+
             MainJoinCombatHandler.Init();
-            new GameObject("RRE_BlueprintRegistrar").AddComponent<BlueprintRegistrar>();
-        }
 
-        private sealed class BlueprintRegistrar : MonoBehaviour
-        {
-            private System.Collections.IEnumerator Start()
+            try
             {
-                yield return null; 
-
-                try
-                {
-                    FeatureRegister.RegisterAll();
-                    EnchantRegister.RegisterAll();
-                    WeaponRegistry.Create_SawtoothSabre_Standard();
-                    WeaponRegistry.BuildAllOversizedFromList();
-                }
-                catch (System.Exception ex)
-                {
-                    Debug.LogError("[RRE] Failed to register blueprints: " + ex);
-                }
-                Destroy(gameObject); 
+                FeatureRegister.RegisterAll();
+                EnchantRegister.RegisterAll();
+                WeaponRegistry.Create_SawtoothSabre_Standard();
+                WeaponRegistry.BuildAllOversizedFromList();
+            }
+            catch (System.Exception ex)
+            {
+                Main.ModEntry.Logger.Error($"[RRE] Failed to register blueprints: {ex}");
             }
         }
     }
+
 }
 
