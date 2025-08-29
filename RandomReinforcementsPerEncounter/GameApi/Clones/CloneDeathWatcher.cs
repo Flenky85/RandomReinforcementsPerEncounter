@@ -14,26 +14,18 @@ namespace RandomReinforcementsPerEncounter.GameApi.Clones
         {
             if (unit == null || unit.Descriptor == null) return;
             if (!unit.Descriptor.State.IsDead) return;
-            if (unit.View == null) return;
-            if (unit.View.GetComponent<CloneMarker>() == null) return;
 
-            var go = unit.View.gameObject;
-            if (go == null) return;
+            var view = unit.View;
+            if (view == null) return;
+            if (view.GetComponent<CloneMarker>() == null) return;
 
-            go.AddComponent<CloneDestructionDelayed>().Unit = unit;
+            view.StartCoroutine(DestroyAfterDelay(unit, 4f));
         }
 
-        private class CloneDestructionDelayed : MonoBehaviour
+        private static IEnumerator DestroyAfterDelay(UnitEntityData unit, float seconds)
         {
-            public UnitEntityData Unit;
-
-            private void Awake() => StartCoroutine(DestroyAfterDelay());
-
-            private IEnumerator DestroyAfterDelay()
-            {
-                yield return new WaitForSeconds(4f);
-                Unit?.MarkForDestroy();
-            }
+            yield return new WaitForSeconds(seconds);
+            unit?.MarkForDestroy();
         }
     }
 }
