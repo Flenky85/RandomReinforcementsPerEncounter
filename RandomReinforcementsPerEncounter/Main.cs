@@ -1,8 +1,8 @@
 ﻿using HarmonyLib;
 using UnityEngine;
 using UnityModManagerNet;
-using RandomReinforcementsPerEncounter.UI;
 using RandomReinforcementsPerEncounter.GameApi.Clones;
+using RandomReinforcementsPerEncounter.UI;
 
 namespace RandomReinforcementsPerEncounter
 {

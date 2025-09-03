@@ -6,10 +6,6 @@ using Kingmaker.Enums;
 using Kingmaker.Items;
 using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter.Config;
-using RandomReinforcementsPerEncounter.Config.Ids.Tables;
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
