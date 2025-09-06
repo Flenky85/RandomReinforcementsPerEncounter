@@ -2426,14 +2426,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "b3bb5480b487460384bf5f6d882b5539",  // DLC6_DeadRavenSwarm (Kingmaker.Localization.SharedStringAsset)
-                Levels = "30",
-                CR = "3",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "492e9c74335b7b140bb5cab8413f7a42",  // CR3_GhoulCreeper_Rogue (Kingmaker.Localization.SharedStringAsset)
                 Levels = "3",
                 CR = "3",
