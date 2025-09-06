@@ -10,7 +10,7 @@ namespace RandomReinforcementsPerEncounter.UI
         private static readonly string[] Tabs =
         {
             "Spawner configuration",
-            "Loot configuration",
+            //"Loot configuration",
             "Enchant encyclopedia"
         };
 
@@ -27,8 +27,8 @@ namespace RandomReinforcementsPerEncounter.UI
             switch (_tabIndex)
             {
                 case 0: SpawnerConfigPage.Draw(modEntry); break;
-                case 1: LootConfigPage.Draw(modEntry); break;
-                case 2: EnchantEncyclopediaPage.Draw(modEntry); break;
+                //case 1: LootConfigPage.Draw(modEntry); break;
+                case 1: EnchantEncyclopediaPage.Draw(modEntry); break;
             }
 
             GUILayout.EndVertical();
