@@ -1,9 +1,10 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.Items;
+using RandomReinforcementsPerEncounter.Config.Settings;
 using RandomReinforcementsPerEncounter.GameApi.Enchantments.Components;
 using System.Linq;
-using static RandomReinforcementsPerEncounter.EnchantFactory;
+using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.Patches.Items
 {
@@ -18,7 +19,12 @@ namespace RandomReinforcementsPerEncounter.Patches.Items
                 .Where(c => c != null)
                 .Sum(c => c.Delta) ?? 0;
 
-            __result += extra;
+            if (extra <= 0) return;
+
+            float mult = Mathf.Clamp(ModSettings.Instance.GenItemValuePct, 1f, 1000f) / 100f;
+            int scaledExtra = Mathf.Max(0, Mathf.RoundToInt(extra * mult));
+
+            __result += scaledExtra;
         }
     }
 }

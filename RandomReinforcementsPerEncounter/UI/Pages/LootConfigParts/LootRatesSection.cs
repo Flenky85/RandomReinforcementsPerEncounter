@@ -1,36 +1,60 @@
-﻿using UnityEngine;
+﻿// File: UI/Pages/LootConfigParts/LootRatesSection.cs
+using UnityEngine;
+using RandomReinforcementsPerEncounter.Config.Settings;
 
 namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
 {
     /// <summary>
     /// Sección: sliders de 1..1000% para oro dropeado y valor de ítems generados.
     /// </summary>
-    internal static class LootRatesSection
+    internal static class GoldRatesSection
     {
         private const float MinPct1000 = 1f;
         private const float MaxPct1000 = 1000f;
-        private const float DefaultPct100 = 100f;
-
-        // Estado temporal (no persistido en Fase 1)
-        private static float _goldDropPct = DefaultPct100;
-        private static float _genItemValuePct = DefaultPct100;
 
         public static void Draw()
         {
+            var s = ModSettings.Instance;
+            bool changed = false;
+
             GUILayout.Label("Rates and multipliers", LootConfigPage.Bold);
             GUILayout.Space(4);
-            GUILayout.Label("Ajusta los porcentajes. 100% = valores vanilla. UI provisional.", LootConfigPage.Wrap, GUILayout.Width(520f));
+            GUILayout.Label("Ajusta los porcentajes. 100% = valores vanilla.", LootConfigPage.Wrap, GUILayout.Width(520f));
 
             GUILayout.Space(8);
-            _goldDropPct = PercentSliderRow1000(
+            float newGold = PercentSliderRow1000(
                 "Gold drop amount",
-                _goldDropPct,
-                "Afecta al oro encontrado en cofres y enemigos. 100% = vanilla.");
+                s.GoldDropPct,
+                "Afecta al oro encontrado en cofres y enemigos. 100% = vanilla."
+            );
+            if (!Mathf.Approximately(newGold, s.GoldDropPct))
+            {
+                s.GoldDropPct = newGold;
+                changed = true;
+            }
 
-            _genItemValuePct = PercentSliderRow1000(
+            float newGenVal = PercentSliderRow1000(
                 "Generated item value",
-                _genItemValuePct,
-                "Afecta al valor de mercado de los objetos mágicos generados por el mod. 100% = vanilla.");
+                s.GenItemValuePct,
+                "Afecta al valor de mercado de los objetos mágicos generados por el mod. 100% = vanilla."
+            );
+            if (!Mathf.Approximately(newGenVal, s.GenItemValuePct))
+            {
+                s.GenItemValuePct = newGenVal;
+                changed = true;
+            }
+
+            GUILayout.Space(10);
+            using (new GUILayout.HorizontalScope())
+            {
+                if (GUILayout.Button("Restore loot defaults", GUILayout.Width(200)))
+                {
+                    ModSettings.ResetToDefaultsGold();
+                    changed = false;
+                }
+            }
+
+            if (changed) ModSettings.Save();
         }
 
         private static float PercentSliderRow1000(string label, float value, string tooltip)

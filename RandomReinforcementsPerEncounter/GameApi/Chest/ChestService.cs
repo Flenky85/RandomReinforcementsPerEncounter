@@ -13,6 +13,7 @@ using UnityEngine;
 using RandomReinforcementsPerEncounter.GameApi.Loot;
 using RandomReinforcementsPerEncounter.Config.Ids.Tables;
 using RandomReinforcementsPerEncounter.Config.Loot;
+using RandomReinforcementsPerEncounter.Config.Settings;
 
 
 namespace RandomReinforcementsPerEncounter.GameApi.Chest
@@ -139,10 +140,15 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
                     TryBuyRandomItemInto(entries, rule.Items, ref totalGold, rule.ChancePercent);
             }
 
+            float pct = ModSettings.Instance.GoldDropPct;
+            int factor = Mathf.Max(1, LootEconomy.GoldToItemFactor);
+            int scaled = Mathf.RoundToInt(totalGold * (pct / 100f));
+            int coins = Mathf.Max(1, Mathf.RoundToInt(scaled / (float)factor));
+
             entries.Add(new LootEntry
             {
                 Item = _goldItemBlueprint.ToReference<BlueprintItemReference>(),
-                Count = Mathf.Max(1, totalGold / LootEconomy.GoldToItemFactor)
+                Count = coins
             });
 
             if (entries.Count > 0)

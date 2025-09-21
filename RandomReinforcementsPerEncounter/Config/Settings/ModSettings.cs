@@ -15,7 +15,11 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
         public int VariabilityRange = 0;
         public bool monsterspawnerexp = false; 
         public bool Chestspawn = true;         
-        public bool spawnerenable = true;      
+        public bool spawnerenable = true;
+
+        //Gold options
+        public float GoldDropPct = 100f;        
+        public float GenItemValuePct = 100f;    
 
         private static string _settingsPath;
         public static ModSettings Instance { get; private set; } = new ModSettings();
@@ -69,6 +73,9 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             Instance.PartyDifficultyOffset = Mathf.Clamp(Instance.PartyDifficultyOffset, -10f, 10f);
             Instance.VariabilityMode = Mathf.Clamp(Instance.VariabilityMode, 0, 2);
             Instance.VariabilityRange = Mathf.Clamp(Instance.VariabilityRange, -20, 20);
+
+            Instance.GoldDropPct = Mathf.Clamp(Mathf.Round(Instance.GoldDropPct), 1f, 1000f);
+            Instance.GenItemValuePct = Mathf.Clamp(Mathf.Round(Instance.GenItemValuePct), 1f, 1000f);
         }
         public static void ResetToDefaultsSpawner()
         {
@@ -80,6 +87,13 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             Instance.monsterspawnerexp = d.monsterspawnerexp;
             Instance.Chestspawn = d.Chestspawn;
             Instance.spawnerenable = d.spawnerenable;
+            Save();
+        }
+        public static void ResetToDefaultsGold()
+        {
+            var d = new ModSettings();
+            Instance.GoldDropPct = d.GoldDropPct;
+            Instance.GenItemValuePct = d.GenItemValuePct;
             Save();
         }
     }

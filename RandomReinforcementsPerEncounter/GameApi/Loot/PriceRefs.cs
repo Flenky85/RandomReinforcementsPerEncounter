@@ -1,5 +1,4 @@
-﻿using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
+﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using RandomReinforcementsPerEncounter.Config.Ids;
 

@@ -71,7 +71,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             Separator();
 
             // 1) Oro y valor de ítems
-            LootRatesSection.Draw();
+            GoldRatesSection.Draw();
 
             Separator();
 
