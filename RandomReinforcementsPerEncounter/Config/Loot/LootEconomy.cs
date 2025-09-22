@@ -19,7 +19,6 @@ namespace RandomReinforcementsPerEncounter.Config.Loot
 
         public const int GoldToItemFactor = 10;
 
-        public const float WeaponBonusChance = 0.70f;
     }
     internal static class PurchaseChances
     {

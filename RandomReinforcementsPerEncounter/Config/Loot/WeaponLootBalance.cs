@@ -8,6 +8,5 @@
         public const int TwoHandedRanged = 15;
         public const int Double = 10;
 
-        public const float OversizedChance = 0.15f;
     }
 }

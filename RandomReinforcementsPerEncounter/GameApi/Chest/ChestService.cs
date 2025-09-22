@@ -154,7 +154,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Chest
             if (entries.Count > 0)
                 lootPart.AddItems(entries);
 
-            if (Random.value < LootEconomy.WeaponBonusChance)
+            if (UnityEngine.Random.value < (ModSettings.Instance.WeaponDropPct / 100f))
             {
                 LootPicker.AddPickedWeaponToLoot(lootPart, cr);
             }

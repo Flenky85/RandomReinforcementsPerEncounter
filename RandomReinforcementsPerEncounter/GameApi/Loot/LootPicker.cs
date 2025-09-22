@@ -6,6 +6,7 @@ using Kingmaker.Enums;
 using Kingmaker.Items;
 using Kingmaker.View.MapObjects;
 using RandomReinforcementsPerEncounter.Config;
+using RandomReinforcementsPerEncounter.Config.Settings;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
@@ -15,7 +16,7 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
         {
             if (lootPart == null) return;
 
-            var pick = WeaponRoller.PickRandomWeapon(WeaponLootBalance.OversizedChance);
+            var pick = WeaponRoller.PickRandomWeapon();
             if (string.IsNullOrEmpty(pick.AssetId)) return;
 
             var bp = ResourcesLibrary.TryGetBlueprint<BlueprintItem>(pick.AssetId);
@@ -26,14 +27,18 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             if (entity == null) return;
             entity.Identify();
 
-            if (UnityEngine.Random.value < 0.20f)
+            if (UnityEngine.Random.value < (ModSettings.Instance.QualityMaterialPct / 100f))
             {
-                float r = UnityEngine.Random.value;
+                float r = UnityEngine.Random.value * 100f;
+                float c0 = ModSettings.Instance.MatColdIron;
+                float c1 = c0 + ModSettings.Instance.MatMithral;
+                float c2 = c1 + ModSettings.Instance.MatAdamantite;
+
                 var matGuid =
-                    (r < 0.50f) ? LootRefs.ColdIron :
-                    (r < 0.80f) ? LootRefs.Mithral :
-                    (r < 0.90f) ? LootRefs.Adamantine :
-                                  LootRefs.Druchite;
+                    (r < c0) ? LootRefs.ColdIron :
+                    (r < c1) ? LootRefs.Mithral :
+                    (r < c2) ? LootRefs.Adamantine :
+                               LootRefs.Druchite;
 
                 EnchantApplier.AddEnchants(
                     entity,
@@ -41,12 +46,11 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                     ResourcesLibrary.TryGetBlueprint<BlueprintItemEnchantment>(matGuid),
                     PriceRefs.PriceT1
                 );
-
             }
 
             if (bpWeapon.Category == WeaponCategory.Longbow || bpWeapon.Category == WeaponCategory.Shortbow)
             {
-                if (UnityEngine.Random.value < 0.50f)
+                if (UnityEngine.Random.value < (ModSettings.Instance.CompositePct / 100f))
                 {
                     EnchantApplier.AddEnchants(
                         entity,
@@ -57,14 +61,13 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 }
             }
 
-            if (UnityEngine.Random.value < 0.05f)
+            if (UnityEngine.Random.value < (ModSettings.Instance.MagicPct / 100f))
             {
                 int[] chances = TierChances.CalcTierChances(cr);
-
                 int tier = TierChances.GetRandomTier(chances);
-
                 EnchantApplier.ApplyRandomTierEnchant(entity, tier, chances);
-            } else if (UnityEngine.Random.value < 0.30f)
+            }
+            else if (UnityEngine.Random.value < (ModSettings.Instance.MasterworkPct / 100f))
             {
                 EnchantApplier.AddEnchants(
                     entity,

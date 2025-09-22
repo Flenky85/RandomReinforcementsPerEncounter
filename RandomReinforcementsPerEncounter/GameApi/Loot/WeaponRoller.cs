@@ -1,7 +1,9 @@
-﻿using System.Linq;
-using RandomReinforcementsPerEncounter.Config;
-using RandomReinforcementsPerEncounter.Domain.Models;
+﻿using RandomReinforcementsPerEncounter.Config;
+using RandomReinforcementsPerEncounter.Config.Settings;
 using RandomReinforcementsPerEncounter.Content.WeaponCatalog;
+using RandomReinforcementsPerEncounter.Domain.Models;
+using System.Linq;
+using UnityEngine;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
 {
@@ -25,8 +27,10 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             return WeaponType.Double;
         }
 
-        public static WeaponPick PickRandomWeapon(float oversizedChance = 0.15f)
+        public static WeaponPick PickRandomWeapon()
         {
+            float oversizedChance = Mathf.Clamp01(ModSettings.Instance.OversizedPct / 100f);
+
             bool wantOver = UnityEngine.Random.value < oversizedChance;
             var wanted = RollWeaponType();
 
