@@ -35,6 +35,14 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
         public float MatAdamantite = 10f;
         public float MatDruchite = 10f;
 
+        // Tiers
+        public int TierVisual1 = 1;
+        public int TierVisual2 = 1;
+        public int TierVisual3 = 1;
+        public int TierVisual4 = 1;
+        public int TierVisual5 = 1;
+        public int TierVisual6 = 1;
+
         private static string _settingsPath;
         public static ModSettings Instance { get; private set; } = new ModSettings();
 
@@ -107,6 +115,14 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             Instance.MatMithral = Clamp01pct(Instance.MatMithral);
             Instance.MatAdamantite = Clamp01pct(Instance.MatAdamantite);
             Instance.MatDruchite = Clamp01pct(Instance.MatDruchite);
+
+            // Tiers visuales 1..20
+            Instance.TierVisual1 = Mathf.Clamp(Instance.TierVisual1, 1, 20);
+            Instance.TierVisual2 = Mathf.Clamp(Instance.TierVisual2, 1, 20);
+            Instance.TierVisual3 = Mathf.Clamp(Instance.TierVisual3, 1, 20);
+            Instance.TierVisual4 = Mathf.Clamp(Instance.TierVisual4, 1, 20);
+            Instance.TierVisual5 = Mathf.Clamp(Instance.TierVisual5, 1, 20);
+            Instance.TierVisual6 = Mathf.Clamp(Instance.TierVisual6, 1, 20);
         }
 
         private static float Clamp01pct(float v) => Mathf.Clamp(Mathf.Round(v), 0f, 100f);
@@ -198,6 +214,17 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             Instance.MatDruchite = d.MatDruchite;
 
             NormalizeMaterialsTo100();
+            Save();
+        }
+        public static void ResetToDefaultsTiers()
+        {
+            var d = new ModSettings();
+            Instance.TierVisual1 = d.TierVisual1;
+            Instance.TierVisual2 = d.TierVisual2;
+            Instance.TierVisual3 = d.TierVisual3;
+            Instance.TierVisual4 = d.TierVisual4;
+            Instance.TierVisual5 = d.TierVisual5;
+            Instance.TierVisual6 = d.TierVisual6;
             Save();
         }
     }

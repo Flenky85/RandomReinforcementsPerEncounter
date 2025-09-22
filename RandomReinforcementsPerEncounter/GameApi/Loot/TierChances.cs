@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RandomReinforcementsPerEncounter.Config.Settings;
+using System;
 using System.Linq;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
@@ -37,6 +38,22 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                     tiers[i] = raw;
                 }
             }
+            var s = ModSettings.Instance;
+
+            int[] mult = {
+                s.TierVisual1,
+                s.TierVisual2,
+                s.TierVisual3,
+                s.TierVisual4,
+                s.TierVisual5,
+                s.TierVisual6
+            };
+
+            for (int i = 0; i < 6; i++)
+            {
+                tiers[i] = Math.Max(0, (int)Math.Round(tiers[i] * (double)mult[i]));
+            }
+
             return tiers;
         }
 

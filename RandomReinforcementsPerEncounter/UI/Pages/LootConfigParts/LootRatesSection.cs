@@ -1,12 +1,8 @@
-﻿// File: UI/Pages/LootConfigParts/LootRatesSection.cs
-using UnityEngine;
+﻿using UnityEngine;
 using RandomReinforcementsPerEncounter.Config.Settings;
 
 namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
 {
-    /// <summary>
-    /// Sección: sliders de 1..1000% para oro dropeado y valor de ítems generados.
-    /// </summary>
     internal static class GoldRatesSection
     {
         private const float MinPct1000 = 1f;
