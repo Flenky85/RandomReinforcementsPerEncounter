@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using UnityEngine;
 using RandomReinforcementsPerEncounter.GameApi.Loot;
-using RandomReinforcementsPerEncounter.Config.Settings; // ← añade esto
+using RandomReinforcementsPerEncounter.Config.Settings;
 
 namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
 {
@@ -13,14 +13,14 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
 
         public static void Draw()
         {
-            GUILayout.Label("Tier preview (visual — not applied)", LootConfigPage.Bold);
-            GUILayout.Label("Seis barras (T1–T6) de 1 a 20. Solo UI.", LootConfigPage.SmallGray);
+            GUILayout.Label("Tier preview", LootConfigPage.Bold);
+            GUILayout.Label("Six bars (T1 to T6).", LootConfigPage.SmallGray);
 
             bool changed = DrawTierSlidersGrid();
 
             GUILayout.Space(6);
             GUILayout.Label("Tier chances by CR (calculated via TierChances.CalcTierChances)", LootConfigPage.Bold);
-            GUILayout.Label("Valores mostrados en % (normalizados por fila). Tooltip con pesos crudos.", LootConfigPage.SmallGray);
+            GUILayout.Label("Values shown as % (normalized per row). Tooltip shows raw weights.", LootConfigPage.SmallGray);
             DrawTierTable();
 
             if (changed) ModSettings.Save();
@@ -35,7 +35,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
             var s = ModSettings.Instance;
             bool changed = false;
 
-            // helper local
             int SliderRow(string label, int value)
             {
                 GUILayout.Label(label, GUILayout.Width(labelW));
@@ -52,7 +51,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
                 {
                     for (int col = 0; col < 3; col++)
                     {
-                        int i = row * 3 + col; // 0..5
+                        int i = row * 3 + col;
                         int before =
                             i == 0 ? s.TierVisual1 :
                             i == 1 ? s.TierVisual2 :
@@ -86,7 +85,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
                 if (GUILayout.Button("Restore tier defaults", GUILayout.Width(200f)))
                 {
                     ModSettings.ResetToDefaultsTiers();
-                    changed = false; // ya guarda dentro
+                    changed = false;
                 }
             }
 
@@ -100,11 +99,10 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
 
             using (new GUILayout.HorizontalScope())
             {
-                GUILayout.FlexibleSpace(); // centrar
+                GUILayout.FlexibleSpace();
 
                 using (new GUILayout.VerticalScope("box"))
                 {
-                    // Cabecera
                     using (new GUILayout.HorizontalScope())
                     {
                         GUILayout.Label("CR", LootConfigPage.CellHeader, GUILayout.MinWidth(crMinW));
@@ -112,7 +110,6 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
                             GUILayout.Label($"Tier {t + 1}", LootConfigPage.CellHeader, GUILayout.MinWidth(tierMinW));
                     }
 
-                    // Filas CR-1..CR-30
                     for (int cr = 1; cr <= MaxCR; cr++)
                     {
                         int[] weights = TierChances.CalcTierChances(cr);
@@ -132,7 +129,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
                     }
                 }
 
-                GUILayout.FlexibleSpace(); // centrar
+                GUILayout.FlexibleSpace();
             }
         }
     }

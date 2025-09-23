@@ -4,13 +4,9 @@ using UnityModManagerNet;
 
 namespace RandomReinforcementsPerEncounter.UI.Pages
 {
-    /// <summary>
-    /// Loot configuration — Phase 1 (UI only, not wired to config yet).
-    /// Orquestador: pinta cabecera/separadores y delega en las tres secciones.
-    /// </summary>
+
     internal static class LootConfigPage
     {
-        // --- estilos compartidos (expuestos para que los usen las secciones) ---
         private static GUIStyle _bold, _wrap, _right, _smallGray, _cell, _cellHeader;
 
         internal static GUIStyle Bold => _bold;
@@ -70,21 +66,17 @@ namespace RandomReinforcementsPerEncounter.UI.Pages
             GUILayout.Label("Loot configuration", Bold);
             Separator();
 
-            // 1) Oro y valor de ítems
             GoldRatesSection.Draw();
 
             Separator();
 
-            // 2) Configuración de dropeo de armas
             WeaponDropSection.Draw();
 
             Separator();
 
-            // 3) Tiers (preview + tabla)
             TierPreviewSection.Draw();
 
             GUILayout.Space(6);
-            GUILayout.Label("Nota: Fase 1 — UI sin persistencia ni aplicación.", Wrap);
         }
     }
 }

@@ -19,33 +19,34 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
             GUILayout.Space(4);
 
             changed |= SetIfChanged(ref s.WeaponDropPct, PercentSliderRow100(
-                "Drop a weapon", s.WeaponDropPct, "Probabilidad de que el botín sea un arma."));
+                "Drop a weapon", s.WeaponDropPct, "Chance that the loot is a weapon."));
 
             GUILayout.Space(6);
             using (new GUILayout.VerticalScope("box"))
             {
-                GUILayout.Label("If weapon is dropped", LootConfigPage.Bold);
+                GUILayout.Label("If a weapon is dropped", LootConfigPage.Bold);
 
                 changed |= SetIfChanged(ref s.OversizedPct, PercentSliderRow100(
-                    "Oversized", s.OversizedPct, "Probabilidad de que el arma sea oversized."));
+                    "Oversized", s.OversizedPct, "Chance that the weapon is oversized."));
 
                 changed |= SetIfChanged(ref s.QualityMaterialPct, PercentSliderRow100(
-                    "Quality material", s.QualityMaterialPct, "Probabilidad de que el arma use un material especial."));
+                    "Quality material", s.QualityMaterialPct, "Chance that the weapon uses a special material."));
 
                 GUILayout.Space(4);
-                GUILayout.Label("Quality material distribution (must sum 100%)", LootConfigPage.Bold);
-                GUILayout.Label("Se reequilibra automáticamente para mantener 100% total.", LootConfigPage.SmallGray);
+                GUILayout.Label("Quality material distribution (must sum to 100%)", LootConfigPage.Bold);
+                GUILayout.Label("Auto rebalanced to keep the total at 100%.", LootConfigPage.SmallGray);
 
                 changed |= DrawMaterialDistribution();
+                GUILayout.Space(4);
 
                 changed |= SetIfChanged(ref s.CompositePct, PercentSliderRow100(
-                    "Composite (bows only)", s.CompositePct, "Probabilidad de que el arco sea composite. Solo aplica a arcos."));
+                    "Composite (bows only)", s.CompositePct, "Chance that the bow is composite. Bows only."));
 
                 changed |= SetIfChanged(ref s.MasterworkPct, PercentSliderRow100(
-                    "Masterwork", s.MasterworkPct, "Probabilidad de que el arma sea masterwork."));
+                    "Masterwork", s.MasterworkPct, "Chance that the weapon is masterwork."));
 
                 changed |= SetIfChanged(ref s.MagicPct, PercentSliderRow100(
-                    "Magic", s.MagicPct, "Probabilidad de que el arma tenga propiedades mágicas."));
+                    "Magic", s.MagicPct, "Chance that the weapon has magical properties."));
             }
 
             GUILayout.Space(8);
@@ -54,13 +55,12 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
                 if (GUILayout.Button("Restore weapon defaults", GUILayout.Width(220f)))
                 {
                     ModSettings.ResetToDefaultsWeapons();
-                    changed = false; // guardado dentro
+                    changed = false;
                 }
             }
 
             if (changed)
             {
-                // sanear y persistir
                 ModSettings.NormalizeMaterialsTo100(_matLastEdited < 0 ? 0 : _matLastEdited);
                 ModSettings.Save();
             }
@@ -113,13 +113,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
                 changed = true;
             }
 
-            // Mostrar suma
             float sum = s.MatColdIron + s.MatMithral + s.MatAdamantite + s.MatDruchite;
-            using (new GUILayout.HorizontalScope())
-            {
-                GUILayout.FlexibleSpace();
-                GUILayout.Label($"Total: {sum:0}%", LootConfigPage.Right, GUILayout.Width(130f));
-            }
 
             return changed;
         }
@@ -129,7 +123,7 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
             using (new GUILayout.HorizontalScope())
             {
                 GUILayout.Space(14f);
-                GUILayout.Label(label, GUILayout.Width(216f)); 
+                GUILayout.Label(label, GUILayout.Width(216f));
                 float newValue = GUILayout.HorizontalSlider(value, 0f, 100f, GUILayout.Width(340f));
                 newValue = Mathf.Clamp(Mathf.Round(newValue), 0f, 100f);
                 GUILayout.Label($"{newValue:0}%", LootConfigPage.Right, GUILayout.Width(130f));
