@@ -5,7 +5,6 @@ using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Enums;
 using Kingmaker.Items;
 using Kingmaker.View.MapObjects;
-using RandomReinforcementsPerEncounter.Config;
 using RandomReinforcementsPerEncounter.Config.Settings;
 
 namespace RandomReinforcementsPerEncounter.GameApi.Loot
@@ -25,6 +24,9 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
 
             var entity = bpWeapon.CreateEntity() as ItemEntityWeapon;
             if (entity == null) return;
+
+            entity.ForceStackable = false;
+
             entity.Identify();
 
             if (UnityEngine.Random.value < (ModSettings.Instance.QualityMaterialPct / 100f))
@@ -77,7 +79,8 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 );
             }
 
-            lootPart.Loot.Add(entity); 
+            lootPart.Loot.Add(entity);
         }
+
     }
 }
