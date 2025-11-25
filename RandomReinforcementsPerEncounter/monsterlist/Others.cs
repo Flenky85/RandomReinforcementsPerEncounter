@@ -164,7 +164,7 @@ namespace RandomReinforcementsPerEncounter
 
             
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            ///Revisar, parece que tienen una CA inferior a la real.
+            ///Revisar, parece que tienen una CR inferior a la real.
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             new MonsterData
@@ -190,7 +190,20 @@ namespace RandomReinforcementsPerEncounter
                 CR = "10",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
-
+            new MonsterData
+            {
+                AssetId = "908f5fcfb32144e0b5cf28971c0b38fb",  // DLC3_CR21_SkeletalChampionArcher (Kingmaker.Localization.SharedStringAsset)
+                Levels = "2",
+                CR = "7",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "611cb6a8b9504118a3a018ba3e2ad99c",  // CR15_HellhoundAlpha (Kingmaker.Localization.SharedStringAsset)
+                Levels = "19",
+                CR = "5",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
 
 
 
@@ -284,6 +297,29 @@ namespace RandomReinforcementsPerEncounter
                 Levels = "25",
                 CR = "25",
                 Faction = "0f539babafb47fe4586b719d02aff7c4" //Este resucita y hace que haya oleadas infinitas.
+            },
+
+            
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///Cura a la party.
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new MonsterData
+            {
+                AssetId = "a2fd06f1b93a404ea36f599ba5207c57",  // CR6_AzataBralaniStandard (Kingmaker.Localization.SharedStringAsset)
+                Levels = "7",
+                CR = "6",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///No tiene animaciones
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new MonsterData
+            {
+                AssetId = "313a17cbd273d1f40bd1654ee2ae186e",  // CR2_WorgStandart (Kingmaker.Localization.SharedStringAsset)
+                Levels = "4",
+                CR = "2",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
         };
     }

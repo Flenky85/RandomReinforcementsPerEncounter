@@ -1418,14 +1418,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "313a17cbd273d1f40bd1654ee2ae186e",  // CR2_WorgStandart (Kingmaker.Localization.SharedStringAsset)
-                Levels = "4",
-                CR = "2",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "6a663e03d7ca2a34ab132e5b93d841e9",  // CR3_CultistWizard_Damage (Kingmaker.Localization.SharedStringAsset)
                 Levels = "3",
                 CR = "2",
@@ -3368,13 +3360,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "611cb6a8b9504118a3a018ba3e2ad99c",  // CR15_HellhoundAlpha (Kingmaker.Localization.SharedStringAsset)
-                Levels = "19",
-                CR = "5",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -3572,14 +3558,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 AssetId = "94e27e902eaa478d82bebfb3b696c37b",  // CR6_WillOWispYellow (Kingmaker.Localization.SharedStringAsset)
                 Levels = "9",
-                CR = "6",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "a2fd06f1b93a404ea36f599ba5207c57",  // CR6_AzataBralaniStandard (Kingmaker.Localization.SharedStringAsset)
-                Levels = "7",
                 CR = "6",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
@@ -4771,14 +4749,6 @@ namespace RandomReinforcementsPerEncounter
             {
                 AssetId = "a864a1242b7e4c8c8e2b05fdec42466d",  // CR7_Nymph (Kingmaker.Localization.SharedStringAsset)
                 Levels = "8",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "908f5fcfb32144e0b5cf28971c0b38fb",  // DLC3_CR21_SkeletalChampionArcher (Kingmaker.Localization.SharedStringAsset)
-                Levels = "2",
                 CR = "7",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
