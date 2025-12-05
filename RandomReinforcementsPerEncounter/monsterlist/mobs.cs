@@ -5587,14 +5587,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "cc171ea8b68547e8bcca6dcd8f524512",  // CR8_BlizzardElemental_Huge (Kingmaker.Localization.SharedStringAsset)
-                Levels = "11",
-                CR = "8",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "6754731886a04fcfa4495f7b89511c08",  // CR7_FermentedBeerElementalLarge (Kingmaker.Localization.SharedStringAsset)
                 Levels = "10",
                 CR = "8",
@@ -7195,13 +7187,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "b9793d3ebbae5c44b854134b437e929b",  // CR10_FiendishMinotaur_Deradnu (Kingmaker.Localization.SharedStringAsset)
-                Levels = "10",
-                CR = "10",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -11032,13 +11018,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "de443ea2951f463a995c6c3d5262a7bd",  // CR11_KalavakusAdvanced (Kingmaker.Localization.SharedStringAsset)
-                Levels = "14",
-                CR = "17",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -11088,13 +11068,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "07c5044acbd443b468b6badd778f8cad",  // DevilApostateStandard (Kingmaker.Localization.SharedStringAsset)
-                Levels = "18",
-                CR = "17",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -11480,13 +11454,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "8dd1d6ecc0e94ab79b88810dfc334de4",  // DLC4_DhampirBloodrager (Kingmaker.Localization.SharedStringAsset)
-                Levels = "17",
-                CR = "17",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -12920,13 +12888,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "f4a485db2ac44e738fb520706a7b05cc",  // DLC3_TheBrokenTrickster (Kingmaker.Localization.SharedStringAsset)
-                Levels = "23",
-                CR = "20",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
@@ -13064,21 +13026,6 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "967c24221819418485bef3997ac7f5ab",  // DLC6_CR20_AdventurerCleric (Kingmaker.Localization.SharedStringAsset)
-                Levels = "20",
-                CR = "20",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
-                AssetId = "529bb4cf7a404fbb8923146c4556fd74",  // DLC6_CR20_AdventurerFighter (Kingmaker.Localization.SharedStringAsset)
-                Levels = "20",
-                CR = "20",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
 
             new MonsterData
             {

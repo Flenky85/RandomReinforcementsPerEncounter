@@ -306,6 +306,13 @@ namespace RandomReinforcementsPerEncounter
             },
             new MonsterData
             {
+                AssetId = "f4a485db2ac44e738fb520706a7b05cc",  // DLC3_TheBrokenTrickster (Kingmaker.Localization.SharedStringAsset)
+                Levels = "23",
+                CR = "20",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
                 AssetId = "1ffa2585c4adde64ea653ba9ba29951a",  // Alush_BalorLeader (Kingmaker.Localization.SharedStringAsset)
                 Levels = "20",
                 CR = "20",

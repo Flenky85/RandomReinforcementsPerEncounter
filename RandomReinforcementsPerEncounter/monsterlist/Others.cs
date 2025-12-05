@@ -9,6 +9,13 @@ namespace RandomReinforcementsPerEncounter
         {
             new MonsterData
             {
+                AssetId = "de443ea2951f463a995c6c3d5262a7bd",  // CR11_KalavakusAdvanced (Kingmaker.Localization.SharedStringAsset)
+                Levels = "14",
+                CR = "17",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
                 AssetId = "b3bb5480b487460384bf5f6d882b5539",  // DLC6_DeadRavenSwarm (Kingmaker.Localization.SharedStringAsset)
                 Levels = "30",
                 CR = "3",
@@ -319,6 +326,24 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "313a17cbd273d1f40bd1654ee2ae186e",  // CR2_WorgStandart (Kingmaker.Localization.SharedStringAsset)
                 Levels = "4",
                 CR = "2",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "07c5044acbd443b468b6badd778f8cad",  // DevilApostateStandard (Kingmaker.Localization.SharedStringAsset)
+                Levels = "18",
+                CR = "17",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ///Sin nombre
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            new MonsterData
+            {
+                AssetId = "cc171ea8b68547e8bcca6dcd8f524512",  // CR8_BlizzardElemental_Huge (Kingmaker.Localization.SharedStringAsset)
+                Levels = "11",
+                CR = "8",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
         };

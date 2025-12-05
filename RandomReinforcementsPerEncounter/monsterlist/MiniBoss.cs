@@ -151,6 +151,14 @@ namespace RandomReinforcementsPerEncounter
             },
             new MonsterData
             {
+                AssetId = "b9793d3ebbae5c44b854134b437e929b",  // CR10_FiendishMinotaur_Deradnu (Kingmaker.Localization.SharedStringAsset)
+                Levels = "10",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
+            new MonsterData
+            {
                 AssetId = "24fcf04e625a5b945bad7f3978072836",  // Bogeyman (Kingmaker.Localization.SharedStringAsset)
                 Levels = "17",
                 CR = "10",
@@ -489,6 +497,13 @@ namespace RandomReinforcementsPerEncounter
             },
             new MonsterData
             {
+                AssetId = "8dd1d6ecc0e94ab79b88810dfc334de4",  // DLC4_DhampirBloodrager (Kingmaker.Localization.SharedStringAsset)
+                Levels = "17",
+                CR = "17",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
                 AssetId = "5dbca9bd38f641f0b1548e1a5ef08a62",  // Orso (Kingmaker.Localization.SharedStringAsset)
                 Levels = "17",
                 CR = "17",
@@ -740,6 +755,20 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "52efd3ecf9a6422e8e5d1b0d01580688",  // CR19_Assasin_TetATet (Kingmaker.Localization.SharedStringAsset)
                 Levels = "20",
                 CR = "19",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "529bb4cf7a404fbb8923146c4556fd74",  // DLC6_CR20_AdventurerFighter (Kingmaker.Localization.SharedStringAsset)
+                Levels = "20",
+                CR = "20",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "967c24221819418485bef3997ac7f5ab",  // DLC6_CR20_AdventurerCleric (Kingmaker.Localization.SharedStringAsset)
+                Levels = "20",
+                CR = "20",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
             new MonsterData
