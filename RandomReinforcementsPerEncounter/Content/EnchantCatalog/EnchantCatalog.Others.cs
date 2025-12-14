@@ -45,7 +45,7 @@ namespace RandomReinforcementsPerEncounter
 
         // Saves
         internal static readonly EnchantDef SaveFOR = MakeOtherBonus(Seed.saveFOR, "Enduring", "of Endurance", "fortitude saving throw", StatType.SaveFortitude);
-        internal static readonly EnchantDef SaveWIL = MakeOtherBonus(Seed.saveWIL, "Ironwill", "of Willpower", "will saving throw", StatType.SaveWill);
+        internal static readonly EnchantDef SaveWIL = MakeOtherBonus(Seed.saveWIL, "Resolute", "of Willpower", "will saving throw", StatType.SaveWill);
         internal static readonly EnchantDef SaveREF = MakeOtherBonus(Seed.saveREF, "Elusive", "of Evasion", "reflex saving throw", StatType.SaveReflex);
 
     }
