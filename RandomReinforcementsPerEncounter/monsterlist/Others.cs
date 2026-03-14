@@ -273,6 +273,14 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
+            new MonsterData
+            {
+                AssetId = "9e8183719dbf425ab5066028efa0ed44",  // CR2_DretchStandard (Kingmaker.Localization.SharedStringAsset)
+                Levels = "2",
+                CR = "2",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///Sumonean al siguiente al morir.
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -344,6 +352,13 @@ namespace RandomReinforcementsPerEncounter
                 AssetId = "cc171ea8b68547e8bcca6dcd8f524512",  // CR8_BlizzardElemental_Huge (Kingmaker.Localization.SharedStringAsset)
                 Levels = "11",
                 CR = "8",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "3817e56fb35a4feeb3d50820992d8323",  // DLC5_CR2_Goblin_Sorcerer1 (Kingmaker.Localization.SharedStringAsset)
+                Levels = "6",
+                CR = "5",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
         };

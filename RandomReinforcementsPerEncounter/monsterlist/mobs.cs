@@ -1018,14 +1018,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "9e8183719dbf425ab5066028efa0ed44",  // CR2_DretchStandard (Kingmaker.Localization.SharedStringAsset)
-                Levels = "2",
-                CR = "2",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "71be6e442f8afbb4bbf6a5af6ecf4e4c",  // CR2_DretchStandard (Kingmaker.Localization.SharedStringAsset)
                 Levels = "2",
                 CR = "2",
@@ -3320,13 +3312,7 @@ namespace RandomReinforcementsPerEncounter
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
 
-            new MonsterData
-            {
-                AssetId = "3817e56fb35a4feeb3d50820992d8323",  // DLC5_CR2_Goblin_Sorcerer1 (Kingmaker.Localization.SharedStringAsset)
-                Levels = "6",
-                CR = "5",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
+
 
             new MonsterData
             {
