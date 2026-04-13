@@ -280,7 +280,55 @@ namespace RandomReinforcementsPerEncounter
                 CR = "2",
                 Faction = "0f539babafb47fe4586b719d02aff7c4"
             },
-
+            new MonsterData
+            {
+                AssetId = "cd05c1add5a443679c8757152111d532",  // DLC4_CR10_Bear_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "10",
+                CR = "10",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "7f70d5bf263e4a9ca6f278d5f1fb8516",  // DLC4_CR12_Smilodon_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "14",
+                CR = "12",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "bb69f1f177ee4e85911003060a966929",  // DLC4_CR13_Mastodon_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "14",
+                CR = "13",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "62a8789f93c0444792626a5d1fbe0e5f",  // DLC4_Bear_Kakuen_Taka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "20",
+                CR = "14",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "4c3570fbca5a44fea661dcefdefa24c6",  // CR18_GlabrezuElite_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "16",
+                CR = "16",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "3643e8f05c5a40fb81b062f341b513d7",  // CR20_SuccubusCaster_KakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "8",
+                CR = "18",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
+            new MonsterData
+            {
+                AssetId = "496f11c0a6d34213a90dba5f35b569d9",  // DLC4_CR19_FiendishPurpleWormKakuenTaka (Kingmaker.Localization.SharedStringAsset)
+                Levels = "24",
+                CR = "19",
+                Faction = "0f539babafb47fe4586b719d02aff7c4"
+            },
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ///Sumonean al siguiente al morir.
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
