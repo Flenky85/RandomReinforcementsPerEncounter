@@ -76,13 +76,12 @@ internal static class ItemNameFormatter
             .ToList();
         if (enchBps == null || enchBps.Count == 0) return false;
 
-        bool hasRREMagic =
-            enchBps.Any(bp => (bp.name?.StartsWith("RRE_", StringComparison.OrdinalIgnoreCase) ?? false)) ||
-            enchBps.Any(bp => bp.GetComponent<RRE_PriceDeltaComponent>() != null) ||
-            enchBps.Any(bp => !string.IsNullOrWhiteSpace(bp.Prefix) || !string.IsNullOrWhiteSpace(bp.Suffix));
+        bool isRREMagicItem =
+            enchBps.Any(bp =>
+                bp.GetComponent<RRE_PriceDeltaComponent>() != null);
 
-        bool hasInteresting = hasRREMagic || enchBps.Any(IsMaterial);
-        if (!hasInteresting) return false;
+        if (!isRREMagicItem)
+            return false;
 
         var bestPrefixBp = enchBps
             .Where(bp => !string.IsNullOrWhiteSpace(bp.Prefix) && !IsMaterial(bp) && !IsEnhancement(bp))
@@ -115,63 +114,121 @@ internal static class ItemNameFormatter
             string.IsNullOrWhiteSpace(materialLeadWanted))
             return false;
 
-        bool changed = false;
+        var originalName = name;
 
-        if (!string.IsNullOrWhiteSpace(prefixText) &&
-            name.StartsWith(prefixText + " ", StringComparison.OrdinalIgnoreCase))
-        {
-            name = name.Substring(prefixText.Length + 1);
-            changed = true;
-        }
+        var allPrefixes = enchBps
+            .Where(bp =>
+                !IsMaterial(bp) &&
+                !IsEnhancement(bp) &&
+                !string.IsNullOrWhiteSpace(bp.Prefix))
+            .Select(bp => bp.Prefix.Trim())
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderByDescending(text => text.Length)
+            .ToList();
 
-        var (materialLeadCurrent, rest) = SplitLeadingMaterials(name, enchBps);
+        var allSuffixes = enchBps
+            .Where(bp =>
+                !IsMaterial(bp) &&
+                !IsEnhancement(bp) &&
+                !string.IsNullOrWhiteSpace(bp.Suffix))
+            .Select(bp => SanitizeSuffix(bp.Suffix))
+            .Where(text => !string.IsNullOrWhiteSpace(text))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .OrderByDescending(text => text.Length)
+            .ToList();
 
-        if (!string.IsNullOrWhiteSpace(prefixText) &&
-            !rest.StartsWith(prefixText + " ", StringComparison.OrdinalIgnoreCase))
-        {
-            rest = $"{prefixText} {rest}";
-            changed = true;
-        }
+        var workingName = name.Trim();
+
+        workingName = StripLeadingTokens(workingName, allPrefixes);
+
+        var (_, baseName) = SplitLeadingMaterials(workingName, enchBps);
+
+        baseName = StripLeadingTokens(baseName, allPrefixes);
+
+        baseName = StripTrailingTokens(baseName, allSuffixes);
+
+        baseName = Regex.Replace(
+            baseName,
+            @"\s+\+\d+\s*$",
+            "",
+            RegexOptions.IgnoreCase
+        ).Trim();
+
+        baseName = StripTrailingTokens(baseName, allSuffixes);
+
+        var parts = new List<string>();
 
         if (!string.IsNullOrWhiteSpace(materialLeadWanted))
-        {
-            if (!materialLeadWanted.Equals(materialLeadCurrent, StringComparison.OrdinalIgnoreCase))
-                changed = true;
+            parts.Add(materialLeadWanted);
 
-            name = $"{materialLeadWanted} {rest}".Trim();
-        }
-        else
-        {
-            name = rest;
-        }
+        if (!string.IsNullOrWhiteSpace(prefixText))
+            parts.Add(prefixText);
 
-        if (EndsWithToken(name, suffixText))
-        {
-            name = TrimEndToken(name, suffixText);
-            changed = true;
-        }
+        if (!string.IsNullOrWhiteSpace(baseName))
+            parts.Add(baseName);
 
-        var newName = System.Text.RegularExpressions.Regex.Replace(
-            name, @"\s\+\d(?:\s+.+)?$", "", RegexOptions.IgnoreCase);
-        if (!ReferenceEquals(newName, name))
-        {
-            name = newName;
-            changed = true;
-        }
+        if (!string.IsNullOrWhiteSpace(plusN))
+            parts.Add(plusN);
 
-        string tail = null;
-        if (!string.IsNullOrWhiteSpace(plusN)) tail = plusN;
         if (!string.IsNullOrWhiteSpace(suffixText))
-            tail = string.IsNullOrWhiteSpace(tail) ? suffixText : $"{tail} {suffixText}";
+            parts.Add(suffixText);
 
-        if (!string.IsNullOrWhiteSpace(tail) &&
-            !name.EndsWith(" " + tail, StringComparison.OrdinalIgnoreCase))
+        name = string.Join(" ", parts);
+
+        return !name.Equals(originalName, StringComparison.Ordinal);
+    }
+
+    private static string StripLeadingTokens(
+        string text,
+        IEnumerable<string> tokens)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return text;
+
+        var result = text.Trim();
+
+        while (true)
         {
-            name = $"{name} {tail}";
-            changed = true;
+            var matchedToken = tokens.FirstOrDefault(token =>
+                !string.IsNullOrWhiteSpace(token) &&
+                (result.Equals(token, StringComparison.OrdinalIgnoreCase) ||
+                 result.StartsWith(token + " ", StringComparison.OrdinalIgnoreCase)));
+
+            if (matchedToken == null)
+                break;
+
+            result = result.Substring(matchedToken.Length).TrimStart();
         }
 
-        return changed;
+        return result;
+    }
+
+    private static string StripTrailingTokens(
+        string text,
+        IEnumerable<string> tokens)
+    {
+        if (string.IsNullOrWhiteSpace(text))
+            return text;
+
+        var result = text.Trim();
+
+        while (true)
+        {
+            var matchedToken = tokens.FirstOrDefault(token =>
+                !string.IsNullOrWhiteSpace(token) &&
+                (result.Equals(token, StringComparison.OrdinalIgnoreCase) ||
+                 result.EndsWith(" " + token, StringComparison.OrdinalIgnoreCase)));
+
+            if (matchedToken == null)
+                break;
+
+            result = result.Substring(
+                0,
+                result.Length - matchedToken.Length
+            ).TrimEnd();
+        }
+
+        return result;
     }
 
     private static bool IsMaterial(BlueprintItemEnchantment bp)
