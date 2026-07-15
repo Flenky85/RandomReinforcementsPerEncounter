@@ -26,6 +26,22 @@ namespace RandomReinforcementsPerEncounter.UI.Pages.LootConfigParts
             {
                 GUILayout.Label("If a weapon is dropped", LootConfigPage.Bold);
 
+                bool showGeneratedNames = GUILayout.Toggle(
+                    s.ShowGeneratedItemNames,
+                    new GUIContent(
+                        "Show generated magical item names",
+                        "Disable this as a compatibility fallback if another mod causes broken item names."
+                    )
+                );
+
+                if (showGeneratedNames != s.ShowGeneratedItemNames)
+                {
+                    s.ShowGeneratedItemNames = showGeneratedNames;
+                    changed = true;
+                }
+
+                GUILayout.Space(6);
+
                 changed |= SetIfChanged(ref s.OversizedPct, PercentSliderRow100(
                     "Oversized", s.OversizedPct, "Chance that the weapon is oversized."));
 

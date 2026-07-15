@@ -65,6 +65,38 @@ internal static class ItemNameFormatter
         return string.Join(" ", mats);
     }
 
+    public static bool TryUseBaseName(ItemEntity item, ref string name)
+    {
+        if (item == null || !item.IsIdentified)
+            return false;
+
+        var enchBps = item.Enchantments?
+            .Select(e => e?.Blueprint)
+            .Where(bp => bp != null)
+            .ToList();
+
+        if (enchBps == null || enchBps.Count == 0)
+            return false;
+
+        bool isRREMagicItem =
+            enchBps.Any(bp =>
+                bp.GetComponent<RRE_PriceDeltaComponent>() != null);
+
+        if (!isRREMagicItem)
+            return false;
+
+        var baseName = item.Blueprint?.Name;
+
+        if (string.IsNullOrWhiteSpace(baseName))
+            return false;
+
+        if (name.Equals(baseName, StringComparison.Ordinal))
+            return false;
+
+        name = baseName;
+        return true;
+    }
+
     public static bool TryDecorateName(ItemEntity item, ref string name)
     {
         if (item == null || !item.IsIdentified || string.IsNullOrEmpty(name))

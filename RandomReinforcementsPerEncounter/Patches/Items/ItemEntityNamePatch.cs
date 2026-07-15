@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Items;
+using RandomReinforcementsPerEncounter.Config.Settings;
 
 namespace RandomReinforcementsPerEncounter.Patches.Items
 {
@@ -9,7 +10,14 @@ namespace RandomReinforcementsPerEncounter.Patches.Items
         [HarmonyPostfix]
         private static void Postfix(ItemEntity __instance, ref string __result)
         {
-            ItemNameFormatter.TryDecorateName(__instance, ref __result);
+            if (ModSettings.Instance.ShowGeneratedItemNames)
+            {
+                ItemNameFormatter.TryDecorateName(__instance, ref __result);
+            }
+            else
+            {
+                ItemNameFormatter.TryUseBaseName(__instance, ref __result);
+            }
         }
     }
 }

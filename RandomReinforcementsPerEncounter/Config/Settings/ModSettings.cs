@@ -28,6 +28,7 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
         public float CompositePct = 50f;     
         public float MasterworkPct = 30f;
         public float MagicPct = 5f;
+        public bool ShowGeneratedItemNames = true;
 
         // Quyality material options
         public float MatColdIron = 50f;
@@ -212,6 +213,8 @@ namespace RandomReinforcementsPerEncounter.Config.Settings
             Instance.MatMithral = d.MatMithral;
             Instance.MatAdamantite = d.MatAdamantite;
             Instance.MatDruchite = d.MatDruchite;
+
+            Instance.ShowGeneratedItemNames = d.ShowGeneratedItemNames;
 
             NormalizeMaterialsTo100();
             Save();
