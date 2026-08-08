@@ -358,6 +358,7 @@ namespace RandomReinforcementsPerEncounter.Content.WeaponCatalog
                 Type = WeaponType.TwoHandedMelee,
                 Focus = WeaponFocusMod.Spears
             },
+            /*
             new WeaponLootData 
             { 
                 Name = "StandardSpikedHeavyShield",  
@@ -372,6 +373,7 @@ namespace RandomReinforcementsPerEncounter.Content.WeaponCatalog
                 Type = WeaponType.OneHandedMelee,
                 Focus = WeaponFocusMod.Close
             },
+            */
             new WeaponLootData 
             { 
                 Name = "StandardStarknife",          

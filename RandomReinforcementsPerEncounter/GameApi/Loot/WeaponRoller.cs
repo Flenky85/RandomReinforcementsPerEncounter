@@ -38,7 +38,9 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
             {
                 if (wantOver)
                 {
-                    var bucket = WeaponCatalogOversized.Item.Where(w => w.Type == wanted).ToList();
+                    var bucket = WeaponCatalogOversized.Item
+                        .Where(w => w.Type == wanted && !IsShieldWeapon(w))
+                        .ToList();
                     if (bucket.Count > 0)
                     {
                         var it = bucket[UnityEngine.Random.Range(0, bucket.Count)];
@@ -57,10 +59,25 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 wanted = RollWeaponType();
             }
 
-            if (wantOver && WeaponCatalogOversized.Item.Count > 0)
+            if (wantOver)
             {
-                var it = WeaponCatalogOversized.Item[UnityEngine.Random.Range(0, WeaponCatalogOversized.Item.Count)];
-                return new WeaponPick { Name = it.Name, AssetId = it.AssetId, Type = it.Type, Focus = it.Focus, IsOversized = true };
+                var bucket = WeaponCatalogOversized.Item
+                    .Where(w => !IsShieldWeapon(w))
+                    .ToList();
+
+                if (bucket.Count > 0)
+                {
+                    var it = bucket[UnityEngine.Random.Range(0, bucket.Count)];
+
+                    return new WeaponPick
+                    {
+                        Name = it.Name,
+                        AssetId = it.AssetId,
+                        Type = it.Type,
+                        Focus = it.Focus,
+                        IsOversized = true
+                    };
+                }
             }
             if (!wantOver && WeaponCatalog.Item.Count > 0)
             {
@@ -68,6 +85,11 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
                 return new WeaponPick { Name = it.Name, AssetId = it.AssetId, Type = it.Type, Focus = it.Focus, IsOversized = false };
             }
             return default;
+        }
+        private static bool IsShieldWeapon(WeaponOverLootData weapon)
+        {
+            return weapon.Original == "7c8f6712c444cf446a4bd3b8b717cb5c"
+                || weapon.Original == "b12650bdb547d7e499cdc29e913088cb";
         }
     }
 }
