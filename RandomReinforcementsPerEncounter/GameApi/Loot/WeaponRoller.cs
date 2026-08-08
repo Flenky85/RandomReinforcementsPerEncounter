@@ -89,7 +89,9 @@ namespace RandomReinforcementsPerEncounter.GameApi.Loot
         private static bool IsShieldWeapon(WeaponOverLootData weapon)
         {
             return weapon.Original == "7c8f6712c444cf446a4bd3b8b717cb5c"
-                || weapon.Original == "b12650bdb547d7e499cdc29e913088cb";
+                || weapon.Original == "b12650bdb547d7e499cdc29e913088cb"
+                || weapon.Original == "ff8047f887565284e93773b4a698c393"
+                || weapon.Original == "62c90581f9892e9468f0d8229c7321c4";
         }
     }
 }

@@ -423,6 +423,7 @@ namespace RandomReinforcementsPerEncounter.Content.WeaponCatalog
                 Type = WeaponType.OneHandedMelee,  
                 Focus = WeaponFocusMod.Hammers 
             },
+            /*
             new WeaponLootData 
             { 
                 Name = "StandardWeaponHeavyShield",  
@@ -437,6 +438,7 @@ namespace RandomReinforcementsPerEncounter.Content.WeaponCatalog
                 Type = WeaponType.OneHandedMelee,  
                 Focus = WeaponFocusMod.Close 
             },
+            */
         };
     }
 
