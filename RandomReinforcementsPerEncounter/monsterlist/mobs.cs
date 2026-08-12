@@ -5189,14 +5189,6 @@ namespace RandomReinforcementsPerEncounter
 
             new MonsterData
             {
-                AssetId = "cdb4198abac140dbbe2e49dc171c233d",  // CR6_SkeletalChampionArcher (Kingmaker.Localization.SharedStringAsset)
-                Levels = "2",
-                CR = "7",
-                Faction = "0f539babafb47fe4586b719d02aff7c4"
-            },
-
-            new MonsterData
-            {
                 AssetId = "49903237b0c90b445ac1089dc89a7665",  // CR6_SkeletalChampion (Kingmaker.Localization.SharedStringAsset)
                 Levels = "2",
                 CR = "7",
